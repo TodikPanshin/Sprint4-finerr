@@ -3,14 +3,14 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
-import { removeFromCart, checkout } from '../store/car.actions'
+import { removeFromCart, checkout } from '../store/gig.actions'
 import { UserMsg } from './user-msg.jsx'
 
 export function AppFooter() {
     const [isCartShown, setIsCartShown] = useState(false)
-    const cart = useSelector(storeState => storeState.carModule.cart)
+    const cart = useSelector(storeState => storeState.gigModule.cart)
     const count = useSelector(storeState => storeState.userModule.count)
-    const cartTotal = cart.reduce((acc, car) => acc + car.price, 0)
+    const cartTotal = cart.reduce((acc, gig) => acc + gig.price, 0)
 
     async function onCheckout() {
         try {
@@ -42,11 +42,11 @@ export function AppFooter() {
                 <h5>Your Cart</h5>
                 <ul>
                     {
-                        cart.map((car, idx) => <li key={idx}>
+                        cart.map((gig, idx) => <li key={idx}>
                             <button onClick={() => {
-                                removeFromCart(car._id)
+                                removeFromCart(gig._id)
                             }}>x</button>
-                            {car.vendor}
+                            {gig.vendor}
                         </li>)
                     }
                 </ul>
