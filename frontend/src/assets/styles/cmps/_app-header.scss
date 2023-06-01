@@ -1,4 +1,4 @@
-.app-header {
+.main-header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -7,20 +7,29 @@
     justify-content: space-between;
     font-weight: 600;
     background-color: $clr1;
-    font-size: 1rem;
+    font-size: 0.8rem;
+
 
     .logo {
         position: relative;
         color: black;
-        font-size: 2.2rem;
+        font-size: 2rem;
         font-weight: 900;
         -webkit-text-stroke-width: 1px;
         letter-spacing: -0.1rem;
         margin-right: 30px;
         margin-bottom: 10px;
-        
+
+        &.active {
+            text-decoration: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+
         .white-dot {
-            bottom: 56%;
+            bottom: 53%;
             left: 15%;
             width: 10px;
             height: 10px;
@@ -36,42 +45,12 @@
 
     }
 
-    nav {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        background-color: $clr1;
-        border-top: 1px solid $clr1;
-        padding: 0 5px;
-
-        a {
-            margin-inline: .5rem;
-        }
-
-        button {
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
-
-            &:last-child {
-                font-size: 0.875rem;
-                line-height: 0.875rem;
-                color: $clr-btn-hov;
-                border: 1px solid $clr-btn-hov;
-                border-radius: 4px;
-                padding: 10px 16px;
-            }
-        }
-    }
-
     .search-box {
         form {
             display: flex;
             flex-direction: row;
             align-items: stretch;
             position: relative;
-            
         }
 
         input {
@@ -80,8 +59,9 @@
             font-size: 1rem;
             padding: 10px 2px 10px 16px;
             width: 25rem;
+            font-weight: 200;
 
-            &::placeholder{
+            &::placeholder {
                 color: rgb(133, 133, 133);
                 font-weight: 200;
             }
@@ -110,6 +90,84 @@
             height: 1.5rem;
             padding: 0;
             align-self: center;
+        }
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $clr1;
+        border-top: 1px solid $clr1;
+        padding: 0 5px;
+
+        a {
+            margin-inline: .5rem;
+        }
+
+        img {
+            width: 30px;
+            margin-top: 20%;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+
+            &:last-child {
+                font-size: 0.875rem;
+                line-height: 0.875rem;
+                color: $clr-btn-hov;
+                border: 1px solid $clr-btn-hov;
+                border-radius: 4px;
+                padding: 10px 16px;
+            }
+        }
+
+        .user-info button {
+            border: 0;
+        }
+
+        .profile-bar {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            translate: -2rem;
+            border: 1px solid rgba(175, 175, 175, 0.5);
+            background-color: rgb(255, 255, 255);
+
+            button {
+                border: 0;
+                text-align: start;
+                padding: inherit;
+                font-size: inherit;
+            }
+        }
+    }
+}
+
+.categories-list {
+    padding: 0;
+    font-weight: 200;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0;
+    border: solid rgb(207, 207, 207) 0.2px;
+    padding-block: 0.5rem;
+    border-inline: 0;
+
+
+    .category {
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
         }
     }
 }
