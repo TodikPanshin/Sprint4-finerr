@@ -92,7 +92,7 @@ function demoGig(){
     return{
         _id: utilService.makeId(),
         title: utilService.makeLorem(10),
-        price: userService.getRandomIntInclusive(1,100),
+        price: utilService.getRandomIntInclusive(1,100),
         owner: {
             _id: utilService.makeId(),
             fullname: utilService.makeLorem(2),
