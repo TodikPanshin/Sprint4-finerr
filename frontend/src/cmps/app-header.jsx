@@ -1,8 +1,9 @@
 import { Link, NavLink } from 'react-router-dom'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 import routes from '../routes'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
+import { SearchBox } from './search-box.jsx'
 import { LoginSignup } from './login-signup.jsx'
 
 export function AppHeader() {
@@ -12,7 +13,7 @@ export function AppHeader() {
         try {
             const user = await login(credentials)
             showSuccessMsg(`Welcome: ${user.fullname}`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot login')
         }
     }
@@ -20,7 +21,7 @@ export function AppHeader() {
         try {
             const user = await signup(credentials)
             showSuccessMsg(`Welcome new user: ${user.fullname}`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot signup')
         }
     }
@@ -28,7 +29,7 @@ export function AppHeader() {
         try {
             await logout()
             showSuccessMsg(`Bye now`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot logout')
         }
     }
@@ -36,7 +37,10 @@ export function AppHeader() {
     return (
         <header className="app-header">
             <nav>
-                {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
+                <NavLink key="/" to="/">Finerr.</NavLink>
+                <SearchBox />
+                <NavLink key="gig" to="/">Explore</NavLink>
+                <NavLink key="seller-register" to="/">Become a Seller</NavLink>
 
                 {user &&
                     <span className="user-info">
@@ -44,17 +48,18 @@ export function AppHeader() {
                             {user.imgUrl && <img src={user.imgUrl} />}
                             {user.fullname}
                         </Link>
-                        <span className="score">{user.score?.toLocaleString()}</span>
                         <button onClick={onLogout}>Logout</button>
                     </span>
                 }
                 {!user &&
                     <section className="user-info">
-                        <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+                        <button>Sign in</button>
+                        <button>Join</button>
+                        {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
                     </section>
                 }
             </nav>
-            <h1>Finerr</h1>
+
         </header>
     )
 }
