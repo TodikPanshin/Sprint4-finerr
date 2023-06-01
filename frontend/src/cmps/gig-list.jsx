@@ -2,20 +2,20 @@ import PropTypes from 'prop-types'
 
 import { GigPreview } from "./gig-preview.jsx"
 
-export function GigList({ gigs, onRemoveGig, onEditGig, addToCurt }) {
+export function GigList({ gigs }) { //, onRemoveGig, onEditGig, addToCurt 
     return <ul className="gig-list grid">
         {gigs.map(gig =>
             <li className="gig-preview" key={gig._id}>
                 <GigPreview gig={gig} />
 
-                <div>
+                {/* <div>
                     <button onClick={() => { onRemoveGig(gig._id) }}>x</button>
                     <button onClick={() => { onEditGig(gig) }}>Edit</button>
-                </div>
+                </div> */}
 
-                <button className="buy" onClick={() => { addToCurt(gig) }}>
+                {/* <button className="buy" onClick={() => { addToCurt(gig) }}>
                     Add to Curt
-                </button>
+                </button> */}
             </li>)}
     </ul>
 }

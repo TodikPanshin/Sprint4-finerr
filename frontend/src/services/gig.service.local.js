@@ -18,15 +18,15 @@ window.cs = gigService
 
 _createGig()
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = {}) {
     var gigs = await storageService.query(STORAGE_KEY)
-    if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
-    }
-    if (filterBy.price) {
-        gigs = gigs.filter(gig => gig.price <= filterBy.price)
-    }
+    // if (filterBy.txt) {
+    //     const regex = new RegExp(filterBy.txt, 'i')
+    //     gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
+    // }
+    // if (filterBy.price) {
+    //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
+    // }
     return gigs
 }
 
@@ -77,22 +77,22 @@ function getEmptyGig() {
 
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
-function _createGig(){
-const gig=JSON.parse(localStorage.getItem(STORAGE_KEY)) 
-if(!gig||!gig.length){
-    for(let i=0; i<10;i++){
-        demoGig()
+function _createGig() {
+    const gig = JSON.parse(localStorage.getItem(STORAGE_KEY))
+    if (!gig || !gig.length) {
+        for (let i = 0; i < 10; i++) {
+            demoGig()
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(gig))
     }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(gig))
-}
 
 }
 
-function demoGig(){
-    return{
+function demoGig() {
+    return {
         _id: utilService.makeId(),
         title: utilService.makeLorem(10),
-        price: userService.getRandomIntInclusive(1,100),
+        price: utilService.getRandomIntInclusive(1, 100),
         owner: {
             _id: utilService.makeId(),
             fullname: utilService.makeLorem(2),

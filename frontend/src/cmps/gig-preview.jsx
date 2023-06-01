@@ -1,19 +1,23 @@
 import { Link } from "react-router-dom";
 
 export function GigPreview({ gig }) {
-    return <article className="gig-preview flex row">
-        <Link to={`/gig/${gig._id}`} target="_blank" className="img">
-            {gig.imgUrl}
-        </Link>
-        <div className="owner-details flex">
-            {gig.owner.imgUrl}
-            {gig.owner && <Link to={`/user/${gig.owner._id}`} className="owner-name">{gig.owner.fullname}</Link>}
+    return <article className="gig-preview flex column">
+        <div className="img-preview">
+            <Link to={`/gig/${gig._id}`} target="_blank" >
+                {gig.imgUrl}
+            </Link>
         </div>
-        <Link to={`/gig/${gig._id}`} target="_blank" className="title">{gig.title}</Link>
+        <div className="txt-preview">
+            <div className="owner-details flex">
+                {gig.owner.imgUrl}
+                {gig.owner && <Link to={`/user/${gig.owner._id}`} className="owner-name">{gig.owner.fullname}</Link>}
+            </div>
+            <Link to={`/gig/${gig._id}`} target="_blank" className="title">{gig.title}</Link>
 
-        {/* <p>From <span>${gig.price.toLocaleString()}</span></p> */}
-        <p className="rating">*{gig.rating.average} <span>({gig.rating.num})</span> </p>
-        <Link to={`/gig/${gig._id}`} target="_blank" className="price"><p>From <span>${gig.price}</span></p></Link>
+            {/* <p>From <span>${gig.price.toLocaleString()}</span></p> */}
+            <p className="rating">*{gig.rating.average} <span>({gig.rating.num})</span> </p>
+            <Link to={`/gig/${gig._id}`} target="_blank" className="price"><p>From <span>${gig.price}</span></p></Link>
+        </div>
     </article>
 }
 

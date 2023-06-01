@@ -1,29 +1,29 @@
 
 const gig = {
-  _id: "i101",
-  title: "I will design your logo",
-  price: 12,
-  rating: {
-    average: 5,
-    num: 178
+  "_id": "i101",
+  "title": "I will design your logo",
+  "price": 12,
+  "rating": {
+    "average": 5,
+    "num": 178
   },
-  owner: {
+  "owner": {
     "_id": "u101",
     "fullname": "Dudu Da",
     "imgUrl": "url",
     "level": "basic/premium",
     "rate": 4
   },
-  daysToMake: 3,
-  description: "Make unique logo...",
-  imgUrl: "https://picsum.photos/200/300",
-  tags: [
+  "daysToMake": 3,
+  "description": "Make unique logo...",
+  "imgUrl": "https://picsum.photos/200/300",
+  "tags": [
     "logo-design",
     "artisitic",
     "proffesional",
     "accessible"
   ],
-  likedByUsers: ['mini-user']
+  "likedByUsers": ["mini-user"]
 }
 
 
