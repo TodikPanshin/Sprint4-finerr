@@ -2,22 +2,22 @@ import { Link } from "react-router-dom";
 
 export function GigPreview({ gig }) {
     return <article className="gig-preview flex column">
-        <div className="img-preview">
-            <Link to={`/gig/${gig._id}`} target="_blank" >
-                {gig.imgUrl}
-            </Link>
-        </div>
-        <div className="txt-preview">
-            <div className="owner-details flex">
-                {gig.owner.imgUrl}
-                {gig.owner && <Link to={`/user/${gig.owner._id}`} className="owner-name">{gig.owner.fullname}</Link>}
+        <Link to={`/gig/${gig._id}`} target="_blank" >
+            <div className="img-preview">
+                <img src={gig.imgUrl} alt="gig img" className="gig-img" />
             </div>
-            <Link to={`/gig/${gig._id}`} target="_blank" className="title">{gig.title}</Link>
-
-            {/* <p>From <span>${gig.price.toLocaleString()}</span></p> */}
-            <p className="rating">*{gig.rating.average} <span>({gig.rating.num})</span> </p>
-            <Link to={`/gig/${gig._id}`} target="_blank" className="price"><p>From <span>${gig.price}</span></p></Link>
+        </Link>
+        <div className="owner-details flex">
+            <img src={gig.owner.imgUrl} alt="img of creator" className="owner-img" />
+            <Link to={`/user/${gig.owner._id}`} className="owner-name">  {gig.owner.fullname}</Link>
         </div>
+        <Link to={`/gig/${gig._id}`} target="_blank"><h3 className="title">{gig.title}</h3></Link>
+
+        {/* <p>From <span>${gig.price.toLocaleString()}</span></p> */}
+        <div className="rating flex">
+            {/* <FontAwesomeIcon icon="fa-solid fa-star" /> */}
+            {gig.rating.average} <span>({gig.rating.num})</span> </div>
+        <Link to={`/gig/${gig._id}`} target="_blank"><p className="price txt-bold">From <span>${gig.price}</span></p></Link>
     </article>
 }
 

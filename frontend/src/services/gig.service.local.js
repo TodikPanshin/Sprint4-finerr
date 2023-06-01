@@ -78,33 +78,40 @@ function getEmptyGig() {
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
 function _createGig() {
-    const gig = JSON.parse(localStorage.getItem(STORAGE_KEY))
+    var gig = localStorage.getItem(STORAGE_KEY)
     if (!gig || !gig.length) {
+        const gigs = []
         for (let i = 0; i < 10; i++) {
-            demoGig()
+            gig = demoGig()
+            gigs.push(gig)
+            console.log('title:', gig.title)
         }
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(gig))
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(gigs))
     }
-
+    gig = JSON.parse(localStorage.getItem(STORAGE_KEY))
 }
 
 function demoGig() {
     return {
-        _id: utilService.makeId(),
-        title: utilService.makeLorem(10),
-        price: utilService.getRandomIntInclusive(1, 100),
-        owner: {
-            _id: utilService.makeId(),
-            fullname: utilService.makeLorem(2),
-            imgUrl: '',
-            level: "basic/premium",
-            rate: 4,
-            about: utilService.makeLorem(30)
+        "_id": utilService.makeId(),
+        "title": utilService.makeLorem(7),
+        "price": utilService.getRandomIntInclusive(1, 100),
+        "rating": {
+            "average": 5,
+            "num": 178
         },
-        daysToMake: 3,
-        description: utilService.makeLorem(10),
-        imgUrl: "https://picsum.photos/100",
-        tags: [
+        "owner": {
+            "_id": utilService.makeId(),
+            "fullname": utilService.makeLorem(1) + "_" + utilService.makeLorem(1),
+            "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
+            "level": "basic/premium",
+            "rate": 4,
+            "about": utilService.makeLorem(30)
+        },
+        "daysToMake": 3,
+        "description": utilService.makeLorem(10),
+        "imgUrl": "https://picsum.photos/250/150",
+        "tags": [
             "logo-design",
             "artisitic",
             "proffesional",

@@ -2,26 +2,19 @@
     box-sizing: border-box;
 }
 
-:hover{
-color: $clr-btn-hov;
-font-family: macan;
-}
-
 ::selection {
     background-color: $clr-btn-search;
     color: $clr-hov;
 }
 
 html {
-    font-family: macan;
+    font-family: macan,Helvetica-Neue,Helvetica, arial, sans-serif ;
     line-height: 1.6;
     color: $clr-font;
 }
 
 body {
-    font-size: rem(18px);
     margin: 0;
-    max-width: 1024px;
     margin: auto;
 }
 
@@ -44,12 +37,28 @@ p {
     margin: 0 0 1em;
 }
 
+.btn {
+    @include btn;
+    
+    &-header {
+        @include btn($type: header-btn);
+    }
+    
+    &-main-filter {
+        @include btn($type: main-filter);
+    }
+    
+    &-hero {
+        @include btn($type: hero-btn);
+    }
+}
+
 a {
     text-decoration: none;
-    color:$clr-font ;
+    color:$clr-font;
 
 &:hover {
-    text-decoration: underline;
+    color: $clr-btn-hov;
 }
 
 &.active {
