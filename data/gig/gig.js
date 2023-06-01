@@ -26,7 +26,7 @@ const gig = {
   "likedByUsers": ["mini-user"]
 }
 
-gigs = [
+const gigs = [
   {
     "_id": "i101",
     "title": "I will design your logo",
