@@ -2,13 +2,21 @@
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
+=======
+:hover{
+color: $clr-btn-hov;
+font-family: macan;
+}
+
+>>>>>>> 987d4dee652fb01a63d76383c0aadc81281ef5d6
 ::selection {
     background-color: $clr-btn-search;
     color: $clr-hov;
 }
 
 html {
-    font-family: Helvetica-Neue,Helvetica, arial, sans-serif;
+    font-family: macan;
     line-height: 1.6;
     color: $clr-font;
 }
