@@ -3,6 +3,13 @@
     margin-inline-end: 5.5%;
     width: 59.5%;
 
+    & .gig-title {
+        overflow-wrap: break-word;
+        padding-bottom: 16px;
+        font-size: 28px;
+        line-height: 130%;
+        color: $clr-font-dark;
+    }
 
     .seller-details {
         >* {
@@ -10,7 +17,9 @@
         }
 
         & img {
-            width: auto;
+            max-width: 100%;
+            width: 30px;
+            height: auto;
         }
 
         .seller-name {

@@ -5,6 +5,7 @@ import { gigService } from "../services/gig.service.local.js"
 import { showErrorMsg } from "../services/event-bus.service.js"
 import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
 import { ReviewsPreview } from '../cmps/review-preview.jsx'
+import { Packages } from '../cmps/packages.jsx'
 
 export function GigDetails() {
     const [gig, setGig] = useState({
@@ -85,16 +86,19 @@ export function GigDetails() {
                 <a href="#">Reviews</a>
             </section> */}
             <section className='gig-container flex column' >
+            {/* <Packages gig={gig}/> */}
                 <section className="gig-details" id='gig-details'>
-                    <h1>{gig.title}</h1>
-                    <div className='seller-details flex align-center '>
+                    <h1 className='gig-title'>{gig.title}</h1>
+                    <div className='seller-details flex align-center'>
                         <div className='seller-img'>
                             <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
                         </div>
-                        <h5 className='seller-name'>{gig.owner.fullname}</h5>
-                        <h5>Level {gig.owner.rate} Seller</h5>
-                        <h5>|</h5>
-                        <h5>Reviews</h5>
+                        <div className='seller-txt flex'>
+                            <h5 className='seller-name'>{gig.owner.fullname}</h5>
+                            <h5>Level {gig.owner.rate} Seller</h5>
+                            <h5>|</h5>
+                            <h5>Reviews</h5>
+                        </div>
                     </div>
                     <div className='gig-imgs-contener'>
                         <img src={gig.imgUrl} alt="test img" />
@@ -109,8 +113,8 @@ export function GigDetails() {
                         </ul>
                     </section>
                     <section className='about-gig'>
-                    <h2>About This Gig</h2>
-                    <p>{gig.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, sunt, sed eos illum quis omnis sequi enim quibusdam ipsum quidem hic mollitia autem, nihil tenetur laudantium tempore. Impedit, assumenda atque.</p>
+                        <h2>About This Gig</h2>
+                        <p>{gig.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, sunt, sed eos illum quis omnis sequi enim quibusdam ipsum quidem hic mollitia autem, nihil tenetur laudantium tempore. Impedit, assumenda atque.</p>
                     </section>
                     <div className='seller-details' id='seller-details'>
                         <h2>About The Seller</h2>
