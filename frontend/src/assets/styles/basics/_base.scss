@@ -8,7 +8,7 @@
 }
 
 html {
-    font-family: macan;
+    font-family: macan,Helvetica-Neue,Helvetica, arial, sans-serif ;
     line-height: 1.6;
     color: $clr-font;
 }
@@ -59,7 +59,6 @@ a {
 
 &:hover {
     color: $clr-btn-hov;
-    text-decoration: underline;
 }
 
 &.active {
