@@ -1,11 +1,16 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useSelector } from "react-redux"
 
 export function SearchBox() {
+    const [showCancelBtn, setshowCancelBtn] = useState('hidden')
+    const [txt, setTxt] = useState('')
+
 
     function handleChange({ target }) {
         const field = target.name
         const value = target.value
+        setTxt(value)
+        value.length ? setshowCancelBtn('') : setshowCancelBtn('hidden')
         // onFilterBy({ [field]: value })
     }
 
@@ -17,21 +22,26 @@ export function SearchBox() {
         handleChange({ target: { name: 'txt', value: '' } })
     }
 
-    let txt = ''
+    function toggleSearchCover() {
+        setshowCancelBtn('hidden')
+    }
+
+
     return (<section className="search-box">
         <form onSubmit={onSubmitFilter}>
-            {/* <label htmlFor="txt"></label> */}
+            <label htmlFor="txt"></label>
             <input
-                // value={txt}
                 onChange={handleChange}
                 name="txt" id="txt" type="text"
+                value={txt}
                 placeholder="What service are you looking for today?" />
-            <button onClick={cancelSearch} className="cancel-btn">X</button>
+            <button onClick={cancelSearch} className={`cancel-btn ${showCancelBtn}`}>X</button>
             <button onClick={onSubmitFilter} className="search-btn">
                 <img
                     onClick={onSubmitFilter}
                     src="https://www.svgrepo.com/show/25222/magnifying-glass.svg" alt="search" />
             </button>
         </form>
+        <div className={`search-cover ${showCancelBtn}`} onClick={toggleSearchCover}></div>
     </section>)
 }
