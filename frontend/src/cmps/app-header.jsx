@@ -39,7 +39,7 @@ export function AppHeader() {
             <nav>
                 <NavLink key="/" to="/">Finerr.</NavLink>
                 <SearchBox />
-                <NavLink key="gig" to="/">Explore</NavLink>
+                <NavLink key="gig" to="/gig">Explore</NavLink>
                 <NavLink key="seller-register" to="/">Become a Seller</NavLink>
 
                 {user &&

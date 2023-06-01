@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { GigPreview } from "./gig-preview.jsx"
 
 export function GigList({ gigs }) { //, onRemoveGig, onEditGig, addToCurt 
-    return <ul className="gig-list grid">
+    return <ul className="gig-list">
         {gigs.map(gig =>
             <li className="gig-preview" key={gig._id}>
                 <GigPreview gig={gig} />

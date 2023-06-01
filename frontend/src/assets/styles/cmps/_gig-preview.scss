@@ -9,7 +9,23 @@
         }
     }
 
+    .owner-details {
+        font-size: 0.875em;
+        line-height: 1.31em;
+
+        img {
+            width: 1.25em;
+            height: 1.25em;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
     .title {
+        font-size: 1em;
+        margin-top: 0.75em;
+        margin-bottom: 0.75em;
+
         &:hover {
             text-decoration: underline;
         }
@@ -17,6 +33,7 @@
 
     .rating {
         color: $clr-btn-search;
+        margin-top: 0.5em;
 
         span {
             color: $clr2;

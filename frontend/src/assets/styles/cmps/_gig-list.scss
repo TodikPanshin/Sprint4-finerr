@@ -1,0 +1,5 @@
+.gig-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 350px));
+    gap: 20px;
+}

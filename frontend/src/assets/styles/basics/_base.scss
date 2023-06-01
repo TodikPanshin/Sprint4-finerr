@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 
-:hover{
-color: $clr-btn-hov;
+:hover {
+    color: $clr-btn-hov;
 }
 
 ::selection {
@@ -12,7 +12,7 @@ color: $clr-btn-hov;
 }
 
 html {
-    font-family: Helvetica-Neue,Helvetica, arial, sans-serif;
+    font-family: Helvetica-Neue, Helvetica, arial, sans-serif;
     line-height: 1.6;
     color: $clr-font;
 }
@@ -24,14 +24,22 @@ body {
     margin: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family:Helvetica-Neue,Helvetica, arial, sans-serif ;
-    margin: 0 0 0.6em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Helvetica-Neue, Helvetica, arial, sans-serif;
+    margin: 0;
+    padding: 0;
     line-height: 1;
 }
 
 
-section, main, footer {
+section,
+main,
+footer {
     padding: 5px;
 }
 
@@ -45,16 +53,15 @@ p {
 
 a {
     text-decoration: none;
-    color:$clr-font ;
+    color: $clr-font ;
 
-&:hover {
-    text-decoration: underline;
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &.active {
+        color: $clr-font ;
+        text-decoration: underline;
+    }
+
 }
-
-&.active {
-    color:$clr-font ;
-    text-decoration: underline;
-  }
-
-}
-
