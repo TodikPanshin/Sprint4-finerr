@@ -1,23 +1,29 @@
 .gig-preview {
-    background-color: red;
 
     // &:hover {}
-
-    .owner-name {
-        &:hover {
-            text-decoration: underline;
-        }
+    .gig-img {
+        border-radius: 8px;
     }
 
     .owner-details {
-        font-size: 0.875em;
+        align-items: center;
+        font-size: 14px;
         line-height: 1.31em;
+        column-gap: 8px;
 
-        img {
+        .owner-img {
             width: 1.25em;
             height: 1.25em;
             border-radius: 50%;
             object-fit: cover;
+        }
+
+        .owner-name {
+            align-items: center;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
@@ -25,6 +31,7 @@
         font-size: 1em;
         margin-top: 0.75em;
         margin-bottom: 0.75em;
+        line-height: 130%;
 
         &:hover {
             text-decoration: underline;
@@ -34,13 +41,17 @@
     .rating {
         color: $clr-btn-search;
         margin-top: 0.5em;
+        font-size: 1em;
 
         span {
             color: $clr2;
+            padding: 0px 0px 0px 4px;
         }
     }
 
     .price {
+        font-size: 1em;
+        line-height: 1.5em;
         color: $clr-btn-search;
 
         &:hover .title {
