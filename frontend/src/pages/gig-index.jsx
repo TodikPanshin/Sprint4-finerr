@@ -4,6 +4,8 @@ import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
+import { GigList } from '../cmps/gig-list.jsx'
+
 
 export function GigIndex() {
 
@@ -16,7 +18,7 @@ export function GigIndex() {
     async function onRemoveGig(gigId) {
         try {
             await removeGig(gigId)
-            showSuccessMsg('Gig removed')            
+            showSuccessMsg('Gig removed')
         } catch (err) {
             showErrorMsg('Cannot remove gig')
         }
@@ -30,7 +32,7 @@ export function GigIndex() {
             showSuccessMsg(`Gig added (id: ${savedGig._id})`)
         } catch (err) {
             showErrorMsg('Cannot add gig')
-        }        
+        }
     }
 
     async function onUpdateGig(gig) {
@@ -41,10 +43,10 @@ export function GigIndex() {
             showSuccessMsg(`Gig updated, new price: ${savedGig.price}`)
         } catch (err) {
             showErrorMsg('Cannot update gig')
-        }        
+        }
     }
 
-    function onAddToCart(gig){
+    function onAddToCart(gig) {
         console.log(`Adding ${gig.vendor} to Cart`)
         addToCart(gig)
         showSuccessMsg('Added to Cart')
@@ -59,23 +61,12 @@ export function GigIndex() {
             <h3>Gigs App</h3>
             <main>
                 <button onClick={onAddGig}>Add Gig ⛐</button>
-                <ul className="gig-list">
-                    {gigs.map(gig =>
-                        <li className="gig-preview" key={gig._id}>
-                            <h4>{gig.vendor}</h4>
-                            <h1>⛐</h1>
-                            <p>Price: <span>${gig.price.toLocaleString()}</span></p>
-                            <p>Owner: <span>{gig.owner && gig.owner.fullname}</span></p>
-                            <div>
-                                <button onClick={() => { onRemoveGig(gig._id) }}>x</button>
-                                <button onClick={() => { onUpdateGig(gig) }}>Edit</button>
-                            </div>
-
-                            <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
-                            <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to cart</button>
-                        </li>)
-                    }
-                </ul>
+                < GigList
+                    gigs={gigs}
+                // onRemoveGig={onRemoveGig}
+                // onEditGig={onEditGig}
+                // addToCart={addToCart}
+                />
             </main>
         </div>
     )

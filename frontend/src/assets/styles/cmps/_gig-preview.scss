@@ -1,0 +1,32 @@
+.gig-preview {
+    // &:hover {}
+
+    .owner-name {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .title {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .rating {
+        color: $clr-btn-search;
+
+        span {
+            color: $clr2;
+        }
+    }
+
+    .price {
+        color: $clr-btn-search;
+
+        &:hover .title {
+            text-decoration: underline;
+        }
+    }
+
+}
