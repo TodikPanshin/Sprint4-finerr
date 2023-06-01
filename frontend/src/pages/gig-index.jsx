@@ -58,7 +58,6 @@ export function GigIndex() {
 
     return (
         <div>
-            <h3>Gigs App</h3>
             <main>
                 {/* <button onClick={onAddGig}>Add Gig ⛐</button> */}
                 < GigList

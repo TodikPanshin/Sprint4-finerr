@@ -162,8 +162,9 @@ const gigs = [
     "title": "I will create your marketing materials",
     "price": 30,
     "rating": {
-      "average": 4,
-      flyout- menu
+      "rating": {
+        "average": 4.5,
+        "num": 100
   },
   "owner": {
     "_id": "u106",
@@ -182,109 +183,110 @@ const gigs = [
     "professional"
   ],
   "likedByUsers": ["mini-user"]
-    },
-  {
-    "_id": "i107",
+  }
+},
+{
+  "_id": "i107",
     "title": "I will manage your social media",
-    "price": 50,
-    "rating": {
-      "average": 4.5,
+      "price": 50,
+        "rating": {
+    "average": 4.5,
       "num": 100
-    },
-    "owner": {
-      "_id": "u107",
+  },
+  "owner": {
+    "_id": "u107",
       "fullname": "Oli Oli",
-      "imgUrl": "url",
-      "level": "basic/premium",
-      "rate": 5
-    },
-    "daysToMake": 10,
+        "imgUrl": "url",
+          "level": "basic/premium",
+            "rate": 5
+  },
+  "daysToMake": 10,
     "description": "Grow your social media following and engagement...",
-    "imgUrl": "https://picsum.photos/200/300",
-    "tags": [
-      "social-media-management",
-      "grow-following",
-      "engagement",
-      "professional"
-    ],
-    "likedByUsers": ["mini-user", "mini-user2"]
-  },
-  {
-    "_id": "i108",
+      "imgUrl": "https://picsum.photos/200/300",
+        "tags": [
+          "social-media-management",
+          "grow-following",
+          "engagement",
+          "professional"
+        ],
+          "likedByUsers": ["mini-user", "mini-user2"]
+},
+{
+  "_id": "i108",
     "title": "I will create your email marketing campaigns",
-    "price": 25,
-    "rating": {
-      "average": 4,
+      "price": 25,
+        "rating": {
+    "average": 4,
       "num": 50
-    },
-    "owner": {
-      "_id": "u108",
+  },
+  "owner": {
+    "_id": "u108",
       "fullname": "Poppy Poppy",
-      "imgUrl": "url",
-      "level": "basic/premium",
-      "rate": 3
-    },
-    "daysToMake": 3,
+        "imgUrl": "url",
+          "level": "basic/premium",
+            "rate": 3
+  },
+  "daysToMake": 3,
     "description": "Create effective email marketing campaigns that convert...",
-    "imgUrl": "https://picsum.photos/200/300",
-    "tags": [
-      "email-marketing",
-      "effective",
-      "convert",
-      "professional"
-    ],
-    "likedByUsers": ["mini-user"]
-  },
-  {
-    "_id": "i109",
+      "imgUrl": "https://picsum.photos/200/300",
+        "tags": [
+          "email-marketing",
+          "effective",
+          "convert",
+          "professional"
+        ],
+          "likedByUsers": ["mini-user"]
+},
+{
+  "_id": "i109",
     "title": "I will help you with your SEO",
-    "price": 100,
-    "rating": {
-      "average": 3.5,
+      "price": 100,
+        "rating": {
+    "average": 3.5,
       "num": 25
-    },
-    "owner": {
-      "_id": "u109",
+  },
+  "owner": {
+    "_id": "u109",
       "fullname": "Romy Romy",
-      "imgUrl": "url",
-      "level": "basic/premium",
-      "rate": 2
-    },
-    "daysToMake": 15,
+        "imgUrl": "url",
+          "level": "basic/premium",
+            "rate": 2
+  },
+  "daysToMake": 15,
     "description": "Improve your website's search engine ranking...",
-    "imgUrl": "https://picsum.photos/200/300",
-    "tags": [
-      "seo",
-      "improve-ranking",
-      "professional"
-    ],
-    "likedByUsers": []
-  },
-  {
-    "_id": "i110",
+      "imgUrl": "https://picsum.photos/200/300",
+        "tags": [
+          "seo",
+          "improve-ranking",
+          "professional"
+        ],
+          "likedByUsers": []
+},
+{
+  "_id": "i110",
     "title": "I will create your video content",
-    "price": 50,
-    "rating": {
-      "average": 4.5,
+      "price": 50,
+        "rating": {
+    "average": 4.5,
       "num": 100
-    },
-    "owner": {
-      "_id": "u110",
-      "fullname": "Suki Suki",
-      "imgUrl": "url",
-      "level": "basic/premium",
-      "rate": 5
-    },
-    "daysToMake": 10,
-    "description": "Create engaging and informative video content...",
-    "imgUrl": "https://picsum.photos/200/300",
-    "tags": [
-      "seo",
-      "improve-ranking",
-      "professional"
-    ],
-    "likedByUsers": []
   },
+  "owner": {
+    "_id": "u110",
+      "fullname": "Suki Suki",
+        "imgUrl": "url",
+          "level": "basic/premium",
+            "rate": 5
+  },
+  "daysToMake": 10,
+    "description": "Create engaging and informative video content...",
+      "imgUrl": "https://picsum.photos/200/300",
+        "tags": [
+          "seo",
+          "improve-ranking",
+          "professional"
+        ],
+          "likedByUsers": []
+},
 ]
 
 
@@ -309,13 +311,13 @@ const orders = [
 
 const users = [
   {
-    _id: "u101",
-    fullname: "User 1",
-    imgUrl: "/img/img1.jpg",
-    username: "user1",
-    password: "secret",
-    level: "basic/premium",
-    reviews: [
+    "_id": "u101",
+    "fullname": "User 1",
+    "imgUrl": "/img/img1.jpg",
+    "username": "user1",
+    "password": "secret",
+    "level": "basic/premium",
+    "reviews": [
       {
         "id": "madeId",
         "gig": "{optional-mini-gig}",

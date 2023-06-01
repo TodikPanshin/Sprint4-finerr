@@ -3,17 +3,21 @@
     // &:hover {}
     .gig-img {
         border-radius: 8px;
+        object-fit: fill;
+        margin: 0;
     }
 
     .owner-details {
         align-items: center;
-        font-size: 14px;
+        font-size: 0.875em;
         line-height: 1.31em;
         column-gap: 8px;
+        margin-top: 0.75em;
+        margin-bottom: 0.75em;
 
         .owner-img {
-            width: 1.25em;
-            height: 1.25em;
+            width: 2em;
+            height: 2em;
             border-radius: 50%;
             object-fit: cover;
         }
@@ -28,10 +32,10 @@
     }
 
     .title {
+        padding-top: 4px;
         font-size: 1em;
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
         line-height: 130%;
+        margin: 0;
 
         &:hover {
             text-decoration: underline;
@@ -46,10 +50,12 @@
         span {
             color: $clr2;
             padding: 0px 0px 0px 4px;
+            font-weight: 200;
         }
     }
 
     .price {
+        margin: 0;
         font-size: 1em;
         line-height: 1.5em;
         color: $clr-btn-search;

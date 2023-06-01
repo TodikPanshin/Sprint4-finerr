@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 
 export function GigPreview({ gig }) {
-    return <article className="gig-preview flex column">
+    return <article className="gig-preview clean-list flex column">
         <Link to={`/gig/${gig._id}`} target="_blank" >
-            <div className="img-preview">
+            <div>
+
                 <img src={gig.imgUrl} alt="gig img" className="gig-img" />
             </div>
+
         </Link>
         <div className="owner-details flex">
             <img src={gig.owner.imgUrl} alt="img of creator" className="owner-img" />
@@ -18,7 +20,7 @@ export function GigPreview({ gig }) {
             {/* <FontAwesomeIcon icon="fa-solid fa-star" /> */}
             {gig.rating.average} <span>({gig.rating.num})</span> </div>
         <Link to={`/gig/${gig._id}`} target="_blank"><p className="price txt-bold">From <span>${gig.price}</span></p></Link>
-    </article>
+    </article >
 }
 
 

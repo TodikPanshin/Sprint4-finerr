@@ -8,7 +8,7 @@
 }
 
 html {
-    font-family: macan,Helvetica-Neue,Helvetica, arial, sans-serif ;
+    font-family: macan, Helvetica-Neue, Helvetica, arial, sans-serif;
     line-height: 1.6;
     color: $clr-font;
 }
@@ -18,14 +18,21 @@ body {
     margin: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family:Helvetica-Neue,Helvetica, arial, sans-serif ;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: macan, Helvetica-Neue, Helvetica, arial, sans-serif;
     margin: 0 0 0.6em;
     line-height: 1;
 }
 
 
-section, main, footer {
+section,
+main,
+footer {
     padding: 5px;
 }
 
@@ -39,15 +46,15 @@ p {
 
 .btn {
     @include btn;
-    
+
     &-header {
         @include btn($type: header-btn);
     }
-    
+
     &-main-filter {
         @include btn($type: main-filter);
     }
-    
+
     &-hero {
         @include btn($type: hero-btn);
     }
@@ -55,16 +62,11 @@ p {
 
 a {
     text-decoration: none;
-    color:$clr-font;
+    color: $clr-font;
 
-&:hover {
-    color: $clr-btn-hov;
-}
-
-&.active {
-    color:$clr-font ;
-    text-decoration: underline;
-  }
+    &.active {
+        color: $clr-font ;
+        text-decoration: underline;
+    }
 
 }
-

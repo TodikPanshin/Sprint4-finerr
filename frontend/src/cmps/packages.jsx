@@ -1,4 +1,4 @@
-export function Packages() {
+export function Packages({gig}) {
     return (
         <section className="packages-container">
         <div className="labels-container">

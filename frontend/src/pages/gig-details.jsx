@@ -5,6 +5,9 @@ import { gigService } from "../services/gig.service.local.js"
 import { showErrorMsg } from "../services/event-bus.service.js"
 import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
 import { ReviewsPreview } from '../cmps/review-preview.jsx'
+import { Packages } from '../cmps/packages.jsx'
+import { GigCarousel } from '../cmps/gig-carousel.jsx'
+
 
 export function GigDetails() {
     const [gig, setGig] = useState({
@@ -33,7 +36,20 @@ export function GigDetails() {
                        more than 7 years.`
         },
         daysToMake: 3,
-        description: "Make unique logo...",
+        description: `A logo is what identifies your brand and business.
+         If you are looking for a modern minimalist luxury and elegant logo,
+          then you are on the right page and a step away to get your brand’s identity logo.
+
+        With over 2000 satisfied clients, VIP customer care and 
+        a creative mind at your service. Where the customer's
+         satisfaction is on top of everything, you will be provided
+          with a very friendly, yet professional treatment. I always
+           prioritise client’s satisfaction because it is the most
+            important factor when it comes to work. Having that said,
+             I always take client’s requirements and imagination into
+              consideration and give my 100% to every projects and work
+               until the client is completely satisfied with the work.`,
+
         imgUrl: "https://picsum.photos/400",
         tags: [
             "logo-design",
@@ -85,23 +101,35 @@ export function GigDetails() {
                 <a href="#">Reviews</a>
             </section> */}
             <section className='gig-container flex column' >
+                {/* <Packages gig={gig}/> */}
                 <section className="gig-details" id='gig-details'>
-                    <h1>{gig.title}</h1>
-                    <div className='seller-details flex align-center '>
+                    <h1 className='gig-title'>{gig.title}</h1>
+                    <div className='seller-details flex align-center'>
                         <div className='seller-img'>
                             <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
                         </div>
-                        <h5 className='seller-name'>{gig.owner.fullname}</h5>
-                        <h5>Level {gig.owner.rate} Seller</h5>
+                        <div className='seller-txt flex'>
+                            <h5 className='seller-name'>{gig.owner.fullname}</h5>
+                            <h5 className='seller-rate'>Level {gig.owner.rate} Seller</h5>
+                            <h5>|</h5>
+                            <div className='reviews-rate'>
+                                <h5>Reviews</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='notable-clients-bar flex'>
+                        <h5 className='notable-clients-title'>Among my clients</h5>
+                        <h5>muki</h5>
                         <h5>|</h5>
-                        <h5>Reviews</h5>
+                        <h5>puki</h5>
                     </div>
                     <div className='gig-imgs-contener'>
-                        <img src={gig.imgUrl} alt="test img" />
-                        <div className='img-preview'><img src={gig.imgUrl} alt="" /></div>
+                        <GigCarousel gigImgs={gig.imgUrl}/>
+                        {/* <img src={gig.imgUrl} alt="test img" />
+                        <div className='img-preview'><img src={gig.imgUrl} alt="" /></div> */}
                     </div>
                     <section className="review-preview">
-                        <h3>What people loved about this seller</h3>
+                        <h3 className='review-preview-title'>What people loved about this seller</h3>
                         <ul className="review-list clean-list">
                             {reviews.map((review) => (
                                 <ReviewsPreview key={review.id} review={review} />
@@ -109,11 +137,11 @@ export function GigDetails() {
                         </ul>
                     </section>
                     <section className='about-gig'>
-                    <h2>About This Gig</h2>
-                    <p>{gig.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, sunt, sed eos illum quis omnis sequi enim quibusdam ipsum quidem hic mollitia autem, nihil tenetur laudantium tempore. Impedit, assumenda atque.</p>
+                        <h2>About This Gig</h2>
+                        <p>{gig.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, sunt, sed eos illum quis omnis sequi enim quibusdam ipsum quidem hic mollitia autem, nihil tenetur laudantium tempore. Impedit, assumenda atque.</p>
                     </section>
                     <div className='seller-details' id='seller-details'>
-                        <h2>About The Seller</h2>
+                        <h2 className='seller-details-title'>About The Seller</h2>
                         <div className='seller-img'>
                             <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
                         </div>
