@@ -8,3 +8,16 @@
 @function em($pixels, $context: 16px) {
     @return calc(($pixels/$context) * 1em);
 }
+
+@function lh($pixels, $context: 16px) {
+    @return ($pixels/$context);
+  }
+
+@function set-text-color($color){
+    @if(lightness($color)>40%){
+      @return var($clr-font-dark);
+    }
+    @else{
+      @return var($clr-font)
+    }
+    }

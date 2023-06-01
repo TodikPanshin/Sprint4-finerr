@@ -4,6 +4,7 @@ import { GigIndex } from './pages/gig-index.jsx'
 import { ReviewIndex } from './pages/review-index.jsx'
 import { ChatApp } from './pages/chat-app.jsx'
 import { AdminApp } from './pages/admin-app.jsx'
+import { GigDetails } from './pages/gig-details.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [

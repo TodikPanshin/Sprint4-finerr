@@ -3,7 +3,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-const STORAGE_KEY = 'gig'
+const STORAGE_KEY = 'gigDB'
 
 export const gigService = {
     query,
@@ -11,10 +11,12 @@ export const gigService = {
     save,
     remove,
     getEmptyGig,
-    addGigMsg
+    addGigMsg,
+    demoGig
 }
 window.cs = gigService
 
+_createGig()
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
@@ -75,7 +77,40 @@ function getEmptyGig() {
 
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
+function _createGig(){
+const gig=JSON.parse(localStorage.getItem(STORAGE_KEY)) 
+if(!gig||!gig.length){
+    for(let i=0; i<10;i++){
+        demoGig()
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(gig))
+}
 
+}
 
+function demoGig(){
+    return{
+        _id: utilService.makeId(),
+        title: utilService.makeLorem(10),
+        price: userService.getRandomIntInclusive(1,100),
+        owner: {
+            _id: utilService.makeId(),
+            fullname: utilService.makeLorem(2),
+            imgUrl: '',
+            level: "basic/premium",
+            rate: 4,
+            about: utilService.makeLorem(30)
+        },
+        daysToMake: 3,
+        description: utilService.makeLorem(10),
+        imgUrl: "https://picsum.photos/100",
+        tags: [
+            "logo-design",
+            "artisitic",
+            "proffesional",
+            "accessible"
+        ],
+    }
+}
 
 
