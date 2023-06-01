@@ -1,11 +1,31 @@
 // Font Sizes
-.fs12 { font-size: rem(12px); }
-.fs14 { font-size: rem(14px); }
-.fs18 { font-size: rem(18px); }
-.fs20 { font-size: rem(20px); }
-.fs24 { font-size: rem(24px); }
-.fs28 { font-size: rem(28px); }
-.fs30 { font-size: rem(30px); }
+.fs12 {
+    font-size: rem(12px);
+}
+
+.fs14 {
+    font-size: rem(14px);
+}
+
+.fs18 {
+    font-size: rem(18px);
+}
+
+.fs20 {
+    font-size: rem(20px);
+}
+
+.fs24 {
+    font-size: rem(24px);
+}
+
+.fs28 {
+    font-size: rem(28px);
+}
+
+.fs30 {
+    font-size: rem(30px);
+}
 
 // flex helpers
 
@@ -13,15 +33,18 @@
 
     display: flex;
 
-    > *.full {
+    >*.full {
         flex: 1;
     }
+
     &.column {
         flex-direction: column;
     }
+
     &.justify-center {
         justify-content: center;
     }
+
     &.align-center {
         align-items: center;
     }
@@ -35,9 +58,11 @@
 .square-ratio {
     @include aspect-ratio(1, 1);
 }
+
 .video-ratio {
     @include aspect-ratio(16, 9);
 }
+
 .portrait-ratio {
     @include aspect-ratio(9, 16);
 }
@@ -52,13 +77,21 @@
 
 // Aspect ratios
 
-.ratio-16-9 { @include aspect-ratio(100, 56); }
+.ratio-16-9 {
+    @include aspect-ratio(100, 56);
+}
 
-.ratio-square { @include aspect-ratio(100, 100); }
+.ratio-square {
+    @include aspect-ratio(100, 100);
+}
 
-.ratio-card { @include aspect-ratio(100, 80); }
+.ratio-card {
+    @include aspect-ratio(100, 80);
+}
 
-.ratio-poster { @include aspect-ratio(100, 150); }
+.ratio-poster {
+    @include aspect-ratio(100, 150);
+}
 
 /* font awsome */
 
@@ -80,4 +113,8 @@
 
 .fa.fa-behance::before {
     content: "\f1b4";
+}
+
+.txt-bold {
+    font-weight: 700;
 }

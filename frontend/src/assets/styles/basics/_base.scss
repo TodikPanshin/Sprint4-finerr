@@ -2,15 +2,13 @@
     box-sizing: border-box;
 }
 
-
-
 ::selection {
     background-color: $clr-btn-search;
     color: $clr-hov;
 }
 
 html {
-    font-family: macan,Helvetica-Neue,Helvetica, arial, sans-serif ;
+    font-family: macan;
     line-height: 1.6;
     color: $clr-font;
 }
