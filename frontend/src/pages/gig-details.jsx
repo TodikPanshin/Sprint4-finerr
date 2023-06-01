@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { gigService } from "../services/gig.service.local.js"
 import { showErrorMsg } from "../services/event-bus.service.js"
 import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
+import { ReviewsPreview } from '../cmps/review-preview.jsx'
 
 export function GigDetails() {
     const [gig, setGig] = useState({
@@ -33,7 +34,7 @@ export function GigDetails() {
         },
         daysToMake: 3,
         description: "Make unique logo...",
-        imgUrl: "https://picsum.photos/100",
+        imgUrl: "https://picsum.photos/400",
         tags: [
             "logo-design",
             "artisitic",
@@ -41,6 +42,20 @@ export function GigDetails() {
             "accessible"
         ],
     })
+    const [reviews, setReviews] = useState([
+        {
+            id: "madeId",
+            gig: "{optional-mini-gig}",
+            txt: "Very kind and works fast",
+            rate: 4,
+            by: {
+                _id: "u102",
+                fullname: "user2",
+                imgUrl: ''
+            }
+        }
+    ])
+
     const { gigId } = useParams()
     const navigate = useNavigate()
 
@@ -62,36 +77,53 @@ export function GigDetails() {
     if (!gig || gig.length) return <div>Loading...</div>
     return (
         <>
-            {/* <GigToolBar /> */}
-            <section className='gig-details-nav clean-list'>
+            <GigToolBar />
+            {/* <section className='gig-details-nav clean-list'>
                 <a href="#gig-details">Overview</a>
                 <a href="#seller-details">About the seller</a>
                 <a href="#">Compare packages</a>
                 <a href="#">Reviews</a>
-            </section>
-            <section className="gig-details" id='gig-details'>
-                <h1>{gig.title}</h1>
-                <div className='seller-img'>
-                    <img src={`https://robohash.org/test?set=set4&size=100x100`} alt="cat" />
-                </div>
-                <h5>{gig.owner.fullname}</h5>
-                <h5>Level {gig.owner.rate} Seller</h5>
-                <div className='gig-details-imgs-contener'>
-                    <img src={gig.imgUrl} alt="test img" />
-                </div>
-                <h2>About This Gig</h2>
-                <p>{gig.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, sunt, sed eos illum quis omnis sequi enim quibusdam ipsum quidem hic mollitia autem, nihil tenetur laudantium tempore. Impedit, assumenda atque.</p>
-
-                <div className='seller-details' id='seller-details'>
-                    <h2>About The Seller</h2>
-                    <div className='seller-img'>
-                        <img src={`https://robohash.org/test?set=set4&size=100x100`} alt="cat" />
+            </section> */}
+            <section className='gig-container flex column' >
+                <section className="gig-details" id='gig-details'>
+                    <h1>{gig.title}</h1>
+                    <div className='seller-details flex align-center '>
+                        <div className='seller-img'>
+                            <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
+                        </div>
+                        <h5 className='seller-name'>{gig.owner.fullname}</h5>
+                        <h5>Level {gig.owner.rate} Seller</h5>
+                        <h5>|</h5>
+                        <h5>Reviews</h5>
                     </div>
-                    <h2>{gig.owner.fullname}</h2>
-                    <h5>Level {gig.owner.rate} Seller</h5>
-                    <p>{gig.owner.about}</p>
-                </div>
+                    <div className='gig-imgs-contener'>
+                        <img src={gig.imgUrl} alt="test img" />
+                        <div className='img-preview'><img src={gig.imgUrl} alt="" /></div>
+                    </div>
+                    <section className="review-preview">
+                        <h3>What people loved about this seller</h3>
+                        <ul className="review-list clean-list">
+                            {reviews.map((review) => (
+                                <ReviewsPreview key={review.id} review={review} />
+                            ))}
+                        </ul>
+                    </section>
+                    <section className='about-gig'>
+                    <h2>About This Gig</h2>
+                    <p>{gig.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, sunt, sed eos illum quis omnis sequi enim quibusdam ipsum quidem hic mollitia autem, nihil tenetur laudantium tempore. Impedit, assumenda atque.</p>
+                    </section>
+                    <div className='seller-details' id='seller-details'>
+                        <h2>About The Seller</h2>
+                        <div className='seller-img'>
+                            <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
+                        </div>
+                        <h2>{gig.owner.fullname}</h2>
+                        <h5>Level {gig.owner.rate} Seller</h5>
+                        <p>{gig.owner.about}</p>
+                    </div>
+                </section>
             </section>
         // </>
     )
 }
+

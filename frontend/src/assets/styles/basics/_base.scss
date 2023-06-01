@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-:hover{
-color: $clr-btn-hov;
-}
-
 ::selection {
     background-color: $clr-btn-search;
     color: $clr-hov;
@@ -18,9 +14,7 @@ html {
 }
 
 body {
-    font-size: rem(18px);
     margin: 0;
-    max-width: 1024px;
     margin: auto;
 }
 
@@ -43,11 +37,28 @@ p {
     margin: 0 0 1em;
 }
 
+.btn {
+    @include btn;
+    
+    &-header {
+        @include btn($type: header-btn);
+    }
+    
+    &-main-filter {
+        @include btn($type: main-filter);
+    }
+    
+    &-hero {
+        @include btn($type: hero-btn);
+    }
+}
+
 a {
     text-decoration: none;
-    color:$clr-font ;
+    color:$clr-font;
 
 &:hover {
+    color: $clr-btn-hov;
     text-decoration: underline;
 }
 
