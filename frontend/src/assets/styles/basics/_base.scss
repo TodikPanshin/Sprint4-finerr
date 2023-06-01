@@ -52,6 +52,7 @@ a {
 }
 
 &.active {
+    color:$clr-font ;
     text-decoration: underline;
   }
 
