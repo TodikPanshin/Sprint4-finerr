@@ -59,20 +59,20 @@ export function GigDetails() {
     //         })
     // }
 
-    if (!gig||gig.length) return <div>Loading...</div>
+    if (!gig || gig.length) return <div>Loading...</div>
     return (
         <>
-             {/* <GigToolBar /> */}
+            {/* <GigToolBar /> */}
             <section className='gig-details-nav clean-list'>
-        <a href="#gig-details">Overview</a>
-        <a href="#seller-details">About the seller</a>
-        <a href="#">Compare packages</a>
-        <a href="#">Reviews</a>
-    </section>
+                <a href="#gig-details">Overview</a>
+                <a href="#seller-details">About the seller</a>
+                <a href="#">Compare packages</a>
+                <a href="#">Reviews</a>
+            </section>
             <section className="gig-details" id='gig-details'>
                 <h1>{gig.title}</h1>
                 <div className='seller-img'>
-                     <img src={`https://robohash.org/test?set=set4&size=100x100`} alt="cat" />
+                    <img src={`https://robohash.org/test?set=set4&size=100x100`} alt="cat" />
                 </div>
                 <h5>{gig.owner.fullname}</h5>
                 <h5>Level {gig.owner.rate} Seller</h5>
@@ -85,11 +85,11 @@ export function GigDetails() {
                 <div className='seller-details' id='seller-details'>
                     <h2>About The Seller</h2>
                     <div className='seller-img'>
-                    <img src={`https://robohash.org/test?set=set4&size=100x100`} alt="cat" />
+                        <img src={`https://robohash.org/test?set=set4&size=100x100`} alt="cat" />
                     </div>
-                    <h2>{gig.owner.fullname}</h2> 
+                    <h2>{gig.owner.fullname}</h2>
                     <h5>Level {gig.owner.rate} Seller</h5>
-                     <p>{gig.owner.about}</p>
+                    <p>{gig.owner.about}</p>
                 </div>
             </section>
         // </>
