@@ -21,16 +21,18 @@ export function SearchBox() {
     const txt = ''
     return (<section className="search-box">
         <form onSubmit={onSubmitFilter}>
-            <label htmlFor="txt"></label>
+            {/* <label htmlFor="txt"></label> */}
             <input
                 value={txt}
                 onChange={handleChange}
                 name="txt" id="txt" type="text"
                 placeholder="What service are you looking for today?" />
-            <button onClick={cancelSearch}>X</button>
-            <img
-                onClick={onSubmitFilter}
-                src="assets/img/magnifying-glass.svg" alt="" />
+            <button onClick={cancelSearch} className="cancel-btn">X</button>
+            <button onClick={onSubmitFilter} className="search-btn">
+                <img
+                    onClick={onSubmitFilter}
+                    src="https://www.svgrepo.com/show/25222/magnifying-glass.svg" alt="search" />
+            </button>
         </form>
     </section>)
 }

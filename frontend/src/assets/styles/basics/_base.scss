@@ -4,6 +4,7 @@
 
 :hover{
 color: $clr-btn-hov;
+font-family: macan;
 }
 
 ::selection {
@@ -12,7 +13,7 @@ color: $clr-btn-hov;
 }
 
 html {
-    font-family: Helvetica-Neue,Helvetica, arial, sans-serif;
+    font-family: macan;
     line-height: 1.6;
     color: $clr-font;
 }

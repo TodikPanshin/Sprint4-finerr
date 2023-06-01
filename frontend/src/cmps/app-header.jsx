@@ -36,10 +36,12 @@ export function AppHeader() {
 
     return (
         <header className="app-header">
+
+            <NavLink key="/" to="/" className="logo"><div className="white-dot"></div>finerr<span className="dot">.</span></NavLink>
+            <SearchBox />
+
             <nav>
-                <NavLink key="/" to="/">Finerr.</NavLink>
-                <SearchBox />
-                <NavLink key="gig" to="/">Explore</NavLink>
+                <NavLink key="gig" to="/gig">Explore</NavLink>
                 <NavLink key="seller-register" to="/">Become a Seller</NavLink>
 
                 {user &&
@@ -52,11 +54,10 @@ export function AppHeader() {
                     </span>
                 }
                 {!user &&
-                    <section className="user-info">
-                        <button>Sign in</button>
-                        <button>Join</button>
-                        {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
-                    </section>
+                    <button>Sign in</button>
+                }
+                {!user && <button>Join</button>
+                    /* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */
                 }
             </nav>
 

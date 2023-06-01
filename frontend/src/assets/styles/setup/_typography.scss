@@ -1,4 +1,34 @@
 @font-face {
+    font-family: macan;
+    font-weight: 200;
+    src: url(../../fonts/macan/MacanPanWeb-Light.ttf);
+}
+
+@font-face {
+    font-family: macan;
+    font-weight: 400;
+    src: url(../../fonts/macan/MacanPanWeb-Regular.ttf);
+}
+
+@font-face {
+    font-family: macan;
+    font-weight: 600;
+    src: url(../../fonts/macan/MacanPanWeb-Semibold.ttf);
+}
+
+@font-face {
+    font-family: macan;
+    font-weight: 900;
+    src: url(../../fonts/macan/MacanPanWeb-Bold.ttf);
+}
+
+@font-face {
+    font-family: macan;
+    font-weight: 1200;
+    src: url(../../fonts/macan/MacanPanWeb-Extrabold.ttf);
+}
+
+@font-face {
     font-family: arial;
     src: url(../../fonts/arial-cufonfonts/ARIAL.TTF);
 }
