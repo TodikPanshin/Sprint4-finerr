@@ -116,7 +116,7 @@ function demoGig() {
         },
         "daysToMake": 3,
         "description": utilService.makeLorem(10),
-        "imgUrl": "https://picsum.photos/250/150",
+        "imgUrls": ["https://picsum.photos/250/150", "https://picsum.photos/250/150"],
         "tags": [
             "logo-design",
             "artisitic",
