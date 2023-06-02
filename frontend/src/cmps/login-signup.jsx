@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from '../cmps/img-uploader'
 
-export function LoginSignup(props) {
+export function LoginSignup({cancel}) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
     const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
@@ -30,14 +30,14 @@ export function LoginSignup(props) {
     function onLogin(ev = null) {
         if (ev) ev.preventDefault()
         if (!credentials.username) return
-        props.onLogin(credentials)
+        // props.onLogin(credentials)
         clearState()
     }
 
     function onSignup(ev = null) {
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname) return
-        props.onSignup(credentials)
+        // props.onSignup(credentials)
         clearState()
     }
 
@@ -49,6 +49,12 @@ export function LoginSignup(props) {
         setCredentials({ ...credentials, imgUrl })
     }
 
+    return (<div className="sign-up">
+        <button className='cancel' onClick={() => cancel(false)}>X</button>
+        <h2>Join Finerr</h2>
+        <button>Continue with Facebook</button>
+        <button>Continue with Google</button>
+    </div>)
     return (
         <div className="login-page">
             <p>

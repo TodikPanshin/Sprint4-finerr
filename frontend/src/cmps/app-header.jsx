@@ -21,7 +21,9 @@ const categories = [
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
     const [isProfileClicked, setIsProfileClicked] = useState(false)
+    const [isSignUp, setIsSignup] = useState(false)
     const navigate = useNavigate()
+
 
     async function onLogin(credentials) {
         try {
@@ -50,7 +52,9 @@ export function AppHeader() {
         }
     }
 
-
+    function onSignUp() {
+        setIsSignup(true)
+    }
 
     function onProfileClick() {
         setIsProfileClicked(!isProfileClicked)
@@ -58,9 +62,13 @@ export function AppHeader() {
     }
 
     return (
-        <header className="app-header main-layout full">
+        <header className="app-header full main-layout">
             <section className="main-header">
-                <NavLink key="/" to="/" className="logo"><div className="white-dot"></div>finerr<span className="dot">.</span></NavLink>
+                <NavLink key="/" to="/" className="logo">
+                    <div className="white-dot">
+                    </div>finerr<span className="dot">.</span>
+                </NavLink>
+
                 <SearchBox />
 
                 <nav>
@@ -80,20 +88,20 @@ export function AppHeader() {
                         </span>
                     }
                     {!user &&
-                        <button>Sign in</button>
+                        <button onClick={onSignUp}>Sign in</button>
                     }
-                    {!user && <button>Join</button>
-                        /* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */
+                    {!user && <button onClick={onSignUp}>Join</button>
                     }
                 </nav>
             </section>
-            <section className="categories">
+            <section className="categories full main-layout">
                 <ul className="categories-list">
                     {categories.map(category =>
                         <li key={category} className="category">
                             {category}
                         </li>)}
                 </ul>
+                {isSignUp && <LoginSignup cancel={setIsSignup} onLogin={onLogin} onSignup={onSignup} />}
             </section>
         </header>
     )
