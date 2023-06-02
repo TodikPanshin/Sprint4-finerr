@@ -11,13 +11,13 @@ const gig = {
   "owner": {
     "_id": "u101",
     "fullname": "Dudu Da",
-    "imgUrl": "url",
+    "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
     "level": "basic/premium",
     "rate": 4
   },
   "daysToMake": 3,
   "description": "Make unique logo...",
-  "imgUrl": "https://picsum.photos/200/300",
+  "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
   "tags": [
     "logo-design",
     "artisitic",
@@ -40,13 +40,13 @@ const gigs = [
     "owner": {
       "_id": "u101",
       "fullname": "Avi Danziger",
-      "imgUrl": "url",
+      "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
       "level": "basic/premium",
       "rate": 4
     },
     "daysToMake": 3,
     "description": "I'll Translate all kind of documents",
-    "imgUrl": "https://picsum.photos/200/300",
+    "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
     "tags": [
       "Writing & Translation"
     ],
@@ -63,13 +63,13 @@ const gigs = [
     "owner": {
       "_id": "u102",
       "fullname": "Ava Ava",
-      "imgUrl": "url",
+      "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
       "level": "basic/premium",
       "rate": 5
     },
     "daysToMake": 5,
     "description": "Write informative and engaging blog posts...",
-    "imgUrl": "https://picsum.photos/200/300",
+    "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
     "tags": [
       "blog-writing",
       "informative",
@@ -89,13 +89,13 @@ const gigs = [
     "owner": {
       "_id": "u103",
       "fullname": "Kiki Kiki",
-      "imgUrl": "url",
+      "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
       "level": "basic/premium",
       "rate": 3
     },
     "daysToMake": 10,
     "description": "Create a beautiful and responsive website...",
-    "imgUrl": "https://picsum.photos/200/300",
+    "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
     "tags": [
       "Graphic & Design",
       "website-design",
@@ -116,13 +116,13 @@ const gigs = [
     "owner": {
       "_id": "u104",
       "fullname": "Lulu Lulu",
-      "imgUrl": "url",
+      "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
       "level": "basic/premium",
       "rate": 2
     },
     "daysToMake": 15,
     "description": "Develop a functional and user-friendly app...",
-    "imgUrl": "https://picsum.photos/200/300",
+    "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
     "tags": [
       "app-development",
       "functional",
@@ -143,13 +143,13 @@ const gigs = [
     "owner": {
       "_id": "u105",
       "fullname": "Mia Mia",
-      "imgUrl": "url",
+      "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
       "level": "basic/premium",
       "rate": 5
     },
     "daysToMake": 2,
     "description": "I will write your ad copy",
-    "imgUrl": "https://picsum.photos/200/300",
+    "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
     "tags": [
       "Writing & Translation",
       "functional",
@@ -170,13 +170,13 @@ const gigs = [
       "owner": {
         "_id": "u106",
         "fullname": "Ni Ni",
-        "imgUrl": "url",
+        "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
         "level": "basic/premium",
         "rate": 3
       },
       "daysToMake": 5,
       "description": "Create eye-catching and persuasive marketing materials...",
-      "imgUrl": "https://picsum.photos/200/300",
+      "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
       "tags": [
         "marketing-materials",
         "Writing & Translation",
@@ -199,13 +199,13 @@ const gigs = [
     "owner": {
       "_id": "u107",
       "fullname": "Oli Oli",
-      "imgUrl": "url",
+      "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
       "level": "basic/premium",
       "rate": 5
     },
     "daysToMake": 10,
     "description": "Grow your social media following and engagement...",
-    "imgUrl": "https://picsum.photos/200/300",
+    "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
     "tags": [
       "Digital Marketing",
       "Writing & Translation",
@@ -227,13 +227,13 @@ const gigs = [
     "owner": {
       "_id": "u108",
       "fullname": "Poppy Poppy",
-      "imgUrl": "url",
+      "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
       "level": "basic/premium",
       "rate": 3
     },
     "daysToMake": 3,
     "description": "Create effective email marketing campaigns that convert...",
-    "imgUrl": "https://picsum.photos/200/300",
+    "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
     "tags": [
       "Digital Marketing",
       "Writing & Translation",
@@ -255,13 +255,13 @@ const gigs = [
     "owner": {
       "_id": "u109",
       "fullname": "Romy Romy",
-      "imgUrl": "url",
+      "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
       "level": "basic/premium",
       "rate": 2
     },
     "daysToMake": 15,
     "description": "Improve your website's search engine ranking...",
-    "imgUrl": "https://picsum.photos/200/300",
+    "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
     "tags": [
       "Digital Marketing",
       "Programming & Tech",
@@ -282,13 +282,13 @@ const gigs = [
     "owner": {
       "_id": "u110",
       "fullname": "Suki Suki",
-      "imgUrl": "url",
+      "imgUrl": 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
       "level": "basic/premium",
       "rate": 5
     },
     "daysToMake": 10,
     "description": "Create engaging and informative video content...",
-    "imgUrl": "https://picsum.photos/200/300",
+    "imgUrls": ["https://picsum.photos/200/300", "https://picsum.photos/200/300"],
     "tags": [
       "Video & Animation",
       "Digital Marketing",
