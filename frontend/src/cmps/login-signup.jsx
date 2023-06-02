@@ -50,8 +50,8 @@ export function LoginSignup({cancel}) {
     }
 
     return (<div className="sign-up">
-        <button onClick={() => cancel(false)}>X</button>
-        <h2>Join Finner</h2>
+        <button className='cancel' onClick={() => cancel(false)}>X</button>
+        <h2>Join Finerr</h2>
         <button>Continue with Facebook</button>
         <button>Continue with Google</button>
     </div>)
