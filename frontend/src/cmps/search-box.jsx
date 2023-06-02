@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { useSelector } from "react-redux"
 
-export function SearchBox() {
+export function SearchBox({setFilterBy}) {
     const [showCancelBtn, setshowCancelBtn] = useState('hidden')
     const [txt, setTxt] = useState('')
 
@@ -9,9 +9,11 @@ export function SearchBox() {
     function handleChange({ target }) {
         const field = target.name
         const value = target.value
+        
         setTxt(value)
         value.length ? setshowCancelBtn('') : setshowCancelBtn('hidden')
-        // onFilterBy({ [field]: value })
+
+        setFilterBy({ [field]: value })
     }
 
     function onSubmitFilter(ev) {

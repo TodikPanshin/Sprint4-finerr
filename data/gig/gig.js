@@ -1,10 +1,11 @@
 
+
 const gig = {
   "_id": "i101",
   "title": "I will design your logo",
   "price": 12,
   "rating": {
-    "average": 5,
+    "average": 4.32,
     "num": 178
   },
   "owner": {
@@ -21,7 +22,8 @@ const gig = {
     "logo-design",
     "artisitic",
     "proffesional",
-    "accessible"
+    "accessible",
+    "Graphic & Design"
   ],
   "likedByUsers": ["mini-user"]
 }
@@ -29,27 +31,24 @@ const gig = {
 const gigs = [
   {
     "_id": "i101",
-    "title": "I will design your logo",
-    "price": 12,
+    "title": "Editor and Translator",
+    "price": 56,
     "rating": {
-      "average": 5,
+      "average": 4.89,
       "num": 178
     },
     "owner": {
       "_id": "u101",
-      "fullname": "Dudu Da",
+      "fullname": "Avi Danziger",
       "imgUrl": "url",
       "level": "basic/premium",
       "rate": 4
     },
     "daysToMake": 3,
-    "description": "Make unique logo...",
+    "description": "I'll Translate all kind of documents",
     "imgUrl": "https://picsum.photos/200/300",
     "tags": [
-      "logo-design",
-      "artisitic",
-      "proffesional",
-      "accessible"
+      "Writing & Translation"
     ],
     "likedByUsers": ["mini-user"]
   },
@@ -84,7 +83,7 @@ const gigs = [
     "title": "I will create your website",
     "price": 50,
     "rating": {
-      "average": 4,
+      "average": 4.23,
       "num": 100
     },
     "owner": {
@@ -98,6 +97,7 @@ const gigs = [
     "description": "Create a beautiful and responsive website...",
     "imgUrl": "https://picsum.photos/200/300",
     "tags": [
+      "Graphic & Design",
       "website-design",
       "beautiful",
       "responsive",
@@ -108,7 +108,7 @@ const gigs = [
   {
     "_id": "i104",
     "title": "I will develop your app",
-    "price": 100,
+    "price": 110,
     "rating": {
       "average": 3.5,
       "num": 50
@@ -127,6 +127,7 @@ const gigs = [
       "app-development",
       "functional",
       "user-friendly",
+      "Programming & Tech",
       "professional"
     ],
     "likedByUsers": ["mini-user"]
@@ -150,7 +151,7 @@ const gigs = [
     "description": "I will write your ad copy",
     "imgUrl": "https://picsum.photos/200/300",
     "tags": [
-      "app-development",
+      "Writing & Translation",
       "functional",
       "user-friendly",
       "professional"
@@ -165,128 +166,138 @@ const gigs = [
       "rating": {
         "average": 4.5,
         "num": 100
+      },
+      "owner": {
+        "_id": "u106",
+        "fullname": "Ni Ni",
+        "imgUrl": "url",
+        "level": "basic/premium",
+        "rate": 3
+      },
+      "daysToMake": 5,
+      "description": "Create eye-catching and persuasive marketing materials...",
+      "imgUrl": "https://picsum.photos/200/300",
+      "tags": [
+        "marketing-materials",
+        "Writing & Translation",
+        "eye-catching",
+        "persuasive",
+        "Business",
+        "professional"
+      ],
+      "likedByUsers": ["mini-user"]
+    }
   },
-  "owner": {
-    "_id": "u106",
-    "fullname": "Ni Ni",
-    "imgUrl": "url",
-    "level": "basic/premium",
-    "rate": 3
-  },
-  "daysToMake": 5,
-  "description": "Create eye-catching and persuasive marketing materials...",
-  "imgUrl": "https://picsum.photos/200/300",
-  "tags": [
-    "marketing-materials",
-    "eye-catching",
-    "persuasive",
-    "professional"
-  ],
-  "likedByUsers": ["mini-user"]
-  }
-},
-{
-  "_id": "i107",
+  {
+    "_id": "i107",
     "title": "I will manage your social media",
-      "price": 50,
-        "rating": {
-    "average": 4.5,
+    "price": 50,
+    "rating": {
+      "average": 4.32,
       "num": 100
-  },
-  "owner": {
-    "_id": "u107",
+    },
+    "owner": {
+      "_id": "u107",
       "fullname": "Oli Oli",
-        "imgUrl": "url",
-          "level": "basic/premium",
-            "rate": 5
-  },
-  "daysToMake": 10,
+      "imgUrl": "url",
+      "level": "basic/premium",
+      "rate": 5
+    },
+    "daysToMake": 10,
     "description": "Grow your social media following and engagement...",
-      "imgUrl": "https://picsum.photos/200/300",
-        "tags": [
-          "social-media-management",
-          "grow-following",
-          "engagement",
-          "professional"
-        ],
-          "likedByUsers": ["mini-user", "mini-user2"]
-},
-{
-  "_id": "i108",
+    "imgUrl": "https://picsum.photos/200/300",
+    "tags": [
+      "Digital Marketing",
+      "Writing & Translation",
+      "social-media-management",
+      "grow-following",
+      "engagement",
+      "professional"
+    ],
+    "likedByUsers": ["mini-user", "mini-user2"]
+  },
+  {
+    "_id": "i108",
     "title": "I will create your email marketing campaigns",
-      "price": 25,
-        "rating": {
-    "average": 4,
+    "price": 25,
+    "rating": {
+      "average": 4.12,
       "num": 50
-  },
-  "owner": {
-    "_id": "u108",
+    },
+    "owner": {
+      "_id": "u108",
       "fullname": "Poppy Poppy",
-        "imgUrl": "url",
-          "level": "basic/premium",
-            "rate": 3
-  },
-  "daysToMake": 3,
+      "imgUrl": "url",
+      "level": "basic/premium",
+      "rate": 3
+    },
+    "daysToMake": 3,
     "description": "Create effective email marketing campaigns that convert...",
-      "imgUrl": "https://picsum.photos/200/300",
-        "tags": [
-          "email-marketing",
-          "effective",
-          "convert",
-          "professional"
-        ],
-          "likedByUsers": ["mini-user"]
-},
-{
-  "_id": "i109",
+    "imgUrl": "https://picsum.photos/200/300",
+    "tags": [
+      "Digital Marketing",
+      "Writing & Translation",
+      "email-marketing",
+      "effective",
+      "convert",
+      "professional"
+    ],
+    "likedByUsers": ["mini-user"]
+  },
+  {
+    "_id": "i109",
     "title": "I will help you with your SEO",
-      "price": 100,
-        "rating": {
-    "average": 3.5,
+    "price": 100,
+    "rating": {
+      "average": 3.54,
       "num": 25
-  },
-  "owner": {
-    "_id": "u109",
+    },
+    "owner": {
+      "_id": "u109",
       "fullname": "Romy Romy",
-        "imgUrl": "url",
-          "level": "basic/premium",
-            "rate": 2
-  },
-  "daysToMake": 15,
+      "imgUrl": "url",
+      "level": "basic/premium",
+      "rate": 2
+    },
+    "daysToMake": 15,
     "description": "Improve your website's search engine ranking...",
-      "imgUrl": "https://picsum.photos/200/300",
-        "tags": [
-          "seo",
-          "improve-ranking",
-          "professional"
-        ],
-          "likedByUsers": []
-},
-{
-  "_id": "i110",
+    "imgUrl": "https://picsum.photos/200/300",
+    "tags": [
+      "Digital Marketing",
+      "Programming & Tech",
+      "seo",
+      "improve-ranking",
+      "professional"
+    ],
+    "likedByUsers": []
+  },
+  {
+    "_id": "i110",
     "title": "I will create your video content",
-      "price": 50,
-        "rating": {
-    "average": 4.5,
+    "price": 50,
+    "rating": {
+      "average": 4.67,
       "num": 100
-  },
-  "owner": {
-    "_id": "u110",
+    },
+    "owner": {
+      "_id": "u110",
       "fullname": "Suki Suki",
-        "imgUrl": "url",
-          "level": "basic/premium",
-            "rate": 5
-  },
-  "daysToMake": 10,
+      "imgUrl": "url",
+      "level": "basic/premium",
+      "rate": 5
+    },
+    "daysToMake": 10,
     "description": "Create engaging and informative video content...",
-      "imgUrl": "https://picsum.photos/200/300",
-        "tags": [
-          "seo",
-          "improve-ranking",
-          "professional"
-        ],
-          "likedByUsers": []
-},
+    "imgUrl": "https://picsum.photos/200/300",
+    "tags": [
+      "Video & Animation",
+      "Digital Marketing",
+      "seo",
+      "improve-ranking",
+      "professional"
+    ],
+    "likedByUsers": []
+  },
 ]
 
 

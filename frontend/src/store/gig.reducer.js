@@ -1,4 +1,5 @@
 export const SET_GIGS = 'SET_GIGS'
+export const SET_FILTER = 'SET_FILTER'
 export const REMOVE_GIG = 'REMOVE_GIG'
 export const ADD_GIG = 'ADD_GIG'
 export const UPDATE_GIG = 'UPDATE_GIG'
@@ -9,6 +10,10 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 const initialState = {
     gigs: [],
+    filterBy: {
+        txt: '',
+        tags: []
+    },
     cart: [],
     lastRemovedGig: null
 }
@@ -20,6 +25,9 @@ export function gigReducer(state = initialState, action) {
     switch (action.type) {
         case SET_GIGS:
             newState = { ...state, gigs: action.gigs }
+            break
+        case SET_FILTER:
+            newState = { ...state, filterBy: action.filterBy }
             break
         case REMOVE_GIG:
             const lastRemovedGig = state.gigs.find(gig => gig._id === action.gigId)
