@@ -101,7 +101,7 @@ export function GigDetails() {
                 <a href="#">Reviews</a>
             </section> */}
             <section className='gig-container flex column' >
-                {/* <Packages gig={gig}/> */}
+                <Packages gig={gig}/>
                 <section className="gig-details" id='gig-details'>
                     <h1 className='gig-title'>{gig.title}</h1>
                     <div className='seller-details flex align-center'>

@@ -1,18 +1,19 @@
+import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import routes from '../routes'
+
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { SearchBox } from './search-box.jsx'
 import { LoginSignup } from './login-signup.jsx'
-import { useState } from 'react'
+import { setFilterBy } from '../store/gig.actions'
 
 const categories = [
     'Graphic & Design',
     'Digital Marketing',
     'Writing & Translation',
     'Video & Animation',
-    'Programming&Tech',
+    'Programming & Tech',
     'Photography',
     'Business',
     'AI Services'
@@ -21,8 +22,14 @@ const categories = [
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
     const [isProfileClicked, setIsProfileClicked] = useState(false)
-    const navigate = useNavigate()
-
+    const [isSignUp, setIsSignup] = useState(false)
+    
+    const [newFilterBy, setNewFilterBy] = useState({})
+    
+    
+    
+    //  USER
+    
     async function onLogin(credentials) {
         try {
             const user = await login(credentials)
@@ -50,23 +57,35 @@ export function AppHeader() {
         }
     }
 
-
+    function toggleSignup() {
+        setIsSignup(true)
+    }
 
     function onProfileClick() {
         setIsProfileClicked(!isProfileClicked)
         console.log(isProfileClicked)
     }
 
+    // FILTER
+
+    function handleCategoryFilter(category) {
+        setNewFilterBy({...newFilterBy, category })
+        setFilterBy(newFilterBy)
+    }
+
     return (
-        <header className="app-header main-layout full">
+        <header className="app-header full main-layout">
             <section className="main-header">
-                <NavLink key="/" to="/" className="logo"><div className="white-dot"></div>finerr<span className="dot">.</span></NavLink>
-                <SearchBox />
+                <NavLink key="/" to="/" className="logo">
+                    <div className="white-dot">
+                    </div>finerr<span className="dot">.</span>
+                </NavLink>
+
+                <SearchBox setFilterBy={setFilterBy}/>
 
                 <nav>
                     <NavLink key="gig" to="/gig">Explore</NavLink>
                     <NavLink key="seller-register" to="/">Become a Seller</NavLink>
-
                     {user &&
                         <span className="user-info">
                             <button onClick={onProfileClick}>
@@ -80,20 +99,22 @@ export function AppHeader() {
                         </span>
                     }
                     {!user &&
-                        <button>Sign in</button>
+                        <button onClick={toggleSignup}>Sign in</button>
                     }
-                    {!user && <button>Join</button>
-                        /* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */
+                    {!user && <button onClick={toggleSignup}>Join</button>
                     }
                 </nav>
             </section>
-            <section className="categories">
+
+            <section className="categories full main-layout">
                 <ul className="categories-list">
                     {categories.map(category =>
-                        <li key={category} className="category">
+                        <li key={category} className="category"
+                            onClick={() => handleCategoryFilter(category)}>
                             {category}
                         </li>)}
                 </ul>
+                {isSignUp && <LoginSignup cancel={setIsSignup} onLogin={onLogin} onSignup={onSignup} />}
             </section>
         </header>
     )

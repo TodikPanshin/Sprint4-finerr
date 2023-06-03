@@ -20,13 +20,19 @@ _createGig()
 
 async function query(filterBy = {}) {
     var gigs = await storageService.query(STORAGE_KEY)
-    // if (filterBy.txt) {
-    //     const regex = new RegExp(filterBy.txt, 'i')
-    //     gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
-    // }
+    if (filterBy.txt) {
+        const regex = new RegExp(filterBy.txt, 'i')
+        gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.owner.fullname) || regex.test(gig.tags))
+    }
+
+    if (filterBy.category) {
+        gigs = gigs.filter(gig => gig.tags.includes(filterBy.category))
+    }
+    
     // if (filterBy.price) {
     //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
     // }
+
     return gigs
 }
 
@@ -110,7 +116,7 @@ function demoGig() {
         },
         "daysToMake": 3,
         "description": utilService.makeLorem(10),
-        "imgUrl": "https://picsum.photos/250/150",
+        "imgUrls": ["https://picsum.photos/250/150", "https://picsum.photos/250/150"],
         "tags": [
             "logo-design",
             "artisitic",

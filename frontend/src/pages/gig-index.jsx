@@ -10,10 +10,11 @@ import { GigList } from '../cmps/gig-list.jsx'
 export function GigIndex() {
 
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
 
     useEffect(() => {
-        loadGigs()
-    }, [])
+        loadGigs(filterBy)
+    }, [filterBy])
 
     // async function onRemoveGig(gigId) {
     //     try {
