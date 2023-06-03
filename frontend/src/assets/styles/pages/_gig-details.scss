@@ -35,11 +35,11 @@
 
             }
         }
+    }
 
-        .seller-img {
-            & img {
-                border-radius: 50%;
-            }
+    .seller-img {
+        & img {
+            border-radius: 50%;
         }
     }
 
@@ -62,7 +62,6 @@
 
     .gig-imgs-contener {
         width: auto;
-        // height: 427px;
         position: relative;
         margin-block-end: 64px;
     }
@@ -83,11 +82,20 @@
         }
     }
 
-    .seller-details {
-        .seller-details-title {
-            color:$clr-font-dark; 
-            font-size: 20px;
-            line-height: 28px;
+    .seller-details-card-title {
+        color: $clr-font-dark;
+        font-size: em(20px);
+        line-height: em(28px);
+    }
+
+    .seller-details-card {
+        .seller-img {
+            width: rem(110px);
+            height: rem(110px);
+        }
+
+        .seller-details-card-txt {
+            padding-left: 15px
         }
     }
 }

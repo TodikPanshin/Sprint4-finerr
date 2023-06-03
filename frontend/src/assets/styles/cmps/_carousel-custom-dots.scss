@@ -1,0 +1,14 @@
+.carousel-custom-dots {
+    height: auto;
+
+    .custom-dot {
+        object-fit: cover;
+        border: none;
+        margin: 10px;
+        outline: none;
+    }
+
+    .active {
+        outline: auto;
+    }
+}

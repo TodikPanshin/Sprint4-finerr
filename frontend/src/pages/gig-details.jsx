@@ -7,6 +7,7 @@ import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
 import { ReviewsPreview } from '../cmps/review-preview.jsx'
 import { Packages } from '../cmps/packages.jsx'
 import { GigCarousel } from '../cmps/gig-carousel.jsx'
+import { GigSwiper } from '../cmps/gig-swiper.jsx'
 
 
 export function GigDetails() {
@@ -20,7 +21,7 @@ export function GigDetails() {
             imgUrl: '',
             level: "basic/premium",
             rate: 4,
-            about: `Hi, My Name is Yael Rozanes and in the past 10 years
+            about: `Hi, My Name is Dudu Da and in the past 10 years
              Ive been working as a UI/UX designer,
               product manager and creative director
                in the E-commerce field. I offer a wide
@@ -33,8 +34,7 @@ export function GigDetails() {
                      Marketplace for nearly 5 years. I am also a 
                      skilled WordPress Developer. I have been designing
                       and developing WordPress & Shopify websites for
-                       more than 7 years.`
-        },
+                       more than 7 years.`},
         daysToMake: 3,
         description: `A logo is what identifies your brand and business.
          If you are looking for a modern minimalist luxury and elegant logo,
@@ -124,9 +124,8 @@ export function GigDetails() {
                         <h5>puki</h5>
                     </div>
                     <div className='gig-imgs-contener'>
-                        <GigCarousel gigImgs={gig.imgUrl}/>
-                        {/* <img src={gig.imgUrl} alt="test img" />
-                        <div className='img-preview'><img src={gig.imgUrl} alt="" /></div> */}
+                        {/* <GigCarousel gigImgs={gig.imgUrl}/> */}
+                        <GigSwiper gigImgs={gig.imgUrl} />
                     </div>
                     <section className="review-preview">
                         <h3 className='review-preview-title'>What people loved about this seller</h3>
@@ -136,19 +135,24 @@ export function GigDetails() {
                             ))}
                         </ul>
                     </section>
-                    <section className='about-gig'>
+                    <section className='about-gig' id='about-gig'>
                         <h2>About This Gig</h2>
-                        <p>{gig.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, sunt, sed eos illum quis omnis sequi enim quibusdam ipsum quidem hic mollitia autem, nihil tenetur laudantium tempore. Impedit, assumenda atque.</p>
+                        <p>{gig.description} </p>
                     </section>
-                    <div className='seller-details' id='seller-details'>
-                        <h2 className='seller-details-title'>About The Seller</h2>
-                        <div className='seller-img'>
-                            <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
+                    <h2 className='seller-details-card-title'>About The Seller</h2>
+                    <section className='seller-card' id='seller-card'>
+                        <div className='seller-details-card flex '>
+                            <div className='seller-img'>
+                                <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
+                            </div>
+                            <div className='seller-details-card-txt flex column'>
+                                <h2>{gig.owner.fullname}</h2>
+                                <h5>Level {gig.owner.rate} Seller</h5>
+                                <button className='btn-gig-contact'>Contact me</button>
+                            </div>
                         </div>
-                        <h2>{gig.owner.fullname}</h2>
-                        <h5>Level {gig.owner.rate} Seller</h5>
                         <p>{gig.owner.about}</p>
-                    </div>
+                    </section>
                 </section>
             </section>
         // </>

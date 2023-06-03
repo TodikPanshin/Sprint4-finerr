@@ -58,6 +58,10 @@ p {
     &-hero {
         @include btn($type: hero-btn);
     }
+    
+    &-gig-contact {
+        @include btn($type: gig-contact);
+    }
 }
 
 a {
