@@ -132,7 +132,7 @@ export function GigDetails() {
                         </ul>
                     </section>
                     <section className='about-gig' id='about-gig'>
-                        <h2>About This Gig</h2>
+                        <h2 className='about-gig-title'>About This Gig</h2>
                         <p>{gig.description} </p>
                     </section>
                     <h2 className='seller-details-card-title'>About The Seller</h2>
