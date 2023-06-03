@@ -58,6 +58,8 @@ export function GigDetails() {
             "accessible"
         ],
     })
+
+    // const [gig, setGig] = useState({})
     const [reviews, setReviews] = useState([
         {
             id: "madeId",
@@ -80,26 +82,20 @@ export function GigDetails() {
     //     loadGig()
     // }, [gigId])
 
-    // function loadGig() {
-    //     gigService.getById(gigId)
-    //         .then(setGig)
-    //         .catch((err) => {
-    //             console.log('Had issues in gig details', err)
-    //             showErrorMsg('Cannot load gig')
-    //             navigate('/gig')
-    //         })
-    // }
+    function loadGig() {
+        gigService.getById(gigId)
+            .then(setGig)
+            .catch((err) => {
+                console.log('Had issues in gig details', err)
+                showErrorMsg('Cannot load gig')
+                navigate('/gig')
+            })
+    }
 
     if (!gig || gig.length) return <div>Loading...</div>
     return (
         <>
             <GigToolBar />
-            {/* <section className='gig-details-nav clean-list'>
-                <a href="#gig-details">Overview</a>
-                <a href="#seller-details">About the seller</a>
-                <a href="#">Compare packages</a>
-                <a href="#">Reviews</a>
-            </section> */}
             <section className='gig-container flex column' >
                 <Packages gig={gig}/>
                 <section className="gig-details" id='gig-details'>
