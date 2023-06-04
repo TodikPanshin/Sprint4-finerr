@@ -46,17 +46,30 @@
     }
 
     .rating {
-        color: $clr-btn-search;
-        margin-top: 0.5em;
-        padding-left: 4px;
-        font-size: 1em;
-        font-weight: bold;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
 
-        span {
-            color: $clr2;
-            padding: 0px 0px 0px 4px;
-            font-weight: 200;
+        .star {
+            width: 15px;
+            height: 15px;
+            color: $clr-btn-search;
+            fill: $clr-btn-search;
         }
+
+        .average {
+            padding-left: 4px;
+            font-weight: bold;
+            color: $clr-btn-search;
+        }
+
+        .num {
+            padding-left: 4px;
+            font-weight: 300;
+        }
+
+        // color: $clr2;
+
     }
 
     .price {
