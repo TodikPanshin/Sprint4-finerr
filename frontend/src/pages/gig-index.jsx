@@ -61,13 +61,8 @@ export function GigIndex() {
     return (
         <div>
             <main>
-                {/* <button onClick={onAddGig}>Add Gig ⛐</button> */}
                 < GigList
                     gigs={gigs}
-                // onRemoveGig={onRemoveGig}
-                // onEditGig={onEditGig}
-                // addToCart={addToCart}
-
                 />
             </main>
         </div>

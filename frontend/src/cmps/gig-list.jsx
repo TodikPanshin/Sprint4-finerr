@@ -8,14 +8,6 @@ export function GigList({ gigs }) { //, onRemoveGig, onEditGig, addToCurt
             <li className="clean-list" key={gig._id}>
                 <GigPreview gig={gig} />
 
-                {/* <div>
-                    <button onClick={() => { onRemoveGig(gig._id) }}>x</button>
-                    <button onClick={() => { onEditGig(gig) }}>Edit</button>
-                </div> */}
-
-                {/* <button className="buy" onClick={() => { addToCurt(gig) }}>
-                    Add to Curt
-                </button> */}
             </li>)}
     </ul>
 }

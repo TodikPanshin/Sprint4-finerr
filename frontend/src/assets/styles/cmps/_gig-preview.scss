@@ -51,7 +51,7 @@
         margin-top: 0.5em;
         padding-left: 4px;
         font-size: 1em;
-        font-family: garamond;
+        // font-family: garamond;
         font-weight: bold;
 
         span {
@@ -67,77 +67,11 @@
         font-size: 1em;
         line-height: 1.5em;
         color: $clr-btn-search;
-        font-family: garamond;
+        // font-family: garamond;
         font-weight: bold;
 
         &:hover .title {
             text-decoration: underline;
         }
     }
-}
-
-.carousel .control-arrow::before {
-    content: "\003c";
-    /* סמל החץ המבוקש - "less than sign" */
-    font-size: 24px;
-    /* גודל החץ */
-    color: white;
-    /* צבע החץ */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    /* רוחב החץ */
-    height: 30px;
-    /* גובה החץ */
-    background-color: white;
-    /* צבע הרקע של העיגול */
-    border-radius: 50%;
-    /* קיפול העיגול */
-    text-align: center;
-    line-height: 30px;
-    /* מרווח עם החץ במרכז העיגול */
-}
-
-.carousel .control-prev.control-arrow {
-    left: 20px;
-    /* מרווח שמאלי של החץ השמאלי */
-}
-
-.carousel .control-next.control-arrow {
-    right: 20px;
-    /* מרווח ימני של החץ הימני */
-}
-
-.carousel .control-arrow::before {
-    content: "";
-    font-size: 24px;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 30px;
-}
-
-.carousel .control-prev.control-arrow::before {
-    content: "<";
-}
-
-.carousel .control-next.control-arrow::before {
-    content: ">";
-}
-
-.carousel .control-prev.control-arrow {
-    left: 20px;
-}
-
-.carousel .control-next.control-arrow {
-    right: 20px;
 }
