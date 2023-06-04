@@ -50,7 +50,7 @@ export function GigDetails() {
               consideration and give my 100% to every projects and work
                until the client is completely satisfied with the work.`,
 
-        imgUrl: "https://picsum.photos/400",
+        imgUrl: "https://picsum.photos/400/300",
         tags: [
             "logo-design",
             "artisitic",

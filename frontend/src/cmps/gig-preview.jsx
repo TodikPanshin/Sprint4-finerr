@@ -4,7 +4,7 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export function GigPreview({ gig }) {
-
+// console.log(gig)
     return (
         <article className="gig-preview clean-list flex column">
             <Link to={`/gig/${gig._id}`} target="_blank" >
