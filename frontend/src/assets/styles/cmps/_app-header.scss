@@ -9,8 +9,6 @@
     font-size: 0.8rem;
     padding: 0;
 
-
-
     .logo {
         position: relative;
         color: black;
@@ -133,8 +131,6 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        background-color: $clr1;
-        border-top: 1px solid $clr1;
         padding: 0 5px;
 
         a {
@@ -143,6 +139,11 @@
             &:hover {
                 color: $clr-btn-hov;
             }
+
+            &.active {
+                text-decoration: none;
+            }
+
         }
 
         img {
@@ -154,6 +155,7 @@
             font-family: inherit;
             font-size: inherit;
             font-weight: inherit;
+            background-color: transparent;
 
             &:hover {
                 color: $clr-btn-hov;
@@ -210,6 +212,49 @@
                 color: $clr-btn-hov;
             }
         }
+    }
+
+    &.home {
+        background-color: transparent;
+
+        .logo {
+            color: white;
+            letter-spacing: normal;
+            font-weight: bolder;
+            flex-grow: 10;
+
+            .white-dot {
+                display: none;
+            }
+        }
+
+        .search-box {
+            display: none;
+        }
+
+        nav {
+
+            button,
+            a {
+                background-color: transparent;
+                color: white;
+            }
+
+            button:last-child {
+                border: 1px solid white;
+
+                &:hover {
+                    border: 1px solid transparent;
+                }
+            }
+
+            .user-info {
+                button {
+                    border: 0;
+                }
+            }
+        }
+
     }
 }
 
