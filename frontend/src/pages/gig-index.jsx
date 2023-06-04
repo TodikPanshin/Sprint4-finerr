@@ -16,57 +16,11 @@ export function GigIndex() {
         loadGigs(filterBy)
     }, [filterBy])
 
-    // async function onRemoveGig(gigId) {
-    //     try {
-    //         await removeGig(gigId)
-    //         showSuccessMsg('Gig removed')
-    //     } catch (err) {
-    //         showErrorMsg('Cannot remove gig')
-    //     }
-    // }
-
-    // async function onAddGig() {
-    //     const gig = gigService.getEmptyGig()
-    //     gig.vendor = prompt('Vendor?')
-    //     try {
-    //         const savedGig = await addGig(gig)
-    //         showSuccessMsg(`Gig added (id: ${savedGig._id})`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot add gig')
-    //     }
-    // }
-
-    // async function onUpdateGig(gig) {
-    //     const price = +prompt('New price?')
-    //     const gigToSave = { ...gig, price }
-    //     try {
-    //         const savedGig = await updateGig(gigToSave)
-    //         showSuccessMsg(`Gig updated, new price: ${savedGig.price}`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot update gig')
-    //     }
-    // }
-
-    // function onAddToCart(gig) {
-    //     console.log(`Adding ${gig.vendor} to Cart`)
-    //     addToCart(gig)
-    //     showSuccessMsg('Added to Cart')
-    // }
-
-    // function onAddGigMsg(gig) {
-    //     console.log(`TODO Adding msg to gig`)
-    // }
-
     return (
         <div>
             <main>
-                {/* <button onClick={onAddGig}>Add Gig ⛐</button> */}
                 < GigList
                     gigs={gigs}
-                // onRemoveGig={onRemoveGig}
-                // onEditGig={onEditGig}
-                // addToCart={addToCart}
-
                 />
             </main>
         </div>
