@@ -16,7 +16,7 @@ export function AppFooter() {
         try {
             const score = await checkout(cartTotal)
             showSuccessMsg(`Charged, your new score: ${score.toLocaleString()}`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot checkout')
         }
     }

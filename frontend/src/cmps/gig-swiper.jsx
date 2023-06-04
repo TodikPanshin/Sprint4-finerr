@@ -14,38 +14,43 @@ export function GigSwiper({ gigImgs }) {
     return (
         <>
             <Swiper
-            className='main-swiper'
-            
+                className='main-swiper'
                 modules={[Navigation, Thumbs, A11y]}
                 spaceBetween={50}
                 navigation
                 thumbs={{ swiper: thumbsSwiper }}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+                // onSlideChange={() => console.log('slide change')}
+                // onSwiper={(swiper) => console.log(swiper)}
                 loop={true}
                 touchRatio={0.4}
             >
                 <div className='swiper-wrapper'>
-                <SwiperSlide><img src={gigImgs} alt="" /></SwiperSlide>
+                    {gigImgs.map((img, index) => (
+                        <SwiperSlide key={index}>
+                            <img src={img} alt="" />
+                        </SwiperSlide>
+                    ))}
+                    {/* <SwiperSlide><img src={gigImgs} alt="" /></SwiperSlide>
                 <SwiperSlide><img src="https://picsum.photos/400/300?img=1" alt="" /></SwiperSlide>
                 <SwiperSlide><img src="https://picsum.photos/400/300?img=2" alt="" /></SwiperSlide>
-                <SwiperSlide> <img src="https://robohash.org/test?set=set4&bgset=bg1&size=400x300" alt="" /></SwiperSlide>
-                <SwiperButtons/>
+                <SwiperSlide> <img src="https://robohash.org/test?set=set4&bgset=bg1&size=400x300" alt="" /></SwiperSlide> */}
+                    <SwiperButtons />
                 </div>
             </Swiper>
 
             <Swiper
-            className='thumbs-swiper'
+                className='thumbs-swiper'
                 modules={[Thumbs]}
                 watchSlidesProgress={true}
                 spaceBetween={10}
                 slidesPerView={4}
                 onSwiper={setThumbsSwiper}
             >
-                <SwiperSlide><img src={gigImgs} alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://picsum.photos/400/300?img=1" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://picsum.photos/400/300?img=2" alt="" /></SwiperSlide>
-                <SwiperSlide> <img src="https://robohash.org/test?set=set4&bgset=bg1&size=400x300" alt="" /></SwiperSlide>
+                {gigImgs.map((img, index) => (
+                    <SwiperSlide key={index}>
+                        <img src={img} alt="" />
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </>
     );

@@ -11,55 +11,7 @@ import { GigSwiper } from '../cmps/gig-swiper.jsx'
 
 
 export function GigDetails() {
-    const [gig, setGig] = useState({
-        _id: "i101",
-        title: "I will design your logo",
-        price: 12,
-        owner: {
-            _id: "u101",
-            fullname: "Dudu Da",
-            imgUrl: '',
-            level: "basic/premium",
-            rate: 4,
-            about: `Hi, My Name is Dudu Da and in the past 10 years
-             Ive been working as a UI/UX designer,
-              product manager and creative director
-               in the E-commerce field. I offer a wide
-                variety of design and development services
-                 for business owners to help you grow your
-                  business. I can create any kind of unique 
-                  design overnight to help businesses attract
-                   more clients.I am a Shopify official partner
-                    and Expert and have been part of the Shopify
-                     Marketplace for nearly 5 years. I am also a 
-                     skilled WordPress Developer. I have been designing
-                      and developing WordPress & Shopify websites for
-                       more than 7 years.`},
-        daysToMake: 3,
-        description: `A logo is what identifies your brand and business.
-         If you are looking for a modern minimalist luxury and elegant logo,
-          then you are on the right page and a step away to get your brand’s identity logo.
-
-        With over 2000 satisfied clients, VIP customer care and 
-        a creative mind at your service. Where the customer's
-         satisfaction is on top of everything, you will be provided
-          with a very friendly, yet professional treatment. I always
-           prioritise client’s satisfaction because it is the most
-            important factor when it comes to work. Having that said,
-             I always take client’s requirements and imagination into
-              consideration and give my 100% to every projects and work
-               until the client is completely satisfied with the work.`,
-
-        imgUrl: "https://picsum.photos/400/300",
-        tags: [
-            "logo-design",
-            "artisitic",
-            "proffesional",
-            "accessible"
-        ],
-    })
-
-    // const [gig, setGig] = useState({})
+    
     const [reviews, setReviews] = useState([
         {
             id: "madeId",
@@ -73,23 +25,25 @@ export function GigDetails() {
             }
         }
     ])
-
-    const { gigId } = useParams()
+    const [gig, setGig] = useState()
+    const { id } = useParams()
     const navigate = useNavigate()
+console.log(id)
 
+    useEffect(() => {
+        loadGig()
+    }, [id])
 
-    // useEffect(() => {
-    //     loadGig()
-    // }, [gigId])
-
-    function loadGig() {
-        gigService.getById(gigId)
-            .then(setGig)
-            .catch((err) => {
-                console.log('Had issues in gig details', err)
-                showErrorMsg('Cannot load gig')
-                navigate('/gig')
-            })
+    async function loadGig() {
+        try {
+            const gig = await gigService.getById(id)
+            setGig(gig)
+            console.log(gig)
+        } catch (err) {
+            console.log('Had issues in gig details', err)
+            showErrorMsg('Cannot load gig');
+            navigate('/gig');
+        }
     }
 
     if (!gig || gig.length) return <div>Loading...</div>
@@ -120,7 +74,7 @@ export function GigDetails() {
                     </div>
                     <div className='gig-imgs-contener'>
                         {/* <GigCarousel gigImgs={gig.imgUrl}/> */}
-                        <GigSwiper gigImgs={gig.imgUrl} />
+                        <GigSwiper gigImgs={gig.imgUrls} />
                     </div>
                     <section className="review-preview">
                         <h3 className='review-preview-title'>What people loved about this seller</h3>
