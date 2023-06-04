@@ -5,6 +5,7 @@ import { Navigation, Thumbs, A11y } from 'swiper';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/thumbs';
+import { SwiperButtons } from './swiper-nav-buttons';
 
 
 export function GigSwiper({ gigImgs }) {
@@ -17,7 +18,7 @@ export function GigSwiper({ gigImgs }) {
             
                 modules={[Navigation, Thumbs, A11y]}
                 spaceBetween={50}
-                navigation={true}
+                navigation
                 thumbs={{ swiper: thumbsSwiper }}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
@@ -26,10 +27,10 @@ export function GigSwiper({ gigImgs }) {
             >
                 <div className='swiper-wrapper'>
                 <SwiperSlide><img src={gigImgs} alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://picsum.photos/400?img=1" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://picsum.photos/400?img=2" alt="" /></SwiperSlide>
-                <SwiperSlide> <img src="https://robohash.org/test?set=set4&bgset=bg1" alt="" /></SwiperSlide>
-                {/* <SwiperButtons/> */}
+                <SwiperSlide><img src="https://picsum.photos/400/300?img=1" alt="" /></SwiperSlide>
+                <SwiperSlide><img src="https://picsum.photos/400/300?img=2" alt="" /></SwiperSlide>
+                <SwiperSlide> <img src="https://robohash.org/test?set=set4&bgset=bg1&size=400x300" alt="" /></SwiperSlide>
+                <SwiperButtons/>
                 </div>
             </Swiper>
 
@@ -42,9 +43,9 @@ export function GigSwiper({ gigImgs }) {
                 onSwiper={setThumbsSwiper}
             >
                 <SwiperSlide><img src={gigImgs} alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://picsum.photos/400?img=1" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://picsum.photos/400?img=2" alt="" /></SwiperSlide>
-                <SwiperSlide> <img src="https://robohash.org/test?set=set4&bgset=bg1" alt="" /></SwiperSlide>
+                <SwiperSlide><img src="https://picsum.photos/400/300?img=1" alt="" /></SwiperSlide>
+                <SwiperSlide><img src="https://picsum.photos/400/300?img=2" alt="" /></SwiperSlide>
+                <SwiperSlide> <img src="https://robohash.org/test?set=set4&bgset=bg1&size=400x300" alt="" /></SwiperSlide>
             </Swiper>
         </>
     );
