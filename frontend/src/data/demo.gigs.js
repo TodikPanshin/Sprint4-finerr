@@ -144,7 +144,7 @@ export const demoGigs = [
   },
   {
     "_id": "i103",
-    "title": "I will build your wordpress website with oxygen builder",
+    "title": "I will build your wordpress website with oxygen",
     "price": 50,
     "rating": {
       "average": "4.3",
@@ -453,7 +453,7 @@ export const demoGigs = [
   },
   {
     "_id": "i110",
-    "title": "I will design amazing children illustrations provided",
+    "title": "I will design amazing children illustrations",
     "price": 50,
     "rating": {
       "average": "4.5",
