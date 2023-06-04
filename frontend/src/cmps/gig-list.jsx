@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 import { GigPreview } from "./gig-preview.jsx"
 
@@ -22,11 +22,11 @@ export function GigList({ gigs }) { //, onRemoveGig, onEditGig, addToCurt
 
 
 
-GigList.propTypes = {
-    txt(props, propName, cmpName) {
-        if (typeof props.txt !== 'string') {
-            return new Error('Not a string!')
-        }
-    },
-    nums: PropTypes.arrayOf(PropTypes.number)
-}
+// GigList.propTypes = {
+    // txt(props, propName, cmpName) {
+    //     if (typeof props.txt !== 'string') {
+    //         return new Error('Not a string!')
+    //     }
+    // },
+    // nums: PropTypes.arrayOf(PropTypes.number)
+// }

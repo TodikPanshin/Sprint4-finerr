@@ -57,6 +57,7 @@ export function GigIndex() {
     //     console.log(`TODO Adding msg to gig`)
     // }
 
+    if (!gigs.length) return <div>Loading...</div>
     return (
         <div>
             <main>
