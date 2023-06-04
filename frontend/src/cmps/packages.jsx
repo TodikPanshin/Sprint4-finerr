@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { utilService } from "../services/util.service"
 
 export function Packages({ gig }) {
     const [selected, setSelected] = useState(1)
@@ -21,7 +22,7 @@ export function Packages({ gig }) {
             </div>
             <div className="main-package">
                 <h2>${gig.price * selected}</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nobis eligendi repellat recusandae non eum explicabo, impedit labore ipsam iure molestiae. Suscipit, aspernatur in tempore aliquam commodi consectetur necessitatibus aut, eos voluptatibus quam debitis nobis!</p>
+                <p>{utilService.makeLorem(selected*10)}</p>
                 <button>Continue</button>
                 {/* <a href="#">Compare packages</a> */}
             </div>

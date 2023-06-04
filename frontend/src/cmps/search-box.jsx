@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { useSelector } from "react-redux"
 
-export function SearchBox({setFilterBy}) {
+export function SearchBox({setFilterBy, placeholder}) {
     const [showCancelBtn, setshowCancelBtn] = useState('hidden')
     const [txt, setTxt] = useState('')
 
@@ -36,7 +36,7 @@ export function SearchBox({setFilterBy}) {
                 onChange={handleChange}
                 name="txt" id="txt" type="text"
                 value={txt}
-                placeholder="What service are you looking for today?" />
+                placeholder={placeholder} />
             <button onClick={cancelSearch} className={`cancel-btn ${showCancelBtn}`}>X</button>
             <button onClick={onSubmitFilter} className="search-btn">
                 <img

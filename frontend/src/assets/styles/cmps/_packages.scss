@@ -1,7 +1,7 @@
 .packages-container {
     position: absolute;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    height: 35rem;
+    height: 30rem;
     width: 22%;
     right: 16rem;
     top: 12rem;
@@ -42,10 +42,14 @@
     .main-package {
         padding-top: 2rem;
         padding-inline: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        font-size: 0.875rem;
         height: 80%;
+
+        h2 {
+            text-align: start;
+        }
         
         button {
             background-color: black;
@@ -56,7 +60,8 @@
             padding: .5rem 1rem;
             font-weight: 600;
             height: 2.5rem;
-            align-self: center;
+            align-self: end;
+            justify-self: center;
         }
     }
 }

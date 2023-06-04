@@ -7,6 +7,7 @@ import { login, logout, signup } from '../store/user.actions.js'
 import { SearchBox } from './search-box.jsx'
 import { LoginSignup } from './login-signup.jsx'
 import { setFilterBy } from '../store/gig.actions'
+import { Categories } from './categories'
 
 const categories = [
     'Graphic & Design',
@@ -21,15 +22,13 @@ const categories = [
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
-    const [isProfileClicked, setIsProfileClicked] = useState(false)
+    const [isProfileBar, setIsProfileBar] = useState(false)
     const [isSignUp, setIsSignup] = useState(false)
-    
-    const [newFilterBy, setNewFilterBy] = useState({})
-    
-    
-    
+    const navigate = useNavigate()
+
+
     //  USER
-    
+
     async function onLogin(credentials) {
         try {
             const user = await login(credentials)
@@ -62,15 +61,15 @@ export function AppHeader() {
     }
 
     function onProfileClick() {
-        setIsProfileClicked(!isProfileClicked)
-        console.log(isProfileClicked)
+        setIsProfileBar(!isProfileBar)
+        console.log(isProfileBar)
     }
 
     // FILTER
 
     function handleCategoryFilter(category) {
-        setNewFilterBy({...newFilterBy, category })
-        setFilterBy(newFilterBy)
+        setFilterBy({ category })
+        navigate('/gig')
     }
 
     return (
@@ -81,7 +80,7 @@ export function AppHeader() {
                     </div>finerr<span className="dot">.</span>
                 </NavLink>
 
-                <SearchBox setFilterBy={setFilterBy}/>
+                <SearchBox setFilterBy={setFilterBy} placeholder={'What service are you looking for today'} />
 
                 <nav>
                     <NavLink key="gig" to="/gig">Explore</NavLink>
@@ -91,11 +90,6 @@ export function AppHeader() {
                             <button onClick={onProfileClick}>
                                 {user.imgUrl && <img src={user.imgUrl} />}
                             </button>
-                            {isProfileClicked && <section className="profile-bar">
-                                <Link to={`user/${user._id}`}>Profile</Link>
-                                <button onClick={onLogout}>Logout</button>
-
-                            </section>}
                         </span>
                     }
                     {!user &&
@@ -104,18 +98,16 @@ export function AppHeader() {
                     {!user && <button onClick={toggleSignup}>Join</button>
                     }
                 </nav>
+                {isProfileBar && <section className="profile-bar">
+                    <Link to={`user/${user._id}`}>Profile</Link>
+                    <button onClick={onLogout}>Logout</button>
+
+                </section>}
             </section>
 
-            <section className="categories full main-layout">
-                <ul className="categories-list">
-                    {categories.map(category =>
-                        <li key={category} className="category"
-                            onClick={() => handleCategoryFilter(category)}>
-                            {category}
-                        </li>)}
-                </ul>
-                {isSignUp && <LoginSignup cancel={setIsSignup} onLogin={onLogin} onSignup={onSignup} />}
-            </section>
+            <Categories categories={categories} handleCategoryFilter={handleCategoryFilter} />
+
+            {isSignUp && <LoginSignup cancel={setIsSignup} onLogin={onLogin} onSignup={onSignup} />}
         </header>
     )
 }

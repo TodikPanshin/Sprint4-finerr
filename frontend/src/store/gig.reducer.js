@@ -28,6 +28,7 @@ export function gigReducer(state = initialState, action) {
             break
         case SET_FILTER:
             newState = { ...state, filterBy: action.filterBy }
+            console.log(action.filterBy)
             break
         case REMOVE_GIG:
             const lastRemovedGig = state.gigs.find(gig => gig._id === action.gigId)

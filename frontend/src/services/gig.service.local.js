@@ -3,6 +3,8 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
+import { demoGigs } from '../data/demo.gigs.js'
+
 const STORAGE_KEY = 'gigDB'
 
 export const gigService = {
@@ -16,6 +18,7 @@ export const gigService = {
 }
 window.cs = gigService
 
+// _createDemoGigs()
 _createGig()
 
 async function query(filterBy = {}) {
@@ -28,7 +31,7 @@ async function query(filterBy = {}) {
     if (filterBy.category) {
         gigs = gigs.filter(gig => gig.tags.includes(filterBy.category))
     }
-    
+
     // if (filterBy.price) {
     //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
     // }
@@ -83,6 +86,15 @@ function getEmptyGig() {
 
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
+
+function _createDemoGigs() {
+    let gigs = localStorage.getItem(STORAGE_KEY)
+    if (!gigs || !gigs.length) {
+        gigs = demoGigs
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(gigs))
+    }
+}
+
 function _createGig() {
     var gig = localStorage.getItem(STORAGE_KEY)
     if (!gig || !gig.length) {
@@ -90,7 +102,6 @@ function _createGig() {
         for (let i = 0; i < 10; i++) {
             gig = demoGig()
             gigs.push(gig)
-            console.log('title:', gig.title)
         }
         localStorage.setItem(STORAGE_KEY, JSON.stringify(gigs))
     }
@@ -118,12 +129,25 @@ function demoGig() {
         "description": utilService.makeLorem(10),
         "imgUrls": ["https://picsum.photos/250/150", "https://picsum.photos/250/150"],
         "tags": [
-            "logo-design",
-            "artisitic",
-            "proffesional",
-            "accessible"
+            _getTag(),
+            _getTag(),
+            _getTag()
         ],
     }
+}
+
+function _getTag() {
+    const categories = [
+        'Graphic & Design',
+        'Digital Marketing',
+        'Writing & Translation',
+        'Video & Animation',
+        'Programming & Tech',
+        'Photography',
+        'Business',
+        'AI Services'
+    ]
+    return categories[utilService.getRandomIntInclusive(0, 7)]
 }
 
 

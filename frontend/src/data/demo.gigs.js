@@ -28,7 +28,7 @@ const gig = {
   "likedByUsers": ["mini-user"]
 }
 
-const gigs = [
+export const demoGigs = [
   {
     "_id": "i101",
     "title": "Editor and Translator",
@@ -379,8 +379,8 @@ function isPrimaryTag(tag) {
 // Lastly: GigExplore, Filtering
 
 
-function loadApp() {
-  socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
-    showSuccessMsg(`Another order was just made, check it out ${order.gig._id}`)
-  })
-}
+// function loadApp() {
+//   socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
+//     showSuccessMsg(`Another order was just made, check it out ${order.gig._id}`)
+//   })
+// }
