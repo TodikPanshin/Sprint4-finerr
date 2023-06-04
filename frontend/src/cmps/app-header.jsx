@@ -9,7 +9,7 @@ import { LoginSignup } from './login-signup.jsx'
 import { setFilterBy } from '../store/gig.actions'
 import { Categories } from './categories'
 
-const categories = [
+export const categories = [
     'Graphic & Design',
     'Digital Marketing',
     'Writing & Translation',
@@ -26,6 +26,7 @@ export function AppHeader() {
     const [isSignUp, setIsSignup] = useState(false)
     const navigate = useNavigate()
 
+    const isHome = window.location.pathname === '/' ? "home" : ""
 
     //  USER
 
@@ -48,6 +49,7 @@ export function AppHeader() {
     }
 
     async function onLogout() {
+        setIsProfileBar(false)
         try {
             await logout()
             showSuccessMsg(`Bye now`)
@@ -74,7 +76,7 @@ export function AppHeader() {
 
     return (
         <header className="app-header full main-layout">
-            <section className="main-header">
+            <section className={`main-header ${isHome}`}>
                 <NavLink key="/" to="/" className="logo">
                     <div className="white-dot">
                     </div>finerr<span className="dot">.</span>
@@ -99,13 +101,13 @@ export function AppHeader() {
                     }
                 </nav>
                 {isProfileBar && <section className="profile-bar">
-                    <Link to={`user/${user._id}`}>Profile</Link>
+                    <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
                     <button onClick={onLogout}>Logout</button>
 
                 </section>}
             </section>
 
-            <Categories categories={categories} handleCategoryFilter={handleCategoryFilter} />
+            {!isHome && <Categories categories={categories} handleCategoryFilter={handleCategoryFilter} />}
 
             {isSignUp && <LoginSignup cancel={setIsSignup} onLogin={onLogin} onSignup={onSignup} />}
         </header>

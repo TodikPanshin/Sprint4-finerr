@@ -1,10 +1,10 @@
-import { useRef, useState } from "react"
-import { useSelector } from "react-redux"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export function SearchBox({setFilterBy, placeholder}) {
     const [showCancelBtn, setshowCancelBtn] = useState('hidden')
     const [txt, setTxt] = useState('')
-
+    const navigate = useNavigate()
 
     function handleChange({ target }) {
         const field = target.name
@@ -18,6 +18,7 @@ export function SearchBox({setFilterBy, placeholder}) {
 
     function onSubmitFilter(ev) {
         ev.preventDefault()
+        navigate('/gig')
     }
 
     function cancelSearch() {

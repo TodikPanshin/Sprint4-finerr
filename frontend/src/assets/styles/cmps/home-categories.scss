@@ -1,0 +1,48 @@
+.home-category {
+    margin-top: 20rem;
+    caret-color: transparent;
+
+    h1 {
+        font-size: 2rem;
+        color: #2e2f31;
+    }
+}
+
+.home-category-display {
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    button {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        font-size: .7rem;
+        padding: 0 10px 55px;
+        width: 20%;
+        margin: 0;
+
+        img {
+            width: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-border {
+            width: 3rem;
+            margin-top: -.5rem;
+            border-bottom: 2px solid rgb(192, 190, 190);
+        }
+
+        &:hover .category-border {
+            border-bottom: 1px solid $clr-btn-hov;
+            scale: 1.8 1;
+            transition: .3s;
+        }
+
+        h2 {
+            margin-top: 1rem;
+        }
+    }
+}
