@@ -19,8 +19,8 @@ export function GigSwiper({ gigImgs }) {
                 spaceBetween={50}
                 navigation
                 thumbs={{ swiper: thumbsSwiper }}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+                // onSlideChange={() => console.log('slide change')}
+                // onSwiper={(swiper) => console.log(swiper)}
                 loop={true}
                 touchRatio={0.4}
             >
