@@ -7,8 +7,8 @@ export function GigPreview({ gig }) {
 
 
     return (
-        <article className="gig-preview clean-list flex column">
-            <Link to={`/gig/${gig._id}`} target="_blank" >
+        <article className="gig-preview flex column">
+            <Link to={`/gig/${gig._id}`} >
                 <PreviewCarousel gig={gig} className="gig-img" />
             </Link>
 
@@ -17,11 +17,13 @@ export function GigPreview({ gig }) {
                 <Link to={`/user/${gig.owner._id}`} className="owner-name">  {gig.owner.fullname}</Link>
             </div>
 
-            <Link to={`/gig/${gig._id}`} target="_blank" className="title">{gig.title}</Link>
+            <Link to={`/gig/${gig._id}`} className="title">{gig.title}</Link>
 
             <div className="rating flex">
-                {gig.rating.average} <span>({gig.rating.num})</span> </div>
+                {gig.rating.average}
+                <span>({gig.rating.num})</span>
+            </div>
 
-            <Link to={`/gig/${gig._id}`} target="_blank"><p className="price txt-bold">From <span>${gig.price}</span></p></Link>
+            <Link to={`/gig/${gig._id}`} ><p className="price txt-bold">From <span>${gig.price}</span></p></Link>
         </article >)
 }

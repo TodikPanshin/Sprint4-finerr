@@ -1,7 +1,6 @@
 .gig-preview {
     padding: 0;
 
-    // &:hover {}
     .gig-img {
         border-radius: 8px;
         object-fit: fill;
@@ -51,7 +50,6 @@
         margin-top: 0.5em;
         padding-left: 4px;
         font-size: 1em;
-        // font-family: garamond;
         font-weight: bold;
 
         span {
@@ -67,7 +65,6 @@
         font-size: 1em;
         line-height: 1.5em;
         color: $clr-btn-search;
-        // font-family: garamond;
         font-weight: bold;
 
         &:hover .title {

@@ -2,10 +2,10 @@ import { utilService } from "../services/util.service"
 
 const gig = {
   "_id": "i101",
-  "title": "I will design your logo",
+  "title": "I will design your logo that looks very nice",
   "price": 12,
   "rating": {
-    "average": 5,
+    "average": 4.9,
     "num": 178
   },
   "owner": {
@@ -20,6 +20,8 @@ const gig = {
   "imgUrls": [
     'https://picsum.photos/300/200?img=1',
     'https://picsum.photos/300/200?img=2',
+    'https://picsum.photos/300/200?img=3',
+    'https://picsum.photos/300/200?img=4',
   ],
   "tags": [
     "logo-design",
@@ -33,11 +35,11 @@ const gig = {
 export const demoGigs = [
   {
     "_id": "i101",
-    "title": "I will design your logo",
+    "title": "I will design the logo for you that looks very nice",
     "price": 12,
     "rating": {
-      "average": 5,
-      "num": 178
+      "average": 5.0,
+      "num": 567
     },
     "owner": {
       "_id": "u101",
@@ -49,13 +51,15 @@ export const demoGigs = [
     "daysToMake": 3,
     "description": "Make unique logo...",
     "imgUrls": [
-      'https://picsum.photos/300/200?img=1',
-      'https://picsum.photos/300/200?img=2',
+      'https://picsum.photos/300/200?img=5',
+      'https://picsum.photos/300/200?img=6',
+      'https://picsum.photos/300/200?img=7',
+      'https://picsum.photos/300/200?img=8',
     ],
     "tags": [
       _getTag(),
       _getTag(),
-      _getTag(), 
+      _getTag(),
       "logo-design",
       "artisitic",
       "proffesional",
@@ -65,11 +69,11 @@ export const demoGigs = [
   },
   {
     "_id": "i102",
-    "title": "I will write your blog post",
+    "title": "I will write your blog post that looks very Beautiful",
     "price": 20,
     "rating": {
-      "average": 4.5,
-      "num": 150
+      "average": 4.8,
+      "num": 452
     },
     "owner": {
       "_id": "u102",
@@ -81,8 +85,11 @@ export const demoGigs = [
     "daysToMake": 5,
     "description": "Write informative and engaging blog posts...",
     "imgUrls": [
-      'https://picsum.photos/300/200?img=3',
-      'https://picsum.photos/300/200?img=4',
+      'https://picsum.photos/300/200?img=9',
+      'https://picsum.photos/300/200?img=10',
+      'https://picsum.photos/300/200?img=11',
+      'https://picsum.photos/300/200?img=12',
+      'https://picsum.photos/300/200?img=13',
     ],
     "tags": [
       _getTag(),
@@ -97,11 +104,11 @@ export const demoGigs = [
   },
   {
     "_id": "i103",
-    "title": "I will create your website",
+    "title": "I will create your website so amazing and nice",
     "price": 50,
     "rating": {
-      "average": 4,
-      "num": 100
+      "average": 4.3,
+      "num": 669
     },
     "owner": {
       "_id": "u103",
@@ -113,13 +120,14 @@ export const demoGigs = [
     "daysToMake": 10,
     "description": "Create a beautiful and responsive website...",
     "imgUrls": [
-      'https://picsum.photos/300/200?img=5',
-      'https://picsum.photos/300/200?img=6',
+      'https://picsum.photos/300/200?img=15',
+      'https://picsum.photos/300/200?img=16',
+      'https://picsum.photos/300/200?img=17',
     ],
     "tags": [
       _getTag(),
       _getTag(),
-      _getTag(), 
+      _getTag(),
       "website-design",
       "beautiful",
       "responsive",
@@ -129,11 +137,11 @@ export const demoGigs = [
   },
   {
     "_id": "i104",
-    "title": "I will develop your app",
+    "title": "I will develop your app To your satisfaction",
     "price": 100,
     "rating": {
-      "average": 3.5,
-      "num": 50
+      "average": 4.7,
+      "num": 455
     },
     "owner": {
       "_id": "u104",
@@ -145,13 +153,15 @@ export const demoGigs = [
     "daysToMake": 15,
     "description": "Develop a functional and user-friendly app...",
     "imgUrls": [
-      'https://picsum.photos/300/200?img=7',
-      'https://picsum.photos/300/200?img=8',
+      'https://picsum.photos/300/200?img=17',
+      'https://picsum.photos/300/200?img=18',
+      'https://picsum.photos/300/200?img=19',
+      'https://picsum.photos/300/200?img=20',
     ],
     "tags": [
       _getTag(),
       _getTag(),
-      _getTag(), 
+      _getTag(),
       "app-development",
       "functional",
       "user-friendly",
@@ -161,11 +171,11 @@ export const demoGigs = [
   },
   {
     "_id": "i105",
-    "title": "I will write your ad copy",
+    "title": "I will write your ad copy and you will be satisfied",
     "price": 15,
     "rating": {
       "average": 4.5,
-      "num": 100
+      "num": 894
     },
     "owner": {
       "_id": "u105",
@@ -177,13 +187,15 @@ export const demoGigs = [
     "daysToMake": 2,
     "description": "I will write your ad copy",
     "imgUrls": [
-      'https://picsum.photos/300/200?img=9',
-      'https://picsum.photos/300/200?img=10',
+      'https://picsum.photos/300/200?img=21',
+      'https://picsum.photos/300/200?img=22',
+      'https://picsum.photos/300/200?img=23',
+      'https://picsum.photos/300/200?img=24',
     ],
     "tags": [
       _getTag(),
       _getTag(),
-      _getTag(), 
+      _getTag(),
       "app-development",
       "functional",
       "user-friendly",
@@ -193,11 +205,11 @@ export const demoGigs = [
   },
   {
     "_id": "i106",
-    "title": "I will create your marketing materials",
+    "title": "I will create your marketing materials To your satisfaction",
     "price": 30,
     "rating": {
-      "average": 4.5,
-      "num": 100
+      "average": 4.6,
+      "num": 267
     },
     "owner": {
       "_id": "u106",
@@ -209,13 +221,15 @@ export const demoGigs = [
     "daysToMake": 5,
     "description": "Create eye-catching and persuasive marketing materials...",
     "imgUrls": [
-      'https://picsum.photos/300/200?img=11',
-      'https://picsum.photos/300/200?img=12',
+      'https://picsum.photos/300/200?img=25',
+      'https://picsum.photos/300/200?img=26',
+      'https://picsum.photos/300/200?img=27',
+      'https://picsum.photos/300/200?img=28',
     ],
     "tags": [
       _getTag(),
       _getTag(),
-      _getTag(), 
+      _getTag(),
       "marketing-materials",
       "eye-catching",
       "persuasive",
@@ -226,11 +240,11 @@ export const demoGigs = [
   },
   {
     "_id": "i107",
-    "title": "I will manage your social media",
+    "title": "I will manage your social media To your satisfaction",
     "price": 50,
     "rating": {
       "average": 4.5,
-      "num": 100
+      "num": 556
     },
     "owner": {
       "_id": "u107",
@@ -240,15 +254,17 @@ export const demoGigs = [
       "rate": 5
     },
     "imgUrls": [
-      'https://picsum.photos/300/200?img=13',
-      'https://picsum.photos/300/200?img=14',
+      'https://picsum.photos/300/200?img=29',
+      'https://picsum.photos/300/200?img=30',
+      'https://picsum.photos/300/200?img=31',
+      'https://picsum.photos/300/200?img=32',
     ],
     "daysToMake": 10,
     "description": "Grow your social media following and engagement...",
     "tags": [
       _getTag(),
       _getTag(),
-      _getTag(), 
+      _getTag(),
       "social-media-management",
       "grow-following",
       "engagement",
@@ -261,8 +277,8 @@ export const demoGigs = [
     "title": "I will create your email marketing campaigns",
     "price": 25,
     "rating": {
-      "average": 4,
-      "num": 50
+      "average": 4.0,
+      "num": 887
     },
     "owner": {
       "_id": "u108",
@@ -274,13 +290,15 @@ export const demoGigs = [
     "daysToMake": 3,
     "description": "Create effective email marketing campaigns that convert...",
     "imgUrls": [
-      'https://picsum.photos/300/200?img=15',
-      'https://picsum.photos/300/200?img=16',
+      'https://picsum.photos/300/200?img=33',
+      'https://picsum.photos/300/200?img=34',
+      'https://picsum.photos/300/200?img=35',
+      'https://picsum.photos/300/200?img=36',
     ],
     "tags": [
       _getTag(),
       _getTag(),
-      _getTag(), 
+      _getTag(),
       "email-marketing",
       "effective",
       "convert",
@@ -290,11 +308,11 @@ export const demoGigs = [
   },
   {
     "_id": "i109",
-    "title": "I will help you with your SEO",
+    "title": "I will help you with your SEO To your satisfaction",
     "price": 100,
     "rating": {
-      "average": 3.5,
-      "num": 25
+      "average": 4.8,
+      "num": 268
     },
     "owner": {
       "_id": "u109",
@@ -306,13 +324,14 @@ export const demoGigs = [
     "daysToMake": 15,
     "description": "Improve your website's search engine ranking...",
     "imgUrls": [
-      'https://picsum.photos/300/200?img=17',
-      'https://picsum.photos/300/200?img=18',
+      'https://picsum.photos/300/200?img=37',
+      'https://picsum.photos/300/200?img=38',
+      'https://picsum.photos/300/200?img=39',
     ],
     "tags": [
       _getTag(),
       _getTag(),
-      _getTag(), 
+      _getTag(),
       "seo",
       "improve-ranking",
       "professional"
@@ -321,11 +340,11 @@ export const demoGigs = [
   },
   {
     "_id": "i110",
-    "title": "I will create your video content",
+    "title": "I will create your video content To your satisfaction",
     "price": 50,
     "rating": {
       "average": 4.5,
-      "num": 100
+      "num": 466
     },
     "owner": {
       "_id": "u110",
@@ -337,14 +356,78 @@ export const demoGigs = [
     "daysToMake": 10,
     "description": "Create engaging and informative video content...",
     "imgUrls": [
-      'https://picsum.photos/300/200?img=19',
-      'https://picsum.photos/300/200?img=20',
+      'https://picsum.photos/300/200?img=40',
+      'https://picsum.photos/300/200?img=41',
+      'https://picsum.photos/300/200?img=42',
     ],
     "tags": [
       _getTag(),
       _getTag(),
-      _getTag(), 
+      _getTag(),
       "seo",
+      "improve-ranking",
+      "professional"
+    ],
+    "likedByUsers": []
+  },
+  {
+    "_id": "i111",
+    "title": "I will create your video content To your satisfaction",
+    "price": 50,
+    "rating": {
+      "average": 4.5,
+      "num": 466
+    },
+    "owner": {
+      "_id": "u111",
+      "fullname": "Suki Suki",
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+      "level": "basic/premium",
+      "rate": 5
+    },
+    "daysToMake": 10,
+    "description": "Create engaging and informative video content...",
+    "imgUrls": [
+      'https://picsum.photos/300/200?img=43',
+      'https://picsum.photos/300/200?img=44',
+      'https://picsum.photos/300/200?img=45',
+    ],
+    "tags": [
+      _getTag(),
+      _getTag(),
+      _getTag(),
+      _getTag(),
+      "seo",
+      "improve-ranking",
+    ],
+    "likedByUsers": []
+  },
+  {
+    "_id": "i112",
+    "title": "I will create your video content To your satisfaction",
+    "price": 78,
+    "rating": {
+      "average": 4.6,
+      "num": 490
+    },
+    "owner": {
+      "_id": "u112",
+      "fullname": "Suki Suki",
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+      "level": "basic/premium",
+      "rate": 5
+    },
+    "daysToMake": 12,
+    "description": "Create engaging and informative video content To your satisfaction",
+    "imgUrls": [
+      'https://picsum.photos/300/200?img=46',
+      'https://picsum.photos/300/200?img=47',
+      'https://picsum.photos/300/200?img=48',
+    ],
+    "tags": [
+      _getTag(),
+      _getTag(),
+      _getTag(),
       "improve-ranking",
       "professional"
     ],
