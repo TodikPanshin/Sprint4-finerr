@@ -1,50 +1,65 @@
+import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
 
 export function GigCarousel({ gigImgs }) {
     const responsive = {
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: {
+                max: 3000,
+                min: 1024
+            },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 1,
-            slidesToSlide: 1// optional, default to 1.
         },
         mobile: {
-            breakpoint: { max: 464, min: 0 },
+            breakpoint: {
+                max: 464,
+                min: 0
+            },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+        },
+        tablet: {
+            breakpoint: {
+                max: 1024,
+                min: 200
+            },
+            items: 1,
         }
     };
+
+    const CustomDot = ({ onClick, index, active }) => {
+        const carouselItems = [
+            <img src={gigImgs} alt="" />,
+            <img src="https://picsum.photos/400?img=1" alt="" />,
+            <img src="https://picsum.photos/400?img=2" alt="" />,
+            <img src="https://robohash.org/test?set=set4&bgset=bg1" alt="" />
+        ];
+
+        return (
+            <button
+                className={active ? "active" : ""}
+                onClick={() => onClick()}
+            >
+                {carouselItems[index]}
+            </button>
+        );
+    };
+
     return (
         <Carousel
-            swipeable={false}
-            draggable={false}
-            showDots={true}
-            responsive={responsive}
-            ssr={false} // means to render carousel on server-side.
-            infinite={true}
-            //   autoPlay={this.props.deviceType !== "mobile" ? true : false}
-            autoPlaySpeed={1000}
-            keyBoardControl={true}
-            // customTransition="all .5"
-            transitionDuration={1000}
-            centerMode={false}
+            showDots
+            slidesToSlide={1}
             containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            // deviceType={this.props.deviceType}
-            dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px"
+            responsive={responsive}
+            customDot={<CustomDot />}
+              dotListClass="carousel-custom-dots"
+            infinite
+            // itemClass="carousel-item-padding-40-px"
         >
             <img src={gigImgs} alt="" />
-            <img src="https://picsum.photos/400" alt="" />
-            <img src="https://picsum.photos/300" alt="" />
+            <img src="https://picsum.photos/400?img=1" alt="" />
+            <img src="https://picsum.photos/400?img=2" alt="" />
             <img src="https://robohash.org/test?set=set4&bgset=bg1" alt="" />
-
         </Carousel>
-    )
+    );
 }

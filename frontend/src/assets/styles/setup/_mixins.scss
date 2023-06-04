@@ -62,10 +62,12 @@
 
 @mixin btn($type: regular, $bg: $clr1, $clr: $clr-font, $padding: em(5px) em(10px)) {
     border: 0;
+    font-size: em(14px);
     padding: $padding;
+    width: auto;
     margin: 5px;
     border: 1px $clr-font solid;
-    border-radius: 2rem;
+    border-radius: rem(4px);
     transition: 0.2s;
     cursor: pointer;
 
@@ -102,18 +104,30 @@
     @else if $type ==main-filter {
         background-color: $bg;
         color: $clr;
+        border-radius: 2rem;
 
         &:hover {
             border: 1px $clr-btn-search solid;
         }
-    }
-}
 
-// Mixin for removing hover efects on iphone screen
-@mixin hover-supported {
-    @media not all and (pointer: coarse) {
+    }
+
+    @else if $type ==gig-contact {
+        background-color: $bg;
+        color: $clr;
+
         &:hover {
-            @content;
+            background-color: $clr-font-dark;
+            color: $clr1;
         }
     }
 }
+
+    // Mixin for removing hover efects on iphone screen
+    @mixin hover-supported {
+        @media not all and (pointer: coarse) {
+          &:hover {
+            @include common-styles; // Include the common styles mixin here
+          }
+        }
+      }
