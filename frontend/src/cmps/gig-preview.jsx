@@ -5,7 +5,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export function GigPreview({ gig }) {
 
-
     return (
         <article className="gig-preview flex column">
             <Link to={`/gig/${gig._id}`} >
@@ -20,8 +19,7 @@ export function GigPreview({ gig }) {
             <Link to={`/gig/${gig._id}`} className="title">{gig.title}</Link>
 
             <div className="rating flex">
-                {gig.rating.average}
-                <span>({gig.rating.num})</span>
+                {gig.rating.average} <span>({gig.rating.num})</span>
             </div>
 
             <Link to={`/gig/${gig._id}`} ><p className="price txt-bold">From <span>${gig.price}</span></p></Link>
