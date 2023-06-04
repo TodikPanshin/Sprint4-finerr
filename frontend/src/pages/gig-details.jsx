@@ -96,8 +96,7 @@ export function GigDetails() {
     return (
         <>
             <GigToolBar />
-            <section className='gig-container flex column' >
-                <Packages gig={gig}/>
+            <section className='gig-container flex row' >
                 <section className="gig-details" id='gig-details'>
                     <h1 className='gig-title'>{gig.title}</h1>
                     <div className='seller-details flex align-center'>
@@ -150,6 +149,7 @@ export function GigDetails() {
                         <p>{gig.owner.about}</p>
                     </section>
                 </section>
+                <Packages gig={gig} />
             </section>
         // </>
     )
