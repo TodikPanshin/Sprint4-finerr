@@ -5,7 +5,8 @@ export const DRAWER_IS_OPEN = 'DRAWER_IS_OPEN'
 
 const initialState = {
   isLoading: false,
-  drawerIsOpen: false,
+  isOpen: false,
+
 }
 
 export function systemReducer(state = initialState, action = {}) {
@@ -15,7 +16,7 @@ export function systemReducer(state = initialState, action = {}) {
     case LOADING_DONE:
       return { ...state, isLoading: false }
     case DRAWER_IS_OPEN:
-      return { ...state, drawerIsOpen:action.isOpen }
+      return { ...state, isOpen:action.isOpen }
     default: return state
   }
 }
