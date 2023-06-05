@@ -390,7 +390,6 @@ export const demoGigs = [
       "level": "basic/premium",
       "rate": 3,
       "about": `I have a Bachelor of Science in Communication, Journalism, & Media and years of professional writing, editing, & social media experience.
-      "about": `I have a Bachelor of Science in Communication, Journalism, & Media and years of professional writing, editing, & social media experience.
       In the past 4 years, I've written copy for 600+ diverse clients.   
       I specialize in writing clever & engaging social media copy & online courses to add value to your brand. 
       I have experience writing social media captions, articles/blogs, ad & sales copy, website content, email campaigns, press releases, scripts, & online courses. 
