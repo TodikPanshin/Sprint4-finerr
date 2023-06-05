@@ -84,21 +84,23 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 library.add(fas);
 
 export function PreviewCarousel({ gig }) {
-    const [isHovered, setIsHovered] = useState(false);
+    // const [isHovered, setIsHovered] = useState(false);
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
+    // const handleMouseEnter = () => {
+    //     setIsHovered(true);
+    // }
 
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
+    // const handleMouseLeave = () => {
+    //     setIsHovered(false);
+    // }
 
     const renderArrowPrev = (clickHandler, hasPrev, label) => (
         <div
-            className={`custom-arrow custom-arrow-prev ${isHovered ? "active" : ""}`}
-            onClick={clickHandler}
-        >
+            className={`custom-arrow custom-arrow-prev`}
+            onClick={(ev) => {
+                ev.preventDefault()
+                clickHandler()
+            }}        >
             <FontAwesomeIcon
                 icon={faChevronLeft}
                 style={{
@@ -107,13 +109,16 @@ export function PreviewCarousel({ gig }) {
                 }}
             />
         </div>
-    );
+    )
 
     const renderArrowNext = (clickHandler, hasNext, label) => (
         <div
-            className={`custom-arrow custom-arrow-next ${isHovered ? "active" : ""}`}
-            onClick={clickHandler}
-        >
+            className={`custom-arrow custom-arrow-next`}
+            onClick={(ev) => {
+                ev.preventDefault()
+                // ev.stopPropagation()
+                clickHandler()
+            }}        >
             <FontAwesomeIcon
                 icon={faChevronRight}
                 style={{
@@ -131,8 +136,8 @@ export function PreviewCarousel({ gig }) {
             className="preview-carousel"
             renderArrowPrev={renderArrowPrev}
             renderArrowNext={renderArrowNext}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+        // onMouseEnter={handleMouseEnter}
+        // onMouseLeave={handleMouseLeave}
         >
             {gig.imgUrls.map((imgUrl) => (
                 <div key={imgUrl} className="image-wrapper">
@@ -140,5 +145,5 @@ export function PreviewCarousel({ gig }) {
                 </div>
             ))}
         </Carousel>
-    );
+    )
 }
