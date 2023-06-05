@@ -59,7 +59,7 @@ export function GigIndex() {
 
     if (!gigs.length) return <div>Loading...</div>
     return (
-        <div>
+        <div className='gig-index'>
             <main>
                 < GigList
                     gigs={gigs}

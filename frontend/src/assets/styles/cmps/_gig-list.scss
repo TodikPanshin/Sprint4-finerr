@@ -1,8 +1,9 @@
 .gig-list {
     display: grid;
-    grid-template-columns: repeat(4, minmax(auto, 377px));
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
     list-style: none;
+    overflow: auto;
 
     margin: 0;
     padding: 0;
