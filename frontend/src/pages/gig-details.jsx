@@ -66,9 +66,9 @@ export function GigDetails() {
         <>
             <GigToolBar />
             <OrderDrawer />
-            <div className='trash'>
+            {/* <div className='trash'>
             <button onClick={() => { onRemoveGig(id) }}><FontAwesomeIcon icon={faTrash} size="xl"/></button>
-            </div>
+            </div> */}
             <section className='gig-container flex row' >
                 <section className="gig-details" id='gig-details'>
                     <h1 className='gig-title'>{gig.title}</h1>
