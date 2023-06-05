@@ -2,13 +2,14 @@
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
+    background-color: $clr-background;
 
 
     img {
         width: 100%;
-        // aspect-ratio: 16/9;
+        aspect-ratio: 16/9;
         transition: transform 0.3s;
-        object-fit: cover;
+        object-fit: scale-down;
 
         &:hover {
             transform: scale(1.1);
