@@ -1,79 +1,126 @@
-.search-box {
-    flex-grow: 1;
+.main-home {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: white;
+    margin-block: 12%;
+    font-size: 0.875rem;
 
-    form {
-        display: flex;
-        flex-direction: row;
-        align-items: stretch;
-        position: relative;
+    h2 {
+        font-size: 2rem;
 
-        label {
-            width: 0;
+        span {
+            font-family: domaine;
         }
     }
 
-    input {
-        border-radius: 4px 0 0 4px;
-        border: 0.5px solid rgb(150, 150, 150);
-        font-family: macan;
-        font-size: 1rem;
-        padding: 10px 2px 10px 16px;
-        width: 100%;
-        font-weight: 200;
+    .search-box {
+        flex-grow: 1;
 
-        &::placeholder {
-            color: rgb(133, 133, 133);
+        form {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            position: relative;
+
+            label {
+                width: 0;
+            }
+        }
+
+        input {
+            border-radius: 4px 0 0 4px;
+            border: 0.5px solid rgb(150, 150, 150);
+            font-family: macan;
+            font-size: 1rem;
+            padding: 10px 2px 10px 16px;
+            width: 100%;
             font-weight: 200;
+
+            &::placeholder {
+                color: rgb(133, 133, 133);
+                font-weight: 200;
+            }
+
+            &:focus-visible {
+                outline: none;
+            }
         }
 
-        &:focus-visible {
-            outline: none;
+        .cancel-btn {
+            display: block;
+            position: absolute;
+            right: 3.5rem;
+            background-color: rgb(216, 216, 216);
+            border-radius: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            padding: 0;
+            align-self: center;
+
+            &.hidden {
+                display: none;
+            }
         }
-    }
 
-    .cancel-btn {
-        display: block;
-        position: absolute;
-        right: 3.5rem;
-        background-color: rgb(216, 216, 216);
-        border-radius: 50%;
-        width: 1.5rem;
-        height: 1.5rem;
-        padding: 0;
-        align-self: center;
+        img {
+            width: 16px;
+            height: 16px;
+            margin: 0;
+            filter: invert(1);
+        }
 
-        &.hidden {
+        .search-btn {
+            background-color: rgb(29, 191, 115);
+            border-radius: 0 4px 4px 0;
+            padding: 8px 16px;
+            width: fit-content;
+        }
+
+        .search-cover {
             display: none;
+            position: fixed;
+            left: 0;
+            top: 80px;
+            background-color: rgba(0, 0, 0, .3);
+            width: 100%;
+            height: 150%;
+            z-index: 10000;
+
+            &.hidden {
+                background-color: transparent;
+                touch-action: none;
+                z-index: -10;
+            }
         }
     }
+}
 
-    img {
-        width: 16px;
-        height: 16px;
-        margin: 0;
-        filter: invert(1);
-    }
-
-    .search-btn {
-        background-color: rgb(0, 0, 0);
-        border-radius: 0 4px 4px 0;
-        padding: 8px 16px;
-        width: fit-content;
-    }
-
-    .search-cover {
-        position: fixed;
-        left: 0;
-        top: 80px;
-        background-color: rgba(0, 0, 0, .3);
+.slide-container {
+    &>* {
+        position: absolute;
+        top: 0;
+        right: 0;
         width: 100%;
-        height: 150%;
-        z-index: 10000;
+        height: 42.5rem;
+        z-index: -10;
+        transition: 1s;
+        object-fit: cover;
+    }
+}
 
-        &.hidden {
-            background-color: transparent;
-            touch-action: none;
-            z-index: -10;
+.popular-btns {
+    >* {
+        border: 1px solid white;
+        border-radius: 3rem;
+        background-color: transparent;
+        color: white;
+        margin-inline: .6rem;
+
+        &:hover {
+            color: black;
+            background-color: white;
+            transition: 0.5s;
         }
     }
 }
