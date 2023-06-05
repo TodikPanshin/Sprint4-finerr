@@ -1,11 +1,14 @@
 import { useState } from "react"
 import { utilService } from "../services/util.service"
 import { useNavigate } from "react-router"
+import { toggleDrawer } from '../store/system.actions'
+
 
 export function Packages({ gig }) {
     const [selected, setSelected] = useState(1)
     const navigate = useNavigate()
-
+    
+    
     function onToggleLabel({ target }) {
         const focused = target.className
 
@@ -25,7 +28,7 @@ export function Packages({ gig }) {
             <div className="main-package">
                 <h2>${gig.price * selected}</h2>
                 <p>{utilService.makeLorem(selected * 10)}</p>
-                <button onClick={() => navigate('/checkout')}>Continue <span>→</span></button>
+                <button onClick={() => navigate('/checkout')} onClick={()=>toggleDrawer(true)}>Continue <span>→</span></button>
                 {/* <a href="#">Compare packages</a> */}
             </div>
             <footer>

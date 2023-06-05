@@ -1,12 +1,11 @@
-.gig-container {
-    width: 80%;
-    margin: auto;
-    justify-content: space-between;
+.trash{
+    position: absolute;
+    inset-inline-start: 1023px;
+    inset-block-start: 132px;
 }
-
-
 .gig-details {
-    width: 50%;
+    margin-inline-end: 5.5%;
+    width: 59.5%;
 
     & .gig-title {
         overflow-wrap: break-word;

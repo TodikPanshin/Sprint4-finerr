@@ -64,6 +64,7 @@
     border: 0;
     font-size: em(14px);
     padding: $padding;
+    font-weight: 600;
     width: auto;
     margin: 5px;
     border: 1px $clr-font solid;
@@ -119,6 +120,16 @@
         &:hover {
             background-color: $clr-font-dark;
             color: $clr1;
+        }
+    }
+    
+    @else if $type ==black {
+        background-color: #000;
+        color:$clr1;
+        height: 2.5rem;
+        width: 100%;
+        &:hover {
+            background-color: $clr-font-dark;
         }
     }
 }

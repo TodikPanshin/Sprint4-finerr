@@ -1,0 +1,145 @@
+// Styles for the header
+.drawer-header {
+    padding: rem(24px) rem(32px) rem(16px);
+    background-color: $clr1;
+    border-bottom: 1px solid #e4e5e7;
+
+
+    .drawer-title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    & span {
+        cursor: pointer;
+    }
+}
+
+// Styles for the main section
+.drawer-main {
+    padding: rem(20px);
+    flex-grow: 1;
+
+    .drawer-package-details {
+        border: 2px solid $clr-btn-search;
+        border-radius: rem(8px);
+        padding-block: rem(24px);
+        padding-inline: rem(20px);
+
+        h2 {
+            font-size: rem(16px);
+            margin-bottom: rem(10px);
+            font-weight: 700;
+        }
+
+        p {
+            font-size: rem(14px);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .drawer-package-price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+
+
+
+    .drawer-package-upgrade-details {
+        margin-top: 40px;
+        margin-bottom: 12px;
+
+        span {
+            font-size: 16px;
+        }
+
+        p {
+
+            font: 400;
+            font-size: rem(14px);
+        }
+
+        .drawer-package-upgrade-title {
+            h2 {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+        }
+
+        .drawer-package-upgrade-content {
+            margin-top: rem(12px);
+            border: 1px solid $clr-border;
+            border-radius: rem(8px);
+            cursor: pointer;
+            list-style: none;
+
+            padding-block: rem(24px);
+            padding-inline: rem(20px);
+
+            h2.drawer-package-upgrade-content-title {
+                font-size: 1rem;
+                margin-bottom: rem(5px);
+            }
+
+            p {
+                font-size: rem(14px);
+                line-height: rem(21px);
+                margin-bottom: rem(10px);
+                font-weight: 600;
+            }
+        }
+         .clicked{
+            border: 2px solid $clr-btn-search;
+        }
+    }
+
+    .upgrade-summary {
+        background-color: $clr-background;
+        border-radius: 8px;
+        color: $clr-font-dark;
+        padding: 32px;
+
+        .upgrade-summary-price {
+            span:first-child {
+                font-size: 28px;
+            }
+
+            span:nth-child(2) {
+                font-size: 14px;
+                line-height: 21px;
+            }
+        }
+            .upgrade-summary-details {
+                line-height: 21px;
+                
+                border-top: 1px solid $clr-border;
+                margin-top: 24px;
+                padding-top: 24px;
+            }
+
+            span {
+                display: block;
+                font-size: rem(14px);
+                margin-bottom: rem(5px);
+                font-weight: 600;
+            }
+        }
+    }
+
+    // Styles for the footer
+    footer.drawer-footer {
+        display: flex;
+        flex-flow:column ;
+        justify-content: center;
+        align-items: center;
+        padding: rem(10px);
+        border-top: 1px solid $clr-border;
+
+
+        p.drawer-footer-msg {
+            font-size: rem(12px);
+            margin-top: rem(10px);
+            font-weight: 600;
+        }
+    }

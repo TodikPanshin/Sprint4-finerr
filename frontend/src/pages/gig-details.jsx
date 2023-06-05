@@ -2,16 +2,21 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
 import { gigService } from "../services/gig.service.local.js"
-import { showErrorMsg } from "../services/event-bus.service.js"
+import { showSuccessMsg,showErrorMsg } from "../services/event-bus.service.js"
 import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
 import { ReviewsPreview } from '../cmps/review-preview.jsx'
 import { Packages } from '../cmps/packages.jsx'
 import { GigCarousel } from '../cmps/gig-carousel.jsx'
 import { GigSwiper } from '../cmps/gig-swiper.jsx'
+import { OrderDrawer } from '../cmps/order-drawer.jsx'
+import { removeGig } from '../store/gig.actions.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
 
 
 export function GigDetails() {
-    
+
     const [reviews, setReviews] = useState([
         {
             id: "madeId",
@@ -28,7 +33,7 @@ export function GigDetails() {
     const [gig, setGig] = useState()
     const { id } = useParams()
     const navigate = useNavigate()
-console.log(id)
+
 
     useEffect(() => {
         loadGig()
@@ -46,10 +51,24 @@ console.log(id)
         }
     }
 
+    async function onRemoveGig(id) {
+        try {
+            await removeGig(id);
+            showSuccessMsg('Gig removed');
+        } catch (err) {
+            showErrorMsg('Cannot remove Gig');
+        }
+    }
+
+
     if (!gig || gig.length) return <div>Loading...</div>
     return (
         <>
             <GigToolBar />
+            <OrderDrawer />
+            <div className='trash'>
+            <button onClick={() => { onRemoveGig(id) }}><FontAwesomeIcon icon={faTrash} size="xl"/></button>
+            </div>
             <section className='gig-container flex row' >
                 <section className="gig-details" id='gig-details'>
                     <h1 className='gig-title'>{gig.title}</h1>

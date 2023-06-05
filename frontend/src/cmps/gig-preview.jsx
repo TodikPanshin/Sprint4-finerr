@@ -17,7 +17,9 @@ export function GigPreview({ gig }) {
     return (
         <article className="gig-preview flex column">
             <Link to={`/gig/${gig._id}`} >
-                <PreviewCarousel gig={gig} className="gig-img" />
+                <div className="img-container">
+                    <PreviewCarousel gig={gig} className="gig-img" />
+                </div>
             </Link>
 
             <div className="owner-details flex">

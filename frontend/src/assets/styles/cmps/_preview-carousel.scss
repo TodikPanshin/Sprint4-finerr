@@ -1,71 +1,118 @@
 .preview-carousel {
     img {
         border-radius: 0.5rem;
+        width: 100%;
+        aspect-ratio: 1.77;
+        object-fit: cover;
     }
 
-    .carousel .control-arrow::before {
-        content: "\003c";
-        /* סמל החץ המבוקש - "less than sign" */
-        font-size: 24px;
+    .custom-arrow.custom-arrow-prev {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+        background-color: white;
+        width: 2rem;
+        /* Adjusted width */
+        height: 2rem;
+        /* Adjusted height */
+        border-radius: 50%;
+        padding: 5px;
+        /* Adjusted padding */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .custom-arrow.custom-arrow-next {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+        background-color: white;
+        width: 2rem;
+        /* Adjusted width */
+        height: 2rem;
+        /* Adjusted height */
+        border-radius: 50%;
+        padding: 5px;
+        /* Adjusted padding */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img:hover .custom-arrow.custom-arrow-next {
+        display: block;
+
+    }
+
+    .custom-arrow.custom-arrow-prev .arrow-icon,
+    .custom-arrow.custom-arrow-next .arrow-icon {
+        color: #62646a;
+        font-size: 1rem;
         /* גודל החץ */
-        color: rgb(181, 41, 41);
-        /* צבע החץ */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 30px;
-        /* רוחב החץ */
-        height: 30px;
-        /* גובה החץ */
-        background-color: white;
-        /* צבע הרקע של העיגול */
-        border-radius: 50%;
-        /* קיפול העיגול */
-        text-align: center;
-        line-height: 30px;
-        /* מרווח עם החץ במרכז העיגול */
     }
 
-    .carousel .control-prev.control-arrow {
-        left: 20px;
-        /* מרווח שמאלי של החץ השמאלי */
+    .custom-arrow.custom-arrow-prev .arrow-icon {
+        transform: rotate(180deg);
     }
 
-    .carousel .control-next.control-arrow {
-        right: 20px;
-        /* מרווח ימני של החץ הימני */
-    }
-
-    .carousel .control-arrow::before {
-        content: "";
-        font-size: 24px;
-        color: white;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 30px;
-        height: 30px;
-        background-color: white;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 30px;
-    }
-
-    .carousel .control-prev.control-arrow::before {
-        content: "<";
-    }
-
-    .carousel .control-next.control-arrow::before {
-        content: ">";
-    }
-
-    .carousel .control-prev.control-arrow {
-        left: 20px;
-    }
-
-    .carousel .control-next.control-arrow {
-        right: 20px;
+    .custom-arrow.custom-arrow-prev .arrow-icon:before,
+    .custom-arrow.custom-arrow-next .arrow-icon:before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f054";
     }
 }
+
+// .preview-carousel {
+//     position: relative;
+
+//     img {
+//         border-radius: 0.5rem;
+//     }
+
+//     .custom-arrow {
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         background-color: white;
+//         width: 2rem;
+//         height: 2rem;
+//         border-radius: 50%;
+//         padding: 5px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         opacity: 0;
+//         transition: opacity 0.3s ease-in-out;
+//     }
+
+//     .custom-arrow-prev {
+//         left: 5%;
+//     }
+
+//     .custom-arrow-next {
+//         right: 5%;
+//     }
+
+//     .preview-carousel:hover .custom-arrow {
+//         opacity: 1;
+//     }
+
+//     .custom-arrow .arrow-icon {
+//         color: #62646a;
+//         font-size: 1rem;
+//     }
+
+//     .custom-arrow-prev .arrow-icon {
+//         transform: rotate(180deg);
+//     }
+
+//     .custom-arrow .arrow-icon:before {
+//         font-family: "Font Awesome 5 Free";
+//         font-weight: 900;
+//         content: "\f054";
+//     }
+// }
