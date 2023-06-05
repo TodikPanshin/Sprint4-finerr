@@ -103,6 +103,7 @@ export function PreviewCarousel({ gig }) {
             }}        >
             <FontAwesomeIcon
                 icon={faChevronLeft}
+                size="2xs"
                 style={{
                     "--fa-primary-color": "#62646a",
                     "--fa-secondary-color": "#ffffff",
@@ -121,6 +122,7 @@ export function PreviewCarousel({ gig }) {
             }}        >
             <FontAwesomeIcon
                 icon={faChevronRight}
+                size="2xs"
                 style={{
                     "--fa-primary-color": "#62646a",
                     "--fa-secondary-color": "#ffffff",

@@ -23,7 +23,9 @@ export function GigPreview({ gig }) {
             </Link>
 
             <div className="owner-details flex">
-                <img src={gig.owner.imgUrl} alt="img of creator" className="owner-img" />
+                <div className="owner-img flex">
+                    <img src={gig.owner.imgUrl} alt="img of owner" />
+                </div>
                 <Link to={`/user/${gig.owner._id}`} className="owner-name">  {gig.owner.fullname}</Link>
             </div>
 

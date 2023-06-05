@@ -3,7 +3,7 @@
     img {
         border-radius: 0.5rem;
         width: 100%;
-        aspect-ratio: 1.77;
+        aspect-ratio: 1.66;
         object-fit: cover;
     }
 
@@ -13,9 +13,9 @@
         left: 5%;
         transform: translateY(-50%);
         background-color: white;
-        width: 2rem;
+        width: 1.5rem;
         /* Adjusted width */
-        height: 2rem;
+        height: 1.5rem;
         /* Adjusted height */
         border-radius: 50%;
         padding: 5px;
@@ -31,9 +31,9 @@
         right: 5%;
         transform: translateY(-50%);
         background-color: white;
-        width: 2rem;
+        width: 1.5rem;
         /* Adjusted width */
-        height: 2rem;
+        height: 1.5rem;
         /* Adjusted height */
         border-radius: 50%;
         padding: 5px;
@@ -51,7 +51,7 @@
     .custom-arrow.custom-arrow-prev .arrow-icon,
     .custom-arrow.custom-arrow-next .arrow-icon {
         color: #62646a;
-        font-size: 1rem;
+        font-size: 0.5rem;
         /* גודל החץ */
     }
 
