@@ -1,16 +1,29 @@
 .preview-carousel {
 
+    &:hover .custom-arrow.custom-arrow-next {
+        right: 5%;
+        opacity: 1;
+    }
+
+    &:hover .custom-arrow.custom-arrow-prev {
+        left: 5%;
+        opacity: 1;
+    }
+
     img {
         border-radius: 0.5rem;
         width: 100%;
         aspect-ratio: 1.66;
         object-fit: cover;
+
     }
 
     .custom-arrow.custom-arrow-prev {
+        z-index: 1;
+        transition: all 0.2s;
         position: absolute;
         top: 50%;
-        left: 5%;
+        left: -5%;
         transform: translateY(-50%);
         background-color: white;
         width: 1.5rem;
@@ -23,12 +36,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        opacity: 0;
     }
 
     .custom-arrow.custom-arrow-next {
+        transition: all 0.2s;
         position: absolute;
         top: 50%;
-        right: 5%;
+        right: -5%;
         transform: translateY(-50%);
         background-color: white;
         width: 1.5rem;
@@ -41,79 +56,30 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        opacity: 0;
     }
 
-    img:hover .custom-arrow.custom-arrow-next {
-        display: block;
-
+    .control-dots {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        bottom: 0.2em;
     }
 
-    .custom-arrow.custom-arrow-prev .arrow-icon,
-    .custom-arrow.custom-arrow-next .arrow-icon {
-        color: #62646a;
-        font-size: 0.5rem;
-        /* גודל החץ */
+    .carousel .carousel-indicator {
+        position: relative;
+        width: 0.25rem;
+        /* רוחב העיגול */
+        height: 0.25rem;
+        /* גובה העיגול */
+        margin: 0.21rem;
+        border-radius: 50%;
+        background-color: #fff;
+        transition: all 0.2s ease;
     }
 
-    .custom-arrow.custom-arrow-prev .arrow-icon {
-        transform: rotate(180deg);
-    }
-
-    .custom-arrow.custom-arrow-prev .arrow-icon:before,
-    .custom-arrow.custom-arrow-next .arrow-icon:before {
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        content: "\f054";
+    .carousel .carousel-indicator.selected-indicator {
+        transform: scale(1.2);
+        /* גודל העיגול של התמונה הנוכחית */
     }
 }
-
-// .preview-carousel {
-//     position: relative;
-
-//     img {
-//         border-radius: 0.5rem;
-//     }
-
-//     .custom-arrow {
-//         position: absolute;
-//         top: 50%;
-//         transform: translateY(-50%);
-//         background-color: white;
-//         width: 2rem;
-//         height: 2rem;
-//         border-radius: 50%;
-//         padding: 5px;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         opacity: 0;
-//         transition: opacity 0.3s ease-in-out;
-//     }
-
-//     .custom-arrow-prev {
-//         left: 5%;
-//     }
-
-//     .custom-arrow-next {
-//         right: 5%;
-//     }
-
-//     .preview-carousel:hover .custom-arrow {
-//         opacity: 1;
-//     }
-
-//     .custom-arrow .arrow-icon {
-//         color: #62646a;
-//         font-size: 1rem;
-//     }
-
-//     .custom-arrow-prev .arrow-icon {
-//         transform: rotate(180deg);
-//     }
-
-//     .custom-arrow .arrow-icon:before {
-//         font-family: "Font Awesome 5 Free";
-//         font-weight: 900;
-//         content: "\f054";
-//     }
-// }
