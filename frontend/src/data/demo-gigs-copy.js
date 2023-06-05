@@ -5,7 +5,7 @@ const gig = {
   "title": "I will design your logo that looks very nice",
   "price": 12,
   "rating": {
-    "average": 4.9,
+    "average": "4.9",
     "num": 178
   },
   "owner": {
@@ -35,10 +35,10 @@ const gig = {
 export const demoGigs = [
   {
     "_id": "i101",
-    "title": "I will design your logo",
+    "title": "I will design your logo that looks very nice",
     "price": 12,
     "rating": {
-      "average": 5.0,
+      "average": "5.0",
       "num": 567
     },
     "owner": {
@@ -95,10 +95,10 @@ export const demoGigs = [
   },
   {
     "_id": "i102",
-    "title": "I will write a unique SEO article, blog post, or website content",
+    "title": "I will write a unique SEO article or website content",
     "price": 20,
     "rating": {
-      "average": 4.8,
+      "average": "4.8",
       "num": 452
     },
     "owner": {
@@ -125,7 +125,7 @@ export const demoGigs = [
     Human touch writing No AI (Your readers deserve it!)
     Please contact me with any questions, to check availability, or for higher word count orders. I look forward to working with you.`,
     "imgUrls": [
-      'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/1227060/original/4eebb55f7a7d27c93110b4c6d20ac07a5f1d4aa7/write-a-unique-500-word-seo-blog-post.png',
+      // 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/1227060/original/4eebb55f7a7d27c93110b4c6d20ac07a5f1d4aa7/write-a-unique-500-word-seo-blog-post.png',
       'https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20180418/Friendly_Post1_b9bif0.jpg',
       'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/c7bdbff98fde1822c85ae1b27de69cb3-1664380630/shutterstock_1085505137/write-a-unique-500-word-seo-blog-post.jpg',
       'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/c2649aedb7ad0a886584d25677e207c3-1624292593/GettyImages-1279869264/write-a-unique-500-word-seo-blog-post.jpg',
@@ -144,10 +144,10 @@ export const demoGigs = [
   },
   {
     "_id": "i103",
-    "title": "I will build your wordpress website with oxygen builder",
+    "title": "I will build your wordpress website with oxygen",
     "price": 50,
     "rating": {
-      "average": 4.3,
+      "average": "4.3",
       "num": 669
     },
     "owner": {
@@ -215,7 +215,7 @@ export const demoGigs = [
     "title": "I will do mobile app development",
     "price": 100,
     "rating": {
-      "average": 4.7,
+      "average": "4.7",
       "num": 455
     },
     "owner": {
@@ -255,7 +255,7 @@ export const demoGigs = [
     "title": "I will write your ad or content to get results",
     "price": 15,
     "rating": {
-      "average": 4.5,
+      "average": "4.5",
       "num": 894
     },
     "owner": {
@@ -269,7 +269,7 @@ export const demoGigs = [
     "daysToMake": 2,
     "description": `24 HOUR RUSH DELIVERY on all orders. PRO WRITER with 20 years experience. See my 8,000 customer reviews.\n`,
     "imgUrls": [
-      'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/1263477/original/18dd94b70047a74cf48b988f61f67c704c35bbdb/write-your-classified-ad-fat-50-words.png',
+      // 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/1263477/original/18dd94b70047a74cf48b988f61f67c704c35bbdb/write-your-classified-ad-fat-50-words.png',
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/120916459/original/8a92c53361ca6325c7f60c78827aca5b1d7c8a10/write-you-sales-copy-that-really-converts.png',
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/180691472/original/9d72cdbf919a8cec6089006f796e69f91c6b49c6/creative-writing-video-script-creative-script-creative-writer-short-story.jpg',
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/180691472/original/3e4be13fb87d5807da07775cf62342f0a2e59ec8/creative-writing-video-script-creative-script-creative-writer-short-story.jpg',
@@ -290,7 +290,7 @@ export const demoGigs = [
     "title": "I will write dog articles and pet blog content",
     "price": 30,
     "rating": {
-      "average": 4.6,
+      "average": "4.6",
       "num": 267
     },
     "owner": {
@@ -312,7 +312,7 @@ export const demoGigs = [
     snakes / reptiles (I'm a herpetology hobbyist)\n
     I look forward to working with you!`,
     "imgUrls": [
-      'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/222615986/original/6f5b7c553b6fd09b2bf820ac4496b614349d3a97/write-dog-articles-and-pet-blog-content.jpg',
+      // 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/222615986/original/6f5b7c553b6fd09b2bf820ac4496b614349d3a97/write-dog-articles-and-pet-blog-content.jpg',
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/222615986/original/376289b040df9cf53c17c4a7c9bfc8c7bf1dfe20/write-dog-articles-and-pet-blog-content.jpg',
       'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/005da5fe4613d306b98e908bdc13fc6b-1684984866/Image%206/write-dog-articles-and-pet-blog-content.jpg',
       'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/6b6bf04fc009c04bbcc04abe751476bc-1681350026/Image%202/write-dog-articles-and-pet-blog-content.jpg',
@@ -335,7 +335,7 @@ export const demoGigs = [
     "title": "I will manage your social media To your satisfaction",
     "price": 50,
     "rating": {
-      "average": 4.5,
+      "average": "4.5",
       "num": 556
     },
     "owner": {
@@ -380,7 +380,7 @@ export const demoGigs = [
     "title": "I will write an engaging email marketing campaign",
     "price": 25,
     "rating": {
-      "average": 4.0,
+      "average": "4.0",
       "num": 887
     },
     "owner": {
@@ -389,7 +389,7 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 3,
-      "about":`I have a Bachelor of Science in Communication, Journalism, & Media and years of professional writing, editing, & social media experience.
+      "about": `I have a Bachelor of Science in Communication, Journalism, & Media and years of professional writing, editing, & social media experience.
       In the past 4 years, I've written copy for 600+ diverse clients.   
       I specialize in writing clever & engaging social media copy & online courses to add value to your brand. 
       I have experience writing social media captions, articles/blogs, ad & sales copy, website content, email campaigns, press releases, scripts, & online courses. 
@@ -421,7 +421,7 @@ export const demoGigs = [
     "title": "I will be your website SEO growth manager",
     "price": 100,
     "rating": {
-      "average": 4.8,
+      "average": "4.8",
       "num": 268
     },
     "owner": {
@@ -430,17 +430,17 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 2,
-      "about":`Hire Romy Romy Algorithm®: 100% results-driven Digital Marketing Experts & Online Business Growth Agency known for its data-driven decisions for online marketing & new business growth opportunities.`
+      "about": `Hire Romy Romy Algorithm®: 100% results-driven Digital Marketing Experts & Online Business Growth Agency known for its data-driven decisions for online marketing & new business growth opportunities.`
     },
     "daysToMake": 15,
     "description": `Do you want High-quality organic traffic and boost in Google ranking?\n
     Hire your Personal SEO Growth Manager and get Professional SEO Services done\n
     by Data Algorithm®.`,
     "imgUrls": [
-      'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/105758186/original/6ba675143bb053c8479cbbac17c3f6710afc4384/be-your-seo-manager.png',
+      // 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/105758186/original/6ba675143bb053c8479cbbac17c3f6710afc4384/be-your-seo-manager.png',
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/105758186/original/e92b3309a5fb06225c099b4045d43f52859e8b24/be-your-seo-manager.png',
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/105758186/original/f5dfd2abadc2f01d48ac856cfe4e798915afe6fc/be-your-seo-manager.png',
-      `https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20230408/Search%20Engine%20Optimization%20Services%20On%20Fiverr%20-%20SEO%20growth%20Manager%20Data%20Algorithm_wnwwbo.jpg`    ],
+      `https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20230408/Search%20Engine%20Optimization%20Services%20On%20Fiverr%20-%20SEO%20growth%20Manager%20Data%20Algorithm_wnwwbo.jpg`],
     "tagFs": [
       _getTag(),
       _getTag(),
@@ -453,10 +453,10 @@ export const demoGigs = [
   },
   {
     "_id": "i110",
-    "title": "I will design amazing children illustrations provided",
+    "title": "I will design amazing children illustrations",
     "price": 50,
     "rating": {
-      "average": 4.5,
+      "average": "4.5",
       "num": 466
     },
     "owner": {
@@ -465,7 +465,7 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 5,
-      "about":`My work is an extension of myself, the way I look at life. Happy colours swirling, where fantasy comes to life amidst a beautiful natural setting. I find wonder in a variety of things, the smallest of objects and the highest of mountains.I draw my inspiration from both nature and life.I bring all my inspirations with me as I work on my projects.
+      "about": `My work is an extension of myself, the way I look at life. Happy colours swirling, where fantasy comes to life amidst a beautiful natural setting. I find wonder in a variety of things, the smallest of objects and the highest of mountains.I draw my inspiration from both nature and life.I bring all my inspirations with me as I work on my projects.
       I have 10 years experience in gaming and animation studios . I have worked on a variety of projects and have learnt a lot through this process.
       I’m passionate with children illustrations.`
     },
@@ -491,7 +491,7 @@ export const demoGigs = [
     "title": "I will design an outstanding business card",
     "price": 50,
     "rating": {
-      "average": 4.5,
+      "average": "4.5",
       "num": 466
     },
     "owner": {
@@ -500,7 +500,7 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 5,
-      "about":`Brand Designer with 9 years of experience in the field, enthusiastic about Design and with satisfied clients from all over the world. Thanks for considering my gig. I look forward to working with you.`
+      "about": `Brand Designer with 9 years of experience in the field, enthusiastic about Design and with satisfied clients from all over the world. Thanks for considering my gig. I look forward to working with you.`
     },
     "daysToMake": 10,
     "description": `A Business Card is an extension of the person/business and should always be treated with honour and respect. It is the primary way to people to present their contact info to others.
@@ -523,10 +523,10 @@ export const demoGigs = [
   },
   {
     "_id": "i112",
-    "title": "I will do excel data entry, data collection, web research, copy paste, data entry",
+    "title": "I will do excel data entry, data collection",
     "price": 78,
     "rating": {
-      "average": 4.6,
+      "average": "4.6",
       "num": 490
     },
     "owner": {
@@ -535,7 +535,7 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 5,
-      "about":`Hello, My name is Suki Suki. I am happy to be a member of the Fiverr community. My goal is to provide the best services possible to all of my clients. I deliver fast, and accurately, and I offer 100% guaranteed satisfaction to all my clients. I will do any type of data entry, web research, copy-paste, file conversion, and typing projects at your fingertips. You can check my reviews to know what other clients think of me. Feel free to contact me and I will reach you as soon as possible. Thanks`
+      "about": `Hello, My name is Suki Suki. I am happy to be a member of the Fiverr community. My goal is to provide the best services possible to all of my clients. I deliver fast, and accurately, and I offer 100% guaranteed satisfaction to all my clients. I will do any type of data entry, web research, copy-paste, file conversion, and typing projects at your fingertips. You can check my reviews to know what other clients think of me. Feel free to contact me and I will reach you as soon as possible. Thanks`
     },
     "daysToMake": 12,
     "description": `Are you looking for a professional Data Entry Expert or a big data entry project done? Yes, you are at the right place. We are here to help you to promote your business with 100% satisfaction. We will provide you with fast and reliable service and our goal is to provide the best services possible to all of our clients.`,
@@ -559,10 +559,21 @@ export const demoGigs = [
 
 
 
+const demoOrders=[
+  {
+    "_id": "o1225",
+    "buyer": "mini-user",
+    "seller": "mini-user",
+    "gig": {
+      "_id": "i101",
+      "name": "Design Logo",
+      "price": 20
+    },
+    "status": "pending"
+  }
+]
 
-
-
-const orders = [
+ const orders = [
   {
     "_id": "o1225",
     "buyer": "mini-user",
