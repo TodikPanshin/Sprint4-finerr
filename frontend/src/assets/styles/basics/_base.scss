@@ -55,6 +55,9 @@ p {
     &-gig-contact {
         @include btn($type: gig-contact);
     }
+    &-black {
+        @include btn($type: black);
+    }
 }
 
 a {

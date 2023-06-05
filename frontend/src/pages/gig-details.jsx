@@ -8,10 +8,11 @@ import { ReviewsPreview } from '../cmps/review-preview.jsx'
 import { Packages } from '../cmps/packages.jsx'
 import { GigCarousel } from '../cmps/gig-carousel.jsx'
 import { GigSwiper } from '../cmps/gig-swiper.jsx'
+import { OrderDrawer } from '../cmps/order-drawer.jsx'
 
 
 export function GigDetails() {
-    
+
     const [reviews, setReviews] = useState([
         {
             id: "madeId",
@@ -28,7 +29,7 @@ export function GigDetails() {
     const [gig, setGig] = useState()
     const { id } = useParams()
     const navigate = useNavigate()
-console.log(id)
+
 
     useEffect(() => {
         loadGig()
@@ -50,6 +51,7 @@ console.log(id)
     return (
         <>
             <GigToolBar />
+            <OrderDrawer />
             <section className='gig-container flex row' >
                 <section className="gig-details" id='gig-details'>
                     <h1 className='gig-title'>{gig.title}</h1>

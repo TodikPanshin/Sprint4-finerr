@@ -559,21 +559,10 @@ export const demoGigs = [
 
 
 
-const demoOrders=[
-  {
-    "_id": "o1225",
-    "buyer": "mini-user",
-    "seller": "mini-user",
-    "gig": {
-      "_id": "i101",
-      "name": "Design Logo",
-      "price": 20
-    },
-    "status": "pending"
-  }
-]
 
- const orders = [
+
+
+const orders = [
   {
     "_id": "o1225",
     "buyer": "mini-user",
