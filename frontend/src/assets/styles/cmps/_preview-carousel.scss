@@ -1,4 +1,95 @@
-.preview-carousel {
+.gig-preview {
+
+    .preview-carousel {
+
+        img {
+            border-radius: 0.5rem;
+            width: 100%;
+            aspect-ratio: 1.66;
+            object-fit: cover;
+        }
+
+        .image-wrapper {
+            position: relative;
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 20%;
+                background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+                pointer-events: none;
+                border-radius: 0 0 0.5rem 0.5rem;
+            }
+        }
+
+        .custom-arrow.custom-arrow-prev {
+            z-index: 1;
+            transition: all 0.2s;
+            position: absolute;
+            top: 50%;
+            left: -5%;
+            transform: translateY(-50%);
+            background-color: white;
+            width: 1.5rem;
+            /* Adjusted width */
+            height: 1.5rem;
+            /* Adjusted height */
+            border-radius: 50%;
+            padding: 5px;
+            /* Adjusted padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+        }
+
+        .custom-arrow.custom-arrow-next {
+            transition: all 0.2s;
+            position: absolute;
+            top: 50%;
+            right: -5%;
+            transform: translateY(-50%);
+            background-color: white;
+            width: 1.5rem;
+            /* Adjusted width */
+            height: 1.5rem;
+            /* Adjusted height */
+            border-radius: 50%;
+            padding: 5px;
+            /* Adjusted padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+        }
+
+        .control-dots {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            bottom: 0.2em;
+        }
+
+        .carousel .carousel-indicator {
+            position: relative;
+            width: 0.25rem;
+            /* רוחב העיגול */
+            height: 0.25rem;
+            /* גובה העיגול */
+            margin: 0.21rem;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: all 0.2s ease;
+        }
+
+        .carousel .carousel-indicator.selected-indicator {
+            transform: scale(1.2);
+            /* גודל העיגול של התמונה הנוכחית */
+        }
+    }
 
     &:hover .custom-arrow.custom-arrow-next {
         right: 5%;
@@ -8,78 +99,5 @@
     &:hover .custom-arrow.custom-arrow-prev {
         left: 5%;
         opacity: 1;
-    }
-
-    img {
-        border-radius: 0.5rem;
-        width: 100%;
-        aspect-ratio: 1.66;
-        object-fit: cover;
-
-    }
-
-    .custom-arrow.custom-arrow-prev {
-        z-index: 1;
-        transition: all 0.2s;
-        position: absolute;
-        top: 50%;
-        left: -5%;
-        transform: translateY(-50%);
-        background-color: white;
-        width: 1.5rem;
-        /* Adjusted width */
-        height: 1.5rem;
-        /* Adjusted height */
-        border-radius: 50%;
-        padding: 5px;
-        /* Adjusted padding */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-    }
-
-    .custom-arrow.custom-arrow-next {
-        transition: all 0.2s;
-        position: absolute;
-        top: 50%;
-        right: -5%;
-        transform: translateY(-50%);
-        background-color: white;
-        width: 1.5rem;
-        /* Adjusted width */
-        height: 1.5rem;
-        /* Adjusted height */
-        border-radius: 50%;
-        padding: 5px;
-        /* Adjusted padding */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-    }
-
-    .control-dots {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        bottom: 0.2em;
-    }
-
-    .carousel .carousel-indicator {
-        position: relative;
-        width: 0.25rem;
-        /* רוחב העיגול */
-        height: 0.25rem;
-        /* גובה העיגול */
-        margin: 0.21rem;
-        border-radius: 50%;
-        background-color: #fff;
-        transition: all 0.2s ease;
-    }
-
-    .carousel .carousel-indicator.selected-indicator {
-        transform: scale(1.2);
-        /* גודל העיגול של התמונה הנוכחית */
     }
 }
