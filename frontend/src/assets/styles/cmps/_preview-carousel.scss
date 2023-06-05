@@ -1,6 +1,9 @@
 .preview-carousel {
     img {
         border-radius: 0.5rem;
+        width: 100%;
+        aspect-ratio: 1.77;
+        object-fit: cover;
     }
 
     .custom-arrow.custom-arrow-prev {
@@ -37,6 +40,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    img:hover .custom-arrow.custom-arrow-next {
+        display: block;
+
     }
 
     .custom-arrow.custom-arrow-prev .arrow-icon,
