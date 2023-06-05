@@ -23,6 +23,7 @@ _createDemoGigs()
 
 async function query(filterBy = {}) {
     var gigs = await storageService.query(STORAGE_KEY)
+    console.log(gigs, filterBy)
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')
         gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.owner.fullname) || regex.test(gig.tags))

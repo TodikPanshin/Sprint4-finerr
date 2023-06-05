@@ -1,7 +1,12 @@
-.gig-details {
+.gig-container {
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+}
 
-    margin-inline-end: 5.5%;
-    width: 59.5%;
+
+.gig-details {
+    width: 50%;
 
     & .gig-title {
         overflow-wrap: break-word;

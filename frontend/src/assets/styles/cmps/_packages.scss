@@ -1,6 +1,7 @@
 .packages-container {
     border: 1px solid rgba(0, 0, 0, 0.3);
     height: 30rem;
+    width: 30%;
     padding: 0;
 
     .labels-container {
@@ -48,16 +49,28 @@
         }
         
         button {
+            position: relative;
             background-color: black;
             color: white;
             width: 90%;
             border-radius: 4px;
-            font-size: 1rem;
+            font-size: 0.875rem;
             padding: .5rem 1rem;
-            font-weight: 600;
+            font-weight: 400;
             height: 2.5rem;
             align-self: end;
             justify-self: center;
+            caret-color: transparent;
+
+            span {
+                position: absolute;
+                right: 5%;
+            }
+
+            &:hover {
+                opacity: .7;
+                transition: .4s;
+            }
         }
     }
 }

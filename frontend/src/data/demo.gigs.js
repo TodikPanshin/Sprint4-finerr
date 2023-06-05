@@ -389,7 +389,7 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 3,
-      "about":`I have a Bachelor of Science in Communication, Journalism, & Media and years of professional writing, editing, & social media experience.
+      "about": `I have a Bachelor of Science in Communication, Journalism, & Media and years of professional writing, editing, & social media experience.
       In the past 4 years, I've written copy for 600+ diverse clients.   
       I specialize in writing clever & engaging social media copy & online courses to add value to your brand. 
       I have experience writing social media captions, articles/blogs, ad & sales copy, website content, email campaigns, press releases, scripts, & online courses. 
@@ -430,7 +430,7 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 2,
-      "about":`Hire Romy Romy Algorithm®: 100% results-driven Digital Marketing Experts & Online Business Growth Agency known for its data-driven decisions for online marketing & new business growth opportunities.`
+      "about": `Hire Romy Romy Algorithm®: 100% results-driven Digital Marketing Experts & Online Business Growth Agency known for its data-driven decisions for online marketing & new business growth opportunities.`
     },
     "daysToMake": 15,
     "description": `Do you want High-quality organic traffic and boost in Google ranking?\n
@@ -440,8 +440,8 @@ export const demoGigs = [
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/105758186/original/6ba675143bb053c8479cbbac17c3f6710afc4384/be-your-seo-manager.png',
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/105758186/original/e92b3309a5fb06225c099b4045d43f52859e8b24/be-your-seo-manager.png',
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/105758186/original/f5dfd2abadc2f01d48ac856cfe4e798915afe6fc/be-your-seo-manager.png',
-      `https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20230408/Search%20Engine%20Optimization%20Services%20On%20Fiverr%20-%20SEO%20growth%20Manager%20Data%20Algorithm_wnwwbo.jpg`    ],
-    "tagFs": [
+      `https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20230408/Search%20Engine%20Optimization%20Services%20On%20Fiverr%20-%20SEO%20growth%20Manager%20Data%20Algorithm_wnwwbo.jpg`],
+    "tags": [
       _getTag(),
       _getTag(),
       _getTag(),
@@ -465,7 +465,7 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 5,
-      "about":`My work is an extension of myself, the way I look at life. Happy colours swirling, where fantasy comes to life amidst a beautiful natural setting. I find wonder in a variety of things, the smallest of objects and the highest of mountains.I draw my inspiration from both nature and life.I bring all my inspirations with me as I work on my projects.
+      "about": `My work is an extension of myself, the way I look at life. Happy colours swirling, where fantasy comes to life amidst a beautiful natural setting. I find wonder in a variety of things, the smallest of objects and the highest of mountains.I draw my inspiration from both nature and life.I bring all my inspirations with me as I work on my projects.
       I have 10 years experience in gaming and animation studios . I have worked on a variety of projects and have learnt a lot through this process.
       I’m passionate with children illustrations.`
     },
@@ -500,7 +500,7 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 5,
-      "about":`Brand Designer with 9 years of experience in the field, enthusiastic about Design and with satisfied clients from all over the world. Thanks for considering my gig. I look forward to working with you.`
+      "about": `Brand Designer with 9 years of experience in the field, enthusiastic about Design and with satisfied clients from all over the world. Thanks for considering my gig. I look forward to working with you.`
     },
     "daysToMake": 10,
     "description": `A Business Card is an extension of the person/business and should always be treated with honour and respect. It is the primary way to people to present their contact info to others.
@@ -535,7 +535,7 @@ export const demoGigs = [
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
       "level": "basic/premium",
       "rate": 5,
-      "about":`Hello, My name is Suki Suki. I am happy to be a member of the Fiverr community. My goal is to provide the best services possible to all of my clients. I deliver fast, and accurately, and I offer 100% guaranteed satisfaction to all my clients. I will do any type of data entry, web research, copy-paste, file conversion, and typing projects at your fingertips. You can check my reviews to know what other clients think of me. Feel free to contact me and I will reach you as soon as possible. Thanks`
+      "about": `Hello, My name is Suki Suki. I am happy to be a member of the Fiverr community. My goal is to provide the best services possible to all of my clients. I deliver fast, and accurately, and I offer 100% guaranteed satisfaction to all my clients. I will do any type of data entry, web research, copy-paste, file conversion, and typing projects at your fingertips. You can check my reviews to know what other clients think of me. Feel free to contact me and I will reach you as soon as possible. Thanks`
     },
     "daysToMake": 12,
     "description": `Are you looking for a professional Data Entry Expert or a big data entry project done? Yes, you are at the right place. We are here to help you to promote your business with 100% satisfaction. We will provide you with fast and reliable service and our goal is to provide the best services possible to all of our clients.`,
@@ -627,9 +627,12 @@ function _getTag() {
     'Programming & Tech',
     'Photography',
     'Business',
-    'AI Services'
+    'AI Services',
+    'Data',
+    'Lifestyle',
+    'music & Audio'
   ]
-  return categories[utilService.getRandomIntInclusive(0, 7)]
+  return categories[utilService.getRandomIntInclusive(0, 10)]
 }
 
 // HomePage

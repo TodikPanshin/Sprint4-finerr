@@ -4,6 +4,7 @@ import { GigIndex } from './pages/gig-index.jsx'
 import { ReviewIndex } from './pages/review-index.jsx'
 import { ChatApp } from './pages/chat-app.jsx'
 import { AdminApp } from './pages/admin-app.jsx'
+import { Checkout } from './pages/checkout.jsx'
 
 
 // Routes accesible from the main navigation (in AppHeader)
@@ -37,6 +38,11 @@ const routes = [
         path: 'admin',
         component: <AdminApp />,
         label: 'Admin Only'
+    },
+    {
+        path: 'checkout',
+        component: <Checkout />,
+        label: 'Checkout'
     }
 ]
 
