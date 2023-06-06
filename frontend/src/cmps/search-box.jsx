@@ -38,7 +38,7 @@ export function SearchBox({setFilterBy, placeholder}) {
                 name="txt" id="txt" type="text"
                 value={txt}
                 placeholder={placeholder} />
-            <button onClick={cancelSearch} className={`cancel-btn ${showCancelBtn}`}>X</button>
+            <button onClick={cancelSearch} className={`cancel-btn ${showCancelBtn}`}>✖</button>
             <button onClick={onSubmitFilter} className="search-btn">
                 <img
                     onClick={onSubmitFilter}
