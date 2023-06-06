@@ -1,42 +1,179 @@
-.trash{
-    position: absolute;
-    inset-inline-start: 1023px;
-    inset-block-start: 132px;
-}
-.gig-details {
-    margin-inline-end: 5.5%;
-    width: 59.5%;
+.gig-container {
+    padding: rem(32px) 0;
 
-    & .gig-title {
-        overflow-wrap: break-word;
-        padding-block-end: em(16px);
-        font-size: em(28px);
-        line-height: 130%;
-        color: $clr-font-dark;
-
+    .trash {
+        position: absolute;
+        inset-inline-start: 1023px;
+        inset-block-start: 132px;
     }
 
-    .seller-details {
-        >* {
-            margin-inline-end: 1em;
-            align-items: center;
+    .gig-details {
+        margin-inline-end: 5.5%;
+        width: 59.5%;
+
+        .seller-name {
+            color: $clr-font-dark;
+            font-size: em(18px);
+            font-weight: 700;
+            margin-right: 8px;
+
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
         }
 
-        & img {
-            max-width: 100%;
-            width: 30px;
-            height: auto;
+        .seller-at:hover {
+            text-decoration: underline;
+            cursor: pointer;
         }
 
-        .seller-txt {
-            >* {
-                margin-right: 8px;
+
+
+        .gig-overview {
+            &-filter-nav {
+                a {
+                    font-size: 14px;
+                    color: $clr-link;
+                    text-decoration: underline;
+                    font-weight: 300;
+                }
+
+                span {
+                    margin-inline: 8px;
+                }
             }
 
-            .seller-name {
+            .gig-title {
+                overflow-wrap: break-word;
+                padding-block-end: rem(16px);
+                font-size: em(28px);
+                line-height: 130%;
                 color: $clr-font-dark;
-                font-size: em(18px);
+                margin: 0;
+                overflow-wrap: break-word;
 
+
+            }
+
+            .seller-details {
+                >* {
+                    margin-inline-end: 1em;
+                    align-items: center;
+                }
+
+                & img {
+                    max-width: 100%;
+                    width: 30px;
+                    height: auto;
+                }
+
+                .seller-txt {
+
+                    >* {
+                        margin-inline-end: 8px;
+                        font-weight: 300;
+                    }
+
+                    .seller-name {
+                        font-weight: 700;
+                        margin-right: 8px;
+                    }
+
+                    .reviews-rate {
+                        display: flex;
+
+                        .ratings-count {
+                            padding-inline-start: rem(4px);
+                            font-size: rem(14px);
+                        }
+                    }
+
+                }
+            }
+
+
+
+            .notable-clients-bar {
+
+                border-block-start: 1px solid $clr-border ;
+                padding-top: 20px;
+                margin-bottom: 16px;
+                margin-top: 16px;
+
+                .notable-clients-title {
+                    color: $clr-font-dark;
+                }
+
+                >* {
+                    margin-inline-end: 1em;
+                    align-items: center;
+                }
+            }
+        }
+
+        .gig-imgs-contener {
+            width: auto;
+            position: relative;
+            margin-block-end: 64px;
+        }
+
+        .img-preview {
+            width: 50px;
+        }
+
+        .review-preview {
+            margin-block-end: 64px;
+
+            .review-preview-title {
+                color: $clr-font-dark;
+            }
+
+            .review-list {
+                padding: 20px;
+                border-radius: 0.5rem;
+                border: 2px solid $clr-border;
+            }
+        }
+
+        .about-gig {
+            &-title {
+                font-size: 20px;
+                line-height: 28px;
+                padding-bottom: 25px;
+                color: $clr-font-dark;
+            }
+        }
+
+        .seller-details-card-title {
+            color: $clr-font-dark;
+            font-size: em(20px);
+            line-height: em(28px);
+        }
+
+        .seller-details-card {
+            padding-bottom: rem(24px);
+            .seller-img {
+                width: rem(110px);
+                height: rem(110px);
+                
+            }
+
+            .seller-details-card-txt {
+                padding-left: 15px;
+                align-items: flex-start;
+
+                
+                .seller-card-btn {
+                    font-size: rem(14px);
+                    margin-top: rem(20px);
+                }
+            }
+            .seller-stats{
+                line-height: 130%;
+                border: 1px solid #dadbdd;
+                border-radius: 3px;
+                padding: 24px;
             }
         }
     }
@@ -47,69 +184,4 @@
         }
     }
 
-    .notable-clients-bar {
-
-        border-block-start: 1px solid $clr-border ;
-        padding-top: 20px;
-        margin-bottom: 16px;
-        margin-top: 16px;
-
-        .notable-clients-title {
-            color: $clr-font-dark;
-        }
-
-        >* {
-            margin-inline-end: 1em;
-            align-items: center;
-        }
-    }
-
-    .gig-imgs-contener {
-        width: auto;
-        position: relative;
-        margin-block-end: 64px;
-    }
-
-    .img-preview {
-        width: 50px;
-    }
-
-    .review-preview {
-        margin-block-end: 64px;
-
-        .review-preview-title {
-            color: $clr-font-dark;
-        }
-
-        .review-list {
-            padding: 20px;
-            border-radius: 0.5rem;
-            border: 2px solid $clr-border;
-        }
-    }
-
-    .about-gig{
-    &-title{
-        font-size: 20px;
-    line-height: 28px;
-    padding-bottom: 25px;
-    color: $clr-font-dark;
-    }
-}
-    .seller-details-card-title {
-        color: $clr-font-dark;
-        font-size: em(20px);
-        line-height: em(28px);
-    }
-
-    .seller-details-card {
-        .seller-img {
-            width: rem(110px);
-            height: rem(110px);
-        }
-
-        .seller-details-card-txt {
-            padding-left: 15px
-        }
-    }
 }

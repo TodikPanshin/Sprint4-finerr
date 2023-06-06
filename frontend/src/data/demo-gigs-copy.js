@@ -441,7 +441,7 @@ export const demoGigs = [
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/105758186/original/e92b3309a5fb06225c099b4045d43f52859e8b24/be-your-seo-manager.png',
       'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/105758186/original/f5dfd2abadc2f01d48ac856cfe4e798915afe6fc/be-your-seo-manager.png',
       `https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20230408/Search%20Engine%20Optimization%20Services%20On%20Fiverr%20-%20SEO%20growth%20Manager%20Data%20Algorithm_wnwwbo.jpg`],
-    "tagFs": [
+    "tags": [
       _getTag(),
       _getTag(),
       _getTag(),
@@ -638,9 +638,12 @@ function _getTag() {
     'Programming & Tech',
     'Photography',
     'Business',
-    'AI Services'
+    'AI Services',
+    'Data',
+    'Lifestyle',
+    'music & Audio'
   ]
-  return categories[utilService.getRandomIntInclusive(0, 7)]
+  return categories[utilService.getRandomIntInclusive(0, 10)]
 }
 
 // HomePage

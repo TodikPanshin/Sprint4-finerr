@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
 import { gigService } from "../services/gig.service.local.js"
-import { showSuccessMsg,showErrorMsg } from "../services/event-bus.service.js"
+import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
 import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
 import { ReviewsPreview } from '../cmps/review-preview.jsx'
 import { Packages } from '../cmps/packages.jsx'
@@ -10,8 +10,10 @@ import { GigCarousel } from '../cmps/gig-carousel.jsx'
 import { GigSwiper } from '../cmps/gig-swiper.jsx'
 import { OrderDrawer } from '../cmps/order-drawer.jsx'
 import { removeGig } from '../store/gig.actions.js'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { StarRating } from '../cmps/star-rating.jsx'
+
+
 
 
 
@@ -71,25 +73,38 @@ export function GigDetails() {
             </div> */}
             <section className='gig-container flex row' >
                 <section className="gig-details" id='gig-details'>
-                    <h1 className='gig-title'>{gig.title}</h1>
-                    <div className='seller-details flex align-center'>
-                        <div className='seller-img'>
-                            <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
-                        </div>
-                        <div className='seller-txt flex'>
-                            <h5 className='seller-name'>{gig.owner.fullname}</h5>
-                            <h5 className='seller-rate'>Level {gig.owner.rate} Seller</h5>
-                            <h5>|</h5>
-                            <div className='reviews-rate'>
-                                <h5>Reviews</h5>
+                    <div className='gig-overview'>
+                        <nav className='gig-overview-filter-nav'>
+                            <ul className='flex clean-list'>
+                                <li className='gig-overview-main-tag'><a href="#">main tag</a></li>
+                                <span>&gt;</span>
+                                <li className='gig-overview-secondary tag'><a href="#">secondary tag</a></li>
+                            </ul>
+                        </nav>
+                        <h1 className='gig-title'>{gig.title}</h1>
+                        <div className='seller-details flex align-center'>
+                            <div className='seller-img'>
+                                <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
+                            </div>
+                            <div className='seller-txt flex'>
+                            <div className='seller-username-line flex'>
+                                <h5 className='seller-name'>{gig.owner.fullname}</h5>
+                                <h5 className='seller-at'>@needtoadd</h5>
+                                </div>
+                                <h5 className='seller-rate'>Level {gig.owner.rate} Seller</h5>
+                                <h5>|</h5>
+                                <div className='reviews-rate'>
+                                    <StarRating rate={gig.owner.rate} />
+                                    <span className='ratings-count'>({gig.rating.num})</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='notable-clients-bar flex'>
-                        <h5 className='notable-clients-title'>Among my clients</h5>
-                        <h5>muki</h5>
-                        <h5>|</h5>
-                        <h5>puki</h5>
+                        <div className='notable-clients-bar flex'>
+                            <h5 className='notable-clients-title'>Among my clients</h5>
+                            <h5>muki</h5>
+                            <h5>|</h5>
+                            <h5>puki</h5>
+                        </div>
                     </div>
                     <div className='gig-imgs-contener'>
                         {/* <GigCarousel gigImgs={gig.imgUrl}/> */}
@@ -114,17 +129,39 @@ export function GigDetails() {
                                 <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
                             </div>
                             <div className='seller-details-card-txt flex column'>
-                                <h2>{gig.owner.fullname}</h2>
-                                <h5>Level {gig.owner.rate} Seller</h5>
-                                <button className='btn-gig-contact'>Contact me</button>
+                                <div className='seller-username-line flex'>
+                                <h5 className='seller-name'>{gig.owner.fullname}</h5>
+                                <h5 className='seller-at'>@needtoadd</h5>
+                                </div>
+                                <h5 className='seller-one-liner'>{gig.tags.slice(0, 3).join(', ')}</h5>
+                                <StarRating rate={gig.owner.rate} />
+                                <button className='seller-card-btn btn-gig-contact'>Contact me</button>
                             </div>
                         </div>
-                        <p>{gig.owner.about}</p>
+                        <div className='seller-stats'>
+                            <ul class="seller-info clean-list">
+                                <li>From
+                                    <span>Canada</span>
+                                </li>
+                                <li>Member since
+                                    <span>Mar 2021</span>
+                                </li>
+                                <li>Avg. response time
+                                    <span>2 hours</span>
+                                </li><li>Last delivery
+                                    <span>1 day</span>
+                                </li>
+                                <li><p>Languages</p>
+                                    <span> English</span>
+                                </li>
+                            </ul>
+                            <p className='seller-about'>{gig.owner.about}</p>
+                        </div>
                     </section>
                 </section>
                 <Packages gig={gig} />
             </section>
-        // </>
+        </>
     )
 }
 
