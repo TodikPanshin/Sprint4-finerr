@@ -29,8 +29,8 @@ async function query(filterBy = {}) {
         gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.owner.fullname) || regex.test(gig.tags))
     }
 
-    if (filterBy.category) {
-        gigs = gigs.filter(gig => gig.tags.includes(filterBy.category))
+    if (filterBy.tag) {
+        gigs = gigs.filter(gig => gig.tags.includes(filterBy.tag))
     }
 
     // if (filterBy.price) {

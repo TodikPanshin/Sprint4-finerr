@@ -1,27 +1,29 @@
 .main-home {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 45%;
+    min-width: 650px;
     color: white;
-    margin-block: 12%;
+    margin-block: 11%;
     font-size: 0.875rem;
 
     h2 {
         font-size: 3rem;
+        line-height: 1.8rem;
 
         span {
             font-family: domaine;
+            font-weight: 200;
         }
     }
 
     .search-box {
-        flex-grow: 1;
-
         form {
             display: flex;
             flex-direction: row;
             align-items: stretch;
             position: relative;
+            margin-block: .3rem;
 
             label {
                 width: 0;
@@ -34,6 +36,7 @@
             font-family: macan;
             font-size: 1rem;
             padding: 10px 2px 10px 16px;
+            height: 3rem;
             width: 100%;
             font-weight: 200;
 
@@ -50,13 +53,14 @@
         .cancel-btn {
             display: block;
             position: absolute;
-            right: 3.5rem;
+            right: 5rem;
             background-color: rgb(216, 216, 216);
             border-radius: 50%;
             width: 1.5rem;
             height: 1.5rem;
             padding: 0;
             align-self: center;
+            justify-self: center;
 
             &.hidden {
                 display: none;
@@ -64,8 +68,8 @@
         }
 
         img {
-            width: 16px;
-            height: 16px;
+            width: 2rem;
+            height: 1rem;
             margin: 0;
             filter: invert(1);
         }
@@ -97,15 +101,43 @@
 }
 
 .slide-container {
+    .black-background {
+        background-color: black;
+        height: 42.5rem;
+    }
+
     &>* {
         position: absolute;
         top: 0;
         right: 0;
         width: 100%;
-        height: 42.5rem;
         z-index: -10;
         transition: 1s;
-        object-fit: cover;
+
+        img {
+            height: 42.5rem;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        span {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1rem;
+            font-weight: 200;
+        }
+
+        p {
+            position: absolute;
+            bottom: 1.7rem;
+            left: 80%;
+            font-weight: 400;
+            letter-spacing: .01rem;
+            color: white;
+
+            span {
+                font-weight: 600;
+            }
+        }
     }
 }
 
@@ -114,6 +146,7 @@
         border: 1px solid white;
         border-radius: 3rem;
         background-color: transparent;
+        font-weight: 600;
         color: white;
         margin-inline: .6rem;
 
@@ -121,6 +154,208 @@
             color: black;
             background-color: white;
             transition: 0.5s;
+        }
+    }
+}
+
+.popular-services-container {
+    overflow: hidden;
+    margin-top: 25rem;
+    position: relative;
+
+    h2 {
+        font-family: macan;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #2e2f31;
+        margin-bottom: 2rem;
+    }
+
+    button {
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        z-index: 10;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        font-weight: 900;
+        top: 48%;
+        margin: 0;
+        padding: .7rem;
+        left: -1.2rem;
+
+        &:last-child {
+            left: auto;
+            right: -1rem;
+        }
+        img {
+            width: 1.2rem;
+        }
+
+    }
+}
+
+.popular-services {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+
+    li {
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+            opacity: .8;
+            transition: .5s;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: .4rem;
+        }
+
+        h2 {
+            position: absolute;
+            top: 0;
+            color: white;
+            font-size: 1.5rem;
+            padding: 1rem;
+
+            span {
+                font-size: 1rem;
+                display: block;
+                line-height: 1.5rem;
+            }
+        }
+    }
+}
+
+.best-part-everything {
+    margin-block: 11rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 900;
+        color: #2e2f31;
+        margin-bottom: 1.8rem;
+    }
+
+    h3 {
+        padding: .1rem;
+        line-height: .9rem;
+        color: black;
+        font-weight: 900;
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            filter: invert(50%);
+            margin-bottom: -.3rem;
+            margin-right: .5rem;
+        }
+    }
+
+    p {
+        font-size: 1.1rem;
+        font-weight: 200;
+        width: 65%;
+    }
+}
+
+.home-category {
+    // margin-top: 20rem;
+    caret-color: transparent;
+
+    h1 {
+        font-size: 2rem;
+        color: #2e2f31;
+    }
+}
+
+.home-category-display {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 6rem;
+
+    button {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        font-size: .7rem;
+        padding: 0 10px 55px;
+        width: 20%;
+        margin: 0;
+
+        img {
+            width: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-border {
+            width: 3rem;
+            margin-top: -.5rem;
+            border-bottom: 2px solid rgb(192, 190, 190);
+        }
+
+        &:hover .category-border {
+            border-bottom: 1px solid $clr-btn-hov;
+            scale: 1.8 1;
+            transition: .3s;
+        }
+
+        h2 {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.join-finerr-img {
+    position: relative;
+    height: 23.8rem;
+    overflow: hidden;
+
+    img {
+        margin-top: -2.2%;
+    }
+
+    h2 {
+        position: absolute;
+        top: 35%;
+        left: 6rem;
+        font-family: macan;
+        font-size: 3rem;
+        line-height: 1.8rem;
+        color: white;
+
+        span {
+            font-family: domaine;
+            font-weight: 200;
+        }
+
+        button {
+            margin-top: 3.4rem;
+            margin-left: -.05rem;
+            height: 2.6rem;
+            width: 8.2rem;
+            border-radius: 4px;
+            background-color: $clr-hov;
+            color: white;
+            font-size: 1rem;
+            font-family: macan;
+            font-weight: 400;
+            padding-bottom: .5rem;
         }
     }
 }
