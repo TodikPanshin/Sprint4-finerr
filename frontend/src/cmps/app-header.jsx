@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -8,6 +8,7 @@ import { SearchBox } from './search-box.jsx'
 import { LoginSignup } from './login-signup.jsx'
 import { setFilterBy } from '../store/gig.actions'
 import { Categories } from './categories'
+import { useInView } from 'react-intersection-observer'
 
 export const categories = [
     'Graphic & Design',
@@ -26,7 +27,11 @@ export function AppHeader() {
     const [isSignUp, setIsSignup] = useState(false)
     const navigate = useNavigate()
 
-    const isHome = window.location.pathname === '/' ? "home" : ""
+    const { ref, inView } = useInView({
+        rootMargin: '0px 0px'
+    })
+
+    const isHome = window.location.pathname === '/' ? "is-home" : ""
 
     //  USER
 
@@ -80,9 +85,10 @@ export function AppHeader() {
         })
     }
 
+
     return (
-        <header className="app-header full main-layout">
-            <section className={`main-header ${isHome}`}>
+        <header className={`app-header full main-layout`}>
+            <section ref={ref} className={`main-header ${isHome} ${inView ? 'in-view' : 'in-sticky'}`}>
                 <NavLink key="/" to="/" className="logo">
                     <div className="white-dot">
                     </div>finerr<span className="dot">.</span>
@@ -95,7 +101,7 @@ export function AppHeader() {
                     <NavLink key="seller-register" to="/">Become a Seller</NavLink>
                     {user &&
                         <span className="user-info">
-                            <button onClick={onProfileClick}>
+                            <button className="user-img" onClick={onProfileClick}>
                                 {user.imgUrl && <img src={user.imgUrl} />}
                             </button>
                         </span>
@@ -113,7 +119,7 @@ export function AppHeader() {
                 </section>}
             </section>
 
-            {!isHome && <Categories categories={categories} handleCategoryFilter={handleCategoryFilter} />}
+            {!isHome && <Categories className="categories" categories={categories} handleCategoryFilter={handleCategoryFilter} />}
 
             {isSignUp && <LoginSignup cancel={setIsSignup} onLogin={onLogin} onSignup={onSignup} />}
         </header>

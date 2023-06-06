@@ -1,14 +1,16 @@
 .main-header {
-    position: relative;
+    position: static;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     font-weight: 900;
+    width: 100%;
     height: 5rem;
     background-color: $clr1;
     font-size: 1rem;
     padding: 0;
+    z-index: 100;
 
     .logo {
         position: relative;
@@ -48,8 +50,8 @@
     }
 
     .search-box {
-        // flex-grow: 1;
-        width: 40rem;
+        flex-grow: 1;
+        max-width: 40rem;
 
         form {
             display: flex;
@@ -165,7 +167,7 @@
             font-size: inherit;
             font-weight: inherit;
             background-color: transparent;
-            
+
 
             &:hover {
                 color: $clr-btn-hov;
@@ -193,7 +195,7 @@
 
             &:hover {
                 background-color: transparent;
-                
+                border: 0;
             }
         }
     }
@@ -228,7 +230,7 @@
         }
     }
 
-    &.home {
+    &.is-home {
         background-color: transparent;
 
         .logo {
@@ -262,6 +264,12 @@
                 }
             }
 
+            button.user-img {
+                &:hover {
+                    border: 0;
+                }
+            }
+
             .user-info {
                 button {
                     border: 0;
@@ -269,6 +277,17 @@
             }
         }
 
+    }
+
+    &.in-view {
+        position: static;
+        background-color: transparent;
+    }
+
+    &.in-sticky {
+        // position: fixed;
+        top: 0;
+        background-color: rgb(255, 255, 255);
     }
 }
 
