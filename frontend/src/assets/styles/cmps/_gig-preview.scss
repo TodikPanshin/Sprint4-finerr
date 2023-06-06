@@ -9,10 +9,10 @@
 
     .owner-details {
         align-items: center;
-        font-size: 0.875rem;
-        line-height: 1.5em;
+        // font-size: 0.875rem;
+        // line-height: 1.5em;
         column-gap: 0.5rem;
-        margin-top: 0.65em;
+        margin-top: 0.8em;
         margin-bottom: 0.6em;
         font-weight: 400;
 
@@ -25,9 +25,10 @@
         }
 
         .owner-name {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: $clr-btn-search;
             align-items: center;
+            margin-left: 0.2rem;
 
             &:hover {
                 text-decoration: underline;
@@ -35,10 +36,12 @@
         }
     }
 
-    .title {
+    .gig-title {
+        display: flex;
+        height: 2.8rem;
         color: $clr-font-dark;
-        // padding-top: 4px;
-        font-size: 0.8rem;
+        padding-top: 0.1rem;
+        // font-size: 0.8rem;
         line-height: 130%;
         margin: 0;
         font-weight: 300;
@@ -48,14 +51,14 @@
         }
     }
 
-    .rating {
-        margin-top: 0.6rem;
+    .gig-rating {
+        margin-top: 0.9rem;
         line-height: 1.5rem;
-        font-size: 0.8rem;
+        // font-size: 0.8rem;
 
         .star {
-            font-size: 0.7rem;
-            line-height: 2em;
+            // font-size: 0.7rem;
+            // line-height: 2em;
             color: $clr-btn-search;
             fill: $clr-btn-search;
         }
@@ -72,21 +75,23 @@
         }
     }
 
-    .price {
+    .gig-price {
         margin: 0;
-        margin-top: 0.35em;
-        margin-bottom: 0.05;
-        font-size: 0.8rem;
+        margin-top: 0.45rem;
+        margin-bottom: 0.1;
+        // font-size: 0.8rem;
         // line-height: 1.5em;
         color: $clr-btn-search;
         font-weight: bold;
 
-        &:hover .title {
+        &:hover .gig-title {
             text-decoration: underline;
         }
     }
 }
 
-.price:hover .title {
-    text-decoration: underline;
+.gig-preview {
+    &:has(.gig-price:hover) &.gig-title {
+        text-decoration: underline;
+    }
 }

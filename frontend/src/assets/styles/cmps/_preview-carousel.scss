@@ -33,9 +33,9 @@
             left: -5%;
             transform: translateY(-50%);
             background-color: white;
-            width: 1.5rem;
+            width: 2rem;
             /* Adjusted width */
-            height: 1.5rem;
+            height: 2rem;
             /* Adjusted height */
             border-radius: 50%;
             padding: 5px;
@@ -53,9 +53,9 @@
             right: -5%;
             transform: translateY(-50%);
             background-color: white;
-            width: 1.5rem;
+            width: 2rem;
             /* Adjusted width */
-            height: 1.5rem;
+            height: 2rem;
             /* Adjusted height */
             border-radius: 50%;
             padding: 5px;
@@ -70,16 +70,16 @@
             position: absolute;
             display: flex;
             justify-content: center;
-            bottom: 0.2em;
+            bottom: 0.5em;
         }
 
         .carousel .carousel-indicator {
             position: relative;
-            width: 0.25rem;
+            width: 0.35rem;
             /* רוחב העיגול */
-            height: 0.25rem;
+            height: 0.35rem;
             /* גובה העיגול */
-            margin: 0.21rem;
+            margin: 0.25rem;
             border-radius: 50%;
             background-color: #fff;
             transition: all 0.2s ease;
@@ -92,12 +92,12 @@
     }
 
     &:hover .custom-arrow.custom-arrow-next {
-        right: 5%;
+        right: 4%;
         opacity: 1;
     }
 
     &:hover .custom-arrow.custom-arrow-prev {
-        left: 5%;
+        left: 4%;
         opacity: 1;
 
     }
