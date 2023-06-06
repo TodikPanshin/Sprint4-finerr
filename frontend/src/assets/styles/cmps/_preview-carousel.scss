@@ -1,119 +1,105 @@
-.preview-carousel {
+.gig-preview {
 
-    img {
-        border-radius: 0.5rem;
-        width: 100%;
-        aspect-ratio: 1.77;
-        object-fit: cover;
+    .preview-carousel {
+
+        img {
+            border-radius: 0.5rem;
+            width: 100%;
+            aspect-ratio: 1.66;
+            object-fit: cover;
+        }
+
+        .image-wrapper {
+            position: relative;
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 20%;
+                background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+                pointer-events: none;
+                border-radius: 0 0 0.5rem 0.5rem;
+            }
+        }
+
+        .custom-arrow.custom-arrow-prev {
+            z-index: 1;
+            transition: all 0.2s;
+            position: absolute;
+            top: 50%;
+            left: -5%;
+            transform: translateY(-50%);
+            background-color: white;
+            width: 1.5rem;
+            /* Adjusted width */
+            height: 1.5rem;
+            /* Adjusted height */
+            border-radius: 50%;
+            padding: 5px;
+            /* Adjusted padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+        }
+
+        .custom-arrow.custom-arrow-next {
+            transition: all 0.2s;
+            position: absolute;
+            top: 50%;
+            right: -5%;
+            transform: translateY(-50%);
+            background-color: white;
+            width: 1.5rem;
+            /* Adjusted width */
+            height: 1.5rem;
+            /* Adjusted height */
+            border-radius: 50%;
+            padding: 5px;
+            /* Adjusted padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+        }
+
+        .control-dots {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            bottom: 0.2em;
+        }
+
+        .carousel .carousel-indicator {
+            position: relative;
+            width: 0.25rem;
+            /* רוחב העיגול */
+            height: 0.25rem;
+            /* גובה העיגול */
+            margin: 0.21rem;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: all 0.2s ease;
+        }
+
+        .carousel .carousel-indicator.selected-indicator {
+            transform: scale(1.2);
+            /* גודל העיגול של התמונה הנוכחית */
+        }
     }
 
-    .custom-arrow.custom-arrow-prev {
-        position: absolute;
-        top: 50%;
-        left: 5%;
-        transform: translateY(-50%);
-        background-color: white;
-        width: 2rem;
-        /* Adjusted width */
-        height: 2rem;
-        /* Adjusted height */
-        border-radius: 50%;
-        padding: 5px;
-        /* Adjusted padding */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .custom-arrow.custom-arrow-next {
-        position: absolute;
-        top: 50%;
+    &:hover .custom-arrow.custom-arrow-next {
         right: 5%;
-        transform: translateY(-50%);
-        background-color: white;
-        width: 2rem;
-        /* Adjusted width */
-        height: 2rem;
-        /* Adjusted height */
-        border-radius: 50%;
-        padding: 5px;
-        /* Adjusted padding */
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        opacity: 1;
     }
 
-    img:hover .custom-arrow.custom-arrow-next {
-        display: block;
+    &:hover .custom-arrow.custom-arrow-prev {
+        left: 5%;
+        opacity: 1;
 
     }
 
-    .custom-arrow.custom-arrow-prev .arrow-icon,
-    .custom-arrow.custom-arrow-next .arrow-icon {
-        color: #62646a;
-        font-size: 1rem;
-        /* גודל החץ */
-    }
-
-    .custom-arrow.custom-arrow-prev .arrow-icon {
-        transform: rotate(180deg);
-    }
-
-    .custom-arrow.custom-arrow-prev .arrow-icon:before,
-    .custom-arrow.custom-arrow-next .arrow-icon:before {
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        content: "\f054";
-    }
 }
-
-// .preview-carousel {
-//     position: relative;
-
-//     img {
-//         border-radius: 0.5rem;
-//     }
-
-//     .custom-arrow {
-//         position: absolute;
-//         top: 50%;
-//         transform: translateY(-50%);
-//         background-color: white;
-//         width: 2rem;
-//         height: 2rem;
-//         border-radius: 50%;
-//         padding: 5px;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         opacity: 0;
-//         transition: opacity 0.3s ease-in-out;
-//     }
-
-//     .custom-arrow-prev {
-//         left: 5%;
-//     }
-
-//     .custom-arrow-next {
-//         right: 5%;
-//     }
-
-//     .preview-carousel:hover .custom-arrow {
-//         opacity: 1;
-//     }
-
-//     .custom-arrow .arrow-icon {
-//         color: #62646a;
-//         font-size: 1rem;
-//     }
-
-//     .custom-arrow-prev .arrow-icon {
-//         transform: rotate(180deg);
-//     }
-
-//     .custom-arrow .arrow-icon:before {
-//         font-family: "Font Awesome 5 Free";
-//         font-weight: 900;
-//         content: "\f054";
-//     }
-// }

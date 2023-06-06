@@ -70,8 +70,14 @@ export function AppHeader() {
     // FILTER
 
     function handleCategoryFilter(category) {
-        setFilterBy({ category })
+        setFilterBy({ tag: category })
         navigate('/gig')
+    }
+
+    function resetFilter() {
+        setFilterBy({
+            txt: ''
+        })
     }
 
     return (
@@ -85,7 +91,7 @@ export function AppHeader() {
                 <SearchBox setFilterBy={setFilterBy} placeholder={'What service are you looking for today'} />
 
                 <nav>
-                    <NavLink key="gig" to="/gig">Explore</NavLink>
+                    <NavLink onClick={resetFilter} key="gig" to="/gig">Explore</NavLink>
                     <NavLink key="seller-register" to="/">Become a Seller</NavLink>
                     {user &&
                         <span className="user-info">

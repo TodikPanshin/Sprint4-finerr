@@ -4,17 +4,18 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    font-weight: 600;
+    font-weight: 900;
     height: 5rem;
     background-color: $clr1;
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 0;
 
     .logo {
         position: relative;
-        color: black;
-        font-size: 2rem;
-        font-weight: 900;
+        color: rgb(66, 66, 66);
+        font-family: macan;
+        font-size: 2.1rem;
+        font-weight: 1200;
         -webkit-text-stroke-width: 1px;
         letter-spacing: -0.1rem;
         margin-right: 30px;
@@ -47,7 +48,8 @@
     }
 
     .search-box {
-        flex-grow: 1;
+        // flex-grow: 1;
+        width: 40rem;
 
         form {
             display: flex;
@@ -62,7 +64,7 @@
 
         input {
             border-radius: 4px 0 0 4px;
-            border: 0.5px solid rgb(150, 150, 150);
+            border: 1px solid rgba(150, 150, 150, .5);
             font-family: macan;
             font-size: 1rem;
             padding: 10px 2px 10px 16px;
@@ -82,12 +84,14 @@
         .cancel-btn {
             display: block;
             position: absolute;
-            right: 3.5rem;
-            background-color: rgb(216, 216, 216);
+            right: 3.8rem;
+            background-color: rgba(189, 189, 189, 0.5);
+            color: rgb(126, 126, 126);
             border-radius: 50%;
+            font-size: 0.875rem;
             width: 1.5rem;
             height: 1.5rem;
-            padding: 0;
+            padding: 3px;
             align-self: center;
 
             &.hidden {
@@ -113,10 +117,12 @@
             position: fixed;
             left: 0;
             top: 5rem;
-            background-color: rgba(0, 0, 0, .3);
+            background-color: rgba(0, 0, 0, .6);
             width: 100%;
             height: 150%;
             z-index: 10000;
+            opacity: 1;
+            transition: .3s;
 
             &.hidden {
                 background-color: transparent;
@@ -127,7 +133,7 @@
     }
 
     nav {
-        justify-self: end;
+        margin-left: auto;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -140,6 +146,7 @@
 
             &:hover {
                 color: $clr-btn-hov;
+                transition: .5s;
             }
 
             &.active {
@@ -158,22 +165,25 @@
             font-size: inherit;
             font-weight: inherit;
             background-color: transparent;
+            
 
             &:hover {
                 color: $clr-btn-hov;
+                transition: .5s;
             }
 
             &:last-child {
                 font-size: 0.875rem;
                 line-height: 0.875rem;
                 color: $clr-btn-hov;
-                border: 1px solid $clr-btn-hov;
+                border: 1px solid $clr-hov;
                 border-radius: 4px;
                 padding: 10px 16px;
 
                 &:hover {
-                    background-color: $clr-btn-hov;
+                    background-color: $clr-hov;
                     color: white;
+                    transition: .5s;
                 }
             }
         }
@@ -183,6 +193,7 @@
 
             &:hover {
                 background-color: transparent;
+                
             }
         }
     }
@@ -212,6 +223,7 @@
 
             &:hover {
                 color: $clr-btn-hov;
+                transition: .5s;
             }
         }
     }
@@ -222,8 +234,7 @@
         .logo {
             color: white;
             letter-spacing: normal;
-            font-weight: bolder;
-            flex-grow: 10;
+            font-family: macan;
 
             .white-dot {
                 display: none;
@@ -247,6 +258,7 @@
 
                 &:hover {
                     border: 1px solid transparent;
+                    transition: .5s;
                 }
             }
 
@@ -273,12 +285,12 @@
         padding: 0;
         margin: 0;
         font-weight: 200;
-        font-size: 0.8rem;
+        font-size: 1.05rem;
         display: flex;
         flex-direction: row;
         list-style-type: none;
         justify-content: space-between;
-        gap: 1rem;
+        gap: 1.2rem;
 
 
         .category {
@@ -287,7 +299,7 @@
             caret-color: transparent;
 
             &:hover {
-                box-shadow: 0px 2px 0px 0px rgba(27, 173, 54, 1);
+                box-shadow: 0px 3px 0px 0px rgba(27, 173, 54, 1);
             }
         }
     }
