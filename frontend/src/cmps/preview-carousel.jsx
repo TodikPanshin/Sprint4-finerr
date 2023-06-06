@@ -9,15 +9,6 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 library.add(fas);
 
 export function PreviewCarousel({ gig }) {
-    // const [isHovered, setIsHovered] = useState(false);
-
-    // const handleMouseEnter = () => {
-    //     setIsHovered(true);
-    // }
-
-    // const handleMouseLeave = () => {
-    //     setIsHovered(false);
-    // }
 
     const renderIndicator = (clickHandler, isSelected, index, label) => {
         const indicatorClasses = isSelected ? "carousel-indicator selected-indicator" : "carousel-indicator";
@@ -86,9 +77,6 @@ export function PreviewCarousel({ gig }) {
             renderArrowNext={renderArrowNext}
             renderIndicator={renderIndicator}
             className="preview-carousel"
-
-        // onMouseEnter={handleMouseEnter}
-        // onMouseLeave={handleMouseLeave}
         >
             {gig.imgUrls.map((imgUrl) => (
                 <div key={imgUrl} className="image-wrapper">

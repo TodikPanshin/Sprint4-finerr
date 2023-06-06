@@ -70,9 +70,6 @@
             padding-left: 4px;
             font-weight: 300;
         }
-
-        // color: $clr2;
-
     }
 
     .price {
@@ -88,4 +85,8 @@
             text-decoration: underline;
         }
     }
+}
+
+.price:hover .title {
+    text-decoration: underline;
 }
