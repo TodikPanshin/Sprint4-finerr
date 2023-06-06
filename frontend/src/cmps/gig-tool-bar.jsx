@@ -5,11 +5,13 @@ import routes from '../routes'
 
 export function GigToolBar(){
 return(
-    <section className='gig-details-nav clean-list'>
-        <a href="#">Overview</a>
-        <a href="seller-details">About the seller</a>
-        <a href="#">Compare packages</a>
-        <a href="#">Reviews</a>
-    </section>
+    <nav className='gig-details-nav main-layout full'>
+        <ul className='clean-list flex'>
+        <li><a href="#">Overview</a></li>
+        <li><a href="seller-details">About the seller</a></li>
+        <li><a href="#">Compare packages</a></li>
+        <li><a href="#">Reviews</a></li>
+        </ul>
+    </nav>
 )
 }

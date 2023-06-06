@@ -1,0 +1,23 @@
+.star-rating {
+    margin-block-end: rem(6px);
+    .star {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+  
+      &.on {
+        fill: $clr-star;
+      }
+  
+      &.off {
+        fill: $clr2;
+      }
+    }
+    .rating-score{
+      color: $clr-star;
+      padding-inline-start: 4px;
+      font-size: rem(14px);
+      font-weight: 600;
+    }
+  }

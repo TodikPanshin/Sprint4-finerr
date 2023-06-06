@@ -9,15 +9,6 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 library.add(fas);
 
 export function PreviewCarousel({ gig }) {
-    // const [isHovered, setIsHovered] = useState(false);
-
-    // const handleMouseEnter = () => {
-    //     setIsHovered(true);
-    // }
-
-    // const handleMouseLeave = () => {
-    //     setIsHovered(false);
-    // }
 
     const renderIndicator = (clickHandler, isSelected, index, label) => {
         const indicatorClasses = isSelected ? "carousel-indicator selected-indicator" : "carousel-indicator";
@@ -40,26 +31,29 @@ export function PreviewCarousel({ gig }) {
         )
     }
 
-    const renderArrowPrev = (clickHandler, hasPrev, label) => (
-        <div
-            className={`custom-arrow custom-arrow-prev`}
-            onClick={(ev) => {
-                ev.preventDefault()
-                clickHandler()
-            }}        >
-            <FontAwesomeIcon
-                icon={faChevronLeft}
-                size="2xs"
-                style={{
-                    "--fa-primary-color": "#62646a",
-                    "--fa-secondary-color": "#ffffff",
-                }}
-            />
-        </div>
-    )
+    const renderArrowPrev = (clickHandler, hasPrev, label) =>
+        hasPrev && (
+            <div
+                className={`custom-arrow custom-arrow-prev`}
+                onClick={(ev) => {
+                    ev.preventDefault()
+                    clickHandler()
+                }}        >
+                <FontAwesomeIcon
+                    icon={faChevronLeft}
+                    size="xl"
+                    style={{
+                        "--fa-primary-color": "#62646a",
+                        "--fa-secondary-color": "#ffffff",
+                    }}
+                />
+            </div>
+        )
+
+
 
     const renderArrowNext = (clickHandler, hasNext, label) => (
-        <div
+        hasNext && <div
             className={`custom-arrow custom-arrow-next`}
             onClick={(ev) => {
                 ev.preventDefault();
@@ -68,7 +62,7 @@ export function PreviewCarousel({ gig }) {
         >
             <FontAwesomeIcon
                 icon={faChevronRight}
-                size="2xs"
+                // size="lg"
                 style={{
                     "--fa-primary-color": "#62646a",
                     "--fa-secondary-color": "#ffffff",
@@ -79,16 +73,14 @@ export function PreviewCarousel({ gig }) {
 
     return (
         <Carousel
+
             showThumbs={false}
             showStatus={false}
-            infiniteLoop
+            // infiniteLoop
             renderArrowPrev={renderArrowPrev}
             renderArrowNext={renderArrowNext}
             renderIndicator={renderIndicator}
             className="preview-carousel"
-
-        // onMouseEnter={handleMouseEnter}
-        // onMouseLeave={handleMouseLeave}
         >
             {gig.imgUrls.map((imgUrl) => (
                 <div key={imgUrl} className="image-wrapper">
