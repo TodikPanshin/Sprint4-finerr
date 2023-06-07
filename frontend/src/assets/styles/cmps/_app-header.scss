@@ -10,7 +10,23 @@
     background-color: $clr1;
     font-size: 1rem;
     padding: 0;
-    z-index: 100;
+
+    &.sticky-header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        max-width: 1400px;
+        margin: 0 auto;
+        background-color: rgb(255, 255, 255);
+        z-index: 100;
+    }
+
+    &.hidden {
+        display: none;
+        touch-action: none;
+    }
 
     .logo {
         position: relative;
@@ -128,6 +144,7 @@
 
             &.hidden {
                 background-color: transparent;
+                display: none;
                 touch-action: none;
                 z-index: -10;
             }
@@ -278,19 +295,7 @@
         }
 
     }
-
-    &.in-view {
-        position: static;
-        background-color: transparent;
-    }
-
-    &.in-sticky {
-        // position: fixed;
-        top: 0;
-        background-color: rgb(255, 255, 255);
-    }
 }
-
 
 .categories {
 
