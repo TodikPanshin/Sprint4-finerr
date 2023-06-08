@@ -5,7 +5,9 @@ export const utilService = {
     debounce,
     randomPastTime,
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,
+    timePassed,
+    adToDemoData
 }
 
 function makeId(length = 6) {
@@ -61,3 +63,40 @@ function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
 }
+
+function adToDemoData(array, key, value, nestedKey=null) {
+    array.forEach((object) => {
+      if (nestedKey) {
+        object[nestedKey][key] = value
+      } else {
+        object[key] = value
+      }
+    })
+  }
+
+
+function timePassed(date) {
+    const currentDate = new Date();
+    const differenceInTime = currentDate.getTime() - date.getTime();
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    const millisecondsPerWeek = 7 * millisecondsPerDay;
+    const millisecondsPerMonth = 30.436875 * millisecondsPerDay;
+    const millisecondsPerYear = 365.2425 * millisecondsPerDay;
+  
+    if (differenceInTime < millisecondsPerWeek) {
+      const daysPassed = Math.floor(differenceInTime / millisecondsPerDay);
+      return `${daysPassed} day ago`
+    } else if (differenceInTime < millisecondsPerMonth) {
+      const weeksPassed = Math.floor(differenceInTime / millisecondsPerWeek);
+      return `${weeksPassed} weeks ago`
+    } else if (differenceInTime < millisecondsPerYear) {
+      const monthsPassed = Math.floor(differenceInTime / millisecondsPerMonth);
+      return `${monthsPassed} months ago`
+    } else {
+      const yearsPassed = Math.floor(differenceInTime / millisecondsPerYear);
+      return `${yearsPassed} years ago`
+    }
+  }
+  
+  
+  

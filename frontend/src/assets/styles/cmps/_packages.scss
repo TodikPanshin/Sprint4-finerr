@@ -1,8 +1,12 @@
 .packages-container {
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid $clr-border;
     height: 30rem;
-    width: 30%;
+    width: 33.6%;
     padding: 0;
+
+    h3 {
+        margin: 0;
+    }
 
     .labels-container {
         display: flex;
@@ -36,18 +40,38 @@
         }
     }
 
-    .main-package {
+    .main-packages {
         padding-top: 2rem;
-        padding-inline: 1.5rem;
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
+        padding-inline: 1.5rem;    
         font-size: 0.875rem;
         height: 80%;
 
-        h2 {
+        h3 {
             text-align: start;
         }
-        
+
+        .packages-header {
+            margin-block-end: 63px;
+
+            .packages-details {
+                margin-block-end: 24.4px;
+            }
+        }
+        .packages-additional-info{
+            margin-block-end: rem(8px);
+            >*{
+                margin-inline-end:rem(16px);
+            }
+        }
+        .packages-features{
+            margin-block-end: 1.25rem;
+           color:$clr2;
+            .check-mark{
+                margin-inline-end: rem(12px);
+                line-height:0;
+            }
+        }
+
         button {
             position: relative;
             background-color: black;

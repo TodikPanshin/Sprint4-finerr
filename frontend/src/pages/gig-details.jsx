@@ -6,12 +6,12 @@ import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
 import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
 import { ReviewsPreview } from '../cmps/review-preview.jsx'
 import { Packages } from '../cmps/packages.jsx'
-import { GigCarousel } from '../cmps/gig-carousel.jsx'
 import { GigSwiper } from '../cmps/gig-swiper.jsx'
 import { OrderDrawer } from '../cmps/order-drawer.jsx'
 import { removeGig } from '../store/gig.actions.js'
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { StarRating } from '../cmps/star-rating.jsx'
+import { SellerDetails } from '../cmps/seller-details.jsx'
+import { SellerCard } from '../cmps/seller-card.jsx'
+import { ShowReviews } from '../cmps/show-reviews.jsx'
 
 
 
@@ -21,16 +21,73 @@ export function GigDetails() {
 
     const [reviews, setReviews] = useState([
         {
-            id: "madeId",
-            gig: "{optional-mini-gig}",
-            txt: "Very kind and works fast",
-            rate: 4,
+            id: "i101",
+            gig: {
+                _id: 'i106',
+                title: 'I will write dog articles and pet blog content'
+            },
+            txt: `I’m a disabled veteran with PTSD, Kloe🐶was a constant companion and source of comfort to me.
+             Her unwavering love and loyalty were a beacon of hope during difficult times.
+              Jen is a professional content creator and published author.
+               Our heartfelt Social Media Posts are PAWsitive. 
+               I was blown away by her unique writing skills. 
+               She is a “dog mom” and understands the loss of a Fur Baby.
+                Jen, thank you for your words of comfort.
+                 I was so overwhelmed with emotion I was moved to tears.
+                  Kloe a Yorkie Service Dog was truly a gift from God.
+                   Kloe is no longer by my side, but FUREVER in my heart.
+                    My heart is💔. A BEAUTIFUL shining light has been dimmed.
+                    Kloe’s wings were ready but my Heart was not.🐶🐾🕊 `,
+            rate: 5,
+            date: new Date(),
             by: {
                 _id: "u102",
-                fullname: "user2",
-                imgUrl: ''
+                country: "canada",
+                fullname: "strawberryred78",
+                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/76d1e507770ac9db49456d83521d7c0e-1534481351065/5224dec4-7033-4ecb-a118-8ed28b8761de.jpg'
             }
-        }
+        },
+
+        {
+            id: "i102",
+            gig: {
+                _id: 'i106',
+                title: 'I will write dog articles and pet blog content'
+            },
+            txt: `Absolutely amazing. She worked incredibly fast and delivered beyond expectations.
+             I would definitely recommend.
+             Her knowledge of dog breeds was unexpectedly broad and detailed. Wow.`,
+            rate: 5,
+            date: new Date(),
+            by: {
+                _id: "u103",
+                country: "isreal",
+                fullname: "marianaolver283",
+                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/1fcd42f23834628e5704905ad41b2ee6-1679381258169/ba120b86-0853-4513-a786-ed6f49deeba2.png'
+            }
+        },
+
+        {
+            id: "i103",
+            gig: {
+                _id: 'i106',
+                title: 'I will write dog articles and pet blog content'
+            },
+            txt: `Jen was great to work with! She is great at communicating and setting a clear goal from the start.
+             I appreciate her keeping me updated on her progress. She's fast and very professional.
+              I look forward to working with her again soon :)`,
+            rate: 5,
+            date: new Date(),
+            by: {
+                _id: "u104",
+                country: "united states",
+                fullname: "marianaolver283",
+                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/c4238e5b3805218a4dd84180b4cdcd12-1594146133949/3f460af2-6d81-4527-bdc8-332abe7d73c7.jpg'
+            }
+        },
+
+
+
     ])
     const [gig, setGig] = useState()
     const { id } = useParams()
@@ -45,7 +102,7 @@ export function GigDetails() {
         try {
             const gig = await gigService.getById(id)
             setGig(gig)
-            console.log(gig)
+            // console.log(gig)
         } catch (err) {
             console.log('Had issues in gig details', err)
             showErrorMsg('Cannot load gig');
@@ -62,6 +119,7 @@ export function GigDetails() {
         }
     }
 
+    
 
     if (!gig || gig.length) return <div>Loading...</div>
     return (
@@ -71,7 +129,7 @@ export function GigDetails() {
             {/* <div className='trash'>
             <button onClick={() => { onRemoveGig(id) }}><FontAwesomeIcon icon={faTrash} size="xl"/></button>
             </div> */}
-            <section className='gig-container flex row' >
+            <section className='gig-container flex full' >
                 <section className="gig-details" id='gig-details'>
                     <div className='gig-overview'>
                         <nav className='gig-overview-filter-nav'>
@@ -82,82 +140,34 @@ export function GigDetails() {
                             </ul>
                         </nav>
                         <h1 className='gig-title'>{gig.title}</h1>
-                        <div className='seller-details flex align-center'>
-                            <div className='seller-img'>
-                                <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
-                            </div>
-                            <div className='seller-txt flex'>
-                            <div className='seller-username-line flex'>
-                                <h5 className='seller-name'>{gig.owner.fullname}</h5>
-                                <h5 className='seller-at'>@needtoadd</h5>
-                                </div>
-                                <h5 className='seller-rate'>Level {gig.owner.rate} Seller</h5>
-                                <h5>|</h5>
-                                <div className='reviews-rate'>
-                                    <StarRating rate={gig.owner.rate} />
-                                    <span className='ratings-count'>({gig.rating.num})</span>
-                                </div>
-                            </div>
-                        </div>
+                        <SellerDetails owner={gig.owner} tags={gig.tags} reviewNum={gig.rating.num} />
                         <div className='notable-clients-bar flex'>
-                            <h5 className='notable-clients-title'>Among my clients</h5>
-                            <h5>muki</h5>
-                            <h5>|</h5>
-                            <h5>puki</h5>
+                            <p className='notable-clients-title'>Among my clients</p>
+                            <p>muki</p>
+                            <p>|</p>
+                            <p>puki</p>
                         </div>
                     </div>
                     <div className='gig-imgs-contener'>
-                        {/* <GigCarousel gigImgs={gig.imgUrl}/> */}
                         <GigSwiper gigImgs={gig.imgUrls} />
                     </div>
+                    <h2 className='review-preview-title'>What people loved about this seller</h2>
                     <section className="review-preview">
-                        <h3 className='review-preview-title'>What people loved about this seller</h3>
-                        <ul className="review-list clean-list">
-                            {reviews.map((review) => (
+                        <ul className="review-preview-list clean-list">
+                            {/* {reviews.map((review) => (
                                 <ReviewsPreview key={review.id} review={review} />
-                            ))}
+                                ))} */}
+                            <ReviewsPreview review={reviews[0]} />
                         </ul>
                     </section>
+                    <h2 className='about-gig-title'>About This Gig</h2>
                     <section className='about-gig' id='about-gig'>
-                        <h2 className='about-gig-title'>About This Gig</h2>
                         <p>{gig.description} </p>
                     </section>
                     <h2 className='seller-details-card-title'>About The Seller</h2>
-                    <section className='seller-card' id='seller-card'>
-                        <div className='seller-details-card flex '>
-                            <div className='seller-img'>
-                                <img src={`https://robohash.org/test?set=set4&size=50x50&bgset=bg1`} alt="cat" />
-                            </div>
-                            <div className='seller-details-card-txt flex column'>
-                                <div className='seller-username-line flex'>
-                                <h5 className='seller-name'>{gig.owner.fullname}</h5>
-                                <h5 className='seller-at'>@needtoadd</h5>
-                                </div>
-                                <h5 className='seller-one-liner'>{gig.tags.slice(0, 3).join(', ')}</h5>
-                                <StarRating rate={gig.owner.rate} />
-                                <button className='seller-card-btn btn-gig-contact'>Contact me</button>
-                            </div>
-                        </div>
-                        <div className='seller-stats'>
-                            <ul class="seller-info clean-list">
-                                <li>From
-                                    <span>Canada</span>
-                                </li>
-                                <li>Member since
-                                    <span>Mar 2021</span>
-                                </li>
-                                <li>Avg. response time
-                                    <span>2 hours</span>
-                                </li><li>Last delivery
-                                    <span>1 day</span>
-                                </li>
-                                <li><p>Languages</p>
-                                    <span> English</span>
-                                </li>
-                            </ul>
-                            <p className='seller-about'>{gig.owner.about}</p>
-                        </div>
-                    </section>
+                    <SellerCard gig={gig} />
+                    <h2>Reviews</h2>
+                    <ShowReviews reviews={reviews} />
                 </section>
                 <Packages gig={gig} />
             </section>

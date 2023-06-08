@@ -1,0 +1,19 @@
+.review-preview {
+
+    .user-img {
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        margin-top: 4px;
+        margin-inline-end: 20px;
+    }
+
+    .review-preview-details {
+        .user-info {
+            >* {
+                padding-inline-end: 8px;
+                align-items: center;
+            }
+        }
+    }
+}

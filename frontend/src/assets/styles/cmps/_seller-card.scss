@@ -1,0 +1,60 @@
+.seller-card {
+    margin-bottom: rem(64px);
+    .seller-card-details{
+        align-items: start;
+
+    }
+    .seller-img {
+        width: rem(110px);
+        height: rem(110px);
+
+    }
+
+    .seller-stats {
+        line-height: 130%;
+        border: 1px solid #dadbdd;
+        border-radius: 3px;
+        padding: 24px;
+
+        .seller-stats-info {
+            flex-flow: row wrap;
+
+            li {
+                padding-bottom: 16px;
+                width: 50%;
+                color:$clr2;
+                span{
+                    color: $clr-font;
+                    display: block;
+                }
+            }
+        }
+    }
+    .seller-about{
+        border-top: 1px solid #dadbdd;
+        line-height: 150%;
+        padding-top: 15px;
+    }
+
+    .seller-details {
+        padding-bottom: rem(24px);
+        
+
+        
+
+        .seller-info {
+            padding-left: 15px;
+            align-items: flex-start;
+            flex-direction: column;
+
+            
+
+            .seller-card-btn {
+                font-size: rem(14px);
+                margin: 0;
+                margin-block-start: rem(20px);
+            }
+        }
+
+    }
+}

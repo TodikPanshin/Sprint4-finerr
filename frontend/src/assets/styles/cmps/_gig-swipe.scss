@@ -1,49 +1,36 @@
 .main-swiper {
-    width: 100%;
+    width: auto;
     height: auto;
     aspect-ratio: 16/9;
     background-color: $clr-background;
-
-
+    max-width: 712px;
+    max-height: 427px;
+    
+    
     img {
         width: 100%;
         aspect-ratio: 16/9;
         transition: transform 0.3s;
         object-fit: scale-down;
-
+        
         &:hover {
             transform: scale(1.1);
         }
     }
-
-
-    .swiper-button-prev {
-        color: $clr1;
-        border-radius: 50%;
-        // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
-        left: var(--swiper-navigation-sides-offset, 0);
-        right: auto;
-
-    }
-
-    .swiper-button-next {
-        color: $clr1;
-        border-radius: 50%;
-        // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
-        right: var(--swiper-navigation-sides-offset, 0);
-        left: auto;
-    }
+    
 }
+    
 
 
 
 .thumbs-swiper {
     padding-top: 5px;
+
     .swiper-slide {
         opacity: 0.4;
 
-        
-         img {
+
+        img {
             width: 100%;
             object-fit: cover;
             aspect-ratio: 16/9;
@@ -88,5 +75,57 @@
             opacity: 1;
             transition-delay: 0s;
         }
+    }
+}
+
+.btn-swiper-back {
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
+    height: 48px;
+    margin-block-start: -24px;
+    position: absolute;
+    text-align: center;
+    inset-block-start: 50%;
+    width: 48px;
+    z-index: 4;
+    border-radius: 30px;
+    inset-inline-start: -24px;
+    cursor:pointer;
+
+    &::after {
+        background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_page_perseus/arrows.c651879.svg) no-repeat;
+        background-size: 16px 64px;
+        content: "";
+        display: inline-block;
+        height: 16px;
+        margin-block-start: 16px;
+        width: 16px;
+        background-position: 0 -32px;
+    }
+}
+
+.btn-swiper-next {
+    background-color: $clr1;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
+    height: 48px;
+    margin-block-start: -24px;
+    position: absolute;
+    text-align: center;
+    inset-block-start: 50%;
+    width: 48px;
+    z-index: 4;
+    border-radius: rem(30px);
+    inset-inline-end: -24px;
+    cursor:pointer;
+
+    &::after {
+        background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_page_perseus/arrows.c651879.svg) no-repeat;
+        background-size: 16px 64px;
+        content: "";
+        display: inline-block;
+        height: 16px;
+        margin-block-start: 16px;
+        width: 16px;
+        background-position: 0 -48px;
     }
 }

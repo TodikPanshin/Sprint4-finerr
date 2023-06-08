@@ -27,6 +27,17 @@ h6 {
     font-family: macan, Helvetica-Neue, Helvetica, arial, sans-serif;
     margin: 0 0 0.6em;
     line-height: 1;
+    // new:
+    color: $clr-font-dark;
+}
+
+// new:
+h1 {
+    font-size: rem(38px);
+}
+
+h2 {
+    font-size: rem(20px);
 }
 
 img {
@@ -34,7 +45,10 @@ img {
 }
 
 p {
-    margin: 0 0 1em;
+    // changes to p:
+    // margin: 0 0 1em;
+    margin: 0;
+    font-weight: 300;
 }
 
 .btn {
@@ -51,10 +65,11 @@ p {
     &-hero {
         @include btn($type: hero-btn);
     }
-    
+
     &-gig-contact {
         @include btn($type: gig-contact);
     }
+
     &-black {
         @include btn($type: black);
     }
@@ -65,7 +80,7 @@ a {
     color: $clr-font;
 
     &.active {
-        color: $clr-font ;
+        color: $clr-font;
         text-decoration: underline;
     }
 
