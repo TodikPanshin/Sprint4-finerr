@@ -1,0 +1,54 @@
+.seller-details {
+    .seller-img {
+            border-radius: 50%;
+    }
+
+    .seller-info {
+            p{
+                font-size: rem(14px);
+            }
+
+
+        .seller-username-line {
+            align-items: center;
+            
+            .seller-name {
+                color: $clr-font-dark;
+                font-size: em(18px);
+                font-weight: 700;
+                margin-right: 8px;
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+
+            .seller-at:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+
+        .seller-rate {
+            display: inline-block;
+            font-weight: 300;
+        }
+
+        .seller-one-liner {
+            display: inline-block;
+            font-weight: 300;
+        }
+
+        .reviews-rate {
+            display: flex;
+            align-items: center;
+
+            .ratings-count {
+                padding-inline-start: rem(4px);
+                font-size: rem(14px);
+                font-weight: 300;
+            }
+        }
+    }
+}

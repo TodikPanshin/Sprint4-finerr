@@ -1,6 +1,6 @@
 .main-layout {
     display: grid;
-    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+    @include layoutGTC($wide-breakpoint);
     align-items: start;
 
     &.app {
@@ -16,17 +16,17 @@
         }
     }
 
-    @include for-narrow-layout {
-        @include layoutGTC($narrow-breakpoint);
-      }
+    // @include for-narrow-layout {
+    //     @include layoutGTC($wide-breakpoint);
+    //   }
       
-      @include for-normal-layout {
-        @include layoutGTC($normal-breakpoint);
-      }
+    //   @include for-normal-layout {
+    //     @include layoutGTC($normal-breakpoint);
+    //   }
       
-      @include for-wide-layout {
-        @include layoutGTC($wide-breakpoint);
-      }
+    //   @include for-wide-layout {
+    //     @include layoutGTC($wide-breakpoint);
+    //   }
 }
 
 .card-grid {

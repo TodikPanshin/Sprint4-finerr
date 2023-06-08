@@ -55,7 +55,7 @@ async function save(gig) {
         savedGig = await storageService.put(STORAGE_KEY, gig)
     } else {
         // Later, owner is set by the backend
-        gig.owner = userService.getLoggedinUser()
+        gig.owner = userService.getLoggedInUser()
         savedGig = await storageService.post(STORAGE_KEY, gig)
     }
     return savedGig
@@ -68,7 +68,7 @@ async function addGigMsg(gigId, txt) {
 
     const msg = {
         id: utilService.makeId(),
-        by: userService.getLoggedinUser(),
+        by: userService.getLoggedInUser(),
         txt
     }
     gig.msgs.push(msg)
@@ -92,12 +92,16 @@ function _createDemoGigs() {
     let gigs = localStorage.getItem(STORAGE_KEY)
     if (!gigs || !gigs.length) {
         gigs = demoGigs
+        const featuresList = ['Prompt writing', 'Generated image examples', 'Artwork delivery', 'Image upscaling']
+        utilService.adToDemoData(gigs, 'featuresList', featuresList)
+        utilService.adToDemoData(gigs, 'extras', {})
         localStorage.setItem(STORAGE_KEY, JSON.stringify(gigs))
     }
 }
 
 function _createGig() {
     var gig = localStorage.getItem(STORAGE_KEY)
+
     if (!gig || !gig.length) {
         const gigs = []
         for (let i = 0; i < 10; i++) {

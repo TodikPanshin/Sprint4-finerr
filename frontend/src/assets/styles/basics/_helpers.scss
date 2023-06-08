@@ -27,6 +27,20 @@
     font-size: rem(30px);
 }
 
+// margin helpers
+
+.margin-inline-end-8{
+    margin-inline-end:rem(8px)
+}
+
+.margin-inline-end-16{
+    margin-inline-end:rem(16px)
+}
+
+.margin-block-end-20{
+    margin-block-end:rem(20px)
+}
+
 // flex helpers
 
 .flex {
@@ -48,8 +62,8 @@
     &.align-center {
         align-items: center;
     }
-    
-    &.justify-between{
+
+    &.justify-between {
         justify-content: space-between;
     }
 }
@@ -118,4 +132,29 @@
 
 .txt-bold {
     font-weight: 700;
+}
+
+// Card helpers
+
+.border-top {
+    border-block-start: 1px solid $clr-border ;
+}
+
+.border-bottom {
+    border-block-end: 1px solid $clr-border ;
+}
+
+// text helpers
+
+.underline {
+    text-decoration: underline;
+}
+
+// cursor helpers
+.cursor-default {
+    cursor: default;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

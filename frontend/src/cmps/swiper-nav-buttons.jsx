@@ -5,12 +5,8 @@ export function SwiperButtons() {
 
     return (
         <>
-            <div>
-                <button className='swiper-nav-btn btn-back' onClick={() => swiper.slidePrev()}>&lt;</button>
-            </div>
-            <div>
-                <button className='swiper-nav-btn btn-next' onClick={() => swiper.slideNext()}>&gt;</button> 
-            </div>
+            <div className='btn-swiper-back' onClick={() => swiper.slidePrev()}></div>
+            <div className='btn-swiper-next' onClick={() => swiper.slideNext()}></div>
         </>
     )
 }

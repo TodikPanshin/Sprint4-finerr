@@ -2,9 +2,18 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-import { demoOrders } from '../data/demo.orders.js'
+import { demoOrders } from '../data/demo.gigs.js'
 
 const ORDER_STORAGE_KEY = 'orderDB'
+
+export const orderService = {
+
+    query,
+    getById,
+    remove,
+    save,
+    getCurrOrder,
+}
 
 async function query() {
     var orders = await storageService.query(ORDER_STORAGE_KEY)
@@ -13,45 +22,56 @@ async function query() {
 }
 
 function getById(orderId) {
-    return storageService.get(STORAGE_KEY, orderId)
+    return storageService.get(ORDER_STORAGE_KEY, orderId)
 }
 
 async function remove(orderId) {
-    await storageService.remove(STORAGE_KEY, orderId)
+    await storageService.remove(ORDER_STORAGE_KEY, orderId)
 }
 
 async function save(order) {
     var savedGig
     if (order._id) {
-        savedGig = await storageService.put(STORAGE_KEY, order)
+        savedGig = await storageService.put(ORDER_STORAGE_KEY, order)
     } else {
         // Later, owner is set by the backend
-        order.owner = userService.getLoggedinUser()
-        savedGig = await storageService.post(STORAGE_KEY, order)
+        order.owner = userService.getLoggedInUser()
+        savedGig = await storageService.post(ORDER_STORAGE_KEY, order)
     }
     return savedGig
 }
 
-function getEmptyOrder() {
+function getCurrOrder(gig) {
+    const guest = {
+        fullname: "guest",
+        imgUrl: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+        _id: utilService.makeId()
+    }
+
+    const loggedInUser = userService.getLoggedInUser()
+
     return {
-        buyer: userService.getLoggedinUser(),
-        seller: '',
+        buyer: loggedInUser && !Object.keys(loggedInUser).length  ? loggedInUser : guest,
+        seller: gig.owner,
         gig: {
-            _id: '',
-            name: '',
-            price: '',
-            imgUrl:'',
+            _id: gig._id,
+            title: gig.title,
+            price: gig.price,
+            imgUrls: gig.imgUrls[0],
+            featuresList:gig.featuresList,
+            daysToMake:gig.daysToMake
         },
-        status: 'Pending'
+        status: 'Pending',
+        extras:gig.extras
     }
 }
 
 
 function _createDemoOrder() {
-    let orders = localStorage.getItem(STORAGE_KEY)
+    let orders = localStorage.getItem(ORDER_STORAGE_KEY)
     if (!orders || !orders.length) {
         orders = demoOrders
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(orders))
+        localStorage.setItem(ORDER_STORAGE_KEY, JSON.stringify(orders))
     }
 }
 

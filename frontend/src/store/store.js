@@ -4,12 +4,14 @@ import { gigReducer } from './gig.reducer.js'
 import { userReducer } from './user.reducer.js'
 import { reviewReducer } from './review.reducer'
 import { systemReducer } from './system.reducer'
+import { orderReducer } from './order.reducer'
 
 const rootReducer = combineReducers({
     gigModule: gigReducer,
     userModule: userReducer,
     systemModule: systemReducer,
     reviewModule: reviewReducer,
+    orderModule: orderReducer,
 
 })
 
@@ -20,8 +22,8 @@ export const store = createStore(rootReducer, middleware)
 
 store.subscribe(() => {
     console.log('**** Store state changed: ****')
-    // console.log('storeState:\n', store.getState())
-    // console.log('*******************************')
+    console.log('storeState:\n', store.getState())
+    console.log('*******************************')
 })
 
 

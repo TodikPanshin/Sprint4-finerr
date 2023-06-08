@@ -1,5 +1,21 @@
 .gig-container {
-    padding: rem(32px) 0;
+    padding: rem(32px);
+    margin: auto;
+    max-width: $wide-breakpoint;
+h1{
+    overflow-wrap: break-word;
+    font-size: em(28px);
+    line-height: 130%;
+    color: $clr-font-dark;
+    margin: 0;
+    padding-block-end: rem(16px);
+}
+
+h2{
+    line-height: rem(28px);
+   
+}
+}
 
     .trash {
         position: absolute;
@@ -10,25 +26,6 @@
     .gig-details {
         margin-inline-end: 5.5%;
         width: 59.5%;
-
-        .seller-name {
-            color: $clr-font-dark;
-            font-size: em(18px);
-            font-weight: 700;
-            margin-right: 8px;
-
-            &:hover {
-                text-decoration: underline;
-                cursor: pointer;
-            }
-        }
-
-        .seller-at:hover {
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-
 
         .gig-overview {
             &-filter-nav {
@@ -44,17 +41,6 @@
                 }
             }
 
-            .gig-title {
-                overflow-wrap: break-word;
-                padding-block-end: rem(16px);
-                font-size: em(28px);
-                line-height: 130%;
-                color: $clr-font-dark;
-                margin: 0;
-                overflow-wrap: break-word;
-
-
-            }
 
             .seller-details {
                 >* {
@@ -68,27 +54,12 @@
                     height: auto;
                 }
 
-                .seller-txt {
+                .seller-info {
 
                     >* {
-                        margin-inline-end: 8px;
-                        font-weight: 300;
+                        padding-inline-end: 8px;
+                        align-items: center;
                     }
-
-                    .seller-name {
-                        font-weight: 700;
-                        margin-right: 8px;
-                    }
-
-                    .reviews-rate {
-                        display: flex;
-
-                        .ratings-count {
-                            padding-inline-start: rem(4px);
-                            font-size: rem(14px);
-                        }
-                    }
-
                 }
             }
 
@@ -108,6 +79,7 @@
                 >* {
                     margin-inline-end: 1em;
                     align-items: center;
+                    font-size: rem(14px);
                 }
             }
         }
@@ -118,10 +90,6 @@
             margin-block-end: 64px;
         }
 
-        .img-preview {
-            width: 50px;
-        }
-
         .review-preview {
             margin-block-end: 64px;
 
@@ -129,7 +97,7 @@
                 color: $clr-font-dark;
             }
 
-            .review-list {
+            .review-preview-list {
                 padding: 20px;
                 border-radius: 0.5rem;
                 border: 2px solid $clr-border;
@@ -138,50 +106,16 @@
 
         .about-gig {
             &-title {
-                font-size: 20px;
-                line-height: 28px;
                 padding-bottom: 25px;
-                color: $clr-font-dark;
             }
+            margin-block-end: 96px;
         }
 
         .seller-details-card-title {
-            color: $clr-font-dark;
-            font-size: em(20px);
-            line-height: em(28px);
-        }
-
-        .seller-details-card {
-            padding-bottom: rem(24px);
-            .seller-img {
-                width: rem(110px);
-                height: rem(110px);
-                
-            }
-
-            .seller-details-card-txt {
-                padding-left: 15px;
-                align-items: flex-start;
-
-                
-                .seller-card-btn {
-                    font-size: rem(14px);
-                    margin-top: rem(20px);
-                }
-            }
-            .seller-stats{
-                line-height: 130%;
-                border: 1px solid #dadbdd;
-                border-radius: 3px;
-                padding: 24px;
-            }
+            padding-bottom: 25px;
         }
     }
 
-    .seller-img {
-        & img {
-            border-radius: 50%;
-        }
-    }
+   
 
-}
+    
