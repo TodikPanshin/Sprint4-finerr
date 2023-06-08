@@ -93,7 +93,7 @@
 
             &.hidden {
                 background-color: transparent;
-                touch-action: none;
+                pointer-events: none;
                 z-index: -10;
             }
         }

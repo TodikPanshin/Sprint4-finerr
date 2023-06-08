@@ -26,7 +26,7 @@
 
     &.hidden {
         opacity: 0;
-        touch-action: none;
+        pointer-events: none;
         height: 0;
         z-index: -100;
         transition: opacity .5s;
@@ -158,7 +158,7 @@
             &.hidden {
                 background-color: transparent;
                 display: none;
-                touch-action: none;
+                pointer-events: none;
                 z-index: -10;
             }
         }

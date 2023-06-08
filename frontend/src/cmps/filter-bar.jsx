@@ -1,18 +1,28 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { setFilterBy } from "../store/gig.actions";
+import { useSelector } from "react-redux";
+
 export function FilterBar({ filterBy }) {
-    const [proIsOn, setProIsOn] = useState(false)
-    const [localIsOn, setLocalIsOn] = useState(false)
-    const [onlineIsOn, setOnlineIsOn] = useState(false)
-    console.log(filterBy)
+    const [isOn, setIsOn] = useState({ pro: false, local: false, online: false })
+    const [isOpen, setIsOpen] = useState({ sellerDetails: false, budget: false, deliveryTime: false })
+    const [newFilterBy, setNewFilterBy] = useState({ ...filterBy })
+
+    const gigs = useSelector(storeState => storeState.gigModule.gigs)
 
     function onSwitchFiler(item) {
-        console.log(item)
-        
-        if (item === 'pro') setProIsOn(!proIsOn)
-        if (item === 'local') setLocalIsOn(!localIsOn)
-        if (item === 'online') setOnlineIsOn(!onlineIsOn)
+        setIsOn(prevSet => ({ ...prevSet, [item]: !isOn[item] }))
+        setFilterBy({ ...filterBy, [item]: !isOn[item] })
+    }
+
+    function onToggleMenu(menu) {
+        setIsOpen(prevSet => ({ ...prevSet, [menu]: !isOpen[menu] }))
+    }
+
+    function handleCheckboxFilter({ target }) {
+        setNewFilterBy(prevFilterBy => ({ ...prevFilterBy, [target.className]: target.checked }))
+        setFilterBy(newFilterBy)
     }
 
 
@@ -32,32 +42,82 @@ export function FilterBar({ filterBy }) {
             <div className="float-bar"></div>
             <main className="filter-main">
                 <div className="top-filters">
-                    <button>Service Options <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="🔻" /></button>
-                    <button>Seller Details <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="🔻" /></button>
-                    <button>Budget <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="🔻" /></button>
-                    <button>Delivery time <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="🔻" /></button>
+
+                    <div className="floating-menu seller-details">
+                        <div className="menu-button"
+                            onClick={() => onToggleMenu('sellerDetails')}>Seller Details
+                            <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
+                        </div>
+                        <div className={`menu-content ${isOpen.sellerDetails ? 'open' : ''}`}>
+                            <label htmlFor="top-rated">Top Rated Seller<input type="checkbox" className="checkbox top-rated" onChange={handleCheckboxFilter} /></label>
+                            <label htmlFor="new-seller">New Seller<input type="checkbox" className="checkbox new-seller" onChange={handleCheckboxFilter} /></label>
+                            <label htmlFor="level-2">Level 2<input type="checkbox" className="checkbox level-2" onChange={handleCheckboxFilter} /></label>
+                            <button>Clear All</button>
+                            <button>Apply</button>
+                        </div>
+                    </div>
+
+                    <div className="floating-menu budget">
+                        <div className="menu-button"
+                            onClick={() => onToggleMenu('budget')}>Budget
+                            <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
+                        </div>
+                        <div className={`menu-content ${isOpen.budget ? 'open' : ''}`}>
+                            <form action="">
+                                <label htmlFor="min-price">MIN.<input type="text" className="number min-price" /></label>
+                                <label htmlFor="max-price">MAX.<input type="text" className="number max-price" /></label>
+                                <button>Clear All</button>
+                                <button>Apply</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div className="floating-menu delivery-time">
+                        <div className="menu-button"
+                            onClick={() => onToggleMenu('deliveryTime')}>Delivery time
+                            <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
+                        </div>
+                        <div className={`menu-content ${isOpen.deliveryTime ? 'open' : ''}`}>
+                            <form action="">
+                                <label htmlFor=""><input type="checkbox" />Express 24H</label>
+                                <label htmlFor=""><input type="checkbox" />Up to 3 days</label>
+                                <label htmlFor=""><input type="checkbox" />Up to 7 days</label>
+                                <label htmlFor=""><input type="checkbox" />Anytime</label>
+                            </form>
+                            <button>Clear All</button>
+                            <button>Apply</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="checkbox-filters">
                     <button onClick={() => onSwitchFiler('pro')}
                         className="switchToggle">
-                        <div className={`circle switch-${proIsOn ? 'on' : 'off'}`}></div>
+                        <div className={`circle switch-${isOn.pro ? 'on' : 'off'}`}></div>
                     </button><p>Pro services</p>
 
                     <button onClick={() => onSwitchFiler('local')}
                         className="switchToggle">
-                        <div className={`circle switch-${localIsOn ? 'on' : 'off'}`}></div>
+                        <div className={`circle switch-${isOn.local ? 'on' : 'off'}`}></div>
                     </button><p>Local sellers</p>
 
                     <button onClick={() => onSwitchFiler('online')}
                         className="switchToggle">
-                        <div className={`circle switch-${onlineIsOn ? 'on' : 'off'}`}></div>
+                        <div className={`circle switch-${isOn.online ? 'on' : 'off'}`}></div>
                     </button><p>Online sellers</p>
                 </div>
             </main>
+            
             <div className="filter-bar-footer">
-                <div>services available</div>
-                <div>Sort By: <button>Best Selling 🔽</button></div>
+                <div>{`${gigs.length} services available`}</div>
+                <label for="sortBy">Sort by: 
+                    <select className="sort-selection" name="sortBy" id="sortBy">
+                        <option value="best-selling">Best Selling</option>
+                        <option value="recommended">Recommended</option>
+                        <option value="newest-arrival">Newest Arrival</option>
+                    </select>
+                </label>
+                {/* <button>Best Selling <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" /></button></div> */}
             </div>
         </div>
     )
