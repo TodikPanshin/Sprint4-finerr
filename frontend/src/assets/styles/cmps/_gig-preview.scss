@@ -20,8 +20,6 @@
             width: 1.6em;
             height: 1.6em;
             border-radius: 50%;
-
-
         }
 
         .owner-name {
@@ -92,6 +90,7 @@
 
 .gig-preview {
     &:has(.gig-price:hover) &.gig-title {
+        // background-color: red;
         text-decoration: underline;
     }
 }
