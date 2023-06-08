@@ -27,7 +27,7 @@
 // FOR MAIN LAYOUT
 @mixin layoutGTC($max) {
     grid-template-columns:
-        minmax($layoutPadding, 1fr) minmax(auto, $max) minmax($layoutPadding, 1fr);
+        minmax($layoutPadding, 1fr) minmax(1fr, $max) minmax($layoutPadding, 1fr);
 }
 
 

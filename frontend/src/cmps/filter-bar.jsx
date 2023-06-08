@@ -5,11 +5,10 @@ export function FilterBar({ filterBy }) {
     const [proIsOn, setProIsOn] = useState(false)
     const [localIsOn, setLocalIsOn] = useState(false)
     const [onlineIsOn, setOnlineIsOn] = useState(false)
-    console.log(filterBy)
 
     function onSwitchFiler(item) {
         console.log(item)
-        
+
         if (item === 'pro') setProIsOn(!proIsOn)
         if (item === 'local') setLocalIsOn(!localIsOn)
         if (item === 'online') setOnlineIsOn(!onlineIsOn)
