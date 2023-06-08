@@ -6,7 +6,7 @@ export const userService = {
     login,
     logout,
     signup,
-    getLoggedinUser,
+    getLoggedInUser,
     saveLocalUser,
     query,
     getById,
@@ -34,7 +34,7 @@ function remove(userId) {
 async function update(user) {
     user = await httpService.put(`user/${user._id}`, user)
     // Handle case in which admin updates other user's details
-    if (getLoggedinUser()._id === user._id) saveLocalUser(user)
+    if (getLoggedInUser()._id === user._id) saveLocalUser(user)
     return user
 }
 
@@ -57,7 +57,7 @@ async function logout() {
 }
 
 async function changeScore(by) {
-    const user = getLoggedinUser()
+    const user = getLoggedInUser()
     if (!user) throw new Error('Not loggedin')
     user.score = user.score + by || by
     await update(user)
@@ -71,7 +71,7 @@ function saveLocalUser(user) {
     return user
 }
 
-function getLoggedinUser() {
+function getLoggedInUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 

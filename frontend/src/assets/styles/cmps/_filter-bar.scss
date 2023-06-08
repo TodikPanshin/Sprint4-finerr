@@ -24,16 +24,63 @@
         justify-content: space-between;
         margin-top: 1rem;
 
-        button {
-            border: 1px solid rgba(0, 0, 0, .1);
-            border-radius: .5rem;
-            padding: .75rem 1rem;
-            font-size: 1rem;
-            font-weight: 600;
+        .top-filters {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
 
-            img {
-                width: .75rem;
-                margin-left: .75rem;
+            .floating-menu {
+                position: relative;
+                border: 1px solid rgba(0, 0, 0, .1);
+                border-radius: .5rem;
+                margin-right: 0.375rem;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                caret-color: transparent;
+
+                .menu-button {
+                    padding: .75rem 1rem;
+                    width: inherit;
+                    height: inherit;
+                }
+
+                img {
+                    width: .75rem;
+                    margin-left: .75rem;
+                }
+
+                .menu-content {
+                    position: absolute;
+                    margin-top: -1rem;
+                    left: 0;
+                    background-color: white;
+                    z-index: -1;
+                    border-radius: .5rem;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    width: 13rem;
+                    opacity: 0;
+                    pointer-events: none;
+
+                    &.open {
+                        pointer-events: all;
+                        margin-top: .5rem;
+                        opacity: 1;
+                        z-index: 1000;
+                        transition: margin-top .3s, opacity .3s;
+
+                        input {
+                            cursor: pointer;
+                        }
+                    }
+
+                    label {
+                        padding: 0.75rem;
+                        cursor: pointer;
+                    }
+                }
             }
         }
 
@@ -55,6 +102,11 @@
                 border-radius: 999px;
                 cursor: pointer;
                 background-color: rgb(216, 216, 216);
+                caret-color: transparent;
+
+                &:has(.switch-on) {
+                    background-color: rgb(0, 209, 0)
+                }
 
                 .circle {
                     position: absolute;
@@ -66,10 +118,12 @@
 
                     &.switch-on {
                         right: 2px;
+                        transition: .5s;
                     }
 
                     &.switch-off {
                         left: 2px;
+                        transition: .5s;
                     }
 
                 }
@@ -78,8 +132,34 @@
     }
 
     .filter-bar-footer {
+        margin-top: 0.875rem;
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
+        height: 2.5rem;
+        font-weight: 600;
+
+        img {
+            width: .75rem;
+            margin-left: .75rem;
+        }
+
+        .sort-selection {
+            border: 0;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: .5rem;
+
+            &:focus-visible {
+                outline: 0;
+            }
+
+            option {
+                font-weight: 600;
+
+            }
+        }
     }
 }

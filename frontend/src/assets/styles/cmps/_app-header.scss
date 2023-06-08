@@ -24,8 +24,20 @@
     }
 
     &.hidden {
-        display: none;
-        touch-action: none;
+        opacity: 0;
+        pointer-events: none;
+        height: 0;
+        z-index: -100;
+        transition: opacity .5s;
+    }
+
+    .scroll-background {
+        position: absolute;
+        width: 200%;
+        background-color: rgb(255, 255, 255);
+        height: inherit;
+        left: -1000px;
+        z-index: -1;
     }
 
     .logo {
@@ -145,7 +157,7 @@
             &.hidden {
                 background-color: transparent;
                 display: none;
-                touch-action: none;
+                pointer-events: none;
                 z-index: -10;
             }
         }
