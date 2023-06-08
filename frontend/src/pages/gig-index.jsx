@@ -4,6 +4,7 @@ import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
+import { FilterBar } from '../cmps/filter-bar.jsx'
 import { GigList } from '../cmps/gig-list.jsx'
 
 
@@ -60,6 +61,7 @@ export function GigIndex() {
     if (!gigs.length) return <div>Loading...</div>
     return (
         <div className='gig-index'>
+            <FilterBar filterBy={filterBy}/>
             <main>
                 < GigList
                     gigs={gigs}

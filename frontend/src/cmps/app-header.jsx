@@ -27,11 +27,14 @@ export function AppHeader() {
     const [isSignUp, setIsSignup] = useState(false)
     const navigate = useNavigate()
 
+    const isHome = window.location.pathname === '/' ? "is-home" : ""
+    
+    // INTERSECTION OBSERVER
+
     const { ref, inView } = useInView({
-        rootMargin: '0px 0px'
+        rootMargin: '-80px 0px'
     })
 
-    const isHome = window.location.pathname === '/' ? "is-home" : ""
 
     //  USER
 
@@ -85,7 +88,6 @@ export function AppHeader() {
         })
     }
 
-
     return (
         <header className={`app-header full main-layout`}>
             <section ref={ref} className={`main-header ${isHome}`}>
@@ -118,8 +120,9 @@ export function AppHeader() {
 
                 </section>}
             </section>
-            {/* <div className={`${inView ? 'hidden' : 'sticky'}`}></div> */}
-            <section className={`main-header main-layout ${inView ? 'hidden' : 'sticky-header'}`}>
+
+            {isHome && <section className={`main-header main-layout ${inView ? 'hidden' : 'sticky-header'}`}>
+                <div className="scroll-background"></div>
                 <NavLink key="/" to="/" className="logo">
                     <div className="white-dot">
                     </div>finerr<span className="dot">.</span>
@@ -148,9 +151,14 @@ export function AppHeader() {
                     <button onClick={onLogout}>Logout</button>
 
                 </section>}
-            </section>
 
-            {!isHome && <Categories className="categories" categories={categories} handleCategoryFilter={handleCategoryFilter} />}
+            </section>}
+
+            {<Categories
+                categories={categories}
+                handleCategoryFilter={handleCategoryFilter}
+                inView={inView}
+                isHome={isHome} />}
 
             {isSignUp && <LoginSignup cancel={setIsSignup} onLogin={onLogin} onSignup={onSignup} />}
         </header>

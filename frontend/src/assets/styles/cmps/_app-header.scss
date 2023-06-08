@@ -19,13 +19,26 @@
         right: 0;
         max-width: 1400px;
         margin: 0 auto;
-        background-color: rgb(255, 255, 255);
         z-index: 100;
+        opacity: 1;
+        transition: opacity .3s;
     }
 
     &.hidden {
-        display: none;
+        opacity: 0;
         touch-action: none;
+        height: 0;
+        z-index: -100;
+        transition: opacity .5s;
+    }
+
+    .scroll-background {
+        position: absolute;
+        width: 200%;
+        background-color: rgb(255, 255, 255);
+        height: inherit;
+        left: -1000px;
+        z-index: -1;
     }
 
     .logo {
@@ -298,7 +311,7 @@
 }
 
 .categories {
-
+    background-color: white;
     margin-top: 0;
     border: solid rgba(0, 0, 0, 0.1) 0.2px;
     border-inline: 0;
@@ -315,6 +328,8 @@
         list-style-type: none;
         justify-content: space-between;
         gap: 1.2rem;
+        white-space: nowrap;
+        overflow: hidden;
 
 
         .category {
@@ -328,7 +343,22 @@
         }
     }
 
+    &.hidden {
+        opacity: 0;
+        transition: .3s;
+    }
+    &.sticky-categories {
+        top: 5rem;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+        opacity: 1;
+        transition: opacity .4s ease-in .2s;
+    }
+
 }
+
+
 
 .sign-up {
     position: absolute;
