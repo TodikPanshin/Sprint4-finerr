@@ -37,6 +37,10 @@
         flex: 1;
     }
 
+    &.row {
+        flex-direction: row;
+    }
+
     &.column {
         flex-direction: column;
     }
@@ -48,8 +52,8 @@
     &.align-center {
         align-items: center;
     }
-    
-    &.justify-between{
+
+    &.justify-between {
         justify-content: space-between;
     }
 }

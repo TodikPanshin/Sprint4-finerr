@@ -2,6 +2,17 @@ import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from '../cmps/img-uploader'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
+
+
+library.add(faCheck);
+
+
+
 export function LoginSignup({ cancel }) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
     const [isSignup, setIsSignup] = useState(false)
@@ -36,6 +47,7 @@ export function LoginSignup({ cancel }) {
     function onSignup(ev = null) {
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname) return
+        userService.signup(credentials)
         clearState()
     }
 
@@ -48,10 +60,35 @@ export function LoginSignup({ cancel }) {
     }
 
     return (<div className="sign-up">
-        <button className='cancel' onClick={() => cancel(false)}>X</button>
-        <h2>Join Finerr</h2>
-        <button>Continue with Facebook</button>
-        <button>Continue with Google</button>
+
+        <section className="sign-up-modal flex">
+            <section className="sign-up-dezine">
+                <div className='sign-up-dezine-txt flex column'>
+                    <h2>Success starts here</h2>
+                    <ul className='clean-list flex column'>
+                        <li>  &nbsp;     <FontAwesomeIcon icon="fa-solid fa-check" size="xs" style={{ color: "#ffffff", }} />
+                            Over 600 categories</li>
+                        <li>   &nbsp;    <FontAwesomeIcon icon="fa-solid fa-check" size="xs" style={{ color: "#ffffff", }} />
+                            Pay per project, not per hour</li>
+                        <li>   &nbsp;    <FontAwesomeIcon icon="fa-solid fa-check" size="xs" style={{ color: "#ffffff", }} />
+                            Access to talent and businesses across the globe</li>
+                    </ul>
+                </div>
+            </section>
+            <section className='sign-up-content'>
+                <button className='cancel-sign-up' onClick={() => cancel(false)}>X</button>
+                <div><h4 className='txt-display'>Create a new account</h4></div>
+                <p className='txt-display-2'>Already have an account?<button className='btn-sign-in'>Sign in</button></p>
+                <button className="social-signing-btn"><img src="https://icons8.com/icon/V5cGWnc9R4xj/google" alt="" /> Continue with Google</button>
+                <button className="social-signing-btn">Continue with email</button>
+                <p className='or flex'>OR</p>
+                <section className='flex'>
+                    <button className="social-signing-btn">Apple</button>
+                    <button className="social-signing-btn">Facebook</button>
+
+                </section>
+            </section>
+        </section>
     </div>)
     return (
         <div className="login-page">
