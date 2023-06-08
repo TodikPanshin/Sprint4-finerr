@@ -88,7 +88,38 @@ export function AppHeader() {
 
     return (
         <header className={`app-header full main-layout`}>
-            <section ref={ref} className={`main-header ${isHome} ${inView ? 'in-view' : 'in-sticky'}`}>
+            <section ref={ref} className={`main-header ${isHome}`}>
+                <NavLink key="/" to="/" className="logo">
+                    <div className="white-dot">
+                    </div>finerr<span className="dot">.</span>
+                </NavLink>
+
+                <SearchBox setFilterBy={setFilterBy} placeholder={'What service are you looking for today'} />
+
+                <nav>
+                    <NavLink onClick={resetFilter} key="gig" to="/gig">Explore</NavLink>
+                    <NavLink key="seller-register" to="/">Become a Seller</NavLink>
+                    {user &&
+                        <span className="user-info">
+                            <button className="user-img" onClick={onProfileClick}>
+                                {user.imgUrl && <img src={user.imgUrl} />}
+                            </button>
+                        </span>
+                    }
+                    {!user &&
+                        <button onClick={toggleSignup}>Sign in</button>
+                    }
+                    {!user && <button onClick={toggleSignup}>Join</button>
+                    }
+                </nav>
+                {isProfileBar && <section className="profile-bar">
+                    <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
+                    <button onClick={onLogout}>Logout</button>
+
+                </section>}
+            </section>
+            {/* <div className={`${inView ? 'hidden' : 'sticky'}`}></div> */}
+            <section className={`main-header main-layout ${inView ? 'hidden' : 'sticky-header'}`}>
                 <NavLink key="/" to="/" className="logo">
                     <div className="white-dot">
                     </div>finerr<span className="dot">.</span>
