@@ -31,26 +31,29 @@ export function PreviewCarousel({ gig }) {
         )
     }
 
-    const renderArrowPrev = (clickHandler, hasPrev, label) => (
-        <div
-            className={`custom-arrow custom-arrow-prev`}
-            onClick={(ev) => {
-                ev.preventDefault()
-                clickHandler()
-            }}        >
-            <FontAwesomeIcon
-                icon={faChevronLeft}
-                size="2xs"
-                style={{
-                    "--fa-primary-color": "#62646a",
-                    "--fa-secondary-color": "#ffffff",
-                }}
-            />
-        </div>
-    )
+    const renderArrowPrev = (clickHandler, hasPrev, label) =>
+        hasPrev && (
+            <div
+                className={`custom-arrow custom-arrow-prev`}
+                onClick={(ev) => {
+                    ev.preventDefault()
+                    clickHandler()
+                }}        >
+                <FontAwesomeIcon
+                    icon={faChevronLeft}
+                    // size="xl"
+                    style={{
+                        "--fa-primary-color": "#62646a",
+                        "--fa-secondary-color": "#ffffff",
+                    }}
+                />
+            </div>
+        )
+
+
 
     const renderArrowNext = (clickHandler, hasNext, label) => (
-        <div
+        hasNext && <div
             className={`custom-arrow custom-arrow-next`}
             onClick={(ev) => {
                 ev.preventDefault();
@@ -59,7 +62,6 @@ export function PreviewCarousel({ gig }) {
         >
             <FontAwesomeIcon
                 icon={faChevronRight}
-                size="2xs"
                 style={{
                     "--fa-primary-color": "#62646a",
                     "--fa-secondary-color": "#ffffff",
@@ -70,9 +72,10 @@ export function PreviewCarousel({ gig }) {
 
     return (
         <Carousel
+
             showThumbs={false}
             showStatus={false}
-            infiniteLoop
+            // infiniteLoop
             renderArrowPrev={renderArrowPrev}
             renderArrowNext={renderArrowNext}
             renderIndicator={renderIndicator}

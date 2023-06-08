@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -8,6 +8,7 @@ import { SearchBox } from './search-box.jsx'
 import { LoginSignup } from './login-signup.jsx'
 import { setFilterBy } from '../store/gig.actions'
 import { Categories } from './categories'
+import { useInView } from 'react-intersection-observer'
 
 export const categories = [
     'Graphic & Design',
@@ -26,7 +27,14 @@ export function AppHeader() {
     const [isSignUp, setIsSignup] = useState(false)
     const navigate = useNavigate()
 
-    const isHome = window.location.pathname === '/' ? "home" : ""
+    const isHome = window.location.pathname === '/' ? "is-home" : ""
+    
+    // INTERSECTION OBSERVER
+
+    const { ref, inView } = useInView({
+        rootMargin: '-80px 0px'
+    })
+
 
     //  USER
 
@@ -81,8 +89,8 @@ export function AppHeader() {
     }
 
     return (
-        <header className="app-header full main-layout">
-            <section className={`main-header ${isHome}`}>
+        <header className={`app-header full main-layout`}>
+            <section ref={ref} className={`main-header ${isHome}`}>
                 <NavLink key="/" to="/" className="logo">
                     <div className="white-dot">
                     </div>finerr<span className="dot">.</span>
@@ -95,7 +103,7 @@ export function AppHeader() {
                     <NavLink key="seller-register" to="/">Become a Seller</NavLink>
                     {user &&
                         <span className="user-info">
-                            <button onClick={onProfileClick}>
+                            <button className="user-img" onClick={onProfileClick}>
                                 {user.imgUrl && <img src={user.imgUrl} />}
                             </button>
                         </span>
@@ -113,7 +121,44 @@ export function AppHeader() {
                 </section>}
             </section>
 
-            {!isHome && <Categories categories={categories} handleCategoryFilter={handleCategoryFilter} />}
+            {isHome && <section className={`main-header main-layout ${inView ? 'hidden' : 'sticky-header'}`}>
+                <div className="scroll-background"></div>
+                <NavLink key="/" to="/" className="logo">
+                    <div className="white-dot">
+                    </div>finerr<span className="dot">.</span>
+                </NavLink>
+
+                <SearchBox setFilterBy={setFilterBy} placeholder={'What service are you looking for today'} />
+
+                <nav>
+                    <NavLink onClick={resetFilter} key="gig" to="/gig">Explore</NavLink>
+                    <NavLink key="seller-register" to="/">Become a Seller</NavLink>
+                    {user &&
+                        <span className="user-info">
+                            <button className="user-img" onClick={onProfileClick}>
+                                {user.imgUrl && <img src={user.imgUrl} />}
+                            </button>
+                        </span>
+                    }
+                    {!user &&
+                        <button onClick={toggleSignup}>Sign in</button>
+                    }
+                    {!user && <button onClick={toggleSignup}>Join</button>
+                    }
+                </nav>
+                {isProfileBar && <section className="profile-bar">
+                    <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
+                    <button onClick={onLogout}>Logout</button>
+
+                </section>}
+
+            </section>}
+
+            {<Categories
+                categories={categories}
+                handleCategoryFilter={handleCategoryFilter}
+                inView={inView}
+                isHome={isHome} />}
 
             {isSignUp && <LoginSignup cancel={setIsSignup} onLogin={onLogin} onSignup={onSignup} />}
         </header>

@@ -116,30 +116,31 @@
     @else if $type ==gig-contact {
         background-color: $bg;
         color: $clr;
-        padding:12px 24px;
+        padding: 12px 24px;
 
         &:hover {
             background-color: $clr-font-dark;
             color: $clr1;
         }
     }
-    
+
     @else if $type ==black {
         background-color: #000;
-        color:$clr1;
+        color: $clr1;
         height: 2.5rem;
         width: 100%;
+
         &:hover {
             background-color: $clr-font-dark;
         }
     }
 }
 
-    // Mixin for removing hover efects on iphone screen
-    @mixin hover-supported {
-        @media not all and (pointer: coarse) {
-          &:hover {
+// Mixin for removing hover efects on iphone screen
+@mixin hover-supported {
+    @media not all and (pointer: coarse) {
+        &:hover {
             @include common-styles; // Include the common styles mixin here
-          }
         }
-      }
+    }
+}

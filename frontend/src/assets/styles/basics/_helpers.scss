@@ -51,6 +51,10 @@
         flex: 1;
     }
 
+    &.row {
+        flex-direction: row;
+    }
+
     &.column {
         flex-direction: column;
     }

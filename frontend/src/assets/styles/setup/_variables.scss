@@ -9,7 +9,7 @@ $clr-font: #62646a;
 // search-hov-to
 $clr-font-dark: #404145;
 $clr-border: #E4E5E7;
-$clr-background:#f5f5f5;
+$clr-background: #f5f5f5;
 $clr-link: #446ee7;
 $clr-star: #ffb33e;
 
@@ -21,7 +21,7 @@ $narrow-breakpoint: 720px;
 $normal-breakpoint: 960px;
 $wide-breakpoint: 1400px;
 
-$layoutPadding: 20px;
+$layoutPadding: 32px;
 
 $padded-break-mobile: $mobile-breakpoint + $layoutPadding * 2;
 $padded-break-narrow: $narrow-breakpoint + $layoutPadding * 2;
