@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 
 import { setFilterBy } from "../store/gig.actions";
 import { useSelector } from "react-redux";
+import { useInView } from "react-intersection-observer";
 
 export function FilterBar({ filterBy }) {
     const [isOn, setIsOn] = useState({ pro: false, local: false, online: false })
-    const [isOpen, setIsOpen] = useState({ sellerDetails: false, budget: false, deliveryTime: false })
+    const [isOpen, setIsOpen] = useState({ sellerDetails: false, budget: false, deliveryTime: false, sort: false })
     const [newFilterBy, setNewFilterBy] = useState({ ...filterBy })
+
+    const { ref, inView } = useInView({
+        rootMargin: '-60px'
+    })
 
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
 
@@ -25,22 +30,27 @@ export function FilterBar({ filterBy }) {
         setFilterBy(newFilterBy)
     }
 
+    function onSortBy(sortBy) {
+        console.log(sortBy)
+    }
 
     const title = filterBy.tag ? filterBy.tag : 'All'
     return (
         <div className="filter-bar-container">
             <div className="filter-bar-header">
-                <p>
-                    <Link to={'/'}>
+                <div className="filter-top">
+                    <Link to={'/'} className="home-link">
                         <img src="https://www.svgrepo.com/show/435884/home.svg" alt="home" />
-                    </Link> /
+                    </Link> <span className="divider">/</span>
                     <a href="">{filterBy.tag}</a>
-                </p>
+                </div>
                 <h1 className="filter-title">{title}</h1>
-                <p>Get a beautiful things people love to engage with.</p>
+                <p className="filter-description">Get a beautiful things people love to engage with.</p>
             </div>
-            <div className="float-bar"></div>
-            <main className="filter-main">
+
+            <div className="float-bar" ref={ref}></div>
+            <main className={`filter-main ${inView ? '' : 'float main-layout full'}`}>
+
                 <div className="top-filters">
 
                     <div className="floating-menu seller-details">
@@ -49,11 +59,15 @@ export function FilterBar({ filterBy }) {
                             <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
                         </div>
                         <div className={`menu-content ${isOpen.sellerDetails ? 'open' : ''}`}>
-                            <label htmlFor="top-rated">Top Rated Seller<input type="checkbox" className="checkbox top-rated" onChange={handleCheckboxFilter} /></label>
-                            <label htmlFor="new-seller">New Seller<input type="checkbox" className="checkbox new-seller" onChange={handleCheckboxFilter} /></label>
-                            <label htmlFor="level-2">Level 2<input type="checkbox" className="checkbox level-2" onChange={handleCheckboxFilter} /></label>
-                            <button>Clear All</button>
-                            <button>Apply</button>
+                            <div className="menu-items column">
+                                <label htmlFor="top-rated"><input type="checkbox" className="checkbox top-rated" onChange={handleCheckboxFilter} />Top Rated Seller</label>
+                                <label htmlFor="new-seller"><input type="checkbox" className="checkbox new-seller" onChange={handleCheckboxFilter} />New Seller</label>
+                                <label htmlFor="level-2"><input type="checkbox" className="checkbox level-2" onChange={handleCheckboxFilter} />Level 2</label>
+                            </div>
+                            <div className="filter-menu-btns-container">
+                                <button className="btn-clear">Clear All</button>
+                                <button className="btn-apply">Apply</button>
+                            </div>
                         </div>
                     </div>
 
@@ -63,12 +77,16 @@ export function FilterBar({ filterBy }) {
                             <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
                         </div>
                         <div className={`menu-content ${isOpen.budget ? 'open' : ''}`}>
-                            <form action="">
-                                <label htmlFor="min-price">MIN.<input type="text" className="number min-price" /></label>
-                                <label htmlFor="max-price">MAX.<input type="text" className="number max-price" /></label>
-                                <button>Clear All</button>
-                                <button>Apply</button>
-                            </form>
+                            <div className="menu-items">
+                                <form className="price-range" action="">
+                                    <label htmlFor="min-price">MIN.<input type="text" className="number min-price" placeholder="Any"/><span className="currency">$</span></label>
+                                    <label htmlFor="max-price">MAX.<input type="text" className="number max-price" placeholder="Any"/><span className="currency">$</span></label>
+                                </form>
+                            </div>
+                            <div className="filter-menu-btns-container">
+                                <button className="btn-clear">Clear All</button>
+                                <button className="btn-apply">Apply</button>
+                            </div>
                         </div>
                     </div>
 
@@ -78,14 +96,34 @@ export function FilterBar({ filterBy }) {
                             <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
                         </div>
                         <div className={`menu-content ${isOpen.deliveryTime ? 'open' : ''}`}>
-                            <form action="">
-                                <label htmlFor=""><input type="checkbox" />Express 24H</label>
-                                <label htmlFor=""><input type="checkbox" />Up to 3 days</label>
-                                <label htmlFor=""><input type="checkbox" />Up to 7 days</label>
-                                <label htmlFor=""><input type="checkbox" />Anytime</label>
-                            </form>
-                            <button>Clear All</button>
-                            <button>Apply</button>
+                            <div className="menu-items">
+                                <form action="">
+                                    <label className="time-checkbox-container">Express 24H
+                                        <input type="checkbox" />
+                                        <span className="checkmark"></span>
+                                        <div className="outside"></div>
+                                    </label>
+
+                                    <label className="time-checkbox-container">Up to 3 days
+                                        <input type="checkbox" />
+                                        <span className="checkmark"></span>
+                                    </label>
+
+                                    <label className="time-checkbox-container">Up to 7 days
+                                        <input type="checkbox" />
+                                        <span className="checkmark"></span>
+                                    </label>
+
+                                    <label className="time-checkbox-container">Anytime
+                                        <input type="checkbox" />
+                                        <span className="checkmark"></span>
+                                    </label>
+                                </form>
+                            </div>
+                            <div className="filter-menu-btns-container">
+                                <button className="btn-clear">Clear All</button>
+                                <button className="btn-apply">Apply</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -107,16 +145,20 @@ export function FilterBar({ filterBy }) {
                     </button><p>Online sellers</p>
                 </div>
             </main>
-            
+
             <div className="filter-bar-footer">
                 <div>{`${gigs.length} services available`}</div>
-                <label for="sortBy">Sort by: 
-                    <select className="sort-selection" name="sortBy" id="sortBy">
-                        <option value="best-selling">Best Selling</option>
-                        <option value="recommended">Recommended</option>
-                        <option value="newest-arrival">Newest Arrival</option>
-                    </select>
-                </label>
+                <div className="sort-selection">Sort by:
+                    <button onClick={() => onToggleMenu('sort')}>{`${filterBy.sort ? filterBy.sort : 'Best Selling'}`}
+                        <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
+
+                        <div className={`sort-options ${isOpen.sort ? 'open' : ''}`}>
+                            <button onClick={() => onSortBy('best-selling')}>Best Selling</button>
+                            <button onClick={() => onSortBy('recommended')}>Recommended</button>
+                            <button onClick={() => onSortBy('newest Arrival')}>Newest Arrival</button>
+                        </div>
+                    </button>
+                </div>
                 {/* <button>Best Selling <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" /></button></div> */}
             </div>
         </div>

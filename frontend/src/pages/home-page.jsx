@@ -89,7 +89,7 @@ export function HomePage() {
     }
 
     return (
-        <main className="home-page main-layout">
+        <main className="home-page">
             <div className="slide-container">
                 <div className="black-background"></div>
                 <div style={{ opacity: getOpacity(0), transiton: "1.5s" }}><img src={hero_URLs[0]} alt="slide-images-gallery" /><p>⭐⭐⭐⭐⭐<br />Valentina, <span>AI Artist</span></p></div>
