@@ -19,9 +19,8 @@
         right: 0;
         max-width: 1400px;
         margin: 0 auto;
+        background-color: rgb(255, 255, 255);
         z-index: 100;
-        opacity: 1;
-        transition: opacity .3s;
     }
 
     &.hidden {
@@ -318,7 +317,7 @@
 }
 
 .categories {
-    background-color: white;
+
     margin-top: 0;
     border: solid rgba(0, 0, 0, 0.1) 0.2px;
     border-inline: 0;
@@ -335,8 +334,6 @@
         list-style-type: none;
         justify-content: space-between;
         gap: 1.2rem;
-        white-space: nowrap;
-        overflow: hidden;
 
 
         .category {
@@ -361,26 +358,36 @@
         z-index: 100;
         opacity: 1;
         transition: opacity .4s ease-in .2s;
-    }
-
 }
 
+.blur-background {
+    background-color: rgba(0, 0, 0, .8);
+    position: absolute;
+    width: 100%;
+    height: 1000%;
+    z-index: 500;
 
+    body {
+        overflow: hidden;
+    }
+}
 
 .sign-up {
-    position: absolute;
+    position: fixed;
+    top: 5%;
     border-radius: 0.75rem;
     left: 50%;
     translate: -50%;
-    top: 20%;
-    width: 70%;
-    height: 92%;
+    width: 890px;
+    height: 520px;
     background-color: white;
     box-shadow: 1px 0px 4px 1px rgba(0, 0, 0, 0.3);
-    z-index: 20;
+    z-index: 1000;
+
 
     .sign-up-modal {
         height: 100%;
+
 
         .sign-up-dezine {
             border-bottom-left-radius: 0.75rem;
@@ -435,51 +442,65 @@
                 top: 1rem;
             }
 
-            .txt-display {
+            .txt-display-1 {
                 margin-top: 4.4rem;
-                margin-bottom: 0;
+                margin-bottom: 1.5;
                 font-size: 1.5rem;
                 color: $clr-btn-search;
             }
 
             .txt-display-2 {
-                margin-top: 0.5rem;
-                margin-bottom: 2rem;
-                font-weight: 200;
+                margin-top: 1rem;
+                font-weight: 300;
                 color: $clr-font;
-
-                .btn-sign-in {
-                    text-decoration: underline;
-                    color: $clr-btn-search;
-                }
             }
 
-            .social-signing-btn {
-                border: 1px solid $clr-border;
-                border-radius: 0.25rem;
-                height: 2.8rem;
-                flex-grow: 1;
-                font-size: 1rem;
-                color: $clr-btn-search;
-
-
-                &:hover {
-                    background-color: #fafafa;
-                }
+            .inbox {
+                height: 2.5rem;
+                width: 100%;
+                background-color: #e8f0fe;
+                border: 1px solid gray;
+                border-radius: 4px;
+                padding: 10px;
             }
 
-            .or {
-                text-align: center;
-                color: #b5b6ba;
-                // font-weight: 300;
-                justify-content: center;
-                align-items: center;
-                font-size: 0.8rem;
-                margin: 1rem 0 1rem;
+            .submit-signin,
+            .submit-signup {
+                margin-top: 4rem;
+                color: white;
+                height: 2.5rem;
+                width: 100%;
+                background-color: #000;
+                border: 1px solid gray;
+                border-radius: 4px;
+                padding: 10px;
             }
-
-
         }
+
+        // .social-signing-btn {
+        //     border: 1px solid $clr-border;
+        //     border-radius: 0.25rem;
+        //     height: 2.8rem;
+        //     flex-grow: 1;
+        //     font-size: 1rem;
+        //     color: $clr-btn-search;
+
+
+        //     &:hover {
+        //         background-color: #fafafa;
+        //     }
+        // }
+
+        // .or {
+        //     text-align: center;
+        //     color: #b5b6ba;
+        //     // font-weight: 300;
+        //     justify-content: center;
+        //     align-items: center;
+        //     font-size: 0.8rem;
+        //     margin: 1rem 0 1rem;
+        // }
+
 
     }
 

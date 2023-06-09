@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { login, logout, signup } from '../store/user.actions.js'
+import { logout, login, signup } from '../store/user.actions.js'
 import { SearchBox } from './search-box.jsx'
 import { LoginSignup } from './login-signup.jsx'
 import { setFilterBy } from '../store/gig.actions'
@@ -24,11 +24,12 @@ export const categories = [
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
     const [isProfileBar, setIsProfileBar] = useState(false)
-    const [isSignUp, setIsSignup] = useState(false)
+    const [isSignup, setIsSignup] = useState(false)
+    const [isOpenModal, setIsOpenModal] = useState(false)
     const navigate = useNavigate()
 
     const isHome = window.location.pathname === '/' ? "is-home" : ""
-    
+
     // INTERSECTION OBSERVER
 
     const { ref, inView } = useInView({
@@ -39,8 +40,10 @@ export function AppHeader() {
     //  USER
 
     async function onLogin(credentials) {
+        console.log('login - credentials:', credentials)
         try {
             const user = await login(credentials)
+
             showSuccessMsg(`Welcome: ${user.fullname}`)
         } catch (err) {
             showErrorMsg('Cannot login')
@@ -48,6 +51,7 @@ export function AppHeader() {
     }
 
     async function onSignup(credentials) {
+        console.log('credentials:', credentials)
         try {
             const user = await signup(credentials)
             showSuccessMsg(`Welcome new user: ${user.fullname}`)
@@ -67,12 +71,22 @@ export function AppHeader() {
     }
 
     function toggleSignup() {
-        setIsSignup(true)
+        setIsOpenModal(true)
     }
 
     function onProfileClick() {
         setIsProfileBar(!isProfileBar)
         console.log(isProfileBar)
+    }
+
+    function openSignIn() {
+        setIsSignup(false)
+        setIsOpenModal(true)
+    }
+
+    function openJoin() {
+        setIsSignup(true)
+        setIsOpenModal(true)
     }
 
     // FILTER
@@ -109,9 +123,9 @@ export function AppHeader() {
                         </span>
                     }
                     {!user &&
-                        <button onClick={toggleSignup}>Sign in</button>
+                        <button onClick={openSignIn}>Sign in</button>
                     }
-                    {!user && <button onClick={toggleSignup}>Join</button>
+                    {!user && <button onClick={openJoin}>Join</button>
                     }
                 </nav>
                 {isProfileBar && <section className="profile-bar">
@@ -160,7 +174,7 @@ export function AppHeader() {
                 inView={inView}
                 isHome={isHome} />}
 
-            {isSignUp && <LoginSignup cancel={setIsSignup} onLogin={onLogin} onSignup={onSignup} />}
+            {isOpenModal && <LoginSignup cancel={setIsOpenModal} onLogin={onLogin} onSignup={onSignup} isSignup={isSignup} />}
         </header>
     )
 }
