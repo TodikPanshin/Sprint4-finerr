@@ -25,12 +25,9 @@ export function Checkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    // For example, make an API request to process the payment
     console.log("Card Number:", cardNumber);
     console.log("Expiry Date:", expiryDate);
     console.log("CVV:", cvv);
-    // Reset form fields
     setCardNumber("");
     setExpiryDate("");
     setCvv("");
