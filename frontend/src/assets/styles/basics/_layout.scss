@@ -1,7 +1,8 @@
 .main-layout {
     display: grid;
     @include layoutGTC($wide-breakpoint);
-    align-items: start;
+    // align-items: start;
+    // why is this here?
 
   &.app {
     min-height: 100vh;
@@ -36,9 +37,14 @@
 }
 
 .checkout-layout{
-  display: grid;
+  display: flex;
+  flex-direction: column;
+    .payment-container{
+      align-self: start;  
+  }
+
+  @include for-normal-layout{
+    display: grid;
     grid-template-columns: auto auto;
-.payment-container{
-    align-self: start;
   }
   }

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,6 +9,7 @@ import { removeCurrOrder } from '../store/order.actions'
 
 export function OrderDrawer() {
   const isOpen = useSelector((storeState) => storeState.systemModule.isOpen)
+  const [clicked, setClicked] = useState(false)
   const currOrder = useSelector((storeState) => storeState.orderModule.currOrder)
   const navigate = useNavigate()
 
@@ -34,6 +35,9 @@ export function OrderDrawer() {
     }
   }, [])
 
+  function onHandleClick() {
+    setClicked(!clicked)
+  }
 
   function handleClose() {
     toggleDrawer(false)
@@ -42,7 +46,11 @@ export function OrderDrawer() {
     }, 1000)
   }
 
-  const updatedPrice = (currOrder) ? currOrder.extras.packageSelected * currOrder.gig.price : 0
+  let updatedPrice = (currOrder) ? currOrder.extras.packageSelected * currOrder.gig.price : 0
+  const updatedDays = (currOrder) ? currOrder.extras.packageSelected * currOrder.gig.daysToMake : 0
+  const extraFastPrice = 50
+
+
   const drawerClassName = isOpen ? 'order-drawer open' : 'order-drawer'
 
 
@@ -69,9 +77,9 @@ export function OrderDrawer() {
               <div className='drawer-package-upgrade-title'>
                 <h2>Upgrade your order with extras</h2>
               </div>
-              <div className='drawer-package-upgrade-content'>
-                {currOrder && <h2 className='drawer-package-upgrade-content-title'>Additional revision (+{currOrder.gig.daysToMake} days)</h2>}
-                <p>Add an additional revision your seller will provide after the delivery.</p>
+              <div className={`drawer-package-upgrade-content ${clicked ? 'clicked' : ''}`} onClick={onHandleClick}>
+                {currOrder && <h2 className='drawer-package-upgrade-content-title'>Extra-fast {currOrder.extras.packageSelected}-day delivery</h2>}
+                <p>US${extraFastPrice}</p>
               </div>
             </div>
           </div>
@@ -82,7 +90,7 @@ export function OrderDrawer() {
             </div>
             <div className='upgrade-summary-details'>
               <span>Basic package</span>
-              {currOrder && <span>{currOrder.gig.daysToMake}-day delivery</span>}
+              {currOrder && <span>{updatedDays}-day delivery</span>}
               <span>Unlimited revision</span>
             </div>
           </div>

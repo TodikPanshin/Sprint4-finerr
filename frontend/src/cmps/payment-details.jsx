@@ -3,7 +3,7 @@ import { PackagesFeatures } from './packages-features'
 const currency = 'US$'
 
 export function PaymentDetails({ currOrder, checkClass,onCheckout }) {
-    console.log('teeeeessssssttttttttt', currOrder)
+    // console.log('teeeeessssssttttttttt', currOrder)
     const serviceFee = 10
 
     return (

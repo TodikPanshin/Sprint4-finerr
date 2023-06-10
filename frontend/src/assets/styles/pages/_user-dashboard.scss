@@ -1,0 +1,35 @@
+.user-dashboard {
+    background-color: $clr-background;
+    display: flex;
+
+    >* {
+        margin-inline-end: 20px;
+        margin-block-start: 20px;
+    }
+
+    .dashboard-content {
+        
+        >* {
+            border: 1px solid $clr-border;
+            width: auto;
+           padding-inline:50px;
+            margin-inline-end: 20px;
+            background-color: $clr1;
+            height: 276px;
+
+            .dashboard-funds {
+                border: 1px solid $clr-border;
+                max-width: 456px;
+                background-color: $clr1;
+                height: 276px;
+            }
+
+            .dashboard-orders {
+                border: 1px solid $clr-border;
+                max-width: 456px;
+                background-color: $clr1;
+                height: 276px;
+            }
+        }
+    }
+}

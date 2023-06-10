@@ -148,7 +148,7 @@ export function GigDetails() {
                             <p>puki</p>
                         </div>
                     </div>
-                    <div className='gig-imgs-contener'>
+                    <div className='gig-imgs-container'>
                         <GigSwiper gigImgs={gig.imgUrls} />
                     </div>
                     <h2 className='review-preview-title'>What people loved about this seller</h2>
