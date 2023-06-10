@@ -76,6 +76,7 @@ export async function updateOrder(order) {
 
 export function addCurrOrder(gig) {
    const currOrder= orderService.getCurrOrder(gig)
+   orderService.saveLocalCurrOrder(currOrder)
     store.dispatch({
         type: ADD_CURR_ORDER,
         currOrder

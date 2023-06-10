@@ -1,11 +1,17 @@
-import { useState } from "react"
+import { useState } from "react";
+import { useEffectUpdate } from "./useEffectUpdate";
 
-export const useForm = (initialState) => {
+export function useForm(initialState, callBack) {
+
     const [fields, setFields] = useState(initialState)
+
+    useEffectUpdate(() => {
+        callBack?.(fields)
+    }, [fields])
+
 
     function handleChange({ target }) {
         let { value, name: field, type, checked } = target
-        // value = (type === 'number') ? +value : value
         switch (type) {
             case 'number':
             case 'range':
@@ -13,15 +19,12 @@ export const useForm = (initialState) => {
                 break;
             case 'checkbox':
                 value = checked
-
             default:
                 break;
         }
         setFields((prevFields) => ({ ...prevFields, [field]: value }))
     }
 
-
     return [fields, setFields, handleChange]
-
 
 }

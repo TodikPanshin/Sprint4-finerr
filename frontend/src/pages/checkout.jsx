@@ -1,78 +1,49 @@
-// export function Checkout() {
-//     return (
-//     <h1>Checkout</h1>
-//     )
-// }
+import { orderService } from "../services/order.service"
+import { PaymentCard } from "../cmps/payment-card";
+import { PaymentDetails } from "../cmps/payment-details";
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { addOrder, removeCurrOrder } from "../store/order.actions";
 
-import React, { useState } from "react";
+
 
 export function Checkout() {
-  const [cardNumber, setCardNumber] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
-  const [cvv, setCvv] = useState("");
+  const currOrder = useSelector((storeState) => storeState.orderModule.currOrder) || orderService.getLocalCurrOrder()
+  const [cardDetails, setCardDetails] = useState(orderService.getEmptyCard)
+  const navigate = useNavigate()
 
-  const handleCardNumberChange = (e) => {
-    setCardNumber(e.target.value);
-  };
 
-  const handleExpiryDateChange = (e) => {
-    setExpiryDate(e.target.value);
-  };
+  function onSetCardDetails(cardDetails) {
+    setCardDetails(cardDetails)
+  }
 
-  const handleCvvChange = (e) => {
-    setCvv(e.target.value);
-  };
+  function onCheckout(ev) {
+    ev.preventDefault()
+    setCardDetails(orderService.getEmptyCard)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Card Number:", cardNumber);
-    console.log("Expiry Date:", expiryDate);
-    console.log("CVV:", cvv);
-    setCardNumber("");
-    setExpiryDate("");
-    setCvv("");
-  };
+    addOrder(currOrder)
+      .then(removeCurrOrder())
+      .then(navigate('/gig'))
+      .catch(err => {
+        console.log("cannot save order:", err)
+      })
+  }
+
+
+
+
+
+
+
+  console.log('card test   111111111111111111111111', cardDetails)
+
 
   return (
-    <div className="payment-container">
-      <h2>Payment Options</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="cardNumber">Card Number</label>
-          <input
-            type="text"
-            id="cardNumber"
-            value={cardNumber}
-            onChange={handleCardNumberChange}
-            placeholder="Enter your card number"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="expiryDate">Expiry Date</label>
-          <input
-            type="text"
-            id="expiryDate"
-            value={expiryDate}
-            onChange={handleExpiryDateChange}
-            placeholder="MM/YY"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="cvv">CVV</label>
-          <input
-            type="text"
-            id="cvv"
-            value={cvv}
-            onChange={handleCvvChange}
-            placeholder="Enter CVV"
-            required
-          />
-        </div>
-        <button type="submit">Pay Now</button>
-      </form>
-    </div>
+    <section className="checkout-layout">
+      <PaymentCard onSetCardDetails={onSetCardDetails} onCheckout={onCheckout} />
+      <PaymentDetails currOrder={currOrder} checkClass={orderService.checkClass} onCheckout={onCheckout} />
+    </section>
   )
 }
 

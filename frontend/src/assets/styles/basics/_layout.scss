@@ -34,3 +34,11 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
 }
+
+.checkout-layout{
+  display: grid;
+    grid-template-columns: auto auto;
+.payment-container{
+    align-self: start;
+  }
+  }

@@ -1,19 +1,14 @@
 import { useState } from "react"
-import { utilService } from "../services/util.service"
-import { useNavigate } from "react-router"
+import { orderService } from "../services/order.service"
 import { toggleDrawer } from '../store/system.actions'
 import { addCurrOrder } from '../store/order.actions'
+import { PackagesFeatures } from "./packages-features"
 
 
 
 
 export function Packages({ gig }) {
     const [selected, setSelected] = useState(1)
-
-    const checkMark =
-        <svg className="check-mark" width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="#1dbf73">
-            <path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path>
-        </svg>
 
     function onToggleLabel({ target }) {
         const focused = target.className
@@ -22,18 +17,9 @@ export function Packages({ gig }) {
         if (focused.includes('standard')) setSelected(2)
         if (focused.includes('premium')) setSelected(3)
     }
-    function checkClass() {
-        switch (selected) {
-            case 1:
-                return "Basic";
-            case 2:
-                return "Standard";
-            case 3:
-                return "Premium";
-            default:
-                return "Basic";
-        }
-    }
+
+    
+    
 
 
     function onToggleDrawer(){
@@ -55,8 +41,8 @@ export function Packages({ gig }) {
             <div className="main-packages">
                 <header className="packages-header ">
                     <div className="packages-details flex justify-between">
-                        <h3 className="packages-title">{checkClass()} Package</h3>
-                        <h2 className="packages-price">${gig.price * selected}</h2>
+                        <h3 className="packages-title">{orderService.checkClass(selected)} Package</h3>
+                        <h2 className="packages-price">US${gig.price * selected}</h2>
                     </div>
                     <p>{gig.title.split(' ').slice(2).join(' ')}</p>
                 </header>
@@ -81,15 +67,7 @@ export function Packages({ gig }) {
                             <p>Unlimited Revisions</p>
                         </div>
                     </div>
-                    <ul className="packages-features clean-list ">
-                        {gig.featuresList.map(feature =>
-                            <li key={feature} className="packages-feature flex align-center">
-                                {checkMark}
-                                <p>{feature}</p>
-                            </li>
-                        )}
-
-                    </ul>
+                    <PackagesFeatures gig={gig}/>
                 </article>
                 <footer className="packages-footer">
                     <button onClick={onToggleDrawer}>Continue <span>→</span></button>

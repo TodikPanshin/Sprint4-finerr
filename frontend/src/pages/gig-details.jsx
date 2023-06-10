@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate, } from 'react-router-dom'
 
 import { gigService } from "../services/gig.service.local.js"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"

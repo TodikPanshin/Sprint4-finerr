@@ -72,6 +72,29 @@
     }
 }
 
+// gap helpers
+.gap-16{
+gap:1rem;
+}
+
+// padding helpers
+
+.padding-bottom-16{
+    padding-bottom: 1rem;
+    }
+.padding-bottom-12{
+    padding-bottom: rem(12px);
+    }
+
+/* list helpers */
+
+.clean-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+
 // Media helpers
 
 .square-ratio {
@@ -84,14 +107,6 @@
 
 .portrait-ratio {
     @include aspect-ratio(9, 16);
-}
-
-/* list helpers */
-
-.clean-list {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
 }
 
 // Aspect ratios
