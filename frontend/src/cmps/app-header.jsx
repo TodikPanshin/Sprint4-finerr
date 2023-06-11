@@ -127,12 +127,12 @@ export function AppHeader() {
                     }
                     {!user && <button onClick={openJoin}>Join</button>
                     }
-                </nav>
-                {isProfileBar && <section className="profile-bar">
-                    <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
-                    <button onClick={onLogout}>Logout</button>
+                    {isProfileBar && <section className="profile-bar">
+                        <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
+                        <button onClick={onLogout}>Logout</button>
 
-                </section>}
+                    </section>}
+                </nav>
             </section>
 
             {isHome && <section className={`main-header main-layout ${inView ? 'hidden' : 'sticky-header'}`}>
@@ -159,12 +159,12 @@ export function AppHeader() {
                     }
                     {!user && <button onClick={toggleSignup}>Join</button>
                     }
-                </nav>
-                {isProfileBar && <section className="profile-bar">
-                    <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
-                    <button onClick={onLogout}>Logout</button>
+                    {isProfileBar && <section className="profile-bar">
+                        <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
+                        <button onClick={onLogout}>Logout</button>
 
-                </section>}
+                    </section>}
+                </nav>
 
             </section>}
 

@@ -67,6 +67,7 @@ export function OrderDrawer() {
   function onMoveToCheckout(){
     currOrder.extras.fastDelivery=clicked
     updateCurrOrder(currOrder)
+    handleClose()
     navigate('/checkout')
   }
 
