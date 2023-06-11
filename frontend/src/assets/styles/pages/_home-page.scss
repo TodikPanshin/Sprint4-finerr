@@ -4,7 +4,7 @@
     width: 45%;
     min-width: 650px;
     color: white;
-    margin-block: 11%;
+    margin-block: 8.5%;
     font-size: 0.875rem;
 
     h2 {
@@ -24,7 +24,8 @@
             flex-direction: row;
             align-items: stretch;
             position: relative;
-            margin-block: .3rem;
+            margin-top: .4rem;
+            margin-bottom: 1.2rem;
 
             label {
                 width: 0;
@@ -77,6 +78,7 @@
 
         .search-btn {
             background-color: rgb(29, 191, 115);
+            margin: 0;
             border-radius: 0 4px 4px 0;
             padding: 8px 16px;
             width: fit-content;
@@ -161,7 +163,7 @@
 
 .popular-services-container {
     overflow: hidden;
-    margin-top: 15rem;
+    margin-top: 19rem;
     position: relative;
 
     h2 {
