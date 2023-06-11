@@ -14,15 +14,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas, faHeart)
 
 export function GigPreview({ gig }) {
-    // const [checked, setChecked] = useState(false);
-    // useEffect(
-    //     setChecked(!checked),
-    //     [checked]
-    // )
 
-    // function onSaveGig(gigId, ch) {
-    //     console.log('gigId::', gigId, 'ch:', ch)
-    // }
 
     return (
         <article className="gig-preview flex column">
@@ -31,16 +23,19 @@ export function GigPreview({ gig }) {
                     <PreviewCarousel gig={gig} className="gig-img" />
                 </div>
             </Link>
-            {/* <input type="checkbox" onChange={() => onSaveGig(gig._id, setChecked(!checked))}> */}
-            {/* <FontAwesomeIcon icon="fa-regular fa-heart" style={{ color: "#511f29", }} /> */}
-            {/* </input> */}
+            <div className="flex justify-between owner-details">
 
-
-            <div className="owner-details flex">
-                <div className="owner-img flex">
-                    <img src={gig.owner.imgUrl} alt="img of owner" />
+                <div className="owner-details flex">
+                    <div className="owner-img flex">
+                        <img src={gig.owner.imgUrl} alt="img of owner" />
+                    </div>
+                    <Link to={`/user/${gig.owner._id}`} className="owner-name">  {gig.owner.fullname}</Link>
                 </div>
-                <Link to={`/user/${gig.owner._id}`} className="owner-name">  {gig.owner.fullname}</Link>
+                {gig.owner.rate >= 4.7 && <div className="top-rated flex">Top Rated</div>}
+                {gig.owner.rate < 4.7 && gig.owner.level === 1 && <div className="level">level 1</div>}
+                {gig.owner.rate < 4.7 && gig.owner.level === 2 && <div className="level">level 2</div>}
+
+
             </div>
 
             <Link to={`/gig/${gig._id}`} className="gig-title">{gig.title}</Link>

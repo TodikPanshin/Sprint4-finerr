@@ -12,13 +12,13 @@
         // font-size: 0.875rem;
         // line-height: 1.5em;
         column-gap: 0.5rem;
-        margin-top: 0.8em;
-        margin-bottom: 0.6em;
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem;
         font-weight: 400;
 
         .owner-img {
-            width: 1.6em;
-            height: 1.6em;
+            width: 1.5em;
+            height: 1.5em;
 
             img {
                 border-radius: 50%;
@@ -34,6 +34,24 @@
             &:hover {
                 text-decoration: underline;
             }
+        }
+
+        .top-rated {
+            padding: 0 8px;
+            height: 20px;
+            color: #404145;
+            border-radius: 4px;
+            background-color: #ffe0b3;
+            font-size: 0.875rem;
+            align-content: center;
+            align-items: center;
+        }
+
+        .level {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: $clr-btn-search;
+            padding: 0 8px;
         }
     }
 
