@@ -323,6 +323,8 @@
     border-inline: 0;
     padding: 0;
     caret-color: transparent;
+    background-color: white;
+
 
     .categories-list {
         padding: 0;
@@ -334,6 +336,9 @@
         list-style-type: none;
         justify-content: space-between;
         gap: 1.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+
 
 
         .category {
@@ -344,6 +349,10 @@
             &:hover {
                 box-shadow: 0px -3px 0px 0px rgba(27, 173, 54, 1) inset;
             }
+
+            &:first-child{
+                padding-left: 0;
+            }
         }
     }
 
@@ -351,6 +360,7 @@
         opacity: 0;
         transition: .5s;
     }
+
     &.sticky-categories {
         top: 5rem;
         position: fixed;
@@ -358,151 +368,151 @@
         z-index: 100;
         opacity: 1;
         transition: opacity .4s ease-in .2s;
-}
-
-.blur-background {
-    background-color: rgba(0, 0, 0, .8);
-    position: absolute;
-    width: 100%;
-    height: 1000%;
-    z-index: 500;
-
-    body {
-        overflow: hidden;
     }
-}
 
-.sign-up {
-    position: fixed;
-    top: 5%;
-    border-radius: 0.75rem;
-    left: 50%;
-    translate: -50%;
-    width: 890px;
-    height: 520px;
-    background-color: white;
-    box-shadow: 1px 0px 4px 1px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    .blur-background {
+        background-color: rgba(0, 0, 0, .8);
+        position: absolute;
+        width: 100%;
+        height: 1000%;
+        z-index: 500;
+
+        body {
+            overflow: hidden;
+        }
+    }
+
+    .sign-up {
+        position: fixed;
+        top: 5%;
+        border-radius: 0.75rem;
+        left: 50%;
+        translate: -50%;
+        width: 890px;
+        height: 520px;
+        background-color: white;
+        box-shadow: 1px 0px 4px 1px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
 
 
-    .sign-up-modal {
-        height: 100%;
-
-
-        .sign-up-dezine {
-            border-bottom-left-radius: 0.75rem;
-            border-top-left-radius: 0.75rem;
-            position: relative;
-            background-image: url("https://fiverr-res.cloudinary.com/npm-assets/layout-server/standard.c6d3ba7.png");
-            background-size: cover;
-            flex-basis: 50%;
+        .sign-up-modal {
             height: 100%;
 
-            .sign-up-dezine-txt {
-                color: $clr1;
-                margin: 54px 0 0 40px;
-                position: absolute;
-                width: calc(100% - 40px);
 
-                h2 {
-                    font-size: 2rem;
-                    margin-bottom: 0;
-                }
+            .sign-up-dezine {
+                border-bottom-left-radius: 0.75rem;
+                border-top-left-radius: 0.75rem;
+                position: relative;
+                background-image: url("https://fiverr-res.cloudinary.com/npm-assets/layout-server/standard.c6d3ba7.png");
+                background-size: cover;
+                flex-basis: 50%;
+                height: 100%;
 
-                ul {
-                    font-weight: 200;
-                    margin-top: 1.5rem;
+                .sign-up-dezine-txt {
+                    color: $clr1;
+                    margin: 54px 0 0 40px;
+                    position: absolute;
+                    width: calc(100% - 40px);
 
-                    li {
-                        font-size: 18px;
-                        line-height: 26px;
-                        margin-bottom: 1rem;
-                        list-style-position: inside;
+                    h2 {
+                        font-size: 2rem;
+                        margin-bottom: 0;
                     }
 
+                    ul {
+                        font-weight: 200;
+                        margin-top: 1.5rem;
 
+                        li {
+                            font-size: 18px;
+                            line-height: 26px;
+                            margin-bottom: 1rem;
+                            list-style-position: inside;
+                        }
+
+
+                    }
                 }
             }
+
+            .sign-up-content {
+                flex-basis: 50%;
+                display: grid;
+                grid-template-columns: 2.5rem 1fr 2.5rem;
+                grid-auto-rows: max-content;
+
+                >* {
+                    grid-column: 2;
+                }
+
+                .cancel-sign-up {
+                    grid-column: 3;
+                    position: absolute;
+                    right: 1rem;
+                    top: 1rem;
+                }
+
+                .txt-display-1 {
+                    margin-top: 4.4rem;
+                    margin-bottom: 1.5;
+                    font-size: 1.5rem;
+                    color: $clr-btn-search;
+                }
+
+                .txt-display-2 {
+                    margin-top: 1rem;
+                    font-weight: 300;
+                    color: $clr-font;
+                }
+
+                .inbox {
+                    height: 2.5rem;
+                    width: 100%;
+                    background-color: #e8f0fe;
+                    border: 1px solid gray;
+                    border-radius: 4px;
+                    padding: 10px;
+                }
+
+                .submit-signin,
+                .submit-signup {
+                    margin-top: 4rem;
+                    color: white;
+                    height: 2.5rem;
+                    width: 100%;
+                    background-color: #000;
+                    border: 1px solid gray;
+                    border-radius: 4px;
+                    padding: 10px;
+                }
+            }
+
+            // .social-signing-btn {
+            //     border: 1px solid $clr-border;
+            //     border-radius: 0.25rem;
+            //     height: 2.8rem;
+            //     flex-grow: 1;
+            //     font-size: 1rem;
+            //     color: $clr-btn-search;
+
+
+            //     &:hover {
+            //         background-color: #fafafa;
+            //     }
+            // }
+
+            // .or {
+            //     text-align: center;
+            //     color: #b5b6ba;
+            //     // font-weight: 300;
+            //     justify-content: center;
+            //     align-items: center;
+            //     font-size: 0.8rem;
+            //     margin: 1rem 0 1rem;
+            // }
+
+
         }
-
-        .sign-up-content {
-            flex-basis: 50%;
-            display: grid;
-            grid-template-columns: 2.5rem 1fr 2.5rem;
-            grid-auto-rows: max-content;
-
-            >* {
-                grid-column: 2;
-            }
-
-            .cancel-sign-up {
-                grid-column: 3;
-                position: absolute;
-                right: 1rem;
-                top: 1rem;
-            }
-
-            .txt-display-1 {
-                margin-top: 4.4rem;
-                margin-bottom: 1.5;
-                font-size: 1.5rem;
-                color: $clr-btn-search;
-            }
-
-            .txt-display-2 {
-                margin-top: 1rem;
-                font-weight: 300;
-                color: $clr-font;
-            }
-
-            .inbox {
-                height: 2.5rem;
-                width: 100%;
-                background-color: #e8f0fe;
-                border: 1px solid gray;
-                border-radius: 4px;
-                padding: 10px;
-            }
-
-            .submit-signin,
-            .submit-signup {
-                margin-top: 4rem;
-                color: white;
-                height: 2.5rem;
-                width: 100%;
-                background-color: #000;
-                border: 1px solid gray;
-                border-radius: 4px;
-                padding: 10px;
-            }
-        }
-
-        // .social-signing-btn {
-        //     border: 1px solid $clr-border;
-        //     border-radius: 0.25rem;
-        //     height: 2.8rem;
-        //     flex-grow: 1;
-        //     font-size: 1rem;
-        //     color: $clr-btn-search;
-
-
-        //     &:hover {
-        //         background-color: #fafafa;
-        //     }
-        // }
-
-        // .or {
-        //     text-align: center;
-        //     color: #b5b6ba;
-        //     // font-weight: 300;
-        //     justify-content: center;
-        //     align-items: center;
-        //     font-size: 0.8rem;
-        //     margin: 1rem 0 1rem;
-        // }
-
 
     }
-
-}
 }
