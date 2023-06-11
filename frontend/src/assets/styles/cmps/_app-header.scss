@@ -20,7 +20,7 @@
         max-width: 1400px;
         margin: 0 auto;
         background-color: rgb(255, 255, 255);
-        z-index: 100;
+        z-index: 200;
     }
 
     &.hidden {
@@ -33,10 +33,10 @@
 
     .scroll-background {
         position: absolute;
-        width: 200%;
+        width: 400%;
         background-color: rgb(255, 255, 255);
         height: inherit;
-        left: -1000px;
+        left: -2000px;
         z-index: -1;
     }
 
@@ -164,6 +164,7 @@
     }
 
     nav {
+        position: relative;
         margin-left: auto;
         display: flex;
         flex-direction: row;
@@ -234,37 +235,40 @@
                 border: 0;
             }
         }
-    }
 
-    .profile-bar {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        top: 64px;
-        right: -8px;
-        translate: -2rem;
-        border: 1px solid rgba(175, 175, 175, 0.5);
-        background-color: rgb(255, 255, 255);
-        padding: 5px 15px;
+        .profile-bar {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            top: 64px;
+            right: -.5rem;
+            translate: -2rem;
+            border: 1px solid rgba(175, 175, 175, 0.5);
+            background-color: rgb(255, 255, 255);
+            padding: 5px 15px;
 
-        button,
-        a {
-            border: 0;
-            padding-block: 5px;
-            padding-inline: 0;
-            margin: 0;
-            text-align: left;
-            font-size: inherit;
-            font-weight: inherit;
-            color: inherit;
-            width: auto;
 
-            &:hover {
-                color: $clr-btn-hov;
-                transition: .5s;
+            button,
+            a {
+                border: 0;
+                padding-block: 5px;
+                padding-inline: 0;
+                margin: 0;
+                text-align: left;
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+                width: auto;
+
+                &:hover {
+                    background-color: transparent;
+                    color: $clr-btn-hov;
+                    transition: .5s;
+                }
             }
         }
     }
+
 
     &.is-home {
         background-color: transparent;
@@ -311,6 +315,19 @@
                     border: 0;
                 }
             }
+
+            .profile-bar {
+
+                button,
+                a {
+                    color: rgba(0, 0, 0, .6);
+
+                    &:hover {
+                        color: $clr-btn-hov;
+                        transition: .5s;
+                    }
+                }
+            }
         }
 
     }
@@ -350,7 +367,7 @@
                 box-shadow: 0px -3px 0px 0px rgba(27, 173, 54, 1) inset;
             }
 
-            &:first-child{
+            &:first-child {
                 padding-left: 0;
             }
         }

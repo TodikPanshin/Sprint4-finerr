@@ -47,10 +47,12 @@ export function FilterBar({ filterBy }) {
             menu.checked = false
             menu.value = ''
         })
+        setIsOpen(prevSet => ({ ...prevSet, sellerDetails: false, budget: false, deliveryTime: false, sort: false }))
     }
 
     function onClearFilters() {
         onClearFields()
+        setIsOn(prevSet => ({ ...prevSet, pro: false, local: false, online: false }))
         setFilterBy({})
     }
 
@@ -78,7 +80,7 @@ export function FilterBar({ filterBy }) {
                 <div className="top-filters">
 
                     <div className="floating-menu seller-details">
-                        <div className="menu-button"
+                        <div className={`menu-button ${isOpen.sellerDetails ? 'active' : ''}`}
                             onClick={() => onToggleMenu('sellerDetails')}>Seller Details
                             <img className={`arrow-${isOpen.sellerDetails ? 'up' : 'down'}`} src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
                         </div>
@@ -103,7 +105,7 @@ export function FilterBar({ filterBy }) {
                     </div>
 
                     <div className="floating-menu budget">
-                        <div className="menu-button"
+                        <div className={`menu-button ${isOpen.budget ? 'active' : ''}`}
                             onClick={() => onToggleMenu('budget')}>Budget
                             <img className={`arrow-${isOpen.budget ? 'up' : 'down'}`}
                                 src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
@@ -128,7 +130,7 @@ export function FilterBar({ filterBy }) {
                     </div>
 
                     <div className="floating-menu delivery-time">
-                        <div className="menu-button"
+                        <div className={`menu-button ${isOpen.deliveryTime ? 'active' : ''}`}
                             onClick={() => onToggleMenu('deliveryTime')}>Delivery time
                             <img className={`arrow-${isOpen.deliveryTime ? 'up' : 'down'}`}
                                 src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
