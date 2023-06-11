@@ -4,6 +4,15 @@
     .inbox {
         flex-basis: 50%;
         margin: 1rem;
+        align-items: center;
+    }
+
+    .description-title {
+        color: black;
+    }
+
+    .description {
+        color: $clr-btn-search;
     }
 
 }
