@@ -1,3 +1,5 @@
+// MACAN
+
 @font-face {
     font-family: macan;
     font-weight: 200;
@@ -7,13 +9,13 @@
 @font-face {
     font-family: macan;
     font-weight: 400;
-    src: url(../../fonts/macan/MacanPanWeb-Regular.ttf);
+    src: url(../../fonts/macan/MacanPanWeb-Semibold.ttf);
 }
 
 @font-face {
     font-family: macan;
     font-weight: 600;
-    src: url(../../fonts/macan/MacanPanWeb-Semibold.ttf);
+    src: url(../../fonts/macan/MacanPanWeb-Regular.ttf);
 }
 
 @font-face {
@@ -28,30 +30,37 @@
     src: url(../../fonts/macan/MacanPanWeb-Extrabold.ttf);
 }
 
+// ARIAL
 @font-face {
     font-family: arial;
     src: url(../../fonts/arial-cufonfonts/ARIAL.TTF);
 }
+
+// HELVETICA-NEUE
 @font-face {
     font-family:Helvetica-Neue;
     src: url(../../fonts/helveticaneue/HelveticaNeue.ttf);
 }
 
+// helvetica
 @font-face {
     font-family:Helvetica;
     src: url(../../fonts/Helvetica-Font/Helvetica.ttf);
 }
 
+// SANS-SERIF
 @font-face {
     font-family:sans-serif;
     src: url(../../fonts/sans-serif/SansSerifBookFLF-Italic.otf);
 }
 
+// DOMAINE
 @font-face {
     font-family:domaine;
     src: url(../../fonts/domaine/test-domaine-display-medium-italic.woff2);
 }
 
+// FONT-AWESOME
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 

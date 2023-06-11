@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate, } from 'react-router-dom'
 
 import { gigService } from "../services/gig.service.local.js"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
@@ -148,7 +148,7 @@ export function GigDetails() {
                             <p>puki</p>
                         </div>
                     </div>
-                    <div className='gig-imgs-contener'>
+                    <div className='gig-imgs-container'>
                         <GigSwiper gigImgs={gig.imgUrls} />
                     </div>
                     <h2 className='review-preview-title'>What people loved about this seller</h2>

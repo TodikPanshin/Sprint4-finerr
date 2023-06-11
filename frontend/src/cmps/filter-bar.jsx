@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { setFilterBy } from "../store/gig.actions";
 import { useSelector } from "react-redux";
+import { useInView } from "react-intersection-observer";
 
 export function FilterBar({ filterBy }) {
+    const gigs = useSelector(storeState => storeState.gigModule.gigs)
+
     const [isOn, setIsOn] = useState({ pro: false, local: false, online: false })
-    const [isOpen, setIsOpen] = useState({ sellerDetails: false, budget: false, deliveryTime: false })
+    const [isOpen, setIsOpen] = useState({ sellerDetails: false, budget: false, deliveryTime: false, sort: false })
     const [newFilterBy, setNewFilterBy] = useState({ ...filterBy })
 
-    const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const menuRef = useRef([])
+
+    const { ref, inView } = useInView({
+        rootMargin: '-100px'
+    })
+
+    useEffect(() => {
+        onClearFields()
+    }, [])
 
     function onSwitchFiler(item) {
         setIsOn(prevSet => ({ ...prevSet, [item]: !isOn[item] }))
@@ -17,75 +28,143 @@ export function FilterBar({ filterBy }) {
     }
 
     function onToggleMenu(menu) {
-        setIsOpen(prevSet => ({ ...prevSet, [menu]: !isOpen[menu] }))
+        const otherMenus = Object.keys(isOpen).filter(key => key !== menu).forEach(key => isOpen[key] = false)
+        setIsOpen({ ...otherMenus, [menu]: !isOpen[menu] })
     }
 
-    function handleCheckboxFilter({ target }) {
-        setNewFilterBy(prevFilterBy => ({ ...prevFilterBy, [target.className]: target.checked }))
-        setFilterBy(newFilterBy)
+    function handleChange({ target }) {
+        let { value, name: field, type, checked } = target
+        setNewFilterBy(prevFilterBy => ({ ...prevFilterBy, [field]: type === "checkbox" ? checked : target.className === 'number' ? +value : value }))
     }
 
+    function onSubmitFilter(menu) {
+        onToggleMenu(menu)
+        setFilterBy({ ...filterBy, ...newFilterBy })
+    }
+
+    function onClearFields() {
+        menuRef.current.forEach(menu => {
+            menu.checked = false
+            menu.value = ''
+        })
+    }
+
+    function onClearFilters() {
+        onClearFields()
+        setFilterBy({})
+    }
+
+    function onSortBy(sortBy) {
+        setFilterBy({ ...newFilterBy, sortBy })
+    }
 
     const title = filterBy.tag ? filterBy.tag : 'All'
     return (
         <div className="filter-bar-container">
             <div className="filter-bar-header">
-                <p>
-                    <Link to={'/'}>
+                <div className="filter-top">
+                    <Link to={'/'} className="home-link">
                         <img src="https://www.svgrepo.com/show/435884/home.svg" alt="home" />
-                    </Link> /
+                    </Link> <span className="divider">/</span>
                     <a href="">{filterBy.tag}</a>
-                </p>
+                </div>
                 <h1 className="filter-title">{title}</h1>
-                <p>Get a beautiful things people love to engage with.</p>
+                <p className="filter-description">Get a beautiful things people love to engage with.</p>
             </div>
-            <div className="float-bar"></div>
-            <main className="filter-main">
+
+            <div className="float-bar" ref={ref}></div>
+            <main className={`filter-main ${inView ? '' : 'float main-layout full'}`}>
+
                 <div className="top-filters">
 
                     <div className="floating-menu seller-details">
                         <div className="menu-button"
                             onClick={() => onToggleMenu('sellerDetails')}>Seller Details
-                            <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
+                            <img className={`arrow-${isOpen.sellerDetails ? 'up' : 'down'}`} src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
                         </div>
+                        {isOpen.sellerDetails && <div className="outside" onClick={() => onToggleMenu('sellerDetails')}></div>}
                         <div className={`menu-content ${isOpen.sellerDetails ? 'open' : ''}`}>
-                            <label htmlFor="top-rated">Top Rated Seller<input type="checkbox" className="checkbox top-rated" onChange={handleCheckboxFilter} /></label>
-                            <label htmlFor="new-seller">New Seller<input type="checkbox" className="checkbox new-seller" onChange={handleCheckboxFilter} /></label>
-                            <label htmlFor="level-2">Level 2<input type="checkbox" className="checkbox level-2" onChange={handleCheckboxFilter} /></label>
-                            <button>Clear All</button>
-                            <button>Apply</button>
+                            <div className="menu-items column">
+                                <label htmlFor="top-rated"><input ref={(el) => { menuRef.current[0] = el }}
+                                    type="checkbox" className="checkbox" name="topRated"
+                                    onChange={handleChange} />Top Rated Seller</label>
+                                <label htmlFor="new-seller"><input ref={(el) => { menuRef.current[1] = el }}
+                                    type="checkbox" className="checkbox" name="level1"
+                                    onChange={handleChange} />Level 1</label>
+                                <label htmlFor="level-2"><input ref={(el) => { menuRef.current[2] = el }}
+                                    type="checkbox" className="checkbox" name="level2"
+                                    onChange={handleChange} />Level 2</label>
+                            </div>
+                            <div className="filter-menu-btns-container">
+                                <button className="btn-clear" onClick={() => onClearFields('sellerDetails')}>Clear All</button>
+                                <button className="btn-apply" onClick={() => onSubmitFilter('sellerDetails')}>Apply</button>
+                            </div>
                         </div>
                     </div>
 
                     <div className="floating-menu budget">
                         <div className="menu-button"
                             onClick={() => onToggleMenu('budget')}>Budget
-                            <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
+                            <img className={`arrow-${isOpen.budget ? 'up' : 'down'}`}
+                                src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
                         </div>
+                        {isOpen.budget && <div className="outside" onClick={() => onToggleMenu('budget')}></div>}
                         <div className={`menu-content ${isOpen.budget ? 'open' : ''}`}>
-                            <form action="">
-                                <label htmlFor="min-price">MIN.<input type="text" className="number min-price" /></label>
-                                <label htmlFor="max-price">MAX.<input type="text" className="number max-price" /></label>
-                                <button>Clear All</button>
-                                <button>Apply</button>
-                            </form>
+                            <div className="menu-items">
+                                <form className="price-range" action="">
+                                    <label htmlFor="min-price">MIN.<input ref={(el) => { menuRef.current[10] = el }}
+                                        type="text" className="number" name="minPrice" placeholder="Any"
+                                        onChange={handleChange} /><span className="currency">$</span></label>
+                                    <label htmlFor="max-price">MAX.<input ref={(el) => { menuRef.current[11] = el }}
+                                        type="text" className="number" name="maxPrice" placeholder="Any"
+                                        onChange={handleChange} /><span className="currency">$</span></label>
+                                </form>
+                            </div>
+                            <div className="filter-menu-btns-container">
+                                <button className="btn-clear" onClick={onClearFields}>Clear All</button>
+                                <button className="btn-apply" onClick={() => onSubmitFilter('budget')}>Apply</button>
+                            </div>
                         </div>
                     </div>
 
                     <div className="floating-menu delivery-time">
                         <div className="menu-button"
                             onClick={() => onToggleMenu('deliveryTime')}>Delivery time
-                            <img src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
+                            <img className={`arrow-${isOpen.deliveryTime ? 'up' : 'down'}`}
+                                src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
                         </div>
+                        {isOpen.deliveryTime && <div className="outside"
+                            onClick={() => onToggleMenu('deliveryTime')}></div>}
                         <div className={`menu-content ${isOpen.deliveryTime ? 'open' : ''}`}>
-                            <form action="">
-                                <label htmlFor=""><input type="checkbox" />Express 24H</label>
-                                <label htmlFor=""><input type="checkbox" />Up to 3 days</label>
-                                <label htmlFor=""><input type="checkbox" />Up to 7 days</label>
-                                <label htmlFor=""><input type="checkbox" />Anytime</label>
-                            </form>
-                            <button>Clear All</button>
-                            <button>Apply</button>
+                            <div className="menu-items">
+                                <label className="time-checkbox-container">Express 24H
+                                    <input ref={(el) => { menuRef.current[20] = el }} type="radio"
+                                        onChange={handleChange} className="number" name="time" value="1" />
+                                    <span className="checkmark"></span>
+                                </label>
+
+                                <label className="time-checkbox-container">Up to 3 days
+                                    <input ref={(el) => { menuRef.current[21] = el }} type="radio"
+                                        onChange={handleChange} className="number" name="time" value="3" />
+                                    <span className="checkmark"></span>
+                                </label>
+
+                                <label className="time-checkbox-container">Up to 7 days
+                                    <input ref={(el) => { menuRef.current[22] = el }} type="radio"
+                                        onChange={handleChange} className="number" name="time" value="7" />
+                                    <span className="checkmark"></span>
+                                </label>
+
+                                <label className="time-checkbox-container">Anytime
+                                    <input ref={(el) => { menuRef.current[23] = el }} type="radio"
+                                        onChange={handleChange} className="number" name="time" value="any" />
+                                    <span className="checkmark"></span>
+                                </label>
+                            </div>
+                            <div className="filter-menu-btns-container">
+                                <button className="btn-clear" onClick={onClearFields}>Clear All</button>
+                                <button className="btn-apply" onClick={() => onSubmitFilter('delivery-time')}>Apply</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -107,9 +186,22 @@ export function FilterBar({ filterBy }) {
                     </button><p>Online sellers</p>
                 </div>
             </main>
+            <div className="active-filter-line" onClick={onClearFilters}>Clear All Filters</div>
+
             <div className="filter-bar-footer">
-                <div>services available</div>
-                <div>Sort By: <button>Best Selling 🔽</button></div>
+                <div>{`${gigs.length} services available`}</div>
+                <div className="sort-selection">Sort by:
+                    <div onClick={() => onToggleMenu('sort')}>{`${filterBy.sortBy ? filterBy.sortBy : 'Best Selling'}`}
+                        <img className={`arrow-${isOpen.sort ? 'up' : 'down'}`} src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
+
+                        {isOpen.sort && <div className="outside" onClick={() => onToggleMenu('sort')}></div>}
+                        <div className={`sort-options ${isOpen.sort ? 'open' : ''}`}>
+                            <button onClick={() => onSortBy('Best Selling')}>Best Selling</button>
+                            <button onClick={() => onSortBy('Recommended')}>Recommended</button>
+                            <button onClick={() => onSortBy('Price')}>Price</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import { StarRating } from "./star-rating";
 
-export function SellerDetails({ owner, showLevel = true, showOneLiner = false, showBtn = false, tags, reviewNum }) {
+export function SellerDetails({ owner, showLevel = true, showOneLiner = false, showBtn = false,showStars=true, tags, reviewNum }) {
     return (
         <div className='seller-details flex align-center'>
             <img className='seller-img' src={owner.imgUrl} alt="seller img" />
@@ -12,10 +12,10 @@ export function SellerDetails({ owner, showLevel = true, showOneLiner = false, s
                 {showLevel && <p className='seller-rate'>Level {owner.rate} Seller</p>}
                 {showLevel && <p>|</p>}
                 {showOneLiner && <p className='seller-one-liner'>{tags.slice(0, 3).join(', ')}</p>}
-                <div className='reviews-rate'>
+                {showStars&&<div className='reviews-rate'>
                     <StarRating rate={owner.rate} reviewNum={reviewNum} />
                     <span className='ratings-count cursor-pointer'>({reviewNum})</span>
-                </div>
+                </div>}
                 {showBtn && <button className='seller-card-btn btn-gig-contact'>Contact me</button>}
             </div>
         </div>

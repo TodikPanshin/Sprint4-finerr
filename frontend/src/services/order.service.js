@@ -5,6 +5,7 @@ import { userService } from './user.service.js'
 import { demoOrders } from '../data/demo.gigs.js'
 
 const ORDER_STORAGE_KEY = 'orderDB'
+const CURR_ORDER_STORAGE_KEY = 'currOrderDB'
 
 export const orderService = {
 
@@ -13,6 +14,11 @@ export const orderService = {
     remove,
     save,
     getCurrOrder,
+    checkClass,
+    saveLocalCurrOrder,
+    getLocalCurrOrder,
+    removeLocalCurrOrder,
+    getEmptyCard,
 }
 
 async function query() {
@@ -30,15 +36,13 @@ async function remove(orderId) {
 }
 
 async function save(order) {
-    var savedGig
+    var savedOrder
     if (order._id) {
-        savedGig = await storageService.put(ORDER_STORAGE_KEY, order)
+        savedOrder = await storageService.put(ORDER_STORAGE_KEY, order)
     } else {
-        // Later, owner is set by the backend
-        order.owner = userService.getLoggedInUser()
-        savedGig = await storageService.post(ORDER_STORAGE_KEY, order)
+        savedOrder = await storageService.post(ORDER_STORAGE_KEY, order)
     }
-    return savedGig
+    return savedOrder
 }
 
 function getCurrOrder(gig) {
@@ -51,27 +55,65 @@ function getCurrOrder(gig) {
     const loggedInUser = userService.getLoggedInUser()
 
     return {
-        buyer: loggedInUser && !Object.keys(loggedInUser).length  ? loggedInUser : guest,
+        buyer: loggedInUser && !Object.keys(loggedInUser).length ? loggedInUser : guest,
         seller: gig.owner,
         gig: {
             _id: gig._id,
             title: gig.title,
             price: gig.price,
             imgUrls: gig.imgUrls[0],
-            featuresList:gig.featuresList,
-            daysToMake:gig.daysToMake
+            featuresList: gig.featuresList,
+            daysToMake: gig.daysToMake
         },
         status: 'Pending',
-        extras:gig.extras
+        extras: gig.extras
     }
 }
 
+function saveLocalCurrOrder(currOrder) {
+    // currOrder = { _id: user._id,
+    //      fullname: user.fullname, imgUrl: user.imgUrl,
+    //       score: user.score }
+    sessionStorage.setItem(CURR_ORDER_STORAGE_KEY, JSON.stringify(currOrder))
+    return currOrder
+}
+
+function getLocalCurrOrder() {
+    return JSON.parse(sessionStorage.getItem(CURR_ORDER_STORAGE_KEY))
+}
+
+async function removeLocalCurrOrder() {
+    sessionStorage.removeItem(CURR_ORDER_STORAGE_KEY)
+}
 
 function _createDemoOrder() {
     let orders = localStorage.getItem(ORDER_STORAGE_KEY)
     if (!orders || !orders.length) {
         orders = demoOrders
         localStorage.setItem(ORDER_STORAGE_KEY, JSON.stringify(orders))
+    }
+}
+
+function checkClass(selected) {
+    switch (selected) {
+        case 1:
+            return "Basic";
+        case 2:
+            return "Standard";
+        case 3:
+            return "Premium";
+        default:
+            return "Basic";
+    }
+}
+
+function getEmptyCard() {
+    return {
+        cardNumber: '',
+        expiryDate: '',
+        SecurityCode: '',
+        firstName: '',
+        lastName: '',
     }
 }
 
