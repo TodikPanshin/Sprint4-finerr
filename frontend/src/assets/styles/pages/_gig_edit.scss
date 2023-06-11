@@ -1,10 +1,29 @@
 .gig-edit {
 
+    width: 70%;
+    margin-top: 1rem;
+    margin-inline: auto;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 1rem;
+    padding: 1rem;
+
+    .gig-edit-title {
+        margin: 1rem;
+    }
+
     .add-gig-txt,
     .inbox {
         flex-basis: 50%;
         margin: 1rem;
         align-items: center;
+    }
+
+    .inbox {
+        padding: 1rem;
+        font-family: macan;
+        font-weight: 600;
+        font-size: 1rem;
+        border-radius: .5rem;
     }
 
     .description-title {
@@ -13,6 +32,37 @@
 
     .description {
         color: $clr-btn-search;
+    }
+
+    .gig-edit-btns {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        margin-top: 3rem;
+        right: 0;
+        gap: 1rem;
+
+        .save-btn {
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: black;
+            color: white;
+            border-radius: .5rem;
+            height: 3rem;
+            width: 10rem;
+            padding: .5rem;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        .cancel-btn {
+            &:hover {
+                color: rgba(0, 0, 0, 0.5);
+            }
+        }
     }
 
 }

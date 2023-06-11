@@ -48,18 +48,18 @@ export function GigEdit() {
 
     return <section className="gig-edit">
 
-        <h2>{gigToEdit.id ? 'Edit this gig' : 'Add a new gig'}</h2>
+        <h1 className="gig-edit-title">{gigToEdit.id ? 'Edit this gig' : 'Add a new gig'}</h1>
 
         <form onSubmit={onSaveGig}>
             <div className="add-gig-title flex">
                 <label htmlFor="title" className="add-gig-txt">
                     <h4 className="description-title">Gig title</h4>
                     <p className="description">
-                        As yourGig storefront, your <span>title is the most importent place</span>
+                        As your Gig storefront, your <span>title is the most importent place </span>
                         to include keywords that buyers would likely use to search for a service like yours.
                     </p>
                 </label>
-                <input type="text"
+                <textarea type="text"
                     name="title"
                     id="title"
                     placeholder="I will..."
@@ -84,9 +84,8 @@ export function GigEdit() {
                     // value="SELECT A CATEGORY"
                     onChange={handleChange}
                     className="inbox"
-                    required
-                >
-                    <option value="">SELECT A CATEGORY</option>
+                    required>
+                    <option value="" disabled selected>Select a Category</option>
                     {categories.map(category =>
                         <option key={`${category}`} value={`${category}`}>{category}</option>
                     )}
@@ -110,9 +109,9 @@ export function GigEdit() {
                 />
             </div> */}
 
-            <div>
-                <button>Save & Continue</button>
-                <Link to="/gig">Cancel</Link>
+            <div className="gig-edit-btns">
+                <Link className="cancel-btn" to="/gig">Cancel</Link>
+                <button className="save-btn">Save & Continue</button>
             </div>
         </form>
     </section>
