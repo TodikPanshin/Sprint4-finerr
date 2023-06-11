@@ -13,7 +13,8 @@ const gig = {
     "fullname": "Dudu Da",
     "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
     "level": 2,
-    "rate": 4
+    "rate": 4,
+    "isOnline": true,
   },
   "daysToMake": 3,
   "description": "Make unique logo...",
@@ -49,7 +50,8 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
       "level": 1,
       "rate": 4,
-      "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients."
+      "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients.",
+      "isOnline": true,
     },
     "country": "Israel",
     "daysToMake": 3,
