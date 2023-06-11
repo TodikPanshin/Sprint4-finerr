@@ -29,12 +29,62 @@ async function query(filterBy = {}) {
     }
 
     if (filterBy.tag) {
-        gigs = gigs.filter(gig => gig.tags.includes(filterBy.tag))
+        const regex = new RegExp(filterBy.tag, 'i')
+        gigs = gigs.filter(gig => regex.test(gig.tags))
     }
 
-    // if (filterBy.price) {
-    //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
-    // }
+    if (filterBy.minPrice) {
+        gigs = gigs.filter(gig => gig.price >= filterBy.minPrice)
+    }
+
+    if (filterBy.maxPrice) {
+        gigs = gigs.filter(gig => gig.price <= filterBy.maxPrice)
+    }
+
+    if (filterBy.time) {
+        gigs = gigs.filter(gig => gig.daysToMake <= filterBy.time)
+    }
+
+    if (filterBy.level1) {
+        gigs = gigs.filter(gig => gig.owner.level === 1)
+    }
+
+    if (filterBy.level2) {
+        gigs = gigs.filter(gig => gig.owner.level === 2)
+    }
+
+    if (filterBy.topRated) {
+        gigs = gigs.filter(gig => gig.rating.average > 4.75)
+    }
+
+    if (filterBy.pro) {
+        gigs = gigs.filter(gig => gig.rating.average > 4.75 && gig.owner.level === 2)
+    }
+
+    if (filterBy.local) {
+        gigs = gigs.filter(gig => gig.country === 'Israel')
+    }
+
+    if (filterBy.online) {
+        gigs = gigs.filter(gig => gig.isOnline)
+    }
+
+    if (filterBy.sortBy) {
+        if (filterBy.sortBy === 'Best Selling') {
+            gigs = gigs.sort((a, b) => (a.rating.num < b.rating.num) ? 1 : (a.rating.num > b.rating.num) ? -1 : 0)
+        }
+        
+        if (filterBy.sortBy === 'Recommended') {
+            gigs = gigs.sort((a, b) => (a.rating.average < b.rating.average) ? 1 : (a.rating.average > b.rating.average) ? -1 : 0)
+        }
+        
+        if (filterBy.sortBy === 'Price') {
+            gigs = gigs.sort((a, b) => (a.price > b.price) ? 1 : (a.price > b.price) ? -1 : 0)
+        }
+    }
+
+
+
 
     return gigs
 }
