@@ -1,10 +1,16 @@
 import { PackagesFeatures } from './packages-features'
 
-const currency = 'US$'
 
-export function PaymentDetails({ currOrder, checkClass,onCheckout }) {
+export function PaymentDetails({ currOrder, checkClass, onCheckout }) {
     // console.log('teeeeessssssttttttttt', currOrder)
+    const currency = 'US$'
     const serviceFee = 10
+    const extraFastPrice = 50
+    const price = currOrder.gig.price * currOrder.extras.packageSelected
+    const updatedPrice = (currOrder.extras.fastDelivery) ? price + extraFastPrice : price
+    const vat = (((updatedPrice) + serviceFee) * 0.17)
+    const vatTest = vat.toFixed(2)
+    const daysToMake = (currOrder.extras.fastDelivery) ? currOrder.extras.packageSelected : currOrder.gig.daysToMake
 
     return (
         <section className="payment-details-container">
@@ -15,9 +21,9 @@ export function PaymentDetails({ currOrder, checkClass,onCheckout }) {
             <article className='payment-details-main'>
                 <div className="payment-details-package  flex justify-between">
                     <h3 className="packages-title padding-bottom-16">{checkClass(currOrder.extras.packageSelected)} Package</h3>
-                    <h2 className="packages-price">{currency}{currOrder.gig.price * currOrder.extras.packageSelected}</h2>
+                    <h2 className="packages-price">{currency}{updatedPrice}</h2>
                 </div>
-                    <PackagesFeatures gig={currOrder.gig} />
+                <PackagesFeatures gig={currOrder.gig} />
             </article>
             <footer className="packages-footer">
                 <div className='additional-charge '>
@@ -27,17 +33,17 @@ export function PaymentDetails({ currOrder, checkClass,onCheckout }) {
                     </div>
                     <div className='flex justify-between'>
                         <p>VAT</p>
-                        <span>{currency}{currOrder.gig.price}</span>
+                        <span>{currency}{vatTest}</span>
                     </div>
                 </div>
                 <div className='payment-summery padding-bottom-16'>
                     <div className='flex justify-between padding-bottom-12'>
                         <h3>you'll pay</h3>
-                        <h3>{currency}{currOrder.gig.price}</h3>
+                        <h3>{currency}{(updatedPrice + serviceFee + vat).toFixed(2)}</h3>
                     </div>
                     <div className='flex justify-between'>
                         <p>Total delivery time</p>
-                        <span>{currOrder.gig.daysToMake} days</span>
+                        <span>{daysToMake} days</span>
                     </div>
                 </div>
                 <button className='btn-black' onClick={onCheckout}>Pay in USD</button>

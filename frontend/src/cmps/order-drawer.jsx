@@ -4,15 +4,25 @@ import { useNavigate } from "react-router"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { toggleDrawer } from '../store/system.actions'
-import { removeCurrOrder } from '../store/order.actions'
+import { removeCurrOrder, updateCurrOrder } from '../store/order.actions'
+import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 
 
 export function OrderDrawer() {
   const isOpen = useSelector((storeState) => storeState.systemModule.isOpen)
   const [clicked, setClicked] = useState(false)
+  const [updatedPrice,setUpdatedPrice]=useState()
+  const [updatedDays, setUpdatedDays] = useState()
   const currOrder = useSelector((storeState) => storeState.orderModule.currOrder)
   const navigate = useNavigate()
+  const extraFastPrice = 50
 
+  useEffectUpdate(() => {
+    setUpdatedPrice(currOrder.extras.packageSelected * currOrder.gig.price)
+    setUpdatedDays(currOrder.extras.packageSelected * currOrder.gig.daysToMake)
+  }
+  ,[currOrder])
+  
   useEffect(() => {
     function handleKeyPress(ev) {
       if (ev.keyCode === 27) {
@@ -37,18 +47,31 @@ export function OrderDrawer() {
 
   function onHandleClick() {
     setClicked(!clicked)
+    if (!clicked) {
+      setUpdatedPrice(price => price + extraFastPrice)
+      setUpdatedDays(currOrder.extras.packageSelected)
+    } else {
+      setUpdatedPrice(currOrder.extras.packageSelected * currOrder.gig.price)
+      setUpdatedDays(currOrder.extras.packageSelected * currOrder.gig.daysToMake)
+    }
   }
+  
 
   function handleClose() {
     toggleDrawer(false)
-    setTimeout(() => {
-      removeCurrOrder()
-    }, 1000)
+    // setTimeout(() => {
+    //   removeCurrOrder()
+    // }, 1000)
   }
 
-  let updatedPrice = (currOrder) ? currOrder.extras.packageSelected * currOrder.gig.price : 0
-  const updatedDays = (currOrder) ? currOrder.extras.packageSelected * currOrder.gig.daysToMake : 0
-  const extraFastPrice = 50
+  function onMoveToCheckout(){
+    currOrder.extras.fastDelivery=clicked
+    updateCurrOrder(currOrder)
+    navigate('/checkout')
+  }
+
+  
+  
 
 
   const drawerClassName = isOpen ? 'order-drawer open' : 'order-drawer'
@@ -69,7 +92,7 @@ export function OrderDrawer() {
             <div className='drawer-package-details'>
               <div className='flex justify-between'>
                 <span className='package-details-type'>Basic</span>
-                {currOrder && <span className='drawer-package-price'>US${updatedPrice}</span>}
+                {currOrder&& <span className='drawer-package-price'>US${updatedPrice}</span>}
               </div>
               {currOrder && <p>{currOrder.gig.title.split(' ').slice(2).join(' ')}</p>}
             </div>
@@ -96,7 +119,7 @@ export function OrderDrawer() {
           </div>
         </section>
         <footer className='drawer-footer'>
-          {currOrder && <button className='btn-black' onClick={() => navigate('/checkout')}>continue <span>({updatedPrice}$)</span></button>}
+          {currOrder && <button className='btn-black' onClick={ onMoveToCheckout}>continue <span>({updatedPrice}$)</span></button>}
           <p className='drawer-footer-msg'>You won’t be charged yet</p>
         </footer>
       </div>
