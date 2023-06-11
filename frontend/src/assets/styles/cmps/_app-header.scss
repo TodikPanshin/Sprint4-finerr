@@ -169,13 +169,13 @@
         margin-left: auto;
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: baseline;
         justify-content: space-between;
-        padding: 0 5px;
+        padding: 0;
         caret-color: transparent;
 
         a {
-            margin-inline: .5rem;
+            margin-inline: .75rem;
 
             &:hover {
                 color: $clr-btn-hov;
@@ -189,8 +189,10 @@
         }
 
         img {
+            position: absolute;
+            translate: -100% -65%;
             width: 30px;
-            margin-top: 20%;
+            margin-left: 1rem;
         }
 
         button {
@@ -198,7 +200,8 @@
             font-size: inherit;
             font-weight: inherit;
             background-color: transparent;
-
+            padding: 0;
+            margin: 0 0.75rem;
 
             &:hover {
                 color: $clr-btn-hov;
@@ -212,6 +215,7 @@
                 border: 1px solid $clr-hov;
                 border-radius: 4px;
                 padding: 10px 16px;
+                margin-right: 0;
 
                 &:hover {
                     background-color: $clr-hov;
@@ -241,8 +245,8 @@
             position: absolute;
             display: flex;
             flex-direction: column;
-            top: 64px;
-            right: -.5rem;
+            top: 2rem;
+            right: -2rem;
             translate: -2rem;
             border: 1px solid rgba(175, 175, 175, 0.5);
             background-color: rgb(255, 255, 255);
