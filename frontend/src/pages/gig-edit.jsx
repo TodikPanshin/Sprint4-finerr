@@ -62,7 +62,7 @@ export function GigEdit() {
                 <input type="text"
                     name="title"
                     id="title"
-                    placeholder="Enter name..."
+                    placeholder="I will..."
                     value={gigToEdit.name}
                     onChange={handleChange}
                     className="inbox"
