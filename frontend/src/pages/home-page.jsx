@@ -113,7 +113,7 @@ export function HomePage() {
             </div>
 
             <div className="popular-services-container">
-                <h2>Popular services</h2>
+                <h1>Popular services</h1>
                 <button onClick={() => slideCarousel(-1)}><img src="https://www.svgrepo.com/show/350276/chevron-left.svg" alt="left" /></button>
                 <ul className="popular-services">
                     {popularServices.map((service, idx) =>
