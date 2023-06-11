@@ -5,6 +5,7 @@ import { ReviewIndex } from './pages/review-index.jsx'
 import { ChatApp } from './pages/chat-app.jsx'
 import { AdminApp } from './pages/admin-app.jsx'
 import { Checkout } from './pages/checkout.jsx'
+import { GigEdit } from './pages/gig-edit.jsx'
 
 
 // Routes accesible from the main navigation (in AppHeader)
@@ -18,6 +19,11 @@ const routes = [
         path: 'gig',
         component: <GigIndex />,
         label: 'Gigs'
+    },
+    {
+        path: 'gig/edit',
+        component: <GigEdit />,
+        label: 'Add Gig'
     },
     {
         path: 'review',
