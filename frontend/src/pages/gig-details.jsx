@@ -145,6 +145,11 @@ export function GigDetails() {
         setShowBuyerMsg(false)
     }
 
+    function onCloseModal() {
+        setOpenModal(false)
+        setShowBuyerMsg(true)
+    }
+
     if (!gig || gig.length) return <div>Loading...</div>
 
     const isOnline = gig.owner.isOnline
@@ -220,7 +225,7 @@ export function GigDetails() {
             </section>
             {openModal &&
                 <aside className='inbox-msg flex column'>
-                    <div className='flex justify-between'>
+                    <div className='flex details-area'>
                         <img src={`${gig.owner.imgUrl}`} alt="" className='owner-img' />
                         <div className="background-dot">
                             <div className={`point ${isOnline ? 'isOnline' : ''}`}></div>
@@ -231,15 +236,13 @@ export function GigDetails() {
                             {!isOnline && <div className='response-time'>Away • Avg. response time: <span> 1 Hour </span></div>}
                             {isOnline && <div className='response-time'>Online • Avg. response time: <span> 1 Hour </span></div>}
                         </div>
-                        <div onClick={() => setOpenModal(false)} className='clos'>X</div>
                     </div>
+                    <div onClick={onCloseModal} className='close'>X</div>
                     <textarea name="" id="" cols="30" rows="10" maxlength="2500" placeholder={`Ask ${gig.owner.fullname} a question or share your project details (requirements, timeline, budget, etc.)`}></textarea>
-                    <p>Use at least 40 characters</p>
-                    <button className='send-msg'>
-                        {/* <FontAwesomeIcon icon={regular("paper-plane")} style={{ color: "#ffffff", }} />      */}
+                    {/* <p>Use at least 40 characters</p> */}
+                    <button className='send-msg flex'>
                         <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#ffffff" }} />
-
-                        Send Message</button>
+                        <p> Send Message </p></button>
                 </aside>
             }
         </>

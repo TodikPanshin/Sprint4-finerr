@@ -174,60 +174,87 @@
 
 .inbox-msg {
     background-color: #fff;
-    width: 450px;
+    width: 420px;
     height: 510px;
-    bottom: 32px;
+    top: 50%;
     z-index: 100;
+    transform: translateY(-50%);
     position: fixed;
     margin-left: 2rem;
     border: $clr-border 1px solid;
     border-radius: 0.25rem;
-    padding: 1.5rem;
+    row-gap: 1.5rem;
 
-    .owner-img {
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-    }
+    .details-area {
+        padding: 1.25rem;
 
-    .background-dot {
-        position: relative;
-        bottom: -17px;
-        right: 15px;
-
-        .point {
-            width: 17px;
-            height: 17px;
-            background-color: #b5b6ba;
+        .owner-img {
+            width: 3rem;
+            height: 3rem;
             border-radius: 50%;
-            border: 3px #fff solid;
-
-            &.isOnline {
-                background-color: #1dbf73;
-            }
         }
 
-    }
+        .background-dot {
+            position: relative;
+            bottom: -32px;
+            right: 16px;
 
-    .owner-details {
-        font-weight: 700;
+            .point {
+                width: 17px;
+                height: 17px;
+                background-color: #b5b6ba;
+                border-radius: 50%;
+                border: 3px #fff solid;
 
-        .response-time {
-            font-size: 0.75rem;
-            font-weight: 300;
+                &.isOnline {
+                    background-color: #1dbf73;
+                }
+            }
 
-            span {
-                font-weight: 700;
+        }
+
+        .owner-details {
+            font-weight: 700;
+
+            .response-time {
+                font-size: 0.75rem;
+                font-weight: 300;
+
+                span {
+                    font-weight: 700;
+                }
             }
         }
     }
+
+    .close {
+        cursor: pointer;
+        position: absolute;
+        right: 24px;
+        top: 24px;
+    }
+
 
     textarea {
         border: none;
+        padding: 1.25rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        border-top: 1px solid $clr-border;
     }
 
     .send-msg {
+        color: white;
         background-color: #1dbf73;
+        padding: 16px 9px;
+        border-radius: 4px;
+        font-size: 1rem;
+        justify-content: center;
+        margin: 1.25rem;
+
+        p {
+            margin-left: 0.5rem;
+        }
     }
 
 }
