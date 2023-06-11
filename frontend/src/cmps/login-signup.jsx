@@ -68,12 +68,18 @@ export function LoginSignup(props) {
                         <div className='sign-up-dezine-txt flex column'>
                             <h2>Success starts here</h2>
                             <ul className='clean-list flex column'>
-                                <li>  &nbsp;     <FontAwesomeIcon icon="fa-solid fa-check" size="xs" style={{ color: "#ffffff", }} />
-                                    Over 600 categories</li>
-                                <li>   &nbsp;    <FontAwesomeIcon icon="fa-solid fa-check" size="xs" style={{ color: "#ffffff", }} />
-                                    Pay per project, not per hour</li>
-                                <li>   &nbsp;    <FontAwesomeIcon icon="fa-solid fa-check" size="xs" style={{ color: "#ffffff", }} />
-                                    Access to talent and businesses across the globe</li>
+                                <li className='flex'>
+                                    <FontAwesomeIcon icon="fa-solid fa-check" size="xs" style={{ color: "#ffffff", }} />
+                                    <p> Over 600 categories </p>
+                                </li>
+                                <li className='flex'>
+                                    <FontAwesomeIcon icon="fa-solid fa-check" size="xs" style={{ color: "#ffffff", }} />
+                                    <p>Pay per project, not per hour</p>
+                                </li>
+                                <li className='flex'>
+                                    <FontAwesomeIcon icon="fa-solid fa-check" size="xs" style={{ color: "#ffffff", }} />
+                                    <p>Access to talent and businesses across the globe</p>
+                                </li>
                             </ul>
                         </div>
                     </section>

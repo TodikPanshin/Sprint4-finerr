@@ -28,14 +28,17 @@ export function GigPreview({ gig }) {
                 <div className="owner-details flex">
                     <div className="owner-img flex">
                         <img src={gig.owner.imgUrl} alt="img of owner" />
+                        {gig.owner.isOnline &&
+                            <div className="is-online">
+                                <div className="point"></div>
+                            </div>
+                        }
                     </div>
                     <Link to={`/user/${gig.owner._id}`} className="owner-name">  {gig.owner.fullname}</Link>
                 </div>
-                {gig.owner.rate >= 4.7 && <div className="top-rated flex">Top Rated</div>}
-                {gig.owner.rate < 4.7 && gig.owner.level === 1 && <div className="level">level 1</div>}
-                {gig.owner.rate < 4.7 && gig.owner.level === 2 && <div className="level">level 2</div>}
-
-
+                {gig.rating.average >= 4.75 && <div className="top-rated flex">Top Rated</div>}
+                {gig.rating.average < 4.75 && gig.owner.level === 1 && <div className="level">level 1</div>}
+                {gig.rating.average < 4.75 && gig.owner.level === 2 && <div className="level">level 2</div>}
             </div>
 
             <Link to={`/gig/${gig._id}`} className="gig-title">{gig.title}</Link>

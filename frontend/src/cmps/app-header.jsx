@@ -51,7 +51,6 @@ export function AppHeader() {
     }
 
     async function onSignup(credentials) {
-        console.log('credentials:', credentials)
         try {
             const user = await signup(credentials)
             showSuccessMsg(`Welcome new user: ${user.fullname}`)

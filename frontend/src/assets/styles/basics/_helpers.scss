@@ -29,16 +29,16 @@
 
 // margin helpers
 
-.margin-inline-end-8{
-    margin-inline-end:rem(8px)
+.margin-inline-end-8 {
+    margin-inline-end: rem(8px)
 }
 
-.margin-inline-end-16{
-    margin-inline-end:rem(16px)
+.margin-inline-end-16 {
+    margin-inline-end: rem(16px)
 }
 
-.margin-block-end-20{
-    margin-block-end:rem(20px)
+.margin-block-end-20 {
+    margin-block-end: rem(20px)
 }
 
 // flex helpers
@@ -70,21 +70,26 @@
     &.justify-between {
         justify-content: space-between;
     }
+
+    &.align-start {
+        align-items: flex-start
+    }
 }
 
 // gap helpers
-.gap-16{
-gap:1rem;
+.gap-16 {
+    gap: 1rem;
 }
 
 // padding helpers
 
-.padding-bottom-16{
+.padding-bottom-16 {
     padding-bottom: 1rem;
-    }
-.padding-bottom-12{
+}
+
+.padding-bottom-12 {
     padding-bottom: rem(12px);
-    }
+}
 
 /* list helpers */
 
