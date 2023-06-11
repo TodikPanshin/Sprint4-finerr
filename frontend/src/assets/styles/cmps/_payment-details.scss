@@ -1,0 +1,45 @@
+.payment-details-container {
+    border: 1px solid $clr-border;
+    height: fit-content;
+    width: rem(377px);
+    color: $clr-font;
+    margin: 20px auto;
+    border-radius: 5px;
+
+    .payment-details-header,
+    .payment-details-main {
+        background-color: $clr-background-light;
+        border-block-end: 1px solid $clr-border;
+    }
+
+    &>* {
+        color: $clr-font;
+        padding: 16px;
+    }
+
+    h3,
+    h2,
+    p {
+        margin: 0;
+        color: $clr-font;
+
+    }
+
+    .payment-details-header {
+        p {
+            font-weight: 400;
+        }
+    }
+
+    img {
+        width: rem(100px);
+        max-height: 62px;
+        border-radius: 4px;
+        margin-inline-end: 1rem;
+    }
+    .additional-charge{
+        border-block-end: 1px solid $clr-border;
+        padding-block-end:1rem;
+        margin-block-end:1rem ;
+    }
+}

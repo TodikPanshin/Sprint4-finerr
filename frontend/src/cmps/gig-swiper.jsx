@@ -13,6 +13,7 @@ export function GigSwiper({ gigImgs }) {
 
     return (
         <>
+        <SwiperButtons />
             <Swiper
                 className='main-swiper'
                 modules={[Navigation, Thumbs, A11y]}
@@ -36,6 +37,7 @@ export function GigSwiper({ gigImgs }) {
                 </div>
             </Swiper>
             
+            
             <Swiper
                 className='thumbs-swiper'
                 modules={[Thumbs]}
@@ -50,8 +52,7 @@ export function GigSwiper({ gigImgs }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-                <SwiperButtons />
         </>
-    );
-};
+    )
+}
 
