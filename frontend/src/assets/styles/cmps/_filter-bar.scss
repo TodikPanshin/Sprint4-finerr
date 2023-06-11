@@ -71,16 +71,17 @@
 
             .floating-menu {
                 position: relative;
-                margin-right: 0.375rem;
-                font-size: 1rem;
-                font-weight: 600;
+                margin-right: 1rem;
+                font-size: .875rem;
+                color: black;
+                font-weight: 400;
                 cursor: pointer;
                 caret-color: transparent;
 
                 .menu-button {
                     border: 1px solid rgba(0, 0, 0, 0.1);
                     border-radius: .5rem;
-                    padding: .75rem 1rem;
+                    padding: .75rem 1.5rem;
                     width: inherit;
                     height: inherit;
 
@@ -111,6 +112,7 @@
                     flex-direction: row;
                     flex-wrap: wrap;
                     min-width: 15rem;
+                    max-width: max-content;
                     opacity: 0;
                     pointer-events: none;
                     box-shadow: 0 12px 18px rgba(0, 0, 0, .14);
@@ -135,9 +137,17 @@
                             flex-direction: column;
 
                             label {
-                                padding: .75rem;
+                                display: grid;
+                                grid-template-columns: 1fr auto;
+                                font-weight: 600;
+                                gap: 0.2rem;
+                                height: 2rem;
+                                margin-top: .7rem;
+                                text-align: start;
+                                width: max-content;
 
                                 input {
+                                    margin-top: -.3rem;
                                     margin-right: .5rem;
                                     width: 1.5rem;
                                 }
@@ -145,12 +155,29 @@
                         }
                     }
 
+                    .seller-speaks {
+                        display: grid;
+                        grid-template-columns: 10rem 10rem;
+                        grid-template-rows: 1fr 1fr;
+                        margin-top: .5rem;
+                        gap: .5rem;
+
+                        h3 {
+                            border-top: 1px solid rgba(0, 0, 0, 0.15);
+                            padding-top: .5rem;
+                            margin-bottom: 0;
+                            padding-right: 1rem;
+                            grid-column: 1/-1;
+                            grid-row: 1;
+                            margin-top: 1rem;
+                        }
+                    }
+
                     .filter-menu-btns-container {
-                        padding-top: .5rem;
                         display: flex;
                         flex-direction: row;
                         justify-content: space-between;
-                        padding: 1rem 1.5rem;
+                        padding: 1rem;
                         border-top: 1px solid rgba(0, 0, 0, .14);
                         width: 100%;
                         font-size: 1rem;
@@ -188,31 +215,33 @@
                     .price-range {
                         display: flex;
                         flex-direction: row;
-                        width: 10rem;
-                        padding: .5rem;
                         gap: 1rem;
+                        color: rgba(0, 0, 0, 0.4);
+                        font-size: .875rem;
 
                         label {
                             position: relative;
                         }
 
                         input {
+                            padding: .5rem;
                             margin-top: .5rem;
                             line-height: 1.5rem;
                             width: 5rem;
                             cursor: default;
                             caret-color: black;
                             font-family: inherit;
+                            width: 7rem;
 
                             &::placeholder {
-                                color: rgb(185, 185, 185);
+                                color: rgb(148, 148, 148);
                             }
                         }
 
                         .currency {
                             position: absolute;
                             right: .5rem;
-                            margin-top: .6rem;
+                            margin-top: 1.25rem;
                             color: rgb(202, 202, 202);
                         }
                     }
@@ -256,7 +285,7 @@
                     height: 0.875rem;
                     border-radius: 50%;
                     background-color: rgb(255, 255, 255);
-                    top: 2px;
+                    top: 2.23px;
                     transition: .2s;
 
                     &.switch-on {
@@ -264,7 +293,7 @@
                     }
 
                     &.switch-off {
-                        left: .1rem;
+                        left: .15rem;
                     }
 
                 }
@@ -280,6 +309,7 @@
         justify-content: space-between;
         height: 2.5rem;
         font-weight: 600;
+        caret-color: transparent;
 
         img {
             width: .75rem;
@@ -298,13 +328,17 @@
             font-size: 1rem;
             padding: .5rem;
             cursor: pointer;
-            caret-color: transparent;
 
             button {
                 position: relative;
                 font-family: inherit;
                 font-size: inherit;
                 text-align: start;
+            }
+
+            .sort-btn {
+                font-weight: 400;
+                color: black;
             }
 
             .sort-options {
@@ -415,12 +449,14 @@
     .checkmark:after {
         content: "";
         position: absolute;
-        display: none;
+        opacity: 0;
     }
 
     // Show the indicator (dot/circle) when checked
     input:checked~.checkmark:after {
         display: block;
+        opacity: 1;
+        transition: .3s;
     }
 
     // Style the indicator (dot/circle)
@@ -431,6 +467,7 @@
         height: 8px;
         border-radius: 50%;
         background: rgb(65, 65, 65);
+        transition: .3s;
     }
 }
 
