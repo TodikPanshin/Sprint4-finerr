@@ -114,7 +114,7 @@ export function AppHeader() {
 
                 <nav>
                     <NavLink onClick={resetFilter} key="gig" to="/gig">Explore</NavLink>
-                    <NavLink key="seller-register" to="/">Become a Seller</NavLink>
+                    <NavLink key="add-gig" to="/gig/edit">Become a Seller</NavLink>
                     {user &&
                         <span className="user-info">
                             <button className="user-img" onClick={onProfileClick}>

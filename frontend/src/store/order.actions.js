@@ -74,14 +74,23 @@ export async function updateOrder(order) {
     }
 }
 
-export function addCurrOrder(gig) {
-   const currOrder= orderService.getCurrOrder(gig)
-   orderService.saveLocalCurrOrder(currOrder)
+export function updateCurrOrder(currOrder) {
+    orderService.saveLocalCurrOrder(currOrder)
     store.dispatch({
         type: ADD_CURR_ORDER,
         currOrder
     })
 }
+
+export function addCurrOrder(gig) {
+    const currOrder = orderService.getCurrOrder(gig)
+    orderService.saveLocalCurrOrder(currOrder)
+    store.dispatch({
+        type: ADD_CURR_ORDER,
+        currOrder
+    })
+}
+
 
 export function removeCurrOrder() {
     store.dispatch({ type: CLEAR_CURR_ORDER })
@@ -89,10 +98,7 @@ export function removeCurrOrder() {
 
 export async function checkout(total) {
     try {
-        // const score = await userService.changeScore(-total)
-        // store.dispatch({ type: SET_SCORE, score })
         store.dispatch({ type: CLEAR_CURR_ORDER })
-        // return score
     } catch (err) {
         console.log('GigActions: err in checkout', err)
         throw err
