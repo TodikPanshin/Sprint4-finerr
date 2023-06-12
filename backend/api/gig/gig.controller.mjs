@@ -29,6 +29,7 @@ export async function getGigs(req, res) {
 export async function getGigById(req, res) {
   try {
     const gigId = req.params.id
+    logger.debug("controller:", gigId)
     const gig = await gigService.getById(gigId)
     res.json(gig)
   } catch (err) {
