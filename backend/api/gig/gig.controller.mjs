@@ -2,6 +2,7 @@ import { gigService } from './gig.service.mjs'
 import { logger } from '../../services/logger.service.mjs'
 
 export async function getGigs(req, res) {
+  console.log("get gigs")
   try {
     logger.debug('Getting Gigs:', req.query)
     
@@ -19,6 +20,7 @@ export async function getGigs(req, res) {
       sortBy: req.query.sortBy
     }
     const gigs = await gigService.query(filterBy)
+    console.log("gigs: ", gigs)
     res.json(gigs)
   } catch (err) {
     logger.error('Failed to get gigs', err)
