@@ -13,7 +13,7 @@ app.use(express.json())
 
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve('public')))
+    app.use(express.static(path.resolve(__dirname, 'public')))
 } else {
     const corsOptions = {
         origin: [   'http://127.0.0.1:3000',
@@ -45,13 +45,15 @@ setupSocketAPI(server)
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3030/index.html/gig/123 it will still respond with
 // our SPA (single page app) (the index.html file) and allow vue/react-router to take it from there
+
 app.get('/**', (req, res) => {
-    res.sendFile(path.resolve('public/index.html'))
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 
 import { logger } from './services/logger.service.mjs'
 const port = process.env.PORT || 3030
+
 server.listen(port, () => {
     logger.info('Server is running on port: ' + port)
 })

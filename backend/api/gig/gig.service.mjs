@@ -44,7 +44,7 @@ async function query(filterBy) {
         }
 
         if (filterBy.topRated) {
-            filters.push({ 'rating.average': { $gt: 4.75 } })
+            filters.push({ 'rating.average': { $gt: 4.7 } })
         }
 
         if (filterBy.pro) {
