@@ -58,10 +58,12 @@ export function GigIndex() {
     //     console.log(`TODO Adding msg to gig`)
     // }
 
-    if (!gigs.length) return <div>Loading...</div>
+    if (!gigs.length) return <div className="container">
+        <div className="flex-wrapper"><div className="loader"></div></div></div>
+
     return (
         <div className='gig-index'>
-            <FilterBar filterBy={filterBy}/>
+            <FilterBar filterBy={filterBy} />
             <main>
                 < GigList
                     gigs={gigs}

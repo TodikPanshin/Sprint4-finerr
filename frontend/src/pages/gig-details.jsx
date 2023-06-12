@@ -14,11 +14,17 @@ import { SellerCard } from '../cmps/seller-card.jsx'
 import { ShowReviews } from '../cmps/show-reviews.jsx'
 
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(faPaperPlane)
 
 
 
 export function GigDetails() {
-
     const [reviews, setReviews] = useState([
         {
             id: "i101",
@@ -89,7 +95,12 @@ export function GigDetails() {
 
 
     ])
+
+    const [showBuyerMsg, setShowBuyerMsg] = useState(false)
+    const [gigLoaded, setGigLoaded] = useState(false);
+
     const [gig, setGig] = useState()
+    const [openModal, setOpenModal] = useState(false)
     const { id } = useParams()
     const navigate = useNavigate()
 
@@ -98,10 +109,20 @@ export function GigDetails() {
         loadGig()
     }, [id])
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowBuyerMsg(true)
+        }, 2000)
+
+        return () => clearTimeout(timer)
+    }, []);
+
+
     async function loadGig() {
         try {
             const gig = await gigService.getById(id)
             setGig(gig)
+            setGigLoaded(true)
             // console.log(gig)
         } catch (err) {
             console.log('Had issues in gig details', err)
@@ -119,11 +140,23 @@ export function GigDetails() {
         }
     }
 
-    
+    function onOpenModal() {
+        setOpenModal(true)
+        setShowBuyerMsg(false)
+    }
+
+    function onCloseModal() {
+        setOpenModal(false)
+        setShowBuyerMsg(true)
+    }
 
     if (!gig || gig.length) return <div>Loading...</div>
+
+    const isOnline = gig.owner.isOnline
+
     return (
         <>
+
             <GigToolBar />
             <OrderDrawer />
             {/* <div className='trash'>
@@ -168,9 +201,50 @@ export function GigDetails() {
                     <SellerCard gig={gig} />
                     <h2>Reviews</h2>
                     <ShowReviews reviews={reviews} />
+
+                    {gigLoaded && (
+                        <>
+                            {showBuyerMsg && (
+                                <section className='buyer-msg flex' onClick={onOpenModal}>
+                                    <img src={`${gig.owner.imgUrl}`} alt="" className='owner-img' />                                        <div className="background-dot">
+                                        <div className={`point ${isOnline ? 'isOnline' : ''}`}></div>
+                                    </div>
+
+                                    <div className='owner-details flex column'>
+                                        <div className='owner-name'>Message {gig.owner.fullname}</div>
+                                        {!isOnline && <div className='response-time'>Away • Avg. response time: <span> 1 Hour </span></div>}
+                                        {isOnline && <div className='response-time'>Online • Avg. response time: <span> 1 Hour </span></div>}
+                                    </div>
+                                </section>
+                            )}
+                        </>
+                    )}
                 </section>
                 <Packages gig={gig} />
+
             </section>
+            {openModal &&
+                <aside className='inbox-msg flex column'>
+                    <div className='flex details-area'>
+                        <img src={`${gig.owner.imgUrl}`} alt="" className='owner-img' />
+                        <div className="background-dot">
+                            <div className={`point ${isOnline ? 'isOnline' : ''}`}></div>
+                        </div>
+
+                        <div className='owner-details flex column'>
+                            <div className='owner-name'>Message {gig.owner.fullname}</div>
+                            {!isOnline && <div className='response-time'>Away • Avg. response time: <span> 1 Hour </span></div>}
+                            {isOnline && <div className='response-time'>Online • Avg. response time: <span> 1 Hour </span></div>}
+                        </div>
+                    </div>
+                    <div onClick={onCloseModal} className='close'>X</div>
+                    <textarea name="" id="" cols="30" rows="10" maxlength="2500" placeholder={`Ask ${gig.owner.fullname} a question or share your project details (requirements, timeline, budget, etc.)`}></textarea>
+                    {/* <p>Use at least 40 characters</p> */}
+                    <button className='send-msg flex'>
+                        <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#ffffff" }} />
+                        <p> Send Message </p></button>
+                </aside>
+            }
         </>
     )
 }
