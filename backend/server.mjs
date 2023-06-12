@@ -4,12 +4,6 @@ import cors from 'cors'
 import express from 'express'
 import cookieParser from 'cookie-parser'
 
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 
 const app = express()
 const server = http.createServer(app)
@@ -20,7 +14,7 @@ app.use(express.json())
 
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve(__dirname, 'public')))
+    app.use(express.static(path.resolve('public')))
 } else {
     const corsOptions = {
         origin: [   'http://127.0.0.1:3000',
@@ -54,7 +48,7 @@ setupSocketAPI(server)
 // our SPA (single page app) (the index.html file) and allow vue/react-router to take it from there
 
 app.get('/**', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    res.sendFile(path.join('public/index.html'))
 })
 
 
