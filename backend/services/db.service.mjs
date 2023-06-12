@@ -13,7 +13,6 @@ var dbConn = null
 async function getCollection(collectionName) {
     try {
         const db = await connect()
-        console.log("db: ", db)
         const collection = await db.collection(collectionName)
         return collection
     } catch (err) {
@@ -26,7 +25,9 @@ async function connect() {
     if (dbConn) return dbConn
     try {
         const client = await MongoClient.connect(config.dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
+        console.log("client: ", client)
         const db = client.db(config.dbName)
+        console.log("db: ", db)
         dbConn = db
         return db
     } catch (err) {
