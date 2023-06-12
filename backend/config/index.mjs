@@ -2,11 +2,11 @@ import configProd from './prod.mjs'
 import configDev from './dev.mjs'
 
 
-export var config 
+export var config
 
 if (process.env.NODE_ENV === 'production') {
-  config = configDev
-  // config = configProd
+  console.log("prod", configProd)
+  config = configProd
 } else {
   config = configDev
 }
