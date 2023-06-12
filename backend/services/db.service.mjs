@@ -25,9 +25,7 @@ async function connect() {
     if (dbConn) return dbConn
     try {
         const client = await MongoClient.connect(config.dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
-        console.log("client: ", client)
         const db = client.db(config.dbName)
-        console.log("db: ", db)
         dbConn = db
         return db
     } catch (err) {
