@@ -238,7 +238,7 @@ export function GigDetails() {
                         </div>
                     </div>
                     <div onClick={onCloseModal} className='close'>X</div>
-                    <textarea name="" id="" cols="30" rows="10" maxlength="2500" placeholder={`Ask ${gig.owner.fullname} a question or share your project details (requirements, timeline, budget, etc.)`}></textarea>
+                    <textarea name="" id="" cols="30" rows="10" maxLength="2500" placeholder={`Ask ${gig.owner.fullname} a question or share your project details (requirements, timeline, budget, etc.)`}></textarea>
                     {/* <p>Use at least 40 characters</p> */}
                     <button className='send-msg flex'>
                         <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#ffffff" }} />
