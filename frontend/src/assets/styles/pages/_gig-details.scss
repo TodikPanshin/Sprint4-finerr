@@ -231,9 +231,8 @@
         cursor: pointer;
         position: absolute;
         right: 24px;
-        top: 24px;
+        top: 12px;
     }
-
 
     textarea {
         border: none;
@@ -241,6 +240,9 @@
         font-size: 1rem;
         line-height: 1.5rem;
         border-top: 1px solid $clr-border;
+        resize: none;
+        color: #bbbbbb;
+        width: auto;
     }
 
     .send-msg {
