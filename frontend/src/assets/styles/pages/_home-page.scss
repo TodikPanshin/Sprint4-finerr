@@ -130,12 +130,11 @@
         }
 
         p {
-            position: absolute;
-            bottom: 1.7rem;
-            left: 80%;
-            font-weight: 400;
+            font-weight: 600;
             letter-spacing: .01rem;
             color: white;
+            justify-self: end;
+            translate: 0 -6rem;
 
             span {
                 font-weight: 600;
@@ -152,6 +151,7 @@
         font-weight: 600;
         color: white;
         margin-inline: .6rem;
+        letter-spacing: .05rem;
 
         &:hover {
             color: black;
@@ -163,7 +163,7 @@
 
 .popular-services-container {
     overflow: hidden;
-    margin-top: 19rem;
+    margin-top: 18rem;
     position: relative;
 
     h2 {
@@ -187,12 +187,13 @@
         margin: 0;
         padding: .7rem;
         left: -1.2rem;
-        box-shadow: 0 10px 5px 0 rgba(0,0,0,.15);
+        box-shadow: 0 10px 5px 0 rgba(0, 0, 0, .15);
 
         &:last-child {
             left: auto;
             right: -1.2rem;
         }
+
         img {
             width: 1.2rem;
         }

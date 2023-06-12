@@ -1,27 +1,39 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export function SearchBox({setFilterBy, placeholder}) {
+export function SearchBox({ setFilterBy, placeholder }) {
     const [showCancelBtn, setshowCancelBtn] = useState('hidden')
     const [txt, setTxt] = useState('')
     const navigate = useNavigate()
+    const ref = useRef()
+
+    window.addEventListener('keydown', function (e) {
+        if (e.keyIdentifier == 'U+000A' || e.keyIdentifier === 'Enter' || e.keyCode === 13) {
+            if (e.target.nodeName == 'INPUT' && e.target.type === 'text') {
+                e.preventDefault();
+                setshowCancelBtn('hidden')
+                return false;
+            }
+        }
+    }, true)
+
+
 
     function handleChange({ target }) {
         const field = target.name
         const value = target.value
-        
-        setTxt(value)
-        value.length ? setshowCancelBtn('') : setshowCancelBtn('hidden')
 
+        setTxt(value)
         setFilterBy({ [field]: value })
     }
 
     function onSubmitFilter(ev) {
-        ev.preventDefault()
-        navigate('/gig')
+        ev.preventDefault()        
     }
 
     function cancelSearch() {
+        ref.current.value = ""
+        setshowCancelBtn('hidden')
         handleChange({ target: { name: 'txt', value: '' } })
     }
 
@@ -34,9 +46,11 @@ export function SearchBox({setFilterBy, placeholder}) {
         <form onSubmit={onSubmitFilter}>
             <label htmlFor="txt"></label>
             <input
+                ref={ref}
+                onClick={() => setshowCancelBtn('')}
                 onChange={handleChange}
+                onSubmit={handleChange}
                 name="txt" id="txt" type="text"
-                value={txt}
                 placeholder={placeholder} />
             <button onClick={cancelSearch} className={`cancel-btn ${showCancelBtn}`}>✖</button>
             <button onClick={onSubmitFilter} className="search-btn">

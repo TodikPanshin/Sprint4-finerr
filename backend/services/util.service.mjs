@@ -53,7 +53,7 @@ function generateRandomName() {
     'gun',
     'walk',
     'talk',
-    'car',
+    'gig',
     'wing',
     'yang',
     'snow',

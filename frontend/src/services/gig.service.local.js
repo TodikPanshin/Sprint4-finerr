@@ -75,7 +75,7 @@ async function query(filterBy = {}) {
         }
         
         if (filterBy.sortBy === 'Price') {
-            gigs = gigs.sort((a, b) => (a.price > b.price) ? 1 : (a.price > b.price) ? -1 : 0)
+            gigs = gigs.sort((a, b) => (a.price > b.price) ? 1 : (a.price < b.price) ? -1 : 0)
         }
     }
 

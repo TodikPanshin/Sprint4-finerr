@@ -1,51 +1,51 @@
-import { carService } from './services/car.service.js'
+import { gigService } from './services/gig.service.js'
 import { userService } from './services/user.service.js'
 import { utilService } from './services/util.service.js'
 
 console.log('Simple driver to test some API calls')
 
-window.onLoadCars = onLoadCars
+window.onLoadGigs = onLoadGigs
 window.onLoadUsers = onLoadUsers
-window.onAddCar = onAddCar
-window.onGetCarById = onGetCarById
-window.onRemoveCar = onRemoveCar
-window.onAddCarMsg = onAddCarMsg
+window.onAddGig = onAddGig
+window.onGetGigById = onGetGigById
+window.onRemoveGig = onRemoveGig
+window.onAddGigMsg = onAddGigMsg
 
-async function onLoadCars() {
-    const cars = await carService.query()
-    render('Cars', cars)
+async function onLoadGigs() {
+    const gigs = await gigService.query()
+    render('Gigs', gigs)
 }
 async function onLoadUsers() {
     const users = await userService.query()
     render('Users', users)
 }
 
-async function onGetCarById() {
-    const id = prompt('Car id?')
+async function onGetGigById() {
+    const id = prompt('Gig id?')
     if (!id) return
-    const car = await carService.getById(id)
-    render('Car', car)
+    const gig = await gigService.getById(id)
+    render('Gig', gig)
 }
 
-async function onRemoveCar() {
-    const id = prompt('Car id?')
+async function onRemoveGig() {
+    const id = prompt('Gig id?')
     if (!id) return
-    await carService.remove(id)
-    render('Removed Car')
+    await gigService.remove(id)
+    render('Removed Gig')
 }
 
-async function onAddCar() {
+async function onAddGig() {
     await userService.login({ username: 'puki', password: '123' })
-    const savedCar = await carService.save(carService.getEmptyCar())
-    render('Saved Car', savedCar)
+    const savedGig = await gigService.save(gigService.getEmptyGig())
+    render('Saved Gig', savedGig)
 }
 
-async function onAddCarMsg() {
+async function onAddGigMsg() {
     await userService.login({ username: 'puki', password: '123' })
-    const id = prompt('Car id?')
+    const id = prompt('Gig id?')
     if (!id) return
 
-    const savedMsg = await carService.addCarMsg(id, 'some msg')
+    const savedMsg = await gigService.addGigMsg(id, 'some msg')
     render('Saved Msg', savedMsg)
 }
 
