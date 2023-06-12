@@ -85,8 +85,8 @@ async function query(filterBy) {
 
 async function getById(gigId) {
     try {
-        const collection = await dbService.getCollection('gig')
-        const gig = collection.findOne({ _id: ObjectId(gigId) })
+        const collection = await dbService.getCollection('gigDB')
+        const gig = await collection.findOne({ _id : ObjectId(gigId) })
         return gig
     } catch (err) {
         logger.error(`while finding gig ${gigId}`, err)
@@ -96,7 +96,7 @@ async function getById(gigId) {
 
 async function remove(gigId) {
     try {
-        const collection = await dbService.getCollection('gig')
+        const collection = await dbService.getCollection('gigDB')
         await collection.deleteOne({ _id: ObjectId(gigId) })
         return gigId
     } catch (err) {
@@ -107,7 +107,7 @@ async function remove(gigId) {
 
 async function add(gig) {
     try {
-        const collection = await dbService.getCollection('gig')
+        const collection = await dbService.getCollection('gigDB')
         await collection.insertOne(gig)
         return gig
     } catch (err) {
@@ -122,7 +122,7 @@ async function update(gig) {
             vendor: gig.vendor,
             price: gig.price
         }
-        const collection = await dbService.getCollection('gig')
+        const collection = await dbService.getCollection('gigDB')
         await collection.updateOne({ _id: ObjectId(gig._id) }, { $set: gigToSave })
         return gig
     } catch (err) {
@@ -134,7 +134,7 @@ async function update(gig) {
 async function addGigMsg(gigId, msg) {
     try {
         msg.id = utilService.makeId()
-        const collection = await dbService.getCollection('gig')
+        const collection = await dbService.getCollection('gigDB')
         await collection.updateOne({ _id: ObjectId(gigId) }, { $push: { msgs: msg } })
         return msg
     } catch (err) {
@@ -145,7 +145,7 @@ async function addGigMsg(gigId, msg) {
 
 async function removeGigMsg(gigId, msgId) {
     try {
-        const collection = await dbService.getCollection('gig')
+        const collection = await dbService.getCollection('gigDB')
         await collection.updateOne({ _id: ObjectId(gigId) }, { $pull: { msgs: { id: msgId } } })
         return msgId
     } catch (err) {
