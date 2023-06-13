@@ -84,3 +84,11 @@
         transition: opacity .4s ease-in .2s;
     }
 }
+
+@media (min-width: 600px) {
+    .categories {
+        opacity: 1;
+        height: auto;
+        pointer-events: all;
+    }
+}
