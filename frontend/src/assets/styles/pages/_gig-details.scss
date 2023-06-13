@@ -5,6 +5,11 @@
     max-width: $wide-breakpoint;
     margin-bottom: 0;
 
+    .intersection-ref {
+        height: 1px;
+        width: 1px;
+    }
+
     h1 {
         overflow-wrap: break-word;
         font-size: em(28px);
