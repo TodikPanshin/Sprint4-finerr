@@ -84,6 +84,9 @@
     .search-box {
         flex-grow: 1;
         max-width: 40rem;
+        @include for-mobile-layout{
+            margin-block-start:20px;
+        }
 
         form {
             display: flex;

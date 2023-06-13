@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 
 
 export function OrderPreview({ order, handleUpdateOrder }) {
+   console.log('order testsssssss',order)
     const currency = 'US$'
     const serviceFee = 10
     const extraFastPrice = 50

@@ -12,7 +12,8 @@
     border-radius: rem(4px);
     
     @include for-mobile-layout {
-    width: auto
+    width: auto;
+    margin-block-start:rem(40px);
     }
 
     li {

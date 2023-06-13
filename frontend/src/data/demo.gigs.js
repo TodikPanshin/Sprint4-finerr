@@ -2818,17 +2818,604 @@ export const demoGigs = [
 ]
 
 export const demoOrders = [
-  {
-    "_id": "o1225",
-    "buyer": "mini-user",
-    "seller": "mini-user",
-    "gig": {
-      "_id": "i101",
-      "name": "Design Logo",
-      "price": 20
+  
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "fncmj3"
+        },
+        "seller": {
+            "_id": "u103",
+            "fullname": "Kika Pens",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/600643c0866d7666ebfc116f4188fc75-1645788859463/ddf415dd-43ce-4fe5-8908-40f718832504.jpg",
+            "level": 1,
+            "rate": 3,
+            "about": "Hi, nice to meet you! My name is Kiki Kiki. I am happy to help you creating your website to promote your business successfully. If there are questions, please just ask me. Talk to you soon :)"
+        },
+        "gig": {
+            "_id": "Gt40Go",
+            "title": "I will build your WordPress website with oxygen",
+            "price": 50,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/263804107/original/13bba12a57e31c3058ce81e40de5e6cea3b3ce8c/build-your-WordPress-website-with-oxygen-builder.png",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 1
+        },
+        "status": "approved",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-12T19:26:06.378Z",
+        "_id": "ELV3s"
     },
-    "status": "pending"
-  }
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "D4LPWe"
+        },
+        "seller": {
+            "_id": "u101",
+            "fullname": "Dudu Vitman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
+            "level": 1,
+            "rate": 4,
+            "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients."
+        },
+        "gig": {
+            "_id": "4cExgR",
+            "title": "I will design your logo that looks very nice",
+            "price": 12,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/292635463/original/9d87ea3304363c5b203a75758217235a8c28bc9c/do-creative-4-modern-minimalist-logo-design.jpg",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 3
+        },
+        "status": "completed",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-12T19:26:12.557Z",
+        "_id": "XCrfp"
+    },
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "14vTKS"
+        },
+        "seller": {
+            "_id": "u105",
+            "fullname": "Mia Piamenta",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/26704082/original/10671246_10154605530890361_257615399364358857_n.jpg",
+            "level": 2,
+            "rate": 5,
+            "about": "25 YEAR PRO WRITER - I have been writing on the Web since it began creating ads, press releases, web copy, sales letters, articles, blog posts, you name it! Join the thousands of happy customers who have been delighted with my hard work and great writing."
+        },
+        "gig": {
+            "_id": "1Iw1I9",
+            "title": "I will write your ad or content to get results",
+            "price": 15,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/1263477/original/18dd94b70047a74cf48b988f61f67c704c35bbdb/write-your-classified-ad-fat-50-words.png",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 2
+        },
+        "status": "declined",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-12T19:26:17.845Z",
+        "_id": "0uAPX"
+    },
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "2mh8gW"
+        },
+        "seller": {
+            "_id": "u106",
+            "fullname": "pol Newman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/09713f9e9eae81e986c392dd25e69539-1650223148753/7cd15136-cfc5-4d71-9efc-fd4a66679771.png",
+            "level": 1,
+            "rate": 3,
+            "about": "Hello, I'm pol! I am a professional freelance content creator, published author, and ghostwriter extraordinaire. I have a B.A. in English and have been a paid writer for 10+ years. I specialize in non-fiction eBooks and SEO-friendly blogs / articles that drive traffic to your website. Additionally, I have extensive experience writing about pets, self-help, gardening, travel, education, spirituality, entrepreneurship, and small businesses. My inbox is always open to new clients!"
+        },
+        "gig": {
+            "_id": "PCKqUF",
+            "title": "I will write dog articles and pet blog content",
+            "price": 30,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/222615986/original/6f5b7c553b6fd09b2bf820ac4496b614349d3a97/write-dog-articles-and-pet-blog-content.jpg",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 5
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-12T19:26:36.041Z",
+        "_id": "R7aDN"
+    },
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "UOinKq"
+        },
+        "seller": {
+            "_id": "u101",
+            "fullname": "Dudu Vitman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
+            "level": 1,
+            "rate": 4,
+            "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients."
+        },
+        "gig": {
+            "_id": "4cExgR",
+            "title": "I will design your logo that looks very nice",
+            "price": 12,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/292635463/original/9d87ea3304363c5b203a75758217235a8c28bc9c/do-creative-4-modern-minimalist-logo-design.jpg",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 3
+        },
+        "status": "approved",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-12T19:29:16.159Z",
+        "_id": "DUbUD"
+    },
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "d1eUMV"
+        },
+        "seller": {
+            "_id": "u101",
+            "fullname": "Dudu Vitman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
+            "level": 1,
+            "rate": 4,
+            "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients."
+        },
+        "gig": {
+            "_id": "4cExgR",
+            "title": "I will design your logo that looks very nice",
+            "price": 12,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/292635463/original/9d87ea3304363c5b203a75758217235a8c28bc9c/do-creative-4-modern-minimalist-logo-design.jpg",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 3
+        },
+        "status": "pending",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-12T19:32:17.254Z",
+        "_id": "IPxTE"
+    },
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "mqONUo"
+        },
+        "seller": {
+            "_id": "u102",
+            "fullname": "Eva Green",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/f216e27d386793e9421f8589f9951f3c-1652366550519/6436ef8a-2f83-46ef-b8d9-3b17d9bfd89c.jpg",
+            "level": 2,
+            "rate": 5,
+            "about": "For more than 20 years, I've navigated the ever-changing world of optimized content creation as a multi-disciplined freelance writer. I deliver quality website content, blog posts, non-fiction books, unique rewriting, and more. Every piece provides information in an engaging format to attract your target audience. Please contact me for high-quality, unique, and effective writing. I'm a native English speaker from the United States. Thank you. Requests welcome!"
+        },
+        "gig": {
+            "_id": "KVHO8v",
+            "title": "I will write a unique SEO article or website content",
+            "price": 20,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/1227060/original/4eebb55f7a7d27c93110b4c6d20ac07a5f1d4aa7/write-a-unique-500-word-seo-blog-post.png",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 5
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-12T19:33:08.891Z",
+        "_id": "gqZxv"
+    },
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "Txlk3G"
+        },
+        "seller": {
+            "_id": "u106",
+            "fullname": "pol Newman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/09713f9e9eae81e986c392dd25e69539-1650223148753/7cd15136-cfc5-4d71-9efc-fd4a66679771.png",
+            "level": 1,
+            "rate": 3,
+            "about": "Hello, I'm pol! I am a professional freelance content creator, published author, and ghostwriter extraordinaire. I have a B.A. in English and have been a paid writer for 10+ years. I specialize in non-fiction eBooks and SEO-friendly blogs / articles that drive traffic to your website. Additionally, I have extensive experience writing about pets, self-help, gardening, travel, education, spirituality, entrepreneurship, and small businesses. My inbox is always open to new clients!"
+        },
+        "gig": {
+            "_id": "PCKqUF",
+            "title": "I will write dog articles and pet blog content",
+            "price": 30,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/222615986/original/6f5b7c553b6fd09b2bf820ac4496b614349d3a97/write-dog-articles-and-pet-blog-content.jpg",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 5
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": true
+        },
+        "currDate": "2023-06-13T06:45:27.518Z",
+        "_id": "LwSdP"
+    },
+    {
+        "buyer": {
+            "_id": "PBWOp",
+            "fullname": "Jake L",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e34531bf0bbed9d144dba7384f6473b6-1621577835789/60307055-cde9-4dc2-9e9e-4daa421991d3.jpg",
+            "score": 10000
+        },
+        "seller": {
+            "_id": "u106",
+            "fullname": "pol Newman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/09713f9e9eae81e986c392dd25e69539-1650223148753/7cd15136-cfc5-4d71-9efc-fd4a66679771.png",
+            "level": 1,
+            "rate": 3,
+            "about": "Hello, I'm pol! I am a professional freelance content creator, published author, and ghostwriter extraordinaire. I have a B.A. in English and have been a paid writer for 10+ years. I specialize in non-fiction eBooks and SEO-friendly blogs / articles that drive traffic to your website. Additionally, I have extensive experience writing about pets, self-help, gardening, travel, education, spirituality, entrepreneurship, and small businesses. My inbox is always open to new clients!"
+        },
+        "gig": {
+            "_id": "PCKqUF",
+            "title": "I will write dog articles and pet blog content",
+            "price": 30,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/222615986/original/6f5b7c553b6fd09b2bf820ac4496b614349d3a97/write-dog-articles-and-pet-blog-content.jpg",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 5
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 2,
+            "fastDelivery": true
+        },
+        "currDate": "2023-06-13T06:46:18.559Z",
+        "_id": "eRQkG"
+    },
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "lz5CB7"
+        },
+        "seller": {
+            "_id": "u105",
+            "fullname": "Mia Piamenta",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/26704082/original/10671246_10154605530890361_257615399364358857_n.jpg",
+            "level": 2,
+            "rate": 5,
+            "about": "25 YEAR PRO WRITER - I have been writing on the Web since it began creating ads, press releases, web copy, sales letters, articles, blog posts, you name it! Join the thousands of happy customers who have been delighted with my hard work and great writing."
+        },
+        "gig": {
+            "_id": "1Iw1I9",
+            "title": "I will write your ad or content to get results",
+            "price": 15,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/1263477/original/18dd94b70047a74cf48b988f61f67c704c35bbdb/write-your-classified-ad-fat-50-words.png",
+            "featuresList": [
+                "Prompt writing",
+                "Generated image examples",
+                "Artwork delivery",
+                "Image upscaling"
+            ],
+            "daysToMake": 2
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-13T06:47:27.910Z",
+        "_id": "kVFP9"
+    },
+    {
+        "buyer": {
+            "fullname": "john D",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
+            "_id": "demuPR"
+        },
+        "seller": {
+            "_id": "u101",
+            "fullname": "Dudu Weizman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
+            "level": 1,
+            "rate": 4,
+            "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients.",
+            "isPro": false,
+            "isOnline": true
+        },
+        "gig": {
+            "_id": "6486269be8e4613a26c90d6f",
+            "title": "I will design your logo that looks very nice",
+            "price": 12,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/292635463/original/9d87ea3304363c5b203a75758217235a8c28bc9c/do-creative-4-modern-minimalist-logo-design.jpg",
+            "daysToMake": 3
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": true
+        },
+        "currDate": "2023-06-13T07:50:46.984Z",
+        "_id": "wL4nA"
+    },
+    {
+        "buyer": {
+            "_id": "z4wxM",
+            "fullname": "Nadav",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/18c7c0738fc034b345a91eca46d8309c-1556973467573/db0dc305-dada-4cc9-b18e-a63070519c15.jpg"
+        },
+        "seller": {
+            "_id": "u101",
+            "fullname": "Dudu Weizman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
+            "level": 1,
+            "rate": 4,
+            "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients.",
+            "isPro": false,
+            "isOnline": true
+        },
+        "gig": {
+            "_id": "6486269be8e4613a26c90d6f",
+            "title": "I will design your logo that looks very nice",
+            "price": 12,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/292635463/original/9d87ea3304363c5b203a75758217235a8c28bc9c/do-creative-4-modern-minimalist-logo-design.jpg",
+            "daysToMake": 3
+        },
+        "status": "approved",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": true
+        },
+        "currDate": "2023-06-13T08:04:48.463Z",
+        "_id": "mqEx1"
+    },
+    {
+        "buyer": {
+            "_id": "z4wxM",
+            "fullname": "Nadav",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/18c7c0738fc034b345a91eca46d8309c-1556973467573/db0dc305-dada-4cc9-b18e-a63070519c15.jpg"
+        },
+        "seller": {
+            "_id": "u101",
+            "fullname": "Dudu Weizman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
+            "level": 1,
+            "rate": 4,
+            "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients.",
+            "isPro": false,
+            "isOnline": true
+        },
+        "gig": {
+            "_id": "6486269be8e4613a26c90d6f",
+            "title": "I will design your logo that looks very nice",
+            "price": 12,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/292635463/original/9d87ea3304363c5b203a75758217235a8c28bc9c/do-creative-4-modern-minimalist-logo-design.jpg",
+            "daysToMake": 3
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 3,
+            "fastDelivery": true
+        },
+        "currDate": "2023-06-13T08:15:51.991Z",
+        "_id": "bno6f"
+    },
+    {
+        "buyer": {
+            "fullname": "guest",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "_id": "ZMzM6b"
+        },
+        "seller": {
+            "about": "Hello! My name is VD. I am a connoisseur of art and music. I love being around nature and my pets. I have a team of professional graphic designers with an experience of 8+ years. We specialize in logo designing. We're available exclusively on fiverr to rock your world with our designing skills. Come and experience it for yourself!",
+            "fullname": "design_desk",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/044fb5914a845a4eb59fc2b69f7f7b32-1634120039750/4dbc2acb-7322-4cd0-9afb-e5190e8e8a0d.jpg",
+            "level": 2,
+            "rate": 3,
+            "isPro": false,
+            "isOnline": false
+        },
+        "gig": {
+            "_id": "6486269be8e4613a26c90d83",
+            "title": "I will design 3 modern minimalist flat logo designs",
+            "price": 170,
+            "imgUrls": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103150660/original/e067349cc881304e0a3141d8c9d55d949892b678.png",
+            "daysToMake": 16
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-13T08:31:01.508Z",
+        "_id": "ISpp3"
+    },
+    {
+        "buyer": {
+            "_id": "mwX9p",
+            "fullname": "Nadav",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/18c7c0738fc034b345a91eca46d8309c-1556973467573/db0dc305-dada-4cc9-b18e-a63070519c15.jpg"
+        },
+        "seller": {
+            "_id": "u101",
+            "fullname": "Dudu Weizman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
+            "level": 1,
+            "rate": 4,
+            "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients.",
+            "isPro": false,
+            "isOnline": true
+        },
+        "gig": {
+            "_id": "6486269be8e4613a26c90d6f",
+            "title": "I will design your logo that looks very nice",
+            "price": 12,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/292635463/original/9d87ea3304363c5b203a75758217235a8c28bc9c/do-creative-4-modern-minimalist-logo-design.jpg",
+            "daysToMake": 3
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-13T08:51:07.552Z",
+        "_id": "ayBVQ"
+    },
+    {
+        "buyer": {
+            "_id": "bLu4N",
+            "fullname": "Nadav",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/18c7c0738fc034b345a91eca46d8309c-1556973467573/db0dc305-dada-4cc9-b18e-a63070519c15.jpg"
+        },
+        "seller": {
+            "about": "I am a professional graphics designer from PakIsTaN... Designing is not only my job, it's my Passion. All I need from you is a rough sketch of your idea. Then you can just relax and see the magic happening. Not only you'll get stunning and professional designs, but also you'll have top class custome",
+            "fullname": "soduzai_gfx1",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg",
+            "level": 1,
+            "rate": 3,
+            "isPro": false,
+            "isOnline": false
+        },
+        "gig": {
+            "_id": "6486269be8e4613a26c90d84",
+            "title": "I will create modern unique and creative logo design",
+            "price": 61,
+            "imgUrls": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/263049453/original/fcb7fc9662ad61a5790dedd6b0b6803cebadebf2.jpg",
+            "daysToMake": 2
+        },
+        "status": "Pending",
+        "extras": {
+            "packageSelected": 1,
+            "fastDelivery": false
+        },
+        "currDate": "2023-06-13T08:53:19.255Z",
+        "_id": "WByBe"
+    },
+    {
+        "buyer": {
+            "_id": "dNwpz",
+            "fullname": "Nadav",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/18c7c0738fc034b345a91eca46d8309c-1556973467573/db0dc305-dada-4cc9-b18e-a63070519c15.jpg"
+        },
+        "seller": {
+            "_id": "u101",
+            "fullname": "Dudu Weizman",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
+            "level": 1,
+            "rate": 4,
+            "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients.",
+            "isPro": false,
+            "isOnline": true
+        },
+        "gig": {
+            "_id": "6486269be8e4613a26c90d6f",
+            "title": "I will design your logo that looks very nice",
+            "price": 12,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/292635463/original/9d87ea3304363c5b203a75758217235a8c28bc9c/do-creative-4-modern-minimalist-logo-design.jpg",
+            "daysToMake": 3
+        },
+        "status": "approved",
+        "extras": {
+            "packageSelected": 2,
+            "fastDelivery": true
+        },
+        "currDate": "2023-06-13T09:36:57.556Z",
+        "_id": "IbbX4"
+    },
+    {
+        "buyer": {
+            "_id": "FBWRT",
+            "fullname": "Nadav",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/18c7c0738fc034b345a91eca46d8309c-1556973467573/db0dc305-dada-4cc9-b18e-a63070519c15.jpg"
+        },
+        "seller": {
+            "_id": "u103",
+            "fullname": "Kika Pens",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/600643c0866d7666ebfc116f4188fc75-1645788859463/ddf415dd-43ce-4fe5-8908-40f718832504.jpg",
+            "level": 1,
+            "rate": 3,
+            "about": "Hi, nice to meet you! My name is Kiki Kiki. I am happy to help you creating your website to promote your business successfully. If there are questions, please just ask me. Talk to you soon :)",
+            "isPro": false,
+            "isOnline": false
+        },
+        "gig": {
+            "_id": "6486269be8e4613a26c90d71",
+            "title": "I will build your WordPress website with oxygen",
+            "price": 50,
+            "imgUrls": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/263804107/original/13bba12a57e31c3058ce81e40de5e6cea3b3ce8c/build-your-WordPress-website-with-oxygen-builder.png",
+            "daysToMake": 1
+        },
+        "status": "approved",
+        "extras": {
+            "packageSelected": 2,
+            "fastDelivery": true
+        },
+        "currDate": "2023-06-13T10:20:19.082Z",
+        "_id": "YPOZo"
+    }
 ]
 
 const orders = [

@@ -27,7 +27,7 @@ export function UserReview({ review }) {
                     <div className='reviews-rate cursor-default'>
                         <StarRating rate={rate} />
                         <span>|</span>
-                        <p>1 day ago</p>
+                        <p>{review.reviewedAt}</p>
                     </div>
                 </div>
             </div>
