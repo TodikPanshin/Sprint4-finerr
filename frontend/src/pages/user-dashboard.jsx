@@ -21,6 +21,7 @@ export function UserDashBoard() {
     console.log('orders', orders)
 
     useEffect(() => {
+        userService.signup(user)
         loadOrders()
     }, [])
 

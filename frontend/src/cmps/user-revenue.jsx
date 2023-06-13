@@ -1,8 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RevenueCharts } from '../cmps/revenue-charts.jsx';
+import { RevenueBarCharts } from './bar-chart.jsx';
 
 export function UserRevenue({ revenue }) {
   const [selectedYear, setSelectedYear] = useState(revenue.length - 1)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 1400px)')
+    setIsMobile(mediaQuery.matches)
+
+    function handleMediaQueryChange(ev){
+      setIsMobile(ev.matches)
+    }
+
+    mediaQuery.addListener(handleMediaQueryChange)
+
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange)
+    }
+  }, [])
+
 
   function handleYearChange(ev) {
     const selectedYearIndex = ev.target.value
@@ -16,10 +34,9 @@ export function UserRevenue({ revenue }) {
   return (
     <div className='dashboard-funds'>
       <h1>Revenue</h1>
-      <h4>Revenue per Month</h4>
-      <div>
-        <label htmlFor='yearSelect'>Select Year: </label>
-        <select id='yearSelect' value={selectedYear} onChange={handleYearChange}>
+      <div className='selectYear'>
+        <label htmlFor='selectYear'>Select Year: </label>
+        <select id='selectYear' value={selectedYear} onChange={handleYearChange}>
           {revenue.map((yearRevenue, idx) => (
             <option key={idx} value={idx}>
               {yearRevenue.year}
@@ -27,7 +44,12 @@ export function UserRevenue({ revenue }) {
           ))}
         </select>
       </div>
-      <RevenueCharts selectedYear={selectedYearObject} />
+        <h4>Revenue per Month</h4>
+        {isMobile ? (
+          <RevenueCharts selectedYear={selectedYearObject} />
+          ) : (
+        <RevenueBarCharts selectedYear={selectedYearObject} />
+      )}
     </div>
   )
 }
