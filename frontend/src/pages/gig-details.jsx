@@ -112,7 +112,7 @@ export function GigDetails() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowBuyerMsg(true)
-        }, 2000)
+        }, 3000)
 
         return () => clearTimeout(timer)
     }, []);
@@ -149,6 +149,15 @@ export function GigDetails() {
         setOpenModal(false)
         setShowBuyerMsg(true)
     }
+
+    // SOCKETS
+
+    function onSendMsg(ev) {
+        ev.preventDefault()
+        console.log(ev.target[0].value)
+    }
+
+
 
     if (!gig || gig.length) return <div>Loading...</div>
 
@@ -221,30 +230,31 @@ export function GigDetails() {
                     )}
                 </section>
                 <Packages gig={gig} />
+                {openModal &&
+                    <aside className='inbox-msg flex column'>
+                        <div className='flex details-area'>
+                            <img src={`${gig.owner.imgUrl}`} alt="" className='owner-img' />
+                            <div className="background-dot">
+                                <div className={`point ${isOnline ? 'isOnline' : ''}`}></div>
+                            </div>
 
+                            <div className='owner-details flex column'>
+                                <div className='owner-name'>Message {gig.owner.fullname}</div>
+                                {!isOnline && <div className='response-time'>Away • Avg. response time: <span> 1 Hour </span></div>}
+                                {isOnline && <div className='response-time'>Online • Avg. response time: <span> 1 Hour </span></div>}
+                            </div>
+                        </div>
+                        <div onClick={onCloseModal} className='close'>X</div>
+                        <form action="" onSubmit={onSendMsg}>
+                            <textarea name="msg" id="msg" cols="30" rows="10" maxLength="2500" placeholder={`Ask ${gig.owner.fullname} a question or share your project details (requirements, timeline, budget, etc.)`}></textarea>
+                            {/* <p>Use at least 40 characters</p> */}
+                            <button className='send-msg flex'>
+                                <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#ffffff" }} />
+                                <p> Send Message </p></button>
+                        </form>
+                    </aside>
+                }
             </section>
-            {openModal &&
-                <aside className='inbox-msg flex column'>
-                    <div className='flex details-area'>
-                        <img src={`${gig.owner.imgUrl}`} alt="" className='owner-img' />
-                        <div className="background-dot">
-                            <div className={`point ${isOnline ? 'isOnline' : ''}`}></div>
-                        </div>
-
-                        <div className='owner-details flex column'>
-                            <div className='owner-name'>Message {gig.owner.fullname}</div>
-                            {!isOnline && <div className='response-time'>Away • Avg. response time: <span> 1 Hour </span></div>}
-                            {isOnline && <div className='response-time'>Online • Avg. response time: <span> 1 Hour </span></div>}
-                        </div>
-                    </div>
-                    <div onClick={onCloseModal} className='close'>X</div>
-                    <textarea name="" id="" cols="30" rows="10" maxLength="2500" placeholder={`Ask ${gig.owner.fullname} a question or share your project details (requirements, timeline, budget, etc.)`}></textarea>
-                    {/* <p>Use at least 40 characters</p> */}
-                    <button className='send-msg flex'>
-                        <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#ffffff" }} />
-                        <p> Send Message </p></button>
-                </aside>
-            }
         </>
     )
 }

@@ -22,8 +22,8 @@
         }
 
         a {
-            font-size: .875rem;
-            font-weight: 900;
+            font-size: 1rem;
+            font-weight: 600;
 
             &:hover {
                 text-decoration: underline;
@@ -31,10 +31,15 @@
         }
 
         .filter-title {
-            padding-block: .5rem;
+            padding-top: .4rem;
+            padding-bottom: .6rem;
             font-size: 2rem;
             color: rgb(27, 27, 27);
             margin: 0;
+        }
+
+        p {
+            margin-block: .3rem;
         }
     }
 
@@ -72,9 +77,10 @@
             .floating-menu {
                 position: relative;
                 margin-right: 1rem;
-                font-size: .875rem;
-                color: black;
-                font-weight: 400;
+                font-size: 1rem;
+                letter-spacing: .04rem;
+                color: rgb(58, 58, 58);
+                font-weight: 900;
                 cursor: pointer;
                 caret-color: transparent;
 
@@ -302,7 +308,7 @@
     }
 
     .filter-bar-footer {
-        margin-top: 0.875rem;
+        margin-top: 2rem;
         display: flex;
         flex-direction: row;
         align-items: center;

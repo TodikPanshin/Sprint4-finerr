@@ -63,7 +63,7 @@ export function GigIndex() {
 
     return (
         <div className='gig-index'>
-            <FilterBar filterBy={filterBy} />
+            <FilterBar />
             <main>
                 < GigList
                     gigs={gigs}

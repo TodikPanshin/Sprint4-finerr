@@ -133,7 +133,6 @@ export function AppHeader() {
                     </section>}
                 </nav>
             </section>
-
             {isHome && <section className={`main-header main-layout ${inView ? 'hidden' : 'sticky-header'}`}>
                 <div className="scroll-background"></div>
                 <NavLink key="/" to="/" className="logo">

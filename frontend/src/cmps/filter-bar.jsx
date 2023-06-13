@@ -5,8 +5,10 @@ import { setFilterBy } from "../store/gig.actions";
 import { useSelector } from "react-redux";
 import { useInView } from "react-intersection-observer";
 
-export function FilterBar({ filterBy }) {
+export function FilterBar() {
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
+
 
     const [isOn, setIsOn] = useState({ pro: false, local: false, online: false })
     const [isOpen, setIsOpen] = useState({ sellerDetails: false, budget: false, deliveryTime: false, sort: false })
@@ -16,7 +18,7 @@ export function FilterBar({ filterBy }) {
     const menuRef = useRef([])
 
     const { ref, inView } = useInView({
-        rootMargin: '-100px'
+        rootMargin: '-30px'
     })
 
     useEffect(() => {
@@ -72,10 +74,10 @@ export function FilterBar({ filterBy }) {
     }
 
     function onSortBy(sortBy) {
-        setFilterBy({ ...newFilterBy, sortBy })
+        setFilterBy({ ...filterBy, ...newFilterBy, sortBy })
     }
 
-    const title = filterBy.tag ? filterBy.tag : 'All'
+    const title = filterBy.tag ? filterBy.tag : filterBy.txt? filterBy.txt : 'All'
     return (
         <div className="filter-bar-container">
             <div className="filter-bar-header">

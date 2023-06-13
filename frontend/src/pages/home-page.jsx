@@ -85,7 +85,6 @@ export function HomePage() {
         if (diff === -1 && carouselRight.current < gap || diff === 1 && carouselRight.current >= gap * (popularServices.length - 5)) return
         carouselRight.current += diff * gap
         setCarouselStyle(prevStyle => ({ ...prevStyle, right: `${carouselRight.current}rem` }))
-        console.log(carouselRight.current)
     }
 
     return (
@@ -109,7 +108,7 @@ export function HomePage() {
             <div className="main-home">
                 <h2>Find the right <span>freelance</span></h2>
                 <h2><span>service</span>, right away</h2>
-                <SearchBox setFilterBy={setFilterBy} placeholder={'Search for any service...'} />
+                <SearchBox placeholder={'Search for any service...'} />
                 <section className="popular-btns">Popular:
                     <button onClick={() => handleCategoryFilter('Graphic & Design')}>Graphic & Design</button>
                     <button onClick={() => handleCategoryFilter('Digital Marketing')}>Digital Marketing</button>

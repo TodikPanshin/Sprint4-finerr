@@ -32,6 +32,7 @@ export function setFilterBy(filterBy) {
 export async function loadGigs(filterBy) {
     try {
         const gigs = await gigService.query(filterBy)
+        console.log(filterBy)
         store.dispatch({
             type: SET_GIGS,
             gigs

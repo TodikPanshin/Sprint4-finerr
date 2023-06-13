@@ -39,23 +39,23 @@ async function query(filterBy) {
             filters.push({ daysToMake: { $lte: filterBy.time } })
         }
 
-        if (filterBy.level2) {
+        if (filterBy.level2 === "true") {
             filters.push({ 'owner.level': 2 })
         }
 
-        if (filterBy.topRated) {
+        if (filterBy.topRated === "true") {
             filters.push({ 'rating.average': { $gt: 4.7 } })
         }
 
-        if (filterBy.pro) {
+        if (filterBy.pro === "true") {
             filters.push({ 'owner.isPro': true })
         }
 
-        if (filterBy.local) {
+        if (filterBy.local  === "true") {
             filters.push({ country: 'Israel' })
         }
 
-        if (filterBy.online) {
+        if (filterBy.online === "true") {
             filters.push({ 'owner.isOnline': true })
         }
 
@@ -87,7 +87,6 @@ async function getById(gigId) {
     try {
         const collection = await dbService.getCollection('gigDB')
         const gig = await collection.findOne({ _id : new ObjectId(gigId) })
-        logger.debug('service:', gig)
         return gig
     } catch (err) {
         logger.error(`while finding gig ${gigId}`, err)

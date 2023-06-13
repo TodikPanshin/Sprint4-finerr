@@ -1,7 +1,8 @@
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { setFilterBy } from '../store/gig.actions'
 
-export function SearchBox({ setFilterBy, placeholder }) {
+export function SearchBox({ placeholder }) {
     const [showCancelBtn, setshowCancelBtn] = useState('hidden')
     const [txt, setTxt] = useState('')
     const navigate = useNavigate()
@@ -28,7 +29,8 @@ export function SearchBox({ setFilterBy, placeholder }) {
     }
 
     function onSubmitFilter(ev) {
-        ev.preventDefault()        
+        ev.preventDefault()
+        navigate('/gig')     
     }
 
     function cancelSearch() {

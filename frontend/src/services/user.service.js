@@ -13,7 +13,6 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore,
     demoUser
 }
 
@@ -38,12 +37,11 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({ _id, score }) {
+async function update({ _id }) {
     const user = await storageService.get('user', _id)
-    user.score = score
     await storageService.put('user', user)
 
-    // const user = await httpService.put(`user/${_id}`, {_id, score})
+    // const user = await httpService.put(`user/${_id}`, {_id })
     // Handle case in which admin updates other user's details
     if (getLoggedInUser()._id === user._id) saveLocalUser(user)
     return user
@@ -70,17 +68,8 @@ async function logout() {
     // return await httpService.post('auth/logout')
 }
 
-async function changeScore(by) {
-    const user = getLoggedInUser()
-    if (!user) throw new Error('Not loggedin')
-    user.score = user.score + by || by
-    await update(user)
-    return user.score
-}
-
-
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score }
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -91,9 +80,9 @@ function getLoggedInUser() {
 
 
 (async () => {
-    await userService.signup({ fullname: 'Puki Norma', username: 'puki', password: '123', score: 10000, isAdmin: false })
-    await userService.signup({ fullname: 'Master Adminov', username: 'admin', password: '123', score: 10000, isAdmin: true })
-    await userService.signup({ fullname: 'Muki G', username: 'muki', password: '123', score: 10000 })
+    await userService.signup({ fullname: 'Yoni', username: 'puki', password: '123', isAdmin: false })
+    await userService.signup({ fullname: 'Todik', username: 'admin', password: '123', isAdmin: true })
+    await userService.signup({ fullname: 'Nadav', username: 'muki', password: '123' })
 })()
 
 
