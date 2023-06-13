@@ -27,12 +27,7 @@ library.add(faPaperPlane)
 export function GigDetails() {
     const [reviews, setReviews] = useState([
         {
-            id: "i101",
-            gig: {
-                _id: 'i106',
-                title: 'I will write dog articles and pet blog content'
-            },
-            txt: `I’m a disabled veteran with PTSD, Kloe🐶was a constant companion and source of comfort to me.
+            review: `I’m a disabled veteran with PTSD, Kloe🐶was a constant companion and source of comfort to me.
              Her unwavering love and loyalty were a beacon of hope during difficult times.
               Jen is a professional content creator and published author.
                Our heartfelt Social Media Posts are PAWsitive. 
@@ -45,51 +40,38 @@ export function GigDetails() {
                     My heart is💔. A BEAUTIFUL shining light has been dimmed.
                     Kloe’s wings were ready but my Heart was not.🐶🐾🕊 `,
             rate: 5,
-            date: new Date(),
-            by: {
-                _id: "u102",
-                country: "canada",
-                fullname: "strawberryred78",
-                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/76d1e507770ac9db49456d83521d7c0e-1534481351065/5224dec4-7033-4ecb-a118-8ed28b8761de.jpg'
-            }
+            reviewedAt: new Date(),
+            _id: "u102",
+            country: "canada",
+            fullname: "strawberryred78",
+            imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/76d1e507770ac9db49456d83521d7c0e-1534481351065/5224dec4-7033-4ecb-a118-8ed28b8761de.jpg'
+
         },
 
         {
-            id: "i102",
-            gig: {
-                _id: 'i106',
-                title: 'I will write dog articles and pet blog content'
-            },
-            txt: `Absolutely amazing. She worked incredibly fast and delivered beyond expectations.
+            review: `Absolutely amazing. She worked incredibly fast and delivered beyond expectations.
              I would definitely recommend.
              Her knowledge of dog breeds was unexpectedly broad and detailed. Wow.`,
             rate: 5,
-            date: new Date(),
-            by: {
-                _id: "u103",
-                country: "isreal",
-                fullname: "marianaolver283",
-                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/1fcd42f23834628e5704905ad41b2ee6-1679381258169/ba120b86-0853-4513-a786-ed6f49deeba2.png'
-            }
+            reviewedAt: new Date(),
+            _id: "u103",
+            country: "isreal",
+            fullname: "marianaolver283",
+            imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/1fcd42f23834628e5704905ad41b2ee6-1679381258169/ba120b86-0853-4513-a786-ed6f49deeba2.png'
         },
 
         {
-            id: "i103",
-            gig: {
-                _id: 'i106',
-                title: 'I will write dog articles and pet blog content'
-            },
-            txt: `Jen was great to work with! She is great at communicating and setting a clear goal from the start.
+            review: `Jen was great to work with! She is great at communicating and setting a clear goal from the start.
              I appreciate her keeping me updated on her progress. She's fast and very professional.
               I look forward to working with her again soon :)`,
             rate: 5,
-            date: new Date(),
-            by: {
-                _id: "u104",
-                country: "united states",
-                fullname: "marianaolver283",
-                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/c4238e5b3805218a4dd84180b4cdcd12-1594146133949/3f460af2-6d81-4527-bdc8-332abe7d73c7.jpg'
-            }
+            reviewedAt: new Date(),
+
+            _id: "u104",
+            country: "united states",
+            fullname: "marianaolver283",
+            imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/c4238e5b3805218a4dd84180b4cdcd12-1594146133949/3f460af2-6d81-4527-bdc8-332abe7d73c7.jpg'
+
         },
 
 
@@ -115,7 +97,7 @@ export function GigDetails() {
         }, 2000)
 
         return () => clearTimeout(timer)
-    }, []);
+    }, [])
 
 
     async function loadGig() {
@@ -132,15 +114,6 @@ export function GigDetails() {
         }
     }
 
-    async function onRemoveGig(id) {
-        try {
-            await removeGig(id);
-            showSuccessMsg('Gig removed');
-        } catch (err) {
-            showErrorMsg('Cannot remove Gig');
-        }
-    }
-
     function onOpenModal() {
         setOpenModal(true)
         setShowBuyerMsg(false)
@@ -151,7 +124,7 @@ export function GigDetails() {
         setShowBuyerMsg(true)
     }
 
-    if (!gig || gig.length) return <div>Loading...</div>
+    if (!gig) return <div>Loading...</div>
 
     const isOnline = gig.owner.isOnline
 
@@ -160,9 +133,6 @@ export function GigDetails() {
 
             <GigToolBar />
             <OrderDrawer />
-            {/* <div className='trash'>
-            <button onClick={() => { onRemoveGig(id) }}><FontAwesomeIcon icon={faTrash} size="xl"/></button>
-            </div> */}
             <section className='gig-container flex full' >
                 <section className="gig-details" id='gig-details'>
                     <div className='gig-overview'>
