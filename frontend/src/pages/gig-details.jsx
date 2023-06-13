@@ -137,7 +137,8 @@ export function GigDetails() {
 
 
 
-    if (!gig || gig.length) return <div>Loading...</div>
+    if (!gig || gig.length) return <div className="container">
+        <div className="flex-wrapper"><div className="loader"></div></div></div>
 
     const isOnline = gig.owner.isOnline
 
@@ -201,7 +202,7 @@ export function GigDetails() {
                     )}
                 </section>
                 <div className='intersection-ref' ref={ref}></div>
-                <Packages gig={gig} inView={inView}/>
+                <Packages gig={gig} inView={inView} />
                 {openModal &&
                     <aside className='inbox-msg flex column'>
                         <div className='flex details-area'>
