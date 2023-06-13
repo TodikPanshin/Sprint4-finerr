@@ -14,7 +14,6 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore,
     demoUser,
     calculateAnnualRevenue,
 }
