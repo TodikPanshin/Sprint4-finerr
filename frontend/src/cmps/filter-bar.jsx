@@ -18,7 +18,7 @@ export function FilterBar() {
     const menuRef = useRef([])
 
     const { ref, inView } = useInView({
-        rootMargin: '-30px'
+        rootMargin: '60px'
     })
 
     useEffect(() => {
@@ -55,6 +55,7 @@ export function FilterBar() {
         onToggleMenu(menu)
         setFilterBy({ ...filterBy, ...newFilterBy })
         setIsFilter(true)
+        document.body.scrollTop = document.documentElement.scrollTop = 0
     }
 
     function onClearFields() {
@@ -68,7 +69,7 @@ export function FilterBar() {
     function onClearFilters() {
         onClearFields()
         setIsOn(prevSet => ({ ...prevSet, pro: false, local: false, online: false }))
-        setNewFilterBy({speaks: []})
+        setNewFilterBy({ speaks: [] })
         setFilterBy({})
         setIsFilter(false)
     }
@@ -77,7 +78,7 @@ export function FilterBar() {
         setFilterBy({ ...filterBy, ...newFilterBy, sortBy })
     }
 
-    const title = filterBy.tag ? filterBy.tag : filterBy.txt? filterBy.txt : 'All'
+    const title = filterBy.tag ? filterBy.tag : filterBy.txt ? filterBy.txt : 'All'
     return (
         <div className="filter-bar-container">
             <div className="filter-bar-header">

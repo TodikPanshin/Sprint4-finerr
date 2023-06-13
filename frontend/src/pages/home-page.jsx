@@ -77,6 +77,7 @@ export function HomePage() {
 
     function handleCategoryFilter(category) {
         setFilterBy({ tag: category })
+        document.body.scrollTop = document.documentElement.scrollTop = 0
         navigate('/gig')
     }
 
@@ -92,17 +93,17 @@ export function HomePage() {
             <div className="slide-container">
                 <div className="black-background"></div>
                 <div style={{ opacity: getOpacity(0), transiton: "1.5s" }}><img src={hero_URLs[0]} alt="slide-images-gallery" />
-                <div className='main-layout'><p>⭐⭐⭐⭐⭐<br />Valentina, <span>AI Artist</span></p></div></div>
+                    <div className='main-layout'><p>⭐⭐⭐⭐⭐<br />Valentina, <span>AI Artist</span></p></div></div>
                 <div style={{ opacity: getOpacity(1), transiton: "1.5s" }}><img src={hero_URLs[1]} alt="slide-images-gallery" />
-                <div className='main-layout'><p><br />Andrea, <span>Fashion Designer</span></p></div></div>
+                    <div className='main-layout'><p><br />Andrea, <span>Fashion Designer</span></p></div></div>
                 <div style={{ opacity: getOpacity(2), transiton: "1.5s" }}><img src={hero_URLs[2]} alt="slide-images-gallery" />
-                <div className='main-layout'><p>⭐⭐⭐⭐⭐<br />Moon, <span>Marketing Expert</span></p></div></div>
+                    <div className='main-layout'><p>⭐⭐⭐⭐⭐<br />Moon, <span>Marketing Expert</span></p></div></div>
                 <div style={{ opacity: getOpacity(3), transiton: "1.5s" }}><img src={hero_URLs[3]} alt="slide-images-gallery" />
-                <div className='main-layout'><p><br />Ritika, <span>Shoemaker and Designer</span></p></div></div>
+                    <div className='main-layout'><p><br />Ritika, <span>Shoemaker and Designer</span></p></div></div>
                 <div style={{ opacity: getOpacity(4), transiton: "1.5s" }}><img src={hero_URLs[4]} alt="slide-images-gallery" />
-                <div className='main-layout'><p><br />Zach, <span>Bar Owner</span></p></div></div>
+                    <div className='main-layout'><p><br />Zach, <span>Bar Owner</span></p></div></div>
                 <div style={{ opacity: getOpacity(5), transiton: "1.5s" }}><img src={hero_URLs[5]} alt="slide-images-gallery" />
-                <div className='main-layout'><p>⭐⭐⭐⭐⭐<br />Gabrielle, <span>Video Editor</span></p></div></div>
+                    <div className='main-layout'><p>⭐⭐⭐⭐⭐<br />Gabrielle, <span>Video Editor</span></p></div></div>
             </div>
 
             <div className="main-home">
