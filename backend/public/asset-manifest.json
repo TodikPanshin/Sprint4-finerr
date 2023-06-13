@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c3b5b12f.css",
-    "main.js": "/static/js/main.fd34465c.js",
+    "main.css": "/static/css/main.83355486.css",
+    "main.js": "/static/js/main.785967b2.js",
     "static/media/ARIAL.TTF": "/static/media/ARIAL.5afb1f7c7464ace62524.TTF",
     "static/media/Helvetica.ttf": "/static/media/Helvetica.06113bf748ae7dc33e05.ttf",
     "static/media/MacanPanWeb-Bold.ttf": "/static/media/MacanPanWeb-Bold.bee873973ca210318b0a.ttf",
@@ -14,15 +14,15 @@
     "static/media/SansSerifBookFLF-Italic.otf": "/static/media/SansSerifBookFLF-Italic.7e84a07c980ee28c19e5.otf",
     "static/media/test-domaine-display-medium-italic.woff2": "/static/media/test-domaine-display-medium-italic.4763a148ba95ea22575f.woff2",
     "static/media/revision.svg": "/static/media/revision.577f1005b06dfbc4fd0fb0f9080af55f.svg",
-    "static/media/credit-card.svg": "/static/media/credit-card.d366cde1b809d8bb05a4723e6de832ab.svg",
+    "static/media/credit-card.svg": "/static/media/credit-card.9958a099f185cfcb4bb8ce600f070506.svg",
     "index.html": "/index.html",
     "static/media/delivery.svg": "/static/media/delivery.ee6d8f1aaad2d116e58e5f4c59a52746.svg",
     "static/media/checkmark.svg": "/static/media/checkmark.0aebc5e594d6136db06c5a190234369a.svg",
-    "main.c3b5b12f.css.map": "/static/css/main.c3b5b12f.css.map",
-    "main.fd34465c.js.map": "/static/js/main.fd34465c.js.map"
+    "main.83355486.css.map": "/static/css/main.83355486.css.map",
+    "main.785967b2.js.map": "/static/js/main.785967b2.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3b5b12f.css",
-    "static/js/main.fd34465c.js"
+    "static/css/main.83355486.css",
+    "static/js/main.785967b2.js"
   ]
 }
