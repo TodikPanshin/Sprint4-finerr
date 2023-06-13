@@ -1,0 +1,120 @@
+.blur-background {
+    background-color: rgba(0, 0, 0, .8);
+    position: absolute;
+    width: 100%;
+    height: 1000%;
+    z-index: 500;
+}
+
+.sign-up {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0.75rem;
+    left: 50%;
+    translate: -50%;
+    width: 890px;
+    height: 520px;
+    background-color: white;
+    box-shadow: 1px 0px 4px 1px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+
+
+    .sign-up-modal {
+        height: 100%;
+
+
+        .sign-up-dezine {
+            border-bottom-left-radius: 0.75rem;
+            border-top-left-radius: 0.75rem;
+            position: relative;
+            background-image: url("https://fiverr-res.cloudinary.com/npm-assets/layout-server/standard.c6d3ba7.png");
+            background-size: cover;
+            flex-basis: 50%;
+            height: 100%;
+
+            .sign-up-dezine-txt {
+                color: $clr1;
+                margin: 54px 0 0 40px;
+                position: absolute;
+                width: calc(100% - 40px);
+
+                h2 {
+                    font-size: 2rem;
+                    margin-bottom: 0;
+                    color: $clr1;
+                }
+
+                ul {
+                    font-weight: 200;
+                    margin-top: 1.6rem;
+
+                    li {
+                        align-items: baseline;
+                        max-width: 22rem;
+                        font-size: 18px;
+                        line-height: 26px;
+                        margin-bottom: 1rem;
+
+                        p {
+                            margin-left: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sign-up-content {
+            flex-basis: 50%;
+            display: grid;
+            grid-template-columns: 2.5rem 1fr 2.5rem;
+            grid-auto-rows: max-content;
+
+            >* {
+                grid-column: 2;
+            }
+
+            .cancel-sign-up {
+                grid-column: 3;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+
+            .txt-display-1 {
+                margin-top: 4.4rem;
+                margin-bottom: 1.5;
+                font-size: 1.5rem;
+                color: $clr-btn-search;
+            }
+
+            .txt-display-2 {
+                margin-top: 1rem;
+                font-weight: 300;
+                color: $clr-font;
+            }
+
+            .inbox {
+                height: 2.5rem;
+                width: 100%;
+                background-color: #e8f0fe;
+                border: 1px solid gray;
+                border-radius: 4px;
+                padding: 10px;
+            }
+
+            .submit-signin,
+            .submit-signup {
+                margin-top: 4rem;
+                color: white;
+                height: 2.5rem;
+                width: 100%;
+                background-color: #000;
+                border: 1px solid gray;
+                border-radius: 4px;
+                padding: 10px;
+            }
+        }
+
+    }
+}

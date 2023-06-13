@@ -26,6 +26,7 @@ export function AppHeader() {
     const [isProfileBar, setIsProfileBar] = useState(false)
     const [isSignup, setIsSignup] = useState(false)
     const [isOpenModal, setIsOpenModal] = useState(false)
+    const [openNav, setOpenNav] = useState(false)
     const navigate = useNavigate()
 
     const isHome = window.location.pathname === '/' ? "is-home" : ""
@@ -101,6 +102,12 @@ export function AppHeader() {
         })
     }
 
+    // HAMBURGER
+
+    function onOpenNav() {
+        setOpenNav(true)
+    }
+
     return (
         <header className={`app-header full main-layout`}>
             <section ref={ref} className={`main-header ${isHome}`}>
@@ -165,7 +172,19 @@ export function AppHeader() {
                 </nav>
 
             </section>}
+            <div className='hamburger'>
+                <img onClick={onOpenNav} src="https://www.svgrepo.com/show/491033/hamburger-menu.svg" alt="nav-bar" />
+                {!user && <button onClick={toggleSignup}>Join</button>}
+                {user &&
+                    <span className="user-info">
+                        {user.imgUrl && <img onClick={onProfileClick} className="user-img" src={user.imgUrl} />}
+                    </span>}
+                {isProfileBar && <section className="profile-bar">
+                    <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
+                    <button onClick={onLogout}>Logout</button>
 
+                </section>}
+            </div>
             {<Categories
                 categories={categories}
                 handleCategoryFilter={handleCategoryFilter}

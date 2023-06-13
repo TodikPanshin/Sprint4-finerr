@@ -48,9 +48,15 @@
         font-weight: 1200;
         -webkit-text-stroke-width: 1px;
         letter-spacing: -0.1rem;
-        margin-right: 30px;
-        margin-bottom: 10px;
+        margin-inline: auto;
+        margin-top: -1rem;
         caret-color: transparent;
+
+        @media(min-width: 600px) {
+            margin-top: 0;
+            margin-right: 30px;
+            margin-bottom: 10px;
+        }
 
         &.active {
             text-decoration: none;
@@ -68,11 +74,6 @@
             height: 7px;
             background-color: rgb(255, 255, 255);
             z-index: 1;
-
-            @media (max-width: 600px) {
-                bottom: 61%;
-                left: 15%;
-            }
         }
 
         .dot {
@@ -82,15 +83,17 @@
 
     }
 
-    @media (max-width: 600px) {
-        display: block;    
-    }
-    
     .search-box {
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+
         flex-grow: 1;
         max-width: 40rem;
-        @include for-mobile-layout{
-            margin-block-start:20px;
+
+        @include for-mobile-layout {
+            margin-block-start: 20px;
         }
 
         form {
@@ -190,28 +193,28 @@
             justify-content: space-between;
             padding: 0;
             caret-color: transparent;
-    
+
             a {
                 margin-inline: .75rem;
-    
+
                 &:hover {
                     color: $clr-btn-hov;
                     transition: .5s;
                 }
-    
+
                 &.active {
                     text-decoration: none;
                 }
-    
+
             }
-    
+
             img {
                 position: absolute;
                 translate: -100% -65%;
                 width: 30px;
                 margin-left: 1rem;
             }
-    
+
             button {
                 font-family: inherit;
                 font-size: inherit;
@@ -219,12 +222,12 @@
                 background-color: transparent;
                 padding: 0;
                 margin: 0 0.75rem;
-    
+
                 &:hover {
                     color: $clr-btn-hov;
                     transition: .5s;
                 }
-    
+
                 &:last-child {
                     font-size: 0.875rem;
                     line-height: 0.875rem;
@@ -233,7 +236,7 @@
                     border-radius: 4px;
                     padding: 10px 16px;
                     margin-right: 0;
-    
+
                     &:hover {
                         background-color: $clr-hov;
                         color: white;
@@ -241,23 +244,23 @@
                     }
                 }
             }
-    
+
             .user-info button {
                 border: 0;
-    
+
                 img {
                     border-radius: 50%;
                     height: 100%;
                     aspect-ratio: 1;
                     object-fit: cover;
                 }
-    
+
                 &:hover {
                     background-color: transparent;
                     border: 0;
                 }
             }
-    
+
             .profile-bar {
                 position: absolute;
                 display: flex;
@@ -269,8 +272,10 @@
                 background-color: rgb(255, 255, 255);
                 padding: 5px 15px;
                 z-index: 10;
-    
-    
+
+
+
+
                 button,
                 a {
                     border: 0;
@@ -282,7 +287,7 @@
                     font-weight: inherit;
                     color: inherit;
                     width: auto;
-    
+
                     &:hover {
                         background-color: transparent;
                         color: $clr-btn-hov;
@@ -361,8 +366,87 @@
     }
 }
 
+.hamburger {
+    display: none;
+
+    @media(max-width: 600px) {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        left: 5%;
+        top: 1rem;
+
+        span {
+            margin: 0;
+            padding: 0;
+            height: 40px;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            background-color: transparent;
+            border: 1px solid $clr-btn-hov;
+            border-radius: .5rem;
+            
+            &:hover {
+                color: $clr-btn-hov;
+                transition: .5s;
+            }
+        }
+
+        .profile-bar {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            top: 2rem;
+            right: -2rem;
+            translate: -2rem;
+            border: 1px solid rgba(175, 175, 175, 0.5);
+            background-color: rgb(255, 255, 255);
+            padding: 5px 15px;
+            z-index: 10;
+
+
+            button,
+            a {
+                border: 0;
+                padding-block: 5px;
+                padding-inline: 0;
+                margin: 0;
+                text-align: left;
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+                width: auto;
+
+                &:hover {
+                    background-color: transparent;
+                    color: $clr-btn-hov;
+                    transition: .5s;
+                }
+            }
+        }
+    }
+}
 
 .categories {
+    @media (min-width: 700px) {
+        opacity: 1;
+        height: auto;
+        pointer-events: all;
+    }
+
     position: relative;
     margin-top: 0;
     border: solid rgba(0, 0, 0, 0.1) 0.2px;
@@ -376,7 +460,12 @@
 
 
     .categories-list {
+
         // position: absolute;
+        @media (max-width: 900px) {
+            gap: 1rem;
+        }
+
         padding: 0;
         margin: 0;
         color: #242424;
@@ -411,7 +500,7 @@
                 top: .5rem;
                 border-radius: 50%;
                 background-color: rgb(255, 255, 255);
-                box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, .7);
+                box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, .7);
                 cursor: pointer;
 
                 &.left {
@@ -452,13 +541,7 @@
     }
 }
 
-@media (min-width: 600px) {
-    .categories {
-        opacity: 1;
-        height: auto;
-        pointer-events: all;
-    }
-}
+
 
 .blur-background {
     background-color: rgba(0, 0, 0, .8);
