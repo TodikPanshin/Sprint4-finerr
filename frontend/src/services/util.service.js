@@ -7,7 +7,8 @@ export const utilService = {
   saveToStorage,
   loadFromStorage,
   timePassed,
-  adToDemoData
+  adToDemoData,
+  checkCount,
 }
 
 function makeId(length = 6) {
@@ -73,6 +74,11 @@ function adToDemoData(array, key, value, nestedKey = null) {
     }
   })
 }
+
+function checkCount(count,length){
+  return (count / length) * 100;
+}
+
 
 
 function timePassed(date) {

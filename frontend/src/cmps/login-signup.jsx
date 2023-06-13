@@ -40,7 +40,6 @@ export function LoginSignup(props) {
         if (!credentials.username) return
         props.onLogin(credentials)
         clearState()
-        // props.cancel(false)
     }
 
     function onSignup(ev = null) {
@@ -48,7 +47,6 @@ export function LoginSignup(props) {
         if (!credentials.username || !credentials.password) return
         props.onSignup(credentials)
         clearState()
-        // props.cancel(false)
     }
 
     // function toggleSignup() {

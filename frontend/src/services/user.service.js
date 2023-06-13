@@ -1,5 +1,6 @@
 import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
+import { utilService } from './util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -13,7 +14,9 @@ export const userService = {
     getById,
     remove,
     update,
-    demoUser
+    changeScore,
+    demoUser,
+    calculateAnnualRevenue,
 }
 
 window.userService = userService
@@ -58,8 +61,6 @@ async function login(userCred) {
 async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     const user = await storageService.post('user', userCred)
-    if (!user) console.log('+++++++++');
-    console.log('user:', user)
     //const user = await httpService.post('auth/signup', userCred)
     return saveLocalUser(user)
 }
@@ -86,11 +87,11 @@ function getLoggedInUser() {
 })()
 
 
-
 function demoUser() {
     return {
 
-        fullname: "frederickkessie",
+        fullname: "fredericK",
+
         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
         level: "basic/premium",
         rating: {
@@ -110,6 +111,7 @@ function demoUser() {
         likedByUsers: [
             "mini-user"
         ],
+        sellerStats: _generateSellerStats(),
         reviews: [
             {
                 name: "tobiaspille300",
@@ -148,5 +150,37 @@ function demoUser() {
             }
         ]
     }
+}
+
+function calculateAnnualRevenue(monthlyRevenue) {
+    const annualRevenue = monthlyRevenue.reduce(
+        (totalRevenue, { revenue }) => totalRevenue + revenue,
+        0)
+
+    return annualRevenue
+}
+
+function _generateSellerStats() {
+    const sellerStats = {
+        balance: 96543,
+        revenue: [],
+    }
+
+    const currentYear = new Date().getFullYear()
+
+    for (let year = currentYear - 2; year <= currentYear; year++) {
+        const revenue = []
+
+
+        for (let month = 0; month < 12; month++) {
+            const monthName = new Date(year, month).toLocaleString('en-US', { month: 'long' });
+            const randomRevenue = utilService.getRandomIntInclusive(500, 1000)
+            revenue.push({ month: monthName, revenue: randomRevenue })
+        }
+
+        sellerStats.revenue.push({ year: year, monthRevenue: revenue })
+    }
+
+    return sellerStats
 }
 
