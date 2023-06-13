@@ -13,7 +13,9 @@ const gig = {
     "fullname": "Dudu Da",
     "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
     "level": 2,
-    "rate": 4
+    "rate": 4,
+    "isPro": false,
+    "isOnline": false
   },
   "daysToMake": 3,
   "description": "Make unique logo...",
@@ -30,8 +32,7 @@ const gig = {
     "accessible"
   ],
   "likedByUsers": ["mini-user"],
-  "extras": {},
-  "isOnline": false
+  "extras": {}
 }
 
 export const demoGigs = [
@@ -49,7 +50,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/42643893/original/aki2.png",
       "level": 1,
       "rate": 4,
-      "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients."
+      "about": "Hi, My Name is Dudu Da and in the past 10 years I've been working as a UI/UX designer, product manager and creative director in the E-commerce field. I offer variety of design and development services for business owners to help you grow your business. I can create any kind of unique  design overnight to help businesses attract more clients.",
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Israel",
     "daysToMake": 3,
@@ -70,8 +73,7 @@ export const demoGigs = [
     "likedByUsers": [
       "mini-user"
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -87,7 +89,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/f216e27d386793e9421f8589f9951f3c-1652366550519/6436ef8a-2f83-46ef-b8d9-3b17d9bfd89c.jpg",
       "level": 2,
       "rate": 5,
-      "about": "For more than 20 years, I've navigated the ever-changing world of optimized content creation as a multi-disciplined freelance writer. I deliver quality website content, blog posts, non-fiction books, unique rewriting, and more. Every piece provides information in an engaging format to attract your target audience. Please contact me for high-quality, unique, and effective writing. I'm a native English speaker from the United States. Thank you. Requests welcome!"
+      "about": "For more than 20 years, I've navigated the ever-changing world of optimized content creation as a multi-disciplined freelance writer. I deliver quality website content, blog posts, non-fiction books, unique rewriting, and more. Every piece provides information in an engaging format to attract your target audience. Please contact me for high-quality, unique, and effective writing. I'm a native English speaker from the United States. Thank you. Requests welcome!",
+      "isPro": false,
+      "isOnline": true
     },
     "country": "United States",
     "daysToMake": 5,
@@ -111,8 +115,7 @@ export const demoGigs = [
     "likedByUsers": [
       "mini-user"
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -128,7 +131,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/600643c0866d7666ebfc116f4188fc75-1645788859463/ddf415dd-43ce-4fe5-8908-40f718832504.jpg",
       "level": 1,
       "rate": 3,
-      "about": "Hi, nice to meet you! My name is Kiki Kiki. I am happy to help you creating your website to promote your business successfully. If there are questions, please just ask me. Talk to you soon :)"
+      "about": "Hi, nice to meet you! My name is Kiki Kiki. I am happy to help you creating your website to promote your business successfully. If there are questions, please just ask me. Talk to you soon :)",
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Brazil",
     "daysToMake": 1,
@@ -149,8 +154,7 @@ export const demoGigs = [
     "likedByUsers": [
       "mini-user"
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -166,7 +170,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/c536afed1a3071833cdb28e78042f2cc-1660265160318/d8abcb3c-b531-4d8d-8c35-1aea138663ee.jpg",
       "level": 2,
       "rate": 2,
-      "about": "I'm a professional mobile app developer for android app and ios app development with 5+ years of experience. I create fully functional ios apps, games, and android applications for all your needs. I have made over 500+ android apps, ios apps, iPhone apps, react native apps, Flutter apps & hybrid apps & much more! I develop the best UI UX app design and bug-free applications with VIP customer support and 100% customer satisfaction."
+      "about": "I'm a professional mobile app developer for android app and ios app development with 5+ years of experience. I create fully functional ios apps, games, and android applications for all your needs. I have made over 500+ android apps, ios apps, iPhone apps, react native apps, Flutter apps & hybrid apps & much more! I develop the best UI UX app design and bug-free applications with VIP customer support and 100% customer satisfaction.",
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Kazachstan",
     "daysToMake": 15,
@@ -189,8 +195,7 @@ export const demoGigs = [
     "likedByUsers": [
       "mini-user"
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -202,11 +207,13 @@ export const demoGigs = [
     },
     "owner": {
       "_id": "u105",
-      "fullname": "Mia Piamenta",
-      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/26704082/original/10671246_10154605530890361_257615399364358857_n.jpg",
+      "fullname": "Pol Newman",
+      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/09713f9e9eae81e986c392dd25e69539-1650223148753/7cd15136-cfc5-4d71-9efc-fd4a66679771.png",
       "level": 2,
       "rate": 5,
-      "about": "25 YEAR PRO WRITER - I have been writing on the Web since it began creating ads, press releases, web copy, sales letters, articles, blog posts, you name it! Join the thousands of happy customers who have been delighted with my hard work and great writing."
+      "about": "25 YEAR PRO WRITER - I have been writing on the Web since it began creating ads, press releases, web copy, sales letters, articles, blog posts, you name it! Join the thousands of happy customers who have been delighted with my hard work and great writing.",
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Israel",
     "daysToMake": 2,
@@ -228,8 +235,7 @@ export const demoGigs = [
     "likedByUsers": [
       "mini-user"
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -241,11 +247,13 @@ export const demoGigs = [
     },
     "owner": {
       "_id": "u106",
-      "fullname": "pol Newman",
-      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/09713f9e9eae81e986c392dd25e69539-1650223148753/7cd15136-cfc5-4d71-9efc-fd4a66679771.png",
+      "fullname": "Tina Zaffod",
+      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/26704082/original/10671246_10154605530890361_257615399364358857_n.jpg",
       "level": 1,
       "rate": 3,
-      "about": "Hello, I'm pol! I am a professional freelance content creator, published author, and ghostwriter extraordinaire. I have a B.A. in English and have been a paid writer for 10+ years. I specialize in non-fiction eBooks and SEO-friendly blogs / articles that drive traffic to your website. Additionally, I have extensive experience writing about pets, self-help, gardening, travel, education, spirituality, entrepreneurship, and small businesses. My inbox is always open to new clients!"
+      "about": "Hello, I'm pol! I am a professional freelance content creator, published author, and ghostwriter extraordinaire. I have a B.A. in English and have been a paid writer for 10+ years. I specialize in non-fiction eBooks and SEO-friendly blogs / articles that drive traffic to your website. Additionally, I have extensive experience writing about pets, self-help, gardening, travel, education, spirituality, entrepreneurship, and small businesses. My inbox is always open to new clients!",
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Canada",
     "daysToMake": 5,
@@ -268,8 +276,7 @@ export const demoGigs = [
     "likedByUsers": [
       "mini-user"
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -281,11 +288,13 @@ export const demoGigs = [
     },
     "owner": {
       "_id": "u107",
-      "fullname": "Oli Benome",
-      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/60adcd04f7664076ae5df46f10d0c683-1647366642713/062ae809-1514-4464-827d-c7bf0d228775.jpg",
+      "fullname": "Ola Benome",
+      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/307c9f05ddc887b4f157e3233af17947-1647271004237/85c240e5-eacf-4361-b383-5003fd61abf8.jpg",
       "level": 2,
       "rate": 5,
-      "about": "Oli, experienced social media manager. Specializes in creating and executing tailored strategies to drive engagement, increase brand awareness and drive growth. Utilizes the latest trends and best practices for clients in various industries. In free time, enjoys exploring food and fashion trends or reading. Let me help take your brand to the next level on social media."
+      "about": "Ola, experienced social media manager. Specializes in creating and executing tailored strategies to drive engagement, increase brand awareness and drive growth. Utilizes the latest trends and best practices for clients in various industries. In free time, enjoys exploring food and fashion trends or reading. Let me help take your brand to the next level on social media.",
+      "isPro": true,
+      "isOnline": true
     },
     "imgUrls": [
       "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20220411/Social%20Media%20Manager_ehdzpg.jpg",
@@ -305,8 +314,7 @@ export const demoGigs = [
       "mini-user",
       "mini-user2"
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -318,11 +326,13 @@ export const demoGigs = [
     },
     "owner": {
       "_id": "u108",
-      "fullname": "Pop kospy",
-      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/83ef3002756770eeef3051b086d458fd-1578941693552/9f70f359-af93-4a68-b5b2-f85e86c93f5a.jpg",
+      "fullname": "Paula kospy",
+      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/26704082/original/10671246_10154605530890361_257615399364358857_n.jpg",
       "level": 2,
       "rate": 3,
-      "about": "I have a Bachelor of Science in Communication, Journalism, & Media and years of professional writing, editing, & social media experience. In the past 4 years, I've written copy for 600+ diverse clients. I specialize in writing clever & engaging social media copy & online courses to add value to your brand. I have experience writing social media captions, articles/blogs, ad & sales copy, website content, email campaigns, press releases, scripts, & online courses. I'm a brand chameleon & can create or adapt my writing voice to match your desired style or tone. Let's work together!"
+      "about": "I have a Bachelor of Science in Communication, Journalism, & Media and years of professional writing, editing, & social media experience. In the past 4 years, I've written copy for 600+ diverse clients. I specialize in writing clever & engaging social media copy & online courses to add value to your brand. I have experience writing social media captions, articles/blogs, ad & sales copy, website content, email campaigns, press releases, scripts, & online courses. I'm a brand chameleon & can create or adapt my writing voice to match your desired style or tone. Let's work together!",
+      "isPro": true,
+      "isOnline": true
     },
     "country": "Greece",
     "daysToMake": 3,
@@ -343,8 +353,7 @@ export const demoGigs = [
     "likedByUsers": [
       "mini-user"
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -360,7 +369,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/18c7c0738fc034b345a91eca46d8309c-1556973467573/db0dc305-dada-4cc9-b18e-a63070519c15.jpg",
       "level": 1,
       "rate": 2,
-      "about": "Hire Ron Algorithm®: 100% results-driven Digital Marketing Experts & Online Business Growth Agency known for its data-driven decisions for online marketing & new business growth opportunities."
+      "about": "Hire Ron Algorithm®: 100% results-driven Digital Marketing Experts & Online Business Growth Agency known for its data-driven decisions for online marketing & new business growth opportunities.",
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Israel",
     "daysToMake": 15,
@@ -378,8 +389,7 @@ export const demoGigs = [
       "professional"
     ],
     "likedByUsers": [],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -395,7 +405,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/89174dc264ee60c05f181e2285afa827-1567797121524/0920a31e-0751-42e0-a251-e9d21dddb2a6.jpg",
       "level": 2,
       "rate": 5,
-      "about": "My work is an extension of myself, the way I look at life. Happy colours swirling, where fantasy comes to life amidst a beautiful natural setting. I find wonder in a variety of things, the smallest of objects and the highest of mountains.I draw my inspiration from both nature and life.I bring all my inspirations with me as I work on my projects. I have 10 years experience in gaming and animation studios . I have worked on a variety of projects and have learnt a lot through this process. I’m passionate with children illustrations."
+      "about": "My work is an extension of myself, the way I look at life. Happy colours swirling, where fantasy comes to life amidst a beautiful natural setting. I find wonder in a variety of things, the smallest of objects and the highest of mountains.I draw my inspiration from both nature and life.I bring all my inspirations with me as I work on my projects. I have 10 years experience in gaming and animation studios . I have worked on a variety of projects and have learnt a lot through this process. I’m passionate with children illustrations.",
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Israel",
     "daysToMake": 1,
@@ -413,8 +425,7 @@ export const demoGigs = [
       "professional"
     ],
     "likedByUsers": [],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -430,7 +441,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/1ac34fa42a87f719da4eb16f677b0e45-1642104466233/b7fa811e-04cb-4304-ba24-199bd77c4c1e.JPG",
       "level": 2,
       "rate": 5,
-      "about": "Brand Designer with 9 years of experience in the field, enthusiastic about Design and with satisfied clients from all over the world. Thanks for considering my gig. I look forward to working with you."
+      "about": "Brand Designer with 9 years of experience in the field, enthusiastic about Design and with satisfied clients from all over the world. Thanks for considering my gig. I look forward to working with you.",
+      "isPro": true,
+      "isOnline": true
     },
     "country": "United States",
     "daysToMake": 10,
@@ -447,8 +460,7 @@ export const demoGigs = [
       "improve-ranking"
     ],
     "likedByUsers": [],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -464,7 +476,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/2b749f393a6b2e711622e857543c95f8-875429081642149545663/JPEG_20220114_103905_1223301802428093437.jpg",
       "level": 2,
       "rate": 5,
-      "about": "Hello, My name is Sam. I am happy to be a member of the Fiverr community. My goal is to provide the best services possible to all of my clients. I deliver fast, and accurately, and I offer 100% guaranteed satisfaction to all my clients. I will do any type of data entry, web research, copy-paste, file conversion, and typing projects at your fingertips. You can check my reviews to know what other clients think of me. Feel free to contact me and I will reach you as soon as possible. Thanks"
+      "about": "Hello, My name is Sam. I am happy to be a member of the Fiverr community. My goal is to provide the best services possible to all of my clients. I deliver fast, and accurately, and I offer 100% guaranteed satisfaction to all my clients. I will do any type of data entry, web research, copy-paste, file conversion, and typing projects at your fingertips. You can check my reviews to know what other clients think of me. Feel free to contact me and I will reach you as soon as possible. Thanks",
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Canada",
     "daysToMake": 1,
@@ -483,8 +497,7 @@ export const demoGigs = [
       "professional"
     ],
     "likedByUsers": [],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -499,7 +512,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
       "level": 1,
       "rate": 2,
-      "about": "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services."
+      "about": "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Ghana",
     "daysToMake": 26,
@@ -556,8 +571,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 weeks ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -572,7 +586,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg",
       "level": 2,
       "rate": 4,
-      "about": "Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you."
+      "about": "Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
+      "isPro": true,
+      "isOnline": true
     },
     "country": "Bangladesh",
     "daysToMake": 24,
@@ -591,8 +607,7 @@ export const demoGigs = [
     "likedByUsers": [
       "mini-user"
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -607,7 +622,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg",
       "level": 1,
       "rate": 5,
-      "about": "Hello! I'm a brazilian artist specialized in hyperrealistic drawings and paintings of human figures and animals, i use a diversity of techniques like Oil painting, dry pastel drawing and pencil. I have over 30 years of experience, check out my portfolio."
+      "about": "Hello! I'm a brazilian artist specialized in hyperrealistic drawings and paintings of human figures and animals, i use a diversity of techniques like Oil painting, dry pastel drawing and pencil. I have over 30 years of experience, check out my portfolio.",
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Brazil",
     "daysToMake": 4,
@@ -663,8 +680,7 @@ export const demoGigs = [
         "reviewedAt": "Published 1 week ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -679,7 +695,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e34531bf0bbed9d144dba7384f6473b6-1621577835789/60307055-cde9-4dc2-9e9e-4daa421991d3.jpg",
       "level": 2,
       "rate": 2,
-      "about": "My name is Mary , a graduate from Mount Kenya University, I am professional writer and my focus is to every single detail. I will transform your dream to reality. I am experienced in article, project/content writing for a couple of years. Furthermore, I have a long history of writing research-focused content and projects. My ultimate goal is to closely with my client to deliver quality and comprehensive project. Let's take your business to the next level. Thank you"
+      "about": "My name is Mary , a graduate from Mount Kenya University, I am professional writer and my focus is to every single detail. I will transform your dream to reality. I am experienced in article, project/content writing for a couple of years. Furthermore, I have a long history of writing research-focused content and projects. My ultimate goal is to closely with my client to deliver quality and comprehensive project. Let's take your business to the next level. Thank you",
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Kenya",
     "daysToMake": 28,
@@ -731,8 +749,7 @@ export const demoGigs = [
         "reviewedAt": "Published 3 days ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -747,7 +764,9 @@ export const demoGigs = [
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/1fe02234f0b300905f098d1c2eef2599-1621414093019/30dd09bd-748a-49c0-b3bc-ee3071bdfadb.jpg",
       "level": 2,
       "rate": 5,
-      "about": "Hello! This is Rashin Faria, a Data Entry Specialist & Virtual Assistant at your service. I have excellent experience in Data Entry, Data Processing, Data Uploading, MS Word/Excel, Google Spreadsheet, PDF, Web Research, Ecommerce Product Entry, Data Scraping and others. With a 24/7 supporting team we work together for the betterment of the projects. We have extensive experience to do our project very fast and professionally. Client satisfaction is our first priority. Order Now! Regards Rashin Faria"
+      "about": "Hello! This is Rashin Faria, a Data Entry Specialist & Virtual Assistant at your service. I have excellent experience in Data Entry, Data Processing, Data Uploading, MS Word/Excel, Google Spreadsheet, PDF, Web Research, Ecommerce Product Entry, Data Scraping and others. With a 24/7 supporting team we work together for the betterment of the projects. We have extensive experience to do our project very fast and professionally. Client satisfaction is our first priority. Order Now! Regards Rashin Faria",
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Bangladesh",
     "daysToMake": 9,
@@ -804,8 +823,7 @@ export const demoGigs = [
         "reviewedAt": "Published 1 week ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -820,7 +838,9 @@ export const demoGigs = [
       "fullname": "waqarcreatives",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
       "level": 2,
-      "rate": 4
+      "rate": 4,
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Pakistan",
     "daysToMake": 10,
@@ -878,8 +898,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 months ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -894,7 +913,9 @@ export const demoGigs = [
       "fullname": "masum245",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/8a1623fd3276ad7297d7647a8727bdf0-1589096119095/6c637953-9dc0-4c9c-b04d-c13c947fdc43.jpg",
       "level": 1,
-      "rate": 2
+      "rate": 2,
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Bangladesh",
     "daysToMake": 24,
@@ -950,8 +971,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 weeks ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -966,7 +986,9 @@ export const demoGigs = [
       "fullname": "abrar_029",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/798a61194492b92313c2f5b27d5397bb-1615924783131/a6a1c7f0-0cc0-4c50-95e1-2693d183ee1c.jpg",
       "level": 2,
-      "rate": 2
+      "rate": 2,
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Pakistan",
     "daysToMake": 28,
@@ -1036,7 +1058,9 @@ export const demoGigs = [
       "fullname": "design_desk",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/044fb5914a845a4eb59fc2b69f7f7b32-1634120039750/4dbc2acb-7322-4cd0-9afb-e5190e8e8a0d.jpg",
       "level": 2,
-      "rate": 3
+      "rate": 3,
+      "isPro": false,
+      "isOnline": false
     },
     "country": "India",
     "daysToMake": 16,
@@ -1095,8 +1119,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 months ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1111,7 +1134,9 @@ export const demoGigs = [
       "fullname": "soduzai_gfx1",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg",
       "level": 1,
-      "rate": 3
+      "rate": 3,
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Pakistan",
     "daysToMake": 2,
@@ -1169,8 +1194,7 @@ export const demoGigs = [
         "reviewedAt": "Published 1 month ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1185,7 +1209,9 @@ export const demoGigs = [
       "fullname": "modernmarvel",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d366617946e54cbc9aa114f27259e3ef-1552848300306/3c155f72-15c9-47d0-8f68-b75a519a7999.jpg",
       "level": 2,
-      "rate": 4
+      "rate": 4,
+      "isPro": true,
+      "isOnline": false
     },
     "country": "India",
     "daysToMake": 1,
@@ -1242,8 +1268,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 weeks ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1258,7 +1283,9 @@ export const demoGigs = [
       "fullname": "shailene_george",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg",
       "level": 2,
-      "rate": 5
+      "rate": 5,
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Pakistan",
     "daysToMake": 21,
@@ -1318,8 +1345,7 @@ export const demoGigs = [
         "reviewedAt": "Published 1 week ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1334,7 +1360,9 @@ export const demoGigs = [
       "fullname": "bellavida123",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/9e2d7f453419c08e138fbfe9e65347df-696051281638594671.588431/DD8E6DDC-C231-47D3-B61A-97274452D3BF",
       "level": 1,
-      "rate": 2
+      "rate": 2,
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Jamaica",
     "daysToMake": 25,
@@ -1391,8 +1419,7 @@ export const demoGigs = [
         "reviewedAt": "Published 3 weeks ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1407,7 +1434,9 @@ export const demoGigs = [
       "fullname": "tommysiu",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/429c1a9395f66cd8a36b38028ff35aa6-1550219507580/db25059c-6725-4e49-bf82-fa4d2af0a780.jpg",
       "level": 2,
-      "rate": 4
+      "rate": 4,
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Hong Kong",
     "daysToMake": 21,
@@ -1464,8 +1493,7 @@ export const demoGigs = [
         "reviewedAt": "Published 1 week ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1480,7 +1508,9 @@ export const demoGigs = [
       "fullname": "farah_youtube",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5db4b0cccf5a3e138a9f57542175248c-1620011414308/8d7f7d68-efe9-465e-80d2-aedcc548efdb.JPG",
       "level": 2,
-      "rate": 5
+      "rate": 5,
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Vietnam",
     "daysToMake": 7,
@@ -1538,8 +1568,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 weeks ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1554,7 +1583,9 @@ export const demoGigs = [
       "fullname": "mariarotunda",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d098c50d82476b11568f3a50111a8a89-1636128369729/ef737ebd-6908-47bc-be50-963dabe16d0e.jpg",
       "level": 2,
-      "rate": 2
+      "rate": 2,
+      "isPro": false,
+      "isOnline": true
     },
     "country": "United States",
     "daysToMake": 27,
@@ -1609,8 +1640,7 @@ export const demoGigs = [
         "reviewedAt": "Published 1 week ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1625,7 +1655,9 @@ export const demoGigs = [
       "fullname": "struhenderson",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb6eef20969192eca1d8b1301e91cb4f-1630440851285/60f03cc4-71f2-437b-a241-f9423b6e2728.jpg",
       "level": 1,
-      "rate": 3
+      "rate": 3,
+      "isPro": false,
+      "isOnline": false
     },
     "country": "United Kingdom",
     "daysToMake": 18,
@@ -1679,8 +1711,7 @@ export const demoGigs = [
         "reviewedAt": "Published 3 hours ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1695,7 +1726,9 @@ export const demoGigs = [
       "fullname": "victoriaeva610",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/34a47e49caa09a703d81ef0621ad0ac1-1626197544385/3cb9eb7a-2163-4722-a1b0-0ddb9eb04d4e.png",
       "level": 2,
-      "rate": 4
+      "rate": 4,
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Kenya",
     "daysToMake": 18,
@@ -1750,8 +1783,7 @@ export const demoGigs = [
         "reviewedAt": "Published 7 hours ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1766,7 +1798,9 @@ export const demoGigs = [
       "fullname": "angela_637",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/03e667c26a63c20863e016917c423eb0-1622910916319/85930fed-bb45-4b01-b117-3913f19b77d7.PNG",
       "level": 2,
-      "rate": 4
+      "rate": 4,
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Kenya",
     "daysToMake": 1,
@@ -1822,8 +1856,7 @@ export const demoGigs = [
         "reviewedAt": "Published 4 days ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1838,7 +1871,9 @@ export const demoGigs = [
       "fullname": "layee84",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/b398d51589f16ed08ca0510c2c5edbe2-1636020659427/ecb5ae5e-d22a-47bc-bd9f-e7b2f99c0994.jpg",
       "level": 2,
-      "rate": 2
+      "rate": 2,
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Kenya",
     "daysToMake": 4,
@@ -1895,8 +1930,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 months ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1911,7 +1945,9 @@ export const demoGigs = [
       "fullname": "shiranmor17",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/2077b8d6eeb98061673b868ec51a9267-1636915857681/b31b149f-5e31-46bd-9a2e-27e94cc3e5e2.jpeg",
       "level": 2,
-      "rate": 4
+      "rate": 4,
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Israel",
     "daysToMake": 28,
@@ -1967,8 +2003,7 @@ export const demoGigs = [
         "reviewedAt": "Published 1 month ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -1983,7 +2018,9 @@ export const demoGigs = [
       "fullname": "vovkaslovesnyy",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/profile/photos/3232052/original/1484208202021_Profile.png",
       "level": 1,
-      "rate": 2
+      "rate": 2,
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Russia",
     "daysToMake": 1,
@@ -2041,8 +2078,7 @@ export const demoGigs = [
         "reviewedAt": "Published 3 days ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2057,7 +2093,9 @@ export const demoGigs = [
       "fullname": "quantz75",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/aeb50869a3c9aa4f4d01a4a5076780d8-1597753670171/66b99c65-4308-4b81-a088-b0610d5d75b6.jpg",
       "level": 1,
-      "rate": 5
+      "rate": 5,
+      "isPro": true,
+      "isOnline": true
     },
     "country": "France",
     "daysToMake": 6,
@@ -2113,8 +2151,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 days ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2129,7 +2166,9 @@ export const demoGigs = [
       "fullname": "moremarks",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/c7335c7b5aa8d880333495ef8f4bbee5-1617624531791/a2fc714b-c261-490d-b93a-af081a385234.png",
       "level": 1,
-      "rate": 4
+      "rate": 4,
+      "isPro": false,
+      "isOnline": true
     },
     "country": "United Kingdom",
     "daysToMake": 16,
@@ -2184,8 +2223,7 @@ export const demoGigs = [
         "reviewedAt": "Published 1 month ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2200,7 +2238,9 @@ export const demoGigs = [
       "fullname": "allesanimation",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/ba950f423b857c85340d9e0f22e57bce-1624271979495/ce05a5ca-dcd2-406a-8a20-e41bcb0a429c.jpg",
       "level": 2,
-      "rate": 5
+      "rate": 5,
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Germany",
     "daysToMake": 7,
@@ -2256,8 +2296,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 weeks ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2272,7 +2311,9 @@ export const demoGigs = [
       "fullname": "ama_studio1",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/18ecf7c17fc8aa50d64b8a89c500a5ad-1612199164491/1963fa7b-062c-4c52-a26d-30473a2d3fad.png",
       "level": 2,
-      "rate": 5
+      "rate": 5,
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Pakistan",
     "daysToMake": 1,
@@ -2329,8 +2370,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 months ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2345,7 +2385,9 @@ export const demoGigs = [
       "fullname": "encrypt99",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/aa1d8903ba72305648ba75fc6e81d9b7-1633524346738/5f95f4e0-24ca-4a86-8860-d01d81fd7c4a.jpg",
       "level": 2,
-      "rate": 3
+      "rate": 3,
+      "isPro": true,
+      "isOnline": false
     },
     "country": "Nigeria",
     "daysToMake": 12,
@@ -2401,8 +2443,7 @@ export const demoGigs = [
         "reviewedAt": "Published 7 hours ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2417,7 +2458,9 @@ export const demoGigs = [
       "fullname": "bnn_marketing",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/ee46166ba8c4ab29d551cb80bf88815e-1600882516719/10098270-e9f3-4ee8-b9f4-2c70cc457dd9.JPG",
       "level": 2,
-      "rate": 4
+      "rate": 4,
+      "isPro": false,
+      "isOnline": false
     },
     "country": "Argentina",
     "daysToMake": 12,
@@ -2472,8 +2515,7 @@ export const demoGigs = [
         "reviewedAt": "Published 6 days ago"
       }
     ],
-    "extras": {},
-    "isOnline": false
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2488,7 +2530,9 @@ export const demoGigs = [
       "fullname": "mediagirl",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e3f2db9a69a2cc7b69c653d3185b6ba9-1592756841572/fbdf1383-4893-4f94-a3c9-a324c68aca4f.jpg",
       "level": 2,
-      "rate": 4
+      "rate": 4,
+      "isPro": true,
+      "isOnline": true
     },
     "country": "United States",
     "daysToMake": 1,
@@ -2544,8 +2588,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 months ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2560,7 +2603,9 @@ export const demoGigs = [
       "fullname": "harvardcv",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/profile/photos/3844073/original/IMG_7304.jpg",
       "level": 1,
-      "rate": 3
+      "rate": 3,
+      "isPro": false,
+      "isOnline": true
     },
     "country": "United States",
     "daysToMake": 22,
@@ -2620,8 +2665,7 @@ export const demoGigs = [
         "reviewedAt": "Published 5 days ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2636,7 +2680,9 @@ export const demoGigs = [
       "fullname": "haniwritertech",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/079e914e9f28e8269dee6bb109ef85a1-1570850131880/40fbde37-316f-4de2-9ca5-07b1300360d2.jpg",
       "level": 1,
-      "rate": 2
+      "rate": 2,
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Pakistan",
     "daysToMake": 28,
@@ -2693,8 +2739,7 @@ export const demoGigs = [
         "reviewedAt": "Published 2 months ago"
       }
     ],
-    "extras": {},
-    "isOnline": true
+    "extras": {}
   },
   {
     "_id": utilService.makeId(),
@@ -2709,7 +2754,9 @@ export const demoGigs = [
       "fullname": "muzamilbutt401",
       "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb5d29b35cb0f6bd47e3a2f1fb8a55db-1595779512175/3d984139-fd41-42b2-a94c-fca974593c8a.jpg",
       "level": 1,
-      "rate": 5
+      "rate": 5,
+      "isPro": false,
+      "isOnline": true
     },
     "country": "Pakistan",
     "daysToMake": 1,

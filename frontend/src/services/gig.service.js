@@ -4,8 +4,7 @@ import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-
-const STORAGE_KEY = 'gig'
+const STORAGE_KEY = 'gig/'
 
 export const gigService = {
     query,
@@ -18,7 +17,8 @@ export const gigService = {
 window.cs = gigService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { txt: '' }) {
+    const filterQueryParams = '?' + new URLSearchParams(filterBy).toString()
     return httpService.get(STORAGE_KEY, filterBy)
 }
 
@@ -49,18 +49,18 @@ async function addGigMsg(gigId, txt) {
 function getEmptyGig() {
     return {
         "title": "",
-        "price": utilService.getRandomIntInclusive(10, 9000),
+        "price": utilService.getRandomIntInclusive(10, 200),
         "rating": {
             "average": "5.0",
-            "num": 567
+            "num": utilService.getRandomIntInclusive(200, 999),
         },
         "owner": {
-            "_id": "u101",
-            "fullname": "Dudu Da",
+            "_id": "x101",
+            "fullname": "Yoni Pels",
             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-            "level": "basic/premium",
+            "level": "1",
             "rate": 4,
-            "about": `Hi, My Name is Dudu Da and in the past 10 years \n
+            "about": `Hi, My Name is Yoni Pels and in the past 10 years \n
                   Ive been working as a UI/UX designer, \n
                    product manager and creative director \n
                     in the E-commerce field. I offer a wide \n
@@ -95,7 +95,6 @@ function getEmptyGig() {
             'https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20230326/2_do473u.jpg',
             'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/9cf8e48e7fa6a09bbd58dd6c064e17f3-1685737363/Logo-A/do-creative-4-modern-minimalist-logo-design.jpg',
         ],
-        "categories": [],
         "likedByUsers": ["mini-user"]
     }
 }

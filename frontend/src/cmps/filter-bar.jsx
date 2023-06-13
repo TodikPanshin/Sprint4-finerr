@@ -10,7 +10,8 @@ export function FilterBar({ filterBy }) {
 
     const [isOn, setIsOn] = useState({ pro: false, local: false, online: false })
     const [isOpen, setIsOpen] = useState({ sellerDetails: false, budget: false, deliveryTime: false, sort: false })
-    const [newFilterBy, setNewFilterBy] = useState({ ...filterBy })
+    const [newFilterBy, setNewFilterBy] = useState({ speaks: [] })
+    const [isFilter, setIsFilter] = useState(false)
 
     const menuRef = useRef([])
 
@@ -21,6 +22,8 @@ export function FilterBar({ filterBy }) {
     useEffect(() => {
         onClearFields()
     }, [])
+
+
 
     function onSwitchFiler(item) {
         setIsOn(prevSet => ({ ...prevSet, [item]: !isOn[item] }))
@@ -33,13 +36,23 @@ export function FilterBar({ filterBy }) {
     }
 
     function handleChange({ target }) {
-        let { value, name: field, type, checked } = target
-        setNewFilterBy(prevFilterBy => ({ ...prevFilterBy, [field]: type === "checkbox" ? checked : target.className === 'number' ? +value : value }))
+        let { value, className, name: field, type, checked } = target
+
+        if (field === "speaks") {
+            newFilterBy.speaks.push(className)
+            return
+        }
+
+        setNewFilterBy(prevFilterBy => ({
+            ...prevFilterBy, [field]: type === "checkbox" ? checked
+                : target.className === 'number' ? +value : value
+        }))
     }
 
     function onSubmitFilter(menu) {
         onToggleMenu(menu)
         setFilterBy({ ...filterBy, ...newFilterBy })
+        setIsFilter(true)
     }
 
     function onClearFields() {
@@ -53,7 +66,9 @@ export function FilterBar({ filterBy }) {
     function onClearFilters() {
         onClearFields()
         setIsOn(prevSet => ({ ...prevSet, pro: false, local: false, online: false }))
+        setNewFilterBy({speaks: []})
         setFilterBy({})
+        setIsFilter(false)
     }
 
     function onSortBy(sortBy) {
@@ -90,12 +105,24 @@ export function FilterBar({ filterBy }) {
                                 <label htmlFor="top-rated"><input ref={(el) => { menuRef.current[0] = el }}
                                     type="checkbox" className="checkbox" name="topRated"
                                     onChange={handleChange} />Top Rated Seller</label>
-                                <label htmlFor="new-seller"><input ref={(el) => { menuRef.current[1] = el }}
-                                    type="checkbox" className="checkbox" name="level1"
-                                    onChange={handleChange} />Level 1</label>
-                                <label htmlFor="level-2"><input ref={(el) => { menuRef.current[2] = el }}
+                                <label htmlFor="level-2"><input ref={(el) => { menuRef.current[1] = el }}
                                     type="checkbox" className="checkbox" name="level2"
                                     onChange={handleChange} />Level 2</label>
+                                <div className="seller-speaks">
+                                    <h3>Seller Speaks</h3>
+                                    <label htmlFor="Hebrew"><input ref={(el) => { menuRef.current[2] = el }}
+                                        type="checkbox" className="Hebrew" name="speaks"
+                                        onChange={handleChange} />Hebrew</label>
+                                    <label htmlFor="English"><input ref={(el) => { menuRef.current[3] = el }}
+                                        type="checkbox" className="English" name="speaks"
+                                        onChange={handleChange} />English</label>
+                                    <label htmlFor="French"><input ref={(el) => { menuRef.current[4] = el }}
+                                        type="checkbox" className="French" name="speaks"
+                                        onChange={handleChange} />French</label>
+                                    <label htmlFor="Spanish"><input ref={(el) => { menuRef.current[5] = el }}
+                                        type="checkbox" className="Spanish" name="speaks"
+                                        onChange={handleChange} />Spanish</label>
+                                </div>
                             </div>
                             <div className="filter-menu-btns-container">
                                 <button className="btn-clear" onClick={() => onClearFields('sellerDetails')}>Clear All</button>
@@ -188,12 +215,12 @@ export function FilterBar({ filterBy }) {
                     </button><p>Online sellers</p>
                 </div>
             </main>
-            <div className="active-filter-line" onClick={onClearFilters}>Clear All Filters</div>
+            {isFilter && <div className="active-filter-line" onClick={onClearFilters}>Clear All Filters</div>}
 
             <div className="filter-bar-footer">
                 <div>{`${gigs.length} services available`}</div>
                 <div className="sort-selection">Sort by:
-                    <div onClick={() => onToggleMenu('sort')}>{`${filterBy.sortBy ? filterBy.sortBy : 'Best Selling'}`}
+                    <div className="sort-btn" onClick={() => onToggleMenu('sort')}>{`${filterBy.sortBy ? filterBy.sortBy : 'Best Selling'}`}
                         <img className={`arrow-${isOpen.sort ? 'up' : 'down'}`} src="https://www.svgrepo.com/show/511355/arrow-down-339.svg" alt="v" />
 
                         {isOpen.sort && <div className="outside" onClick={() => onToggleMenu('sort')}></div>}

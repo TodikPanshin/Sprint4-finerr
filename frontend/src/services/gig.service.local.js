@@ -45,10 +45,6 @@ async function query(filterBy = {}) {
         gigs = gigs.filter(gig => gig.daysToMake <= filterBy.time)
     }
 
-    if (filterBy.level1) {
-        gigs = gigs.filter(gig => gig.owner.level === 1)
-    }
-
     if (filterBy.level2) {
         gigs = gigs.filter(gig => gig.owner.level === 2)
     }
@@ -58,7 +54,7 @@ async function query(filterBy = {}) {
     }
 
     if (filterBy.pro) {
-        gigs = gigs.filter(gig => gig.rating.average > 4.75 && gig.owner.level === 2)
+        gigs = gigs.filter(gig => gig.owner.isPro)
     }
 
     if (filterBy.local) {
@@ -66,7 +62,7 @@ async function query(filterBy = {}) {
     }
 
     if (filterBy.online) {
-        gigs = gigs.filter(gig => gig.isOnline)
+        gigs = gigs.filter(gig => gig.owner.isOnline)
     }
 
     if (filterBy.sortBy) {
@@ -79,7 +75,7 @@ async function query(filterBy = {}) {
         }
         
         if (filterBy.sortBy === 'Price') {
-            gigs = gigs.sort((a, b) => (a.price > b.price) ? 1 : (a.price > b.price) ? -1 : 0)
+            gigs = gigs.sort((a, b) => (a.price > b.price) ? 1 : (a.price < b.price) ? -1 : 0)
         }
     }
 

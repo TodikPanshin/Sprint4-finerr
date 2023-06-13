@@ -169,13 +169,13 @@
         margin-left: auto;
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: baseline;
         justify-content: space-between;
-        padding: 0 5px;
+        padding: 0;
         caret-color: transparent;
 
         a {
-            margin-inline: .5rem;
+            margin-inline: .75rem;
 
             &:hover {
                 color: $clr-btn-hov;
@@ -189,8 +189,10 @@
         }
 
         img {
+            position: absolute;
+            translate: -100% -65%;
             width: 30px;
-            margin-top: 20%;
+            margin-left: 1rem;
         }
 
         button {
@@ -198,7 +200,8 @@
             font-size: inherit;
             font-weight: inherit;
             background-color: transparent;
-
+            padding: 0;
+            margin: 0 0.75rem;
 
             &:hover {
                 color: $clr-btn-hov;
@@ -212,6 +215,7 @@
                 border: 1px solid $clr-hov;
                 border-radius: 4px;
                 padding: 10px 16px;
+                margin-right: 0;
 
                 &:hover {
                     background-color: $clr-hov;
@@ -241,8 +245,8 @@
             position: absolute;
             display: flex;
             flex-direction: column;
-            top: 64px;
-            right: -.5rem;
+            top: 2rem;
+            right: -2rem;
             translate: -2rem;
             border: 1px solid rgba(175, 175, 175, 0.5);
             background-color: rgb(255, 255, 255);
@@ -339,7 +343,7 @@
     margin-top: 0;
     border: solid rgba(0, 0, 0, 0.1) 0.2px;
     border-inline: 0;
-    padding: 0;
+    padding: .2rem;
     caret-color: transparent;
     background-color: white;
 
@@ -395,15 +399,12 @@
     width: 100%;
     height: 1000%;
     z-index: 500;
-
-    body {
-        overflow: hidden;
-    }
 }
 
 .sign-up {
     position: fixed;
-    top: 5%;
+    top: 50%;
+    transform: translateY(-50%);
     border-radius: 0.75rem;
     left: 50%;
     translate: -50%;
@@ -436,20 +437,24 @@
                 h2 {
                     font-size: 2rem;
                     margin-bottom: 0;
+                    color: $clr1;
                 }
 
                 ul {
                     font-weight: 200;
-                    margin-top: 1.5rem;
+                    margin-top: 1.6rem;
 
                     li {
+                        align-items: baseline;
+                        max-width: 22rem;
                         font-size: 18px;
                         line-height: 26px;
                         margin-bottom: 1rem;
-                        list-style-position: inside;
+
+                        p {
+                            margin-left: 0.5rem;
+                        }
                     }
-
-
                 }
             }
         }
@@ -506,31 +511,5 @@
             }
         }
 
-        // .social-signing-btn {
-        //     border: 1px solid $clr-border;
-        //     border-radius: 0.25rem;
-        //     height: 2.8rem;
-        //     flex-grow: 1;
-        //     font-size: 1rem;
-        //     color: $clr-btn-search;
-
-
-        //     &:hover {
-        //         background-color: #fafafa;
-        //     }
-        // }
-
-        // .or {
-        //     text-align: center;
-        //     color: #b5b6ba;
-        //     // font-weight: 300;
-        //     justify-content: center;
-        //     align-items: center;
-        //     font-size: 0.8rem;
-        //     margin: 1rem 0 1rem;
-        // }
-
-
     }
-
 }

@@ -1,4 +1,4 @@
-import { gigService } from "../services/gig.service.local.js";
+import { gigService } from "../services/gig.service.js";
 
 import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -51,7 +51,6 @@ export function AppHeader() {
     }
 
     async function onSignup(credentials) {
-        console.log('credentials:', credentials)
         try {
             const user = await signup(credentials)
             showSuccessMsg(`Welcome new user: ${user.fullname}`)
