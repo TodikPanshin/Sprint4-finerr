@@ -207,8 +207,8 @@ export const demoGigs = [
     },
     "owner": {
       "_id": "u105",
-      "fullname": "Mia Piamenta",
-      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/26704082/original/10671246_10154605530890361_257615399364358857_n.jpg",
+      "fullname": "Pol Newman",
+      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/09713f9e9eae81e986c392dd25e69539-1650223148753/7cd15136-cfc5-4d71-9efc-fd4a66679771.png",
       "level": 2,
       "rate": 5,
       "about": "25 YEAR PRO WRITER - I have been writing on the Web since it began creating ads, press releases, web copy, sales letters, articles, blog posts, you name it! Join the thousands of happy customers who have been delighted with my hard work and great writing.",
@@ -247,8 +247,8 @@ export const demoGigs = [
     },
     "owner": {
       "_id": "u106",
-      "fullname": "pol Newman",
-      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/09713f9e9eae81e986c392dd25e69539-1650223148753/7cd15136-cfc5-4d71-9efc-fd4a66679771.png",
+      "fullname": "Tina Zaffod",
+      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/26704082/original/10671246_10154605530890361_257615399364358857_n.jpg",
       "level": 1,
       "rate": 3,
       "about": "Hello, I'm pol! I am a professional freelance content creator, published author, and ghostwriter extraordinaire. I have a B.A. in English and have been a paid writer for 10+ years. I specialize in non-fiction eBooks and SEO-friendly blogs / articles that drive traffic to your website. Additionally, I have extensive experience writing about pets, self-help, gardening, travel, education, spirituality, entrepreneurship, and small businesses. My inbox is always open to new clients!",
@@ -288,11 +288,11 @@ export const demoGigs = [
     },
     "owner": {
       "_id": "u107",
-      "fullname": "Oli Benome",
-      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/60adcd04f7664076ae5df46f10d0c683-1647366642713/062ae809-1514-4464-827d-c7bf0d228775.jpg",
+      "fullname": "Ola Benome",
+      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/307c9f05ddc887b4f157e3233af17947-1647271004237/85c240e5-eacf-4361-b383-5003fd61abf8.jpg",
       "level": 2,
       "rate": 5,
-      "about": "Oli, experienced social media manager. Specializes in creating and executing tailored strategies to drive engagement, increase brand awareness and drive growth. Utilizes the latest trends and best practices for clients in various industries. In free time, enjoys exploring food and fashion trends or reading. Let me help take your brand to the next level on social media.",
+      "about": "Ola, experienced social media manager. Specializes in creating and executing tailored strategies to drive engagement, increase brand awareness and drive growth. Utilizes the latest trends and best practices for clients in various industries. In free time, enjoys exploring food and fashion trends or reading. Let me help take your brand to the next level on social media.",
       "isPro": true,
       "isOnline": true
     },
@@ -326,8 +326,8 @@ export const demoGigs = [
     },
     "owner": {
       "_id": "u108",
-      "fullname": "Pop kospy",
-      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/83ef3002756770eeef3051b086d458fd-1578941693552/9f70f359-af93-4a68-b5b2-f85e86c93f5a.jpg",
+      "fullname": "Paula kospy",
+      "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/26704082/original/10671246_10154605530890361_257615399364358857_n.jpg",
       "level": 2,
       "rate": 3,
       "about": "I have a Bachelor of Science in Communication, Journalism, & Media and years of professional writing, editing, & social media experience. In the past 4 years, I've written copy for 600+ diverse clients. I specialize in writing clever & engaging social media copy & online courses to add value to your brand. I have experience writing social media captions, articles/blogs, ad & sales copy, website content, email campaigns, press releases, scripts, & online courses. I'm a brand chameleon & can create or adapt my writing voice to match your desired style or tone. Let's work together!",

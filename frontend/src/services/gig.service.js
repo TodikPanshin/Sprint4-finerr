@@ -4,8 +4,7 @@ import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-
-const STORAGE_KEY = 'gig'
+const STORAGE_KEY = 'gig/'
 
 export const gigService = {
     query,
@@ -18,7 +17,8 @@ export const gigService = {
 window.cs = gigService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { txt: '' }) {
+    const filterQueryParams = '?' + new URLSearchParams(filterBy).toString()
     return httpService.get(STORAGE_KEY, filterBy)
 }
 

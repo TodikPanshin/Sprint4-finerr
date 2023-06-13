@@ -18,6 +18,12 @@
     }
 }
 
+@mixin for-first-break-layout {
+    @media (min-width: $padded-first-breakpoint) {
+        @content;
+    }
+}
+
 @mixin for-wide-layout {
     @media (min-width: $padded-break-wide) {
         @content;

@@ -1,0 +1,21 @@
+.star-progress-container{
+    display: grid;
+    grid-template-rows:repeat(5,auto);
+    width: 340px;
+    .star-progress{
+        display: grid;
+        width: auto;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        margin-block-end: 20px;
+
+
+        .star-progress-star-name,.star-progress-count{
+            font-weight: 300;
+        }
+        .star-progress-progress-bar{
+            margin-inline: 10px;
+        }
+    }
+
+}

@@ -5,48 +5,71 @@
         "main main "
         "footer footer ";
     border: 1px solid $clr-border;
-    width: auto;
-    max-width: rem(340px);
+    width: rem(340px);
     height: fit-content;
     padding: 20px;
-    margin-block-start: 20px;
     background-color: $clr1;
-    li{
+    border-radius: rem(4px);
+    
+    @include for-mobile-layout {
+    width: auto
+    }
+
+    li {
         font-weight: 600;
     }
-    span{
-        font-weight: 600;
+
+    span {
+        font-weight: 700;
+        font-size: 18px;
     }
 
     header {
         display: grid;
-        grid-template-columns: repeat(3, auto);
-        justify-content: space-between;
+        grid-template-columns: min-content auto auto;
         align-items: center;
         border-block-end: 1px solid $clr-border;
         padding-block-end: rem(26px);
         margin-block-end: rem(26px);
         grid-area: header;
 
+        .user-img {
+            margin-inline-end: 8px;
+        }
+
         .user-name {
             font-size: rem(18px);
             font-weight: 400;
         }
 
-        .user-rate{
+        .user-rate {
             font-size: rem(15px);
             font-weight: 400;
+            justify-self: end;
         }
     }
 
     .user-dashboard-content {
         grid-area: main;
         display: grid;
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: auto 1fr auto;
         border-block-end: 1px solid $clr-border;
         padding-block-end: rem(16px);
         margin-block-end: 1rem;
-        justify-content: space-between;
+        align-items: center;
+
+        >* {
+            padding-block-end: rem(12px);
+        }
+
+        .user-dashboard-progress-bar {
+            padding-inline: 10px;
+            min-width: 60px;
+
+            .progress-bar-filler {
+                background-color: $clr-hov;
+            }
+        }
     }
 
     footer {

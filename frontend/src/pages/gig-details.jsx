@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate, } from 'react-router-dom'
 
-import { gigService } from "../services/gig.service.local.js"
+import { gigService } from "../services/gig.service.js"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
 import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
 import { ReviewsPreview } from '../cmps/review-preview.jsx'
@@ -123,7 +123,8 @@ export function GigDetails() {
             const gig = await gigService.getById(id)
             setGig(gig)
             setGigLoaded(true)
-            // console.log(gig)
+            console.log(gig)
+            if (gig.reviews) setReviews(gig.reviews)
         } catch (err) {
             console.log('Had issues in gig details', err)
             showErrorMsg('Cannot load gig');
@@ -173,13 +174,9 @@ export function GigDetails() {
                             </ul>
                         </nav>
                         <h1 className='gig-title'>{gig.title}</h1>
-                        <SellerDetails owner={gig.owner} tags={gig.tags} reviewNum={gig.rating.num} />
-                        <div className='notable-clients-bar flex'>
-                            <p className='notable-clients-title'>Among my clients</p>
-                            <p>muki</p>
-                            <p>|</p>
-                            <p>puki</p>
-                        </div>
+                        <div className='gig-overview-seller-details'>
+                            <SellerDetails owner={gig.owner} tags={gig.tags} reviewNum={gig.rating.num} />
+                        </div >
                     </div>
                     <div className='gig-imgs-container'>
                         <GigSwiper gigImgs={gig.imgUrls} />
@@ -200,7 +197,7 @@ export function GigDetails() {
                     <h2 className='seller-details-card-title'>About The Seller</h2>
                     <SellerCard gig={gig} />
                     <h2>Reviews</h2>
-                    <ShowReviews reviews={reviews} />
+                    <ShowReviews reviews={reviews} gig={gig} />
 
                     {gigLoaded && (
                         <>
@@ -238,7 +235,7 @@ export function GigDetails() {
                         </div>
                     </div>
                     <div onClick={onCloseModal} className='close'>X</div>
-                    <textarea name="" id="" cols="30" rows="10" maxlength="2500" placeholder={`Ask ${gig.owner.fullname} a question or share your project details (requirements, timeline, budget, etc.)`}></textarea>
+                    <textarea name="" id="" cols="30" rows="10" maxLength="2500" placeholder={`Ask ${gig.owner.fullname} a question or share your project details (requirements, timeline, budget, etc.)`}></textarea>
                     {/* <p>Use at least 40 characters</p> */}
                     <button className='send-msg flex'>
                         <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#ffffff" }} />

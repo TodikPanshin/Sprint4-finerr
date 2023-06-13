@@ -64,13 +64,13 @@ export async function addOrder(order) {
 
 export async function updateOrder(order) {
     try {
-        const savedOrder = await orderService.save(order);
-        console.log('Updated Order:', savedOrder);
-        store.dispatch(getActionUpdateOrder(savedOrder));
-        return savedOrder;
+        const savedOrder = await orderService.save(order)
+        console.log('Updated Order:', savedOrder)
+        store.dispatch(getActionUpdateOrder(savedOrder))
+        return savedOrder
     } catch (err) {
-        console.log('Cannot save order', err);
-        throw err;
+        console.log('Cannot save order', err)
+        throw err
     }
 }
 

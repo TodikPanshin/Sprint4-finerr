@@ -4,11 +4,11 @@ import configDev from './dev.mjs'
 
 export var config
 
-if (false && process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
+  console.log("prod", configProd)
   config = configProd
 } else {
+  console.log('hi!');
   config = configDev
 }
 config.isGuestMode = true
-
-
