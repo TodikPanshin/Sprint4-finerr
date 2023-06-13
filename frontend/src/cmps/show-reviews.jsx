@@ -35,10 +35,9 @@ export function ShowReviews({ reviews, gig }) {
                 <p className='show-reviews-counter margin-inline-end-8'><span>{reviews.length}</span> reviews for this Seller </p>
                 <StarRating rate={gig.owner.rate} />
             </div>
-            <ReviewCounter reviewsCount={reviewsCount}  reviewsNum={reviews.length} checkCount={utilService.checkCount} />
+            <ReviewCounter reviewsCount={reviewsCount} reviewsNum={reviews.length} checkCount={utilService.checkCount} />
             <ul className='user-review-list clean-list'>
-                {reviews.map(review =>
-                    <UserReview review={review} key={review.id} />)}
+                {reviews.map((review, idx) => <UserReview review={review} key={idx} />)}
             </ul>
         </section>
     )
