@@ -2,120 +2,104 @@
     padding: rem(32px);
     margin: auto;
     max-width: $wide-breakpoint;
-h1{
-    overflow-wrap: break-word;
-    font-size: em(28px);
-    line-height: 130%;
-    color: $clr-font-dark;
-    margin: 0;
-    padding-block-end: rem(16px);
-}
 
-h2{
-    line-height: rem(28px);
-   
-}
-}
-
-    .trash {
-        position: absolute;
-        inset-inline-start: 1023px;
-        inset-block-start: 132px;
+    h1 {
+        overflow-wrap: break-word;
+        font-size: em(28px);
+        line-height: 130%;
+        color: $clr-font-dark;
+        margin: 0;
+        padding-block-end: rem(16px);
     }
 
-    .gig-details {
-        margin-inline-end: 5.5%;
-        width: 59.5%;
+    h2 {
+        line-height: rem(28px);
 
-        .gig-overview {
-            &-filter-nav {
-                a {
-                    font-size: 14px;
-                    color: $clr-link;
-                    text-decoration: underline;
-                    font-weight: 300;
-                }
+    }
+}
 
-                span {
-                    margin-inline: 8px;
-                }
+.trash {
+    position: absolute;
+    inset-inline-start: 1023px;
+    inset-block-start: 132px;
+}
+
+.gig-details {
+    margin-inline-end: 5.5%;
+    width: 59.5%;
+
+    .gig-overview {
+        &-filter-nav {
+            a {
+                font-size: 14px;
+                color: $clr-link;
+                text-decoration: underline;
+                font-weight: 300;
             }
 
+            span {
+                margin-inline: 8px;
+            }
+        }
 
-            .seller-details {
-                >* {
-                    margin-inline-end: 1em;
-                    align-items: center;
-                }
 
-                & img {
-                    max-width: 100%;
-                    width: 30px;
-                    height: auto;
-                }
-
-                .seller-info {
-
-                    >* {
-                        padding-inline-end: 8px;
-                        align-items: center;
-                    }
-                }
+        .seller-details {
+            >* {
+                margin-inline-end: 1em;
+                align-items: center;
             }
 
+            & img {
+                max-width: 100%;
+                width: 30px;
+                height: auto;
+            }
 
-
-            .notable-clients-bar {
-
-                border-block-start: 1px solid $clr-border ;
-                padding-top: 20px;
-                margin-bottom: 16px;
-                margin-top: 16px;
-
-                .notable-clients-title {
-                    color: $clr-font-dark;
-                }
+            .seller-info {
 
                 >* {
-                    margin-inline-end: 1em;
+                    padding-inline-end: 8px;
                     align-items: center;
-                    font-size: rem(14px);
                 }
             }
         }
 
-        .gig-imgs-container {
-            width: auto;
-            position: relative;
-            margin-block-end: 64px;
+
+
+        .gig-overview-seller-details{
+            margin-block-end: 24px;
+        }
+    }
+
+    .gig-imgs-container {
+        width: auto;
+        position: relative;
+        margin-block-end: 64px;
+    }
+
+    .review-preview {
+        margin-block-end: 64px;
+
+        .review-preview-title {
+            color: $clr-font-dark;
         }
 
-        .review-preview {
-            margin-block-end: 64px;
-
-            .review-preview-title {
-                color: $clr-font-dark;
-            }
-
-            .review-preview-list {
-                padding: 20px;
-                border-radius: 0.5rem;
-                border: 2px solid $clr-border;
-            }
+        .review-preview-list {
+            padding: 20px;
+            border-radius: 0.5rem;
+            border: 2px solid $clr-border;
         }
+    }
 
-        .about-gig {
-            &-title {
-                padding-bottom: 25px;
-            }
-            margin-block-end: 96px;
-        }
-
-        .seller-details-card-title {
+    .about-gig {
+        &-title {
             padding-bottom: 25px;
         }
+
+        margin-block-end: 96px;
     }
 
-   
-
-    
+    .seller-details-card-title {
+        padding-bottom: 25px;
+    }
+}

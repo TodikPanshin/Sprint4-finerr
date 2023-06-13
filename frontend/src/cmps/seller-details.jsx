@@ -13,7 +13,7 @@ export function SellerDetails({ owner, showLevel = true, showOneLiner = false, s
                 {showLevel && <p>|</p>}
                 {showOneLiner && <p className='seller-one-liner'>{tags.slice(0, 3).join(', ')}</p>}
                 {showStars&&<div className='reviews-rate'>
-                    <StarRating rate={owner.rate} reviewNum={reviewNum} />
+                    <StarRating rate={owner.rate}/>
                     <span className='ratings-count cursor-pointer'>({reviewNum})</span>
                 </div>}
                 {showBtn && <button className='seller-card-btn btn-gig-contact'>Contact me</button>}

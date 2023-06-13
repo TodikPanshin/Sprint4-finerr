@@ -1,8 +1,8 @@
 .main-layout {
-    display: grid;
-    @include layoutGTC($wide-breakpoint);
-    // align-items: start;
-    // why is this here?
+  display: grid;
+  @include layoutGTC($wide-breakpoint);
+  // align-items: start;
+  // why is this here?
 
   &.app {
     min-height: 100vh;
@@ -17,17 +17,17 @@
     }
   }
 
-    // @include for-narrow-layout {
-    //     @include layoutGTC($wide-breakpoint);
-    //   }
-      
-    //   @include for-normal-layout {
-    //     @include layoutGTC($normal-breakpoint);
-    //   }
-      
-    //   @include for-wide-layout {
-    //     @include layoutGTC($wide-breakpoint);
-    //   }
+  // @include for-narrow-layout {
+  //     @include layoutGTC($wide-breakpoint);
+  //   }
+
+  //   @include for-normal-layout {
+  //     @include layoutGTC($normal-breakpoint);
+  //   }
+
+  //   @include for-wide-layout {
+  //     @include layoutGTC($wide-breakpoint);
+  //   }
 }
 
 .card-grid {
@@ -36,15 +36,53 @@
   grid-gap: 20px;
 }
 
-.checkout-layout{
+.checkout-layout {
   display: flex;
   flex-direction: column;
-    .payment-container{
-      align-self: start;  
+
+  .payment-container {
+    align-self: start;
   }
 
-  @include for-normal-layout{
+  @include for-normal-layout {
     display: grid;
     grid-template-columns: auto auto;
   }
+}
+
+
+.user-dashboard-container {
+  display: flex;
+  flex-direction: column;
+
+  .dashboard-content {
+    display: flex;
+    flex-direction: column;
+
+    >* {
+      margin-block: rem(20px);
+    }
   }
+
+  @include for-first-break-layout {
+    display: grid;
+    grid-template-areas:
+      "a b "
+      "a b "
+      "c c ";
+
+    .dashboard-user-details-container {
+      grid-area: a;
+    }
+
+    .dashboard-content {
+      grid-area: b;
+    }
+
+    .order-index {
+      grid-area: c;
+    }
+  }
+
+}
+

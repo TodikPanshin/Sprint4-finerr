@@ -20,6 +20,7 @@ $clr-star: #ffb33e;
 $mobile-breakpoint: 460px;
 $narrow-breakpoint: 720px;
 $normal-breakpoint: 960px;
+$first-breakpoint: 1200px;
 $wide-breakpoint: 1400px;
 
 $layoutPadding: 32px;
@@ -27,4 +28,5 @@ $layoutPadding: 32px;
 $padded-break-mobile: $mobile-breakpoint + $layoutPadding * 2;
 $padded-break-narrow: $narrow-breakpoint + $layoutPadding * 2;
 $padded-break-normal: $normal-breakpoint + $layoutPadding * 2;
+$padded-first-breakpoint: $first-breakpoint + $layoutPadding * 2;
 $padded-break-wide: $wide-breakpoint + $layoutPadding * 2;

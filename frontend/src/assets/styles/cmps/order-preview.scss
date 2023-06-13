@@ -1,0 +1,181 @@
+.order-preview {
+    border: 1px solid $clr-border;
+    background-color: $clr1;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 20px;
+    margin-block: 30px;
+    border-radius: 8px;
+
+    @include for-mobile-layout {
+        grid-template-rows: auto auto auto auto auto;
+
+    }
+
+    @include for-narrow-layout {
+        grid-template-columns: auto auto auto auto auto;
+
+
+    }
+
+
+
+
+    &-gig-img {
+        width: rem(100px);
+        max-height: 62px;
+        border-radius: 4px;
+        margin-inline-end: 1rem;
+    }
+
+    .order-preview-buyer-details {
+        display: flex;
+        align-items: center;
+        @include for-mobile-layout{
+            justify-content: end;
+            flex-direction: row-reverse;
+
+        }
+
+        img {
+            border-radius: 50%;
+            width: rem(48px);
+            height: rem(48px);
+            margin-inline-end: 8px;
+        }
+
+        p {
+            font-weight: 700;
+            color: $clr-font-dark;
+            font-size: 18px;
+            @include for-mobile-layout{
+                margin-inline-end: rem(8px);
+            }
+        }
+    }
+
+    .order-preview-price {
+        p {
+            color: $clr-font;
+        }
+    }
+
+    .floating-menu {
+        position: relative;
+        margin-right: 0.375rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        caret-color: transparent;
+@include for-mobile-layout{
+        grid-column: 1 /-1;
+        width: auto;
+}
+        .menu-button {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: .5rem;
+            padding: .75rem 1rem;
+            height: inherit;
+            text-align: center;
+            width: 200px;
+
+            @include for-mobile-layout {
+                width:auto ;
+            }
+
+            &:hover,
+            &:active {
+                border-radius: .5rem;
+                border: 1px solid black;
+            }
+
+            &.active {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        img {
+            width: .75rem;
+            margin-left: .75rem;
+        }
+    }
+
+    .menu-content {
+        position: absolute;
+        margin-top: -1rem;
+        left: 0;
+        background-color: white;
+        z-index: -1;
+        border-radius: .5rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-width: 15rem;
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 12px 18px rgba(0, 0, 0, .14);
+
+        &.open {
+            pointer-events: all;
+            margin-top: .5rem;
+            opacity: 1;
+            z-index: 100;
+            transition: margin-top .3s, opacity .3s;
+
+            input {
+                cursor: pointer;
+            }
+        }
+
+        .menu-items {
+            padding: 1.5rem;
+
+            &.column {
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    padding: .75rem;
+
+                    input {
+                        margin-right: .5rem;
+                        width: 1.5rem;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .pending {
+        background-color: $clr-star;
+        color: $clr-btn-search;
+    }
+
+    .approved {
+        background-color: $clr-hov;
+        color: $clr1;
+    }
+
+    .declined {
+        background-color: $clr2;
+        color: $clr1;
+    }
+
+    .completed {
+        background-color: $clr-link;
+        color: $clr1;
+    }
+
+}
+
+.outside {
+    background-color: rgba(0, 0, 0, 0.0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+    cursor: default;
+}

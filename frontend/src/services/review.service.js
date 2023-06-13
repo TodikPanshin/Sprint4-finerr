@@ -6,7 +6,8 @@ import { userService } from './user.service'
 export const reviewService = {
   add,
   query,
-  remove
+  remove,
+  
 }
 
 function query(filterBy) {
@@ -40,3 +41,5 @@ async function add({txt, aboutUserId}) {
   const addedReview = await storageService.post('review', reviewToAdd)
   return addedReview
 }
+
+

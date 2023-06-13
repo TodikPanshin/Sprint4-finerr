@@ -102,7 +102,8 @@ export function GigDetails() {
         try {
             const gig = await gigService.getById(id)
             setGig(gig)
-            // console.log(gig)
+            console.log(gig)
+            if (gig.reviews) setReviews(gig.reviews)
         } catch (err) {
             console.log('Had issues in gig details', err)
             showErrorMsg('Cannot load gig');
@@ -119,9 +120,9 @@ export function GigDetails() {
         }
     }
 
-    
 
-    if (!gig || gig.length) return <div>Loading...</div>
+
+    if (!gig) return <div>Loading...</div>
     return (
         <>
             <GigToolBar />
@@ -140,13 +141,9 @@ export function GigDetails() {
                             </ul>
                         </nav>
                         <h1 className='gig-title'>{gig.title}</h1>
-                        <SellerDetails owner={gig.owner} tags={gig.tags} reviewNum={gig.rating.num} />
-                        <div className='notable-clients-bar flex'>
-                            <p className='notable-clients-title'>Among my clients</p>
-                            <p>muki</p>
-                            <p>|</p>
-                            <p>puki</p>
-                        </div>
+                        <div className='gig-overview-seller-details'>
+                            <SellerDetails owner={gig.owner} tags={gig.tags} reviewNum={gig.rating.num} />
+                        </div >
                     </div>
                     <div className='gig-imgs-container'>
                         <GigSwiper gigImgs={gig.imgUrls} />
@@ -167,7 +164,7 @@ export function GigDetails() {
                     <h2 className='seller-details-card-title'>About The Seller</h2>
                     <SellerCard gig={gig} />
                     <h2>Reviews</h2>
-                    <ShowReviews reviews={reviews} />
+                    <ShowReviews reviews={reviews} gig={gig} />
                 </section>
                 <Packages gig={gig} />
             </section>

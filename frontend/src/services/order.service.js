@@ -55,7 +55,7 @@ function getCurrOrder(gig) {
     const loggedInUser = userService.getLoggedInUser()
 
     return {
-        buyer: loggedInUser && !Object.keys(loggedInUser).length ? loggedInUser : guest,
+        buyer: loggedInUser ? loggedInUser : guest,
         seller: gig.owner,
         gig: {
             _id: gig._id,
@@ -66,7 +66,8 @@ function getCurrOrder(gig) {
             daysToMake: gig.daysToMake
         },
         status: 'Pending',
-        extras: gig.extras
+        extras: gig.extras,
+        currDate:new Date,
     }
 }
 

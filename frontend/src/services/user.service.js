@@ -1,5 +1,6 @@
 import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
+import { utilService } from './util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -14,7 +15,8 @@ export const userService = {
     remove,
     update,
     changeScore,
-    demoUser
+    demoUser,
+    calculateAnnualRevenue,
 }
 
 window.userService = userService
@@ -88,24 +90,24 @@ function getLoggedInUser() {
 }
 
 
-(async () => {
-    await userService.signup({ fullname: 'Puki Norma', username: 'puki', password: '123', score: 10000, isAdmin: false })
-    await userService.signup({ fullname: 'Master Adminov', username: 'admin', password: '123', score: 10000, isAdmin: true })
-    await userService.signup({ fullname: 'Muki G', username: 'muki', password: '123', score: 10000 })
-})()
-
+// (async () => {
+//     await userService.signup({ fullname: 'Puki Norma', username: 'puki', password: '123', score: 10000, isAdmin: false })
+//     await userService.signup({ fullname: 'Master Adminov', username: 'admin', password: '123', score: 10000, isAdmin: true })
+//     await userService.signup({ fullname: 'Muki G', username: 'muki', password: '123', score: 10000 })
+// })()
 
 
 function demoUser() {
     return {
 
-        fullname: "frederickkessie",
+        fullname: "fredericK",
+
         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
         level: "basic/premium",
         rating: {
             average: "4.9",
             num: 178,
-            rate:2
+            rate: 2
         },
         country: "Ghana",
         description: "Hello ! Much obliged for visiting my gig :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
@@ -119,6 +121,7 @@ function demoUser() {
         likedByUsers: [
             "mini-user"
         ],
+        sellerStats: _generateSellerStats(),
         reviews: [
             {
                 name: "tobiaspille300",
@@ -157,5 +160,37 @@ function demoUser() {
             }
         ]
     }
+}
+
+function calculateAnnualRevenue(monthlyRevenue) {
+    const annualRevenue = monthlyRevenue.reduce(
+        (totalRevenue, { revenue }) => totalRevenue + revenue,
+         0)
+
+    return annualRevenue
+}
+
+function _generateSellerStats() {
+    const sellerStats = {
+        balance: 96543,
+        revenue: [],
+    }
+
+    const currentYear = new Date().getFullYear()
+
+    for (let year = currentYear - 2; year <= currentYear; year++) {
+        const revenue = []
+
+
+        for (let month = 0; month < 12; month++) {
+            const monthName = new Date(year, month).toLocaleString('en-US', { month: 'long' });
+            const randomRevenue = utilService.getRandomIntInclusive(500, 1000)
+            revenue.push({ month: monthName, revenue: randomRevenue })
+        }
+
+        sellerStats.revenue.push({ year: year, monthRevenue: revenue })
+    }
+
+    return sellerStats
 }
 
