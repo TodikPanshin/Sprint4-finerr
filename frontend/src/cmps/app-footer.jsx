@@ -7,23 +7,12 @@ import { removeFromCart, checkout } from '../store/gig.actions'
 import { UserMsg } from './user-msg.jsx'
 
 export function AppFooter() {
-    const [isCartShown, setIsCartShown] = useState(false)
-    // const cart = useSelector(storeState => storeState.gigModule.cart)
-    // const count = useSelector(storeState => storeState.userModule.count)
-    // // const cartTotal = cart.reduce((acc, gig) => acc + gig.price, 0)
-
-    // async function onCheckout() {
-    //     try {
-    //         const score = await checkout(cartTotal)
-    //         showSuccessMsg(`Charged, your new score: ${score.toLocaleString()}`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot checkout')
-    //     }
-    // }
-
     return (
-        <footer className="app-footer">
-           
-        </footer>
+        <>
+            <footer className="app-footer flex align-center">
+                <div className='logo flex align-center'>finerr<span>®</span></div>
+                <span className='flex align-center'>© Finerr International Ltd. 2023</span>
+            </footer>
+        </>
     )
 }

@@ -92,6 +92,10 @@
         flex-grow: 1;
         max-width: 40rem;
 
+        @include for-mobile-layout {
+            margin-block-start: 20px;
+        }
+
         form {
             display: flex;
             flex-direction: row;
@@ -268,6 +272,8 @@
                 background-color: rgb(255, 255, 255);
                 padding: 5px 15px;
                 z-index: 10;
+
+
 
 
                 button,

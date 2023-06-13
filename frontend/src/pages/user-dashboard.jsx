@@ -34,7 +34,7 @@ export function UserDashBoard() {
     }
 
 
-    if (!user) return <div>Loading...</div>
+    if (!user&&!orders) return <div>Loading...</div>
     return (
         <section className='user-dashboard main-layout  full '>
             <div className='user-dashboard-container'>

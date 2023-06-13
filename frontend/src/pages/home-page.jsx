@@ -3,6 +3,7 @@ import { SearchBox } from '../cmps/search-box'
 import { HomeCategories } from '../cmps/home-categories'
 import { useNavigate } from 'react-router-dom'
 import { setFilterBy } from '../store/gig.actions'
+import { AppFooter } from '../cmps/app-footer'
 
 const hero_URLs = [
     "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/1b6990afe0934244dda2c9aeed5de8d9-1674663021930/bg-hero-6-1792-x1.png",
