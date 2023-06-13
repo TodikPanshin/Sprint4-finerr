@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 
 
 export function OrderPreview({ order, handleUpdateOrder }) {
-   console.log('order testsssssss',order)
+    // console.log('order testsssssss', order)
     const currency = 'US$'
     const serviceFee = 10
     const extraFastPrice = 50
@@ -15,7 +15,9 @@ export function OrderPreview({ order, handleUpdateOrder }) {
 
 
     function onToggleMenu() {
-        setIsOpen((isOpen) => !isOpen)
+        if (orderStatus.toLowerCase() !== "completed") {
+            setIsOpen((isOpen) => !isOpen)
+        }
     }
 
     function handleChange(value) {
@@ -40,7 +42,9 @@ export function OrderPreview({ order, handleUpdateOrder }) {
         }
     }, [])
 
-    const availableStatusOptions = ["Pending", "Approved", "Declined",'Completed'].filter((status) => status !== orderStatus)
+    const availableStatusOptions = ["Pending", "Approved", "Declined", "Completed"].filter(
+        (status) => status.toLowerCase() !== orderStatus.toLowerCase()
+    )
 
 
     return (
@@ -55,18 +59,18 @@ export function OrderPreview({ order, handleUpdateOrder }) {
             </div>
             <div className="order-preview-order-date">
                 <p>Order Date</p>
-                <span>{order.currDate}</span>
+                <span>{new Date(order.currDate).toLocaleString()}</span>
             </div>
             <div className="floating-menu order-status">
                 <div className={`menu-button ${isOpen.sellerDetails ? 'active' : ''} ${orderStatus.toLowerCase()}`}
-                    onClick={() => onToggleMenu()}>{orderStatus}
+                    onClick={() => onToggleMenu()}>{orderStatus.toUpperCase()}
                 </div>
                 {isOpen && <div className="outside" onClick={onToggleMenu}></div>}
                 <div className={`menu-content ${isOpen ? "open" : ""}`}>
                     <div className="menu-items column">
                         {availableStatusOptions.map((status) => (
-                            <button key={status} className={`btn-${status}`} onClick={() => handleChange(status.toLowerCase())}>
-                                {status}
+                            <button key={status} className={`btn ${status.toLowerCase()}`} onClick={() => handleChange(status.toLowerCase())}>
+                                {status.toUpperCase()}
                             </button>
                         ))}
                     </div>
