@@ -8,7 +8,9 @@
     }
 
     .dashboard-content {
-
+        h1{
+            font-size: rem(25px);
+        }
 
         >* {
             border: 1px solid $clr-border;

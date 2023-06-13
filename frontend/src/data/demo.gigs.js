@@ -2821,8 +2821,8 @@ export const demoOrders = [
   
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "Sara g",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/c1609c155888364a14ca768ccf0a8725-1381927981674205884.782265/0CDF2C4C-1BEF-4A38-AF76-FDAB716FE418",
             "_id": "fncmj3"
         },
         "seller": {
@@ -2856,8 +2856,8 @@ export const demoOrders = [
     },
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "Carlos R",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/6003af3a01238b3d321d89b14a9c8a10-1620522952667/c464344f-c65b-4ece-a84c-66dfdaa6649e.jpg",
             "_id": "D4LPWe"
         },
         "seller": {
@@ -2891,8 +2891,8 @@ export const demoOrders = [
     },
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "Sonya K",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/36d6abf4f2e50f496ddf78c3b87bc270-1575807637801/8aa29cb6-b882-49c6-b678-8b9910a38390.jpg",
             "_id": "14vTKS"
         },
         "seller": {
@@ -2926,8 +2926,8 @@ export const demoOrders = [
     },
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "Sam S",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/8f165f8f9de100432f540fa332f30ac7-1677192777787/b1c8725f-81be-4b71-9251-ee811568b19d.png",
             "_id": "2mh8gW"
         },
         "seller": {
@@ -2961,8 +2961,8 @@ export const demoOrders = [
     },
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "Samanta B",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4c8ec4c56653200b4fcfdfbac7664f4b-1675783827454/0dbf1ba6-25b7-41e4-ba1f-b322f1633f58.jpg",
             "_id": "UOinKq"
         },
         "seller": {
@@ -2996,8 +2996,8 @@ export const demoOrders = [
     },
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "Emily K",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5de34eebdf54388e9df02828a083b71f-1674743731479/879e3cb8-a3ef-43ef-8cb1-d72375dbf2fb.jpg",
             "_id": "d1eUMV"
         },
         "seller": {
@@ -3031,8 +3031,8 @@ export const demoOrders = [
     },
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "Rayen H",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/50bada090e70e02a1c60c6346cb20301-1659207086950/a41ae7fe-b85e-4491-b7ef-653c8902e6f4.png",
             "_id": "mqONUo"
         },
         "seller": {
@@ -3066,8 +3066,8 @@ export const demoOrders = [
     },
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "David B",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/profile/photos/21609314/original/10898004_722065514576448_8310283468063341860_n.jpg",
             "_id": "Txlk3G"
         },
         "seller": {
@@ -3137,8 +3137,8 @@ export const demoOrders = [
     },
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "Shlomo B",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/276e095733419ec574e17e99a9240ea3-1652204555345/848f0643-f3c8-42c3-9cf4-34069fc9825e.jpg",
             "_id": "lz5CB7"
         },
         "seller": {
@@ -3265,8 +3265,8 @@ export const demoOrders = [
     },
     {
         "buyer": {
-            "fullname": "guest",
-            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "fullname": "Malcum F",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/ee9ac5e87f77c452775e7606a820fed8-1602772656415/7b106939-6100-499b-a09a-b60c78d7716a.jpg",
             "_id": "ZMzM6b"
         },
         "seller": {
