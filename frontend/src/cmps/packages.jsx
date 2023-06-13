@@ -3,12 +3,12 @@ import { orderService } from "../services/order.service"
 import { toggleDrawer } from '../store/system.actions'
 import { addCurrOrder } from '../store/order.actions'
 import { PackagesFeatures } from "./packages-features"
-import{ReactComponent as DeliveryIcon } from '../assets/img/delivery.svg'
-import{ReactComponent as RevisionsIcon } from '../assets/img/revision.svg'
+import { ReactComponent as DeliveryIcon } from '../assets/img/delivery.svg'
+import { ReactComponent as RevisionsIcon } from '../assets/img/revision.svg'
 
 
 
-export function Packages({ gig }) {
+export function Packages({ gig, inView }) {
     const [selected, setSelected] = useState(1)
 
     function onToggleLabel({ target }) {
@@ -19,21 +19,21 @@ export function Packages({ gig }) {
         if (focused.includes('premium')) setSelected(3)
     }
 
-    
-    
 
 
-    function onToggleDrawer(){
+
+
+    function onToggleDrawer() {
         console.log(`Adding ${gig._id} to Cart`)
         toggleDrawer(true)
         gig.extras.packageSelected = selected
-        addCurrOrder(gig) 
+        addCurrOrder(gig)
     }
 
-    
+
 
     return (
-        <section className="packages-container">
+        <section className={`packages-container ${inView ? '' : 'sticky'}`}>
             <div className="labels-container">
                 <label onClick={onToggleLabel} className={`basic-${selected}`}>Basic</label>
                 <label onClick={onToggleLabel} className={`standard-${selected}`}>Standard</label>
@@ -51,18 +51,18 @@ export function Packages({ gig }) {
                     <div className="packages-additional-info flex">
                         <div className="packages-delivery flex align-center ">
                             <span className="delivery-icon margin-inline-end-8" aria-hidden="true" style={{ width: '16px', height: '16px', fill: '#62646a' }}>
-                                {<DeliveryIcon/>}
+                                {<DeliveryIcon />}
                             </span>
-                            <p>{gig.daysToMake* selected} Days Delivery</p>
+                            <p>{gig.daysToMake * selected} Days Delivery</p>
                         </div>
                         <div className="packages-revisions flex align-center ">
                             <span className="revisions-icon margin-inline-end-8" aria-hidden="true" style={{ width: '16px', height: '16px', fill: '#62646a' }}>
-                                <RevisionsIcon/>
+                                <RevisionsIcon />
                             </span>
                             <p>Unlimited Revisions</p>
                         </div>
                     </div>
-                    <PackagesFeatures gig={gig}/>
+                    <PackagesFeatures gig={gig} />
                 </article>
                 <footer className="packages-footer">
                     <button onClick={onToggleDrawer}>Continue <span>→</span></button>

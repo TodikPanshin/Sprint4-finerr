@@ -61,13 +61,18 @@
         }
 
         .white-dot {
-            bottom: 53%;
-            left: 15%;
-            width: 10px;
-            height: 10px;
-            background-color: rgb(255, 255, 255);
             position: absolute;
+            bottom: 55%;
+            left: 15%;
+            width: 7px;
+            height: 7px;
+            background-color: rgb(255, 255, 255);
             z-index: 1;
+
+            @media (max-width: 600px) {
+                bottom: 61%;
+                left: 15%;
+            }
         }
 
         .dot {
