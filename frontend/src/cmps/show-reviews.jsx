@@ -17,7 +17,8 @@ export function ShowReviews({ reviews, gig }) {
         ]
 
         reviews.forEach((review) => {
-            const { rate } = review
+            // const { rate } = review
+            const rate = review.rate ? review.rate : (Math.random() * (5 - 4) + 4).toFixed(1)
             const roundedRate = Math.round(rate)
             const starCount = starCounts.find((starCounter) => starCounter.rating === roundedRate)
             if (starCount) {

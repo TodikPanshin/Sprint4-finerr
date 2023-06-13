@@ -3,13 +3,13 @@
 
 
     >* {
-        
+
         margin-block-start: 20px;
     }
 
     .dashboard-content {
 
-        
+
         >* {
             border: 1px solid $clr-border;
             width: auto;
@@ -17,7 +17,14 @@
             background-color: $clr1;
             height: rem(350px);
             text-align: center;
-            min-width: rem(400px);
+
+            @include for-normal-layout {
+                min-width: rem(400px);
+            }
+
+            @include for-first-break-layout {
+                height: auto;
+            }
 
             .dashboard-funds {
                 border: 1px solid $clr-border;
@@ -40,6 +47,6 @@
         @include for-normal-layout {
             flex-direction: row;
         }
-    
+
     }
 }

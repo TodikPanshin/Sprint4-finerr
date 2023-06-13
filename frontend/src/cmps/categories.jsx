@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export function Categories({ categories, handleCategoryFilter, inView, isHome }) {
 
-    const [isRight, setIsRight] = useState(true)
+    const [isRight, setIsRight] = useState(false)
     
     function onSwipeCategories() {
         setIsRight(!isRight)

@@ -20,6 +20,7 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { useInView } from 'react-intersection-observer'
 library.add(faPaperPlane)
 
 
@@ -86,6 +87,9 @@ export function GigDetails() {
     const { id } = useParams()
     const navigate = useNavigate()
 
+    const { ref, inView } = useInView({
+        rootMargin: '-20px 0px'
+    })
 
     useEffect(() => {
         loadGig()
@@ -196,7 +200,8 @@ export function GigDetails() {
                         </>
                     )}
                 </section>
-                <Packages gig={gig} />
+                <div className='intersection-ref' ref={ref}></div>
+                <Packages gig={gig} inView={inView}/>
                 {openModal &&
                     <aside className='inbox-msg flex column'>
                         <div className='flex details-area'>
@@ -225,4 +230,3 @@ export function GigDetails() {
         </>
     )
 }
-

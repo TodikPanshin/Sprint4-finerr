@@ -20,7 +20,7 @@ export function ReviewsPreview({ review }) {
           </div>
         </div>
         <p>{review.review.slice(0, charNum) + ' ...'}</p>
-        <p>1 day ago</p>
+        <p>{review.reviewedAt}</p>
       </div>
     </li>
   )

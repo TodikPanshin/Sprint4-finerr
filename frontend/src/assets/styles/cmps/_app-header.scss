@@ -61,13 +61,18 @@
         }
 
         .white-dot {
-            bottom: 53%;
-            left: 15%;
-            width: 10px;
-            height: 10px;
-            background-color: rgb(255, 255, 255);
             position: absolute;
+            bottom: 55%;
+            left: 15%;
+            width: 7px;
+            height: 7px;
+            background-color: rgb(255, 255, 255);
             z-index: 1;
+
+            @media (max-width: 600px) {
+                bottom: 61%;
+                left: 15%;
+            }
         }
 
         .dot {
@@ -77,9 +82,16 @@
 
     }
 
+    @media (max-width: 600px) {
+        display: block;    
+    }
+    
     .search-box {
         flex-grow: 1;
         max-width: 40rem;
+        @include for-mobile-layout{
+            margin-block-start:20px;
+        }
 
         form {
             display: flex;
@@ -165,116 +177,121 @@
     }
 
     nav {
-        position: relative;
-        margin-left: auto;
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-        justify-content: space-between;
-        padding: 0;
-        caret-color: transparent;
+        display: none;
+    }
 
-        a {
-            margin-inline: .75rem;
-
-            &:hover {
-                color: $clr-btn-hov;
-                transition: .5s;
-            }
-
-            &.active {
-                text-decoration: none;
-            }
-
-        }
-
-        img {
-            position: absolute;
-            translate: -100% -65%;
-            width: 30px;
-            margin-left: 1rem;
-        }
-
-        button {
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
-            background-color: transparent;
-            padding: 0;
-            margin: 0 0.75rem;
-
-            &:hover {
-                color: $clr-btn-hov;
-                transition: .5s;
-            }
-
-            &:last-child {
-                font-size: 0.875rem;
-                line-height: 0.875rem;
-                color: $clr-btn-hov;
-                border: 1px solid $clr-hov;
-                border-radius: 4px;
-                padding: 10px 16px;
-                margin-right: 0;
-
-                &:hover {
-                    background-color: $clr-hov;
-                    color: white;
-                    transition: .5s;
-                }
-            }
-        }
-
-        .user-info button {
-            border: 0;
-
-            img {
-                border-radius: 50%;
-                height: 100%;
-                aspect-ratio: 1;
-                object-fit: cover;
-            }
-
-            &:hover {
-                background-color: transparent;
-                border: 0;
-            }
-        }
-
-        .profile-bar {
-            position: absolute;
+    @media (min-width: 900px) {
+        nav {
+            position: relative;
+            margin-left: auto;
             display: flex;
-            flex-direction: column;
-            top: 2rem;
-            right: -2rem;
-            translate: -2rem;
-            border: 1px solid rgba(175, 175, 175, 0.5);
-            background-color: rgb(255, 255, 255);
-            padding: 5px 15px;
-            z-index: 10;
-
-
-            button,
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: 0;
+            caret-color: transparent;
+    
             a {
-                border: 0;
-                padding-block: 5px;
-                padding-inline: 0;
-                margin: 0;
-                text-align: left;
-                font-size: inherit;
-                font-weight: inherit;
-                color: inherit;
-                width: auto;
-
+                margin-inline: .75rem;
+    
                 &:hover {
-                    background-color: transparent;
                     color: $clr-btn-hov;
                     transition: .5s;
+                }
+    
+                &.active {
+                    text-decoration: none;
+                }
+    
+            }
+    
+            img {
+                position: absolute;
+                translate: -100% -65%;
+                width: 30px;
+                margin-left: 1rem;
+            }
+    
+            button {
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                background-color: transparent;
+                padding: 0;
+                margin: 0 0.75rem;
+    
+                &:hover {
+                    color: $clr-btn-hov;
+                    transition: .5s;
+                }
+    
+                &:last-child {
+                    font-size: 0.875rem;
+                    line-height: 0.875rem;
+                    color: $clr-btn-hov;
+                    border: 1px solid $clr-hov;
+                    border-radius: 4px;
+                    padding: 10px 16px;
+                    margin-right: 0;
+    
+                    &:hover {
+                        background-color: $clr-hov;
+                        color: white;
+                        transition: .5s;
+                    }
+                }
+            }
+    
+            .user-info button {
+                border: 0;
+    
+                img {
+                    border-radius: 50%;
+                    height: 100%;
+                    aspect-ratio: 1;
+                    object-fit: cover;
+                }
+    
+                &:hover {
+                    background-color: transparent;
+                    border: 0;
+                }
+            }
+    
+            .profile-bar {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                top: 2rem;
+                right: -2rem;
+                translate: -2rem;
+                border: 1px solid rgba(175, 175, 175, 0.5);
+                background-color: rgb(255, 255, 255);
+                padding: 5px 15px;
+                z-index: 10;
+    
+    
+                button,
+                a {
+                    border: 0;
+                    padding-block: 5px;
+                    padding-inline: 0;
+                    margin: 0;
+                    text-align: left;
+                    font-size: inherit;
+                    font-weight: inherit;
+                    color: inherit;
+                    width: auto;
+    
+                    &:hover {
+                        background-color: transparent;
+                        color: $clr-btn-hov;
+                        transition: .5s;
+                    }
                 }
             }
         }
     }
-
 
     &.is-home {
         background-color: transparent;
@@ -342,4 +359,227 @@
         }
 
     }
+<<<<<<< HEAD
+=======
+}
+
+
+.categories {
+    position: relative;
+    margin-top: 0;
+    border: solid rgba(0, 0, 0, 0.1) 0.2px;
+    border-inline: 0;
+    opacity: 0;
+    height: 0;
+    pointer-events: none;
+    // padding: .1rem;
+    caret-color: transparent;
+    background-color: white;
+
+
+    .categories-list {
+        // position: absolute;
+        padding: 0;
+        margin: 0;
+        color: #242424;
+        font-weight: 600;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        justify-content: flex-start;
+        max-width: 100%;
+        gap: 3rem;
+        white-space: nowrap;
+        overflow: hidden;
+
+        &.right {
+            justify-content: flex-end;
+            transition: 1s;
+        }
+
+        .swipe-categories-btn {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 1450px) {
+            .swipe-categories-btn {
+                position: absolute;
+                opacity: 1;
+                pointer-events: all;
+                width: 1rem;
+                right: 2rem;
+                top: .5rem;
+                border-radius: 50%;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, .7);
+                cursor: pointer;
+
+                &.left {
+                    top: .3rem;
+                    left: 2rem;
+                    rotate: 180deg;
+                }
+            }
+        }
+
+        .category {
+            cursor: pointer;
+            padding: .4rem;
+            caret-color: transparent;
+
+            &:hover {
+                box-shadow: 0px -3px 0px 0px rgba(27, 173, 54, 1) inset;
+            }
+
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &.hidden {
+        opacity: 0;
+        transition: .5s;
+    }
+
+    &.sticky-categories {
+        top: 5rem;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+        opacity: 1;
+        transition: opacity .4s ease-in .2s;
+    }
+}
+
+@media (min-width: 600px) {
+    .categories {
+        opacity: 1;
+        height: auto;
+        pointer-events: all;
+    }
+}
+
+.blur-background {
+    background-color: rgba(0, 0, 0, .8);
+    position: absolute;
+    width: 100%;
+    height: 1000%;
+    z-index: 500;
+}
+
+.sign-up {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0.75rem;
+    left: 50%;
+    translate: -50%;
+    width: 890px;
+    height: 520px;
+    background-color: white;
+    box-shadow: 1px 0px 4px 1px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+
+
+    .sign-up-modal {
+        height: 100%;
+
+
+        .sign-up-dezine {
+            border-bottom-left-radius: 0.75rem;
+            border-top-left-radius: 0.75rem;
+            position: relative;
+            background-image: url("https://fiverr-res.cloudinary.com/npm-assets/layout-server/standard.c6d3ba7.png");
+            background-size: cover;
+            flex-basis: 50%;
+            height: 100%;
+
+            .sign-up-dezine-txt {
+                color: $clr1;
+                margin: 54px 0 0 40px;
+                position: absolute;
+                width: calc(100% - 40px);
+
+                h2 {
+                    font-size: 2rem;
+                    margin-bottom: 0;
+                    color: $clr1;
+                }
+
+                ul {
+                    font-weight: 200;
+                    margin-top: 1.6rem;
+
+                    li {
+                        align-items: baseline;
+                        max-width: 22rem;
+                        font-size: 18px;
+                        line-height: 26px;
+                        margin-bottom: 1rem;
+
+                        p {
+                            margin-left: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sign-up-content {
+            flex-basis: 50%;
+            display: grid;
+            grid-template-columns: 2.5rem 1fr 2.5rem;
+            grid-auto-rows: max-content;
+
+            >* {
+                grid-column: 2;
+            }
+
+            .cancel-sign-up {
+                grid-column: 3;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+
+            .txt-display-1 {
+                margin-top: 4.4rem;
+                margin-bottom: 1.5;
+                font-size: 1.5rem;
+                color: $clr-btn-search;
+            }
+
+            .txt-display-2 {
+                margin-top: 1rem;
+                font-weight: 300;
+                color: $clr-font;
+            }
+
+            .inbox {
+                height: 2.5rem;
+                width: 100%;
+                background-color: #e8f0fe;
+                border: 1px solid gray;
+                border-radius: 4px;
+                padding: 10px;
+            }
+
+            .submit-signin,
+            .submit-signup {
+                margin-top: 4rem;
+                color: white;
+                height: 2.5rem;
+                width: 100%;
+                background-color: #000;
+                border: 1px solid gray;
+                border-radius: 4px;
+                padding: 10px;
+            }
+        }
+
+    }
+>>>>>>> f73bfffb19f8a45787d56b8698546aeb82b7ac20
 }

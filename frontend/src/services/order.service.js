@@ -21,6 +21,8 @@ export const orderService = {
     getEmptyCard,
 }
 
+_createDemoOrder()
+
 async function query() {
     var orders = await storageService.query(ORDER_STORAGE_KEY)
 

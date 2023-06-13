@@ -1,8 +1,11 @@
 .main-layout {
   display: grid;
   @include layoutGTC($wide-breakpoint);
-  // align-items: start;
-  // why is this here?
+  
+  @include for-mobile-layout{
+    display: flex;
+    flex-direction:column;
+  }
 
   &.app {
     min-height: 100vh;
@@ -62,6 +65,11 @@
     >* {
       margin-block: rem(20px);
     }
+    @include for-first-break-layout {
+      >*{
+        margin-block:0;
+      }
+    }
   }
 
   @include for-first-break-layout {
@@ -85,4 +93,3 @@
   }
 
 }
-

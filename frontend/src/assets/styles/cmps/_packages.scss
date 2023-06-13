@@ -1,8 +1,15 @@
 .packages-container {
+    position: relative;
     border: 1px solid $clr-border;
     height: 30rem;
     width: 33.6%;
     padding: 0;
+
+    &.sticky {
+        position: sticky;
+        top: 1rem;
+        right: 0;
+    }
 
     h3 {
         margin: 0;
