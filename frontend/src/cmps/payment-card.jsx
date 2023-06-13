@@ -2,17 +2,13 @@ import { ReactComponent as CreditCard } from '../assets/img/credit-card.svg'
 import { useForm } from "../customHooks/useForm";
 import { orderService } from "../services/order.service"
 
-export function PaymentCard({ onSetCardDetails}) {
+export function PaymentCard({ onSetCardDetails }) {
     const [cardDetailsForm, setCardDetailsForm, handleChange] = useForm(orderService.getEmptyCard(), onSetCardDetails)
-
-
 
     function onSubmitCard(ev) {
         ev.preventDefault()
         onSetCardDetails(cardDetailsForm)
     }
-
-
 
     const cardIcon = <CreditCard />
 
@@ -31,7 +27,8 @@ export function PaymentCard({ onSetCardDetails}) {
                         id="cardNumber"
                         value={cardDetailsForm.cardNumber}
                         onChange={handleChange}
-                        placeholder={`    0000 0000 0000 0000`}
+                        // placeholder={`    0000 0000 0000 0000`}
+                        placeholder='       4580 0303 1274 8999'
                         pattern="[0-9]{4}\D*[0-9]{4}\D*[0-9]{4}\D*[0-9]{4}"
                         required
                     />
@@ -45,7 +42,8 @@ export function PaymentCard({ onSetCardDetails}) {
                             id="expiryDate"
                             value={cardDetailsForm.expiryDate}
                             onChange={handleChange}
-                            placeholder="MM/YY"
+                            // placeholder="MM/YY"
+                            placeholder='01/28'
                             pattern="(0[1-9]|1[0-2])\/([0-9]{2})"
                             required
                         />
@@ -56,6 +54,7 @@ export function PaymentCard({ onSetCardDetails}) {
                             type="number"
                             name="SecurityCode"
                             id="Security code"
+                            placeholder='465'
                             value={cardDetailsForm.SecurityCode}
                             onChange={handleChange}
                             required
@@ -69,6 +68,7 @@ export function PaymentCard({ onSetCardDetails}) {
                             type="text"
                             name="firstName"
                             id="first-name"
+                            placeholder='Boaz'
                             value={cardDetailsForm.firstName}
                             onChange={handleChange}
                             required
@@ -80,6 +80,7 @@ export function PaymentCard({ onSetCardDetails}) {
                             type="text"
                             name="lastName"
                             id="last-name"
+                            placeholder='Hendel'
                             value={cardDetailsForm.lastName}
                             onChange={handleChange}
                             required

@@ -62,8 +62,6 @@ async function login(userCred) {
 async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     const user = await storageService.post('user', userCred)
-    if (!user) console.log('+++++++++');
-    console.log('user:', user)
     //const user = await httpService.post('auth/signup', userCred)
     return saveLocalUser(user)
 }
@@ -82,7 +80,7 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score }
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -167,7 +165,7 @@ function demoUser() {
 function calculateAnnualRevenue(monthlyRevenue) {
     const annualRevenue = monthlyRevenue.reduce(
         (totalRevenue, { revenue }) => totalRevenue + revenue,
-         0)
+        0)
 
     return annualRevenue
 }
