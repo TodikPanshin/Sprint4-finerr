@@ -1,11 +1,15 @@
 .user-msg {
-    color:white;
-    padding: 10px;
-    font-size: 1.4em;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 199px;
+    width: 400px;
+    background-color: #fff;
     position: fixed;
-    top:0;
-    right:0;
-    background-color: grey;
+    inset-inline-end: 100px;
+    inset-block-start: 105px;
+     right: -480px; 
+    transition: right 0.3s ease-in-out;
 }
 .user-msg button {
     float:right;
@@ -15,9 +19,9 @@
     background-color: #222;
 }
 
-.user-msg.success {
-    background-color: rgb(41, 189, 73);
-}
-.user-msg.error {
-    background-color: rgb(216, 59, 59);
-}
+// .user-msg.success {
+//     background-color: rgb(41, 189, 73);
+// }
+// .user-msg.error {
+//     background-color: rgb(216, 59, 59);
+// }

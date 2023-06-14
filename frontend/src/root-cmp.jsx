@@ -8,6 +8,7 @@ import { AppFooter } from './cmps/app-footer'
 import { UserDetails } from './pages/user-details'
 import { GigDetails } from './pages/gig-details'
 import { UserDashBoard } from './pages/user-dashboard'
+import { UserMsg } from './cmps/user-msg'
 
 
 export function RootCmp() {
@@ -23,6 +24,7 @@ export function RootCmp() {
                     <Route path="gig/:id" element={<GigDetails />} />
                 </Routes>
             </main>
+            <UserMsg/>
             <AppFooter />
         </section>
     )

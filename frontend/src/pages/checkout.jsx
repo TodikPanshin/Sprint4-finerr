@@ -2,10 +2,10 @@ import { orderService } from "../services/order.service"
 import { PaymentCard } from "../cmps/payment-card";
 import { PaymentDetails } from "../cmps/payment-details";
 import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { addOrder, removeCurrOrder } from "../store/order.actions";
-
+import { showSuccessMsg } from "../services/event-bus.service.js"
 
 
 export function Checkout() {
@@ -19,15 +19,18 @@ export function Checkout() {
   }
 
   function onCheckout(ev) {
-    ev.preventDefault()
-    setCardDetails(orderService.getEmptyCard)
+  ev.preventDefault()
+  setCardDetails(orderService.getEmptyCard)
 
-    addOrder(currOrder)
-      .then(removeCurrOrder())
-      .then(navigate('/gig'))
-      .catch(err => {
-        console.log("cannot save order:", err)
-      })
+  addOrder(currOrder)
+    .then(() => {
+      showSuccessMsg(`Your order has been added ${currOrder.buyer.fullname}`)
+      removeCurrOrder()
+      navigate('/gig') 
+    })
+    .catch((err) => {
+      console.log("Cannot save order:", err)
+    })
   }
 
 
