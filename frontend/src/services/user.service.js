@@ -88,10 +88,9 @@ function getLoggedInUser() {
 //     await userService.signup({ fullname: 'Nadav', username: 'nadav', password: '123', isAdmin: true })
 // })()
 
-
 function demoUser() {
     return {
-
+        isSeller: true,
         fullname: "jeff G",
 
         imgUrl: "https://akns-images.eonline.com/eol_images/Entire_Site/2020910/rs_1200x1200-201010110427-1200-jeff-goldblum.cm.101020.jpg?fit=around%7C1200:1200&output-quality=90&crop=1200:1200;center,top",

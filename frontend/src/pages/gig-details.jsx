@@ -11,11 +11,13 @@ import { OrderDrawer } from '../cmps/order-drawer.jsx'
 import { SellerDetails } from '../cmps/seller-details.jsx'
 import { SellerCard } from '../cmps/seller-card.jsx'
 import { ShowReviews } from '../cmps/show-reviews.jsx'
+import { Massage } from '../cmps/massage.jsx'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 
 import { useInView } from 'react-intersection-observer'
+
 
 
 
@@ -104,7 +106,7 @@ export function GigDetails() {
             const gig = await gigService.getById(id)
             setGig(gig)
             setGigLoaded(true)
-            console.log(gig)
+            // console.log(gig)
             if (gig.reviews) setReviews(addReviewsRate(gig.reviews))
         } catch (err) {
             console.log('Had issues in gig details', err)
@@ -129,20 +131,12 @@ export function GigDetails() {
         setShowBuyerMsg(true)
     }
 
-    // SOCKETS
-
-    function onSendMsg(ev) {
-        ev.preventDefault()
-        console.log(ev.target[0].value)
-    }
-
-
-
+    
     if (!gig || gig.length) return <div className="container">
         <div className="flex-wrapper"><div className="loader"></div></div></div>
 
     const isOnline = gig.owner.isOnline
-console.log('reviews test',reviews)
+    // console.log('reviews test', reviews)
     return (
         <>
 
@@ -205,30 +199,7 @@ console.log('reviews test',reviews)
                 </section>
                 <div className='intersection-ref' ref={ref}></div>
                 <Packages gig={gig} inView={inView} />
-                {openModal &&
-                    <aside className='inbox-msg flex column'>
-                        <div className='flex details-area'>
-                            <img src={`${gig.owner.imgUrl}`} alt="" className='owner-img' />
-                            <div className="background-dot">
-                                <div className={`point ${isOnline ? 'isOnline' : ''}`}></div>
-                            </div>
-
-                            <div className='owner-details flex column'>
-                                <div className='owner-name'>Message {gig.owner.fullname}</div>
-                                {!isOnline && <div className='response-time'>Away • Avg. response time: <span> 1 Hour </span></div>}
-                                {isOnline && <div className='response-time'>Online • Avg. response time: <span> 1 Hour </span></div>}
-                            </div>
-                        </div>
-                        <div onClick={onCloseModal} className='close'>X</div>
-                        <form action="" onSubmit={onSendMsg}>
-                            <textarea name="msg" id="msg" cols="30" rows="10" maxLength="2500" placeholder={`Ask ${gig.owner.fullname} a question or share your project details (requirements, timeline, budget, etc.)`}></textarea>
-                            {/* <p>Use at least 40 characters</p> */}
-                            <button className='send-msg flex'>
-                                <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#ffffff" }} />
-                                <p> Send Message </p></button>
-                        </form>
-                    </aside>
-                }
+                {openModal && <Massage gig={gig} onCloseModal={onCloseModal} isOnline={isOnline} FontAwesomeIcon={FontAwesomeIcon} faPaperPlane={faPaperPlane}/>}
             </section>
         </>
     )
