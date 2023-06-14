@@ -24,14 +24,14 @@ export function UserDashBoard() {
 
     useEffect(() => {
         socketService.on(SOCKET_EVENT_ORDER_GIG, onNewOrder)
-        userService.signup(user)
+        // userService.signup(user)
         // loadSellerOrders(user)
         loadOrders()
     }, [])
 
     function onNewOrder() {
         setIsNewOrder(true)
-
+        loadOrders()
     }
 
     function loadSellerOrders(user) {

@@ -92,8 +92,8 @@ function demoUser() {
     return {
         isSeller: true,
         fullname: "jeff G",
-
-        imgUrl: "https://akns-images.eonline.com/eol_images/Entire_Site/2020910/rs_1200x1200-201010110427-1200-jeff-goldblum.cm.101020.jpg?fit=around%7C1200:1200&output-quality=90&crop=1200:1200;center,top",
+        _id: "6489c2c8cf5c1248e8e898b3",
+        imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/b8961b70910fee5fe1bd4c5b443d861c-1677725352296/9c9ef22e-c043-47e5-9933-cc0f9e1470e8.png",
         level: "basic/premium",
         rating: {
             average: "4.9",
