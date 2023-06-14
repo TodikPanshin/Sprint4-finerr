@@ -138,7 +138,8 @@ export function GigDetails() {
 
 
 
-    if (!gig || gig.length) return <div>Loading...</div>
+    if (!gig || gig.length) return <div className="container">
+        <div className="flex-wrapper"><div className="loader"></div></div></div>
 
     const isOnline = gig.owner.isOnline
 console.log('reviews test',reviews)
