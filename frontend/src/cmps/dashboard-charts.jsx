@@ -6,7 +6,7 @@ import { Doughnut } from 'react-chartjs-2'
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 export function DashboardCharts({ orders }) {
-  console.log('test orders dashboard', orders)
+  // console.log('test orders dashboard', orders)
   function reduceOrderStatus(orders) {
     const statusCounts = orders.reduce((statusCounts, order) => {
       const { status } = order;

@@ -83,9 +83,9 @@ function getLoggedInUser() {
 
 
 // (async () => {
-    // await userService.signup({ fullname: 'Yoni', username: 'yoni', password: '123', isAdmin: true })
-    // await userService.signup({ fullname: 'Todik', username: 'todik', password: '123', isAdmin: true })
-    // await userService.signup({ fullname: 'Nadav', username: 'nadav', password: '123', isAdmin: true })
+//     await userService.signup({ fullname: 'Yoni', username: 'yoni', password: '123', isAdmin: true })
+//     await userService.signup({ fullname: 'Todik', username: 'todik', password: '123', isAdmin: true })
+//     await userService.signup({ fullname: 'Nadav', username: 'nadav', password: '123', isAdmin: true })
 // })()
 
 function demoUser() {

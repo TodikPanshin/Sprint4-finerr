@@ -18,14 +18,15 @@ export function UserDashBoard() {
     const { id } = useParams()
     const navigate = useNavigate()
     // const user = useSelector(storeState => storeState.userModule.user)
-    // if(!user.isSeller)navigate('/')
+    if(!user.isSeller)navigate('/')
     console.log('user', user)
     console.log('orders', orders)
 
     useEffect(() => {
         socketService.on(SOCKET_EVENT_ORDER_GIG, onNewOrder)
         userService.signup(user)
-        loadSellerOrders(user)
+        // loadSellerOrders(user)
+        loadOrders()
     }, [])
 
     function onNewOrder() {

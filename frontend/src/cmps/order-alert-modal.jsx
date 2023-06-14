@@ -5,11 +5,12 @@ import { loadOrders } from "../store/order.actions"
 
 export function OrderAlertModal() {
     const orders = useSelector((storeState) => storeState.orderModule.orders)
-    const user = useSelector((storeState) => storeState.userModule.user)
+    // const user = useSelector((storeState) => storeState.userModule.user)
 
 
     useEffect(() => {
-        loadOrders(user)
+        // loadOrders(user)
+        loadOrders()
     }, [])
 
     return (
