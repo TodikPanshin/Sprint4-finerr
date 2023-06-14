@@ -117,7 +117,7 @@ export function GigDetails() {
 
     function addReviewsRate(reviews) {
         return reviews.map(review => ({
-            ...review, rate: review.rate || (Math.random() + 4).toFixed(1)
+            ...review, rate: review.rate || (Math.random() * 0.5 + 4.5).toFixed(1)
         }))
     }
 
