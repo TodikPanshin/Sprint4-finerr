@@ -10,7 +10,7 @@
         width: 100%;
         aspect-ratio: 16/9;
         transition: transform 0.3s;
-        object-fit: scale-down;
+        // object-fit: scale-down;
 
         &:hover {
             transform: scale(1.1);

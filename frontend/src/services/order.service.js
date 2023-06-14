@@ -23,15 +23,15 @@ export const orderService = {
 
 _createDemoOrder()
 
-async function query(user={}) {
+async function query() {
     
       var orders = await storageService.query(ORDER_STORAGE_KEY)
-  
-      if (user?.isSeller) {
-        orders = orders.filter((order) => order.seller._id === user._id)
-      } if (!user?.isSeller) {
-        orders = orders.filter((order) => order.buyer._id === user._id)
-      }
+//   if (!user)return orders
+//       if (user?.isSeller) {
+//         orders = orders.filter((order) => order.seller._id === user._id)
+//       } if (!user?.isSeller) {
+//         orders = orders.filter((order) => order.buyer._id === user._id)
+//       }
   
       return orders
     
