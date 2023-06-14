@@ -18,7 +18,7 @@ export function FilterBar() {
     const menuRef = useRef([])
 
     const { ref, inView } = useInView({
-        rootMargin: '60px'
+        // rootMargin: '60px'
     })
 
     useEffect(() => {
