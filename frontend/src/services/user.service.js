@@ -88,12 +88,10 @@ function getLoggedInUser() {
 //     await userService.signup({ fullname: 'Nadav', username: 'nadav', password: '123', isAdmin: true })
 // })()
 
-
 function demoUser() {
     return {
-
+        isSeller: true,
         fullname: "jeff G",
-
         imgUrl: "https://cdn.mos.cms.futurecdn.net/dXifX7HwsiRWAvzWSdHnSK-970-80.jpg.webp",
         level: "basic/premium",
         rating: {

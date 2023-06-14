@@ -23,13 +23,15 @@ export function setupSocketAPI(http) {
             socket.join(topic)
             socket.myTopic = topic
         })
+        
         socket.on('chat-send-msg', msg => {
-            logger.info(`New chat msg from socket [id: ${socket.id}], emitting to topic ${socket.myTopic}`)
+            logger.info(`New chat msg from socket [id: ${socket.id}], ${msg}`)
             // emits to all sockets:
-            // gIo.emit('chat addMsg', msg)
+            gIo.emit('chat addMsg', msg)
             // emits only to sockets in the same room
-            gIo.to(socket.myTopic).emit('chat-add-msg', msg)
+            // gIo.to(socket.myTopic).emit('chat-add-msg', msg)
         })
+        
         socket.on('user-watch', userId => {
             logger.info(`user-watch from socket [id: ${socket.id}], on user ${userId}`)
             socket.join('watching:' + userId)
