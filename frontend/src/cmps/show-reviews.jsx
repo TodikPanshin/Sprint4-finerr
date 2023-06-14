@@ -27,13 +27,35 @@ export function ShowReviews({ reviews, gig }) {
 
         return starCounts
     }
+
+
+    function calculateAverageReviewCount(reviews) {
+        console.log(reviews)
+        const totalCount = reviews.length
+        console.log('totalCount',totalCount)
+        let sum = 0
+
+        reviews.forEach((review) => {
+            const { rate } = review
+            sum +=parseFloat(rate) 
+            console.log('sum :',sum)
+        })
+
+        const average = totalCount !== 0 ? sum / totalCount : 0
+        console.log('average ' ,average)
+        return average.toFixed(1)
+    }
+
+
     const reviewsCount = countStarRatings(reviews)
+    const avgReviewRate = calculateAverageReviewCount(reviews)
+    console.log(avgReviewRate)
 
     return (
         <section className='show-reviews-container'>
             <div className='flex '>
-                <p className='show-reviews-counter margin-inline-end-8'><span>{reviews.length}</span> reviews for this Seller </p>
-                <StarRating rate={gig.owner.rate} />
+                <p className='show-reviews-counter margin-inline-end-8'><span>{reviews.length}</span> reviews for this Gig </p>
+                <StarRating rate={avgReviewRate} />
             </div>
             <ReviewCounter reviewsCount={reviewsCount} reviewsNum={reviews.length} checkCount={utilService.checkCount} />
             <ul className='user-review-list clean-list'>
