@@ -32,6 +32,7 @@ export function UserDashBoard() {
     function onNewOrder() {
         setIsNewOrder(true)
         loadOrders()
+        setTimeout(()=> setIsNewOrder(false), 4000)
     }
 
     function loadSellerOrders(user) {

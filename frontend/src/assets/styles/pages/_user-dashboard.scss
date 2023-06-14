@@ -1,14 +1,16 @@
+.new-order-msg {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 2rem;
+    background-color: rgba(168, 206, 161, 0.9);
+    z-index: 100;
+}
+
 .user-dashboard {
     background-color: $clr-background;
-    .new-order-msg {
-        position: absolute;
-        padding: 1rem;
-        border: 1px solid black;
-        border-radius: 2rem;
-        background-color: rgba(255, 255, 255, 0.8);
-        z-index: 100;
-        right: 0;
-    }
 
     >* {
 
@@ -24,12 +26,15 @@
             font-size: rem(25px);
             padding-block-start: 15px;
         }
-        h4{
-        margin: 0;
+
+        h4 {
+            margin: 0;
         }
-        .selectYear{
+
+        .selectYear {
             padding-block-end: 15px;
         }
+
         >* {
             border: 1px solid $clr-border;
             width: auto;

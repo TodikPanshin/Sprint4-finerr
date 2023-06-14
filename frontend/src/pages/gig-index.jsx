@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.actions.js'
 
@@ -6,18 +6,42 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
 import { FilterBar } from '../cmps/filter-bar.jsx'
 import { GigList } from '../cmps/gig-list.jsx'
+import { SOCKET_EVENT_ORDER_APPROVED, socketService } from '../services/socket.service.js'
 
 
 export function GigIndex() {
-
+    const [isOrderApproved, setIsOrderApproved] = useState(false)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
 
     useEffect(() => {
         loadGigs(filterBy)
+        socketService.on(SOCKET_EVENT_ORDER_APPROVED, onOrderApproved)
     }, [filterBy])
 
-    // async function onRemoveGig(gigId) {
+    function onOrderApproved() {
+        setIsOrderApproved(true)
+        setTimeout(() => setIsOrderApproved(false), 4000)
+    }
+
+    if (!gigs.length) return <div className="container">
+        <div className="flex-wrapper"><div className="loader"></div></div></div>
+
+    return (
+        <div className='gig-index'>
+            {isOrderApproved && <div className="new-order-msg">Your order has been approved!</div>}
+            <FilterBar />
+            <main>
+                < GigList
+                    gigs={gigs}
+                />
+            </main>
+        </div>
+    )
+}
+
+
+// async function onRemoveGig(gigId) {
     //     try {
     //         await removeGig(gigId)
     //         showSuccessMsg('Gig removed')
@@ -57,18 +81,3 @@ export function GigIndex() {
     // function onAddGigMsg(gig) {
     //     console.log(`TODO Adding msg to gig`)
     // }
-
-    if (!gigs.length) return <div className="container">
-        <div className="flex-wrapper"><div className="loader"></div></div></div>
-
-    return (
-        <div className='gig-index'>
-            <FilterBar />
-            <main>
-                < GigList
-                    gigs={gigs}
-                />
-            </main>
-        </div>
-    )
-}
