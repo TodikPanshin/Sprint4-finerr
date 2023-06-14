@@ -22,8 +22,12 @@ export function UserDashBoard() {
 
     useEffect(() => {
         userService.signup(user)
-        loadOrders()
+        loadSellerOrders(user)
     }, [])
+
+function loadSellerOrders(user){
+    loadOrders(user)
+ }
 
     async function handleUpdateOrder(order) {
         try {

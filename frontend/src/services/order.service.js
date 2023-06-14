@@ -23,11 +23,20 @@ export const orderService = {
 
 _createDemoOrder()
 
-async function query() {
-    var orders = await storageService.query(ORDER_STORAGE_KEY)
-
-    return orders
-}
+async function query(user={}) {
+    
+      var orders = await storageService.query(ORDER_STORAGE_KEY)
+  
+      if (user?.isSeller) {
+        orders = orders.filter((order) => order.seller._id === user._id)
+      } if (!user?.isSeller) {
+        orders = orders.filter((order) => order.buyer._id === user._id)
+      }
+  
+      return orders
+    
+  }
+  
 
 function getById(orderId) {
     return storageService.get(ORDER_STORAGE_KEY, orderId)
@@ -69,14 +78,11 @@ function getCurrOrder(gig) {
         },
         status: 'Pending',
         extras: gig.extras,
-        currDate:new Date,
+        currDate: new Date,
     }
 }
 
 function saveLocalCurrOrder(currOrder) {
-    // currOrder = { _id: user._id,
-    //      fullname: user.fullname, imgUrl: user.imgUrl,
-    //       score: user.score }
     sessionStorage.setItem(CURR_ORDER_STORAGE_KEY, JSON.stringify(currOrder))
     return currOrder
 }
