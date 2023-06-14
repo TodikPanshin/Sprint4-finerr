@@ -123,26 +123,6 @@
                 }
             }
         }
-
-
-
-        .notable-clients-bar {
-
-            border-block-start: 1px solid $clr-border ;
-            padding-top: 20px;
-            margin-bottom: 16px;
-            margin-top: 16px;
-
-            .notable-clients-title {
-                color: $clr-font-dark;
-            }
-
-            >* {
-                margin-inline-end: 1em;
-                align-items: center;
-                font-size: rem(14px);
-            }
-        }
     }
 
     .gig-imgs-container {
@@ -192,7 +172,7 @@
     border: $clr-border 1px solid;
     border-radius: .5rem;
     row-gap: 1.5rem;
-    box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.5);
 
     .details-area {
         padding: 1.25rem;
@@ -243,7 +223,7 @@
         top: 1.5rem;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-weight: 600;
-        background-color: rgba(0,0,0,0.1);
+        background-color: rgba(0, 0, 0, 0.1);
         border-radius: 50%;
         width: 1.6rem;
         text-align: center;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate, } from 'react-router-dom'
-
+import { utilService } from '../services/util.service.js'
 import { gigService } from "../services/gig.service.js"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
 import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
@@ -8,20 +8,15 @@ import { ReviewsPreview } from '../cmps/review-preview.jsx'
 import { Packages } from '../cmps/packages.jsx'
 import { GigSwiper } from '../cmps/gig-swiper.jsx'
 import { OrderDrawer } from '../cmps/order-drawer.jsx'
-import { removeGig } from '../store/gig.actions.js'
 import { SellerDetails } from '../cmps/seller-details.jsx'
 import { SellerCard } from '../cmps/seller-card.jsx'
 import { ShowReviews } from '../cmps/show-reviews.jsx'
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-
-
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { useInView } from 'react-intersection-observer'
-library.add(faPaperPlane)
+
 
 
 
@@ -41,10 +36,10 @@ export function GigDetails() {
                     My heart is💔. A BEAUTIFUL shining light has been dimmed.
                     Kloe’s wings were ready but my Heart was not.🐶🐾🕊 `,
             rate: 5,
-            reviewedAt: new Date(),
+            reviewedAt: utilService.randomPastTime(),
             _id: "u102",
             country: "canada",
-            fullname: "strawberryred78",
+            name: "strawberryred78",
             imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/76d1e507770ac9db49456d83521d7c0e-1534481351065/5224dec4-7033-4ecb-a118-8ed28b8761de.jpg'
 
         },
@@ -54,10 +49,10 @@ export function GigDetails() {
              I would definitely recommend.
              Her knowledge of dog breeds was unexpectedly broad and detailed. Wow.`,
             rate: 5,
-            reviewedAt: new Date(),
+            reviewedAt: utilService.randomPastTime(),
             _id: "u103",
             country: "isreal",
-            fullname: "marianaolver283",
+            name: "marianaolver283",
             imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/1fcd42f23834628e5704905ad41b2ee6-1679381258169/ba120b86-0853-4513-a786-ed6f49deeba2.png'
         },
 
@@ -66,11 +61,11 @@ export function GigDetails() {
              I appreciate her keeping me updated on her progress. She's fast and very professional.
               I look forward to working with her again soon :)`,
             rate: 5,
-            reviewedAt: new Date(),
+            reviewedAt: utilService.randomPastTime(),
 
             _id: "u104",
             country: "united states",
-            fullname: "marianaolver283",
+            name: "marianaolver283",
             imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/c4238e5b3805218a4dd84180b4cdcd12-1594146133949/3f460af2-6d81-4527-bdc8-332abe7d73c7.jpg'
 
         },
@@ -80,7 +75,7 @@ export function GigDetails() {
     ])
 
     const [showBuyerMsg, setShowBuyerMsg] = useState(false)
-    const [gigLoaded, setGigLoaded] = useState(false);
+    const [gigLoaded, setGigLoaded] = useState(false)
 
     const [gig, setGig] = useState()
     const [openModal, setOpenModal] = useState(false)
@@ -110,12 +105,18 @@ export function GigDetails() {
             setGig(gig)
             setGigLoaded(true)
             console.log(gig)
-            if (gig.reviews) setReviews(gig.reviews)
+            if (gig.reviews) setReviews(addReviewsRate(gig.reviews))
         } catch (err) {
             console.log('Had issues in gig details', err)
             showErrorMsg('Cannot load gig');
             navigate('/gig');
         }
+    }
+
+    function addReviewsRate(reviews) {
+        return reviews.map(review => ({
+            ...review, rate: review.rate || (Math.random() + 4).toFixed(1)
+        }))
     }
 
     function onOpenModal() {
@@ -140,7 +141,7 @@ export function GigDetails() {
     if (!gig || gig.length) return <div>Loading...</div>
 
     const isOnline = gig.owner.isOnline
-
+console.log('reviews test',reviews)
     return (
         <>
 
@@ -151,9 +152,9 @@ export function GigDetails() {
                     <div className='gig-overview'>
                         <nav className='gig-overview-filter-nav'>
                             <ul className='flex clean-list'>
-                                <li className='gig-overview-main-tag'><a href="#">main tag</a></li>
+                                <li className='gig-overview-main-tag'><a href="#">{gig.tags[0]}</a></li>
                                 <span>&gt;</span>
-                                <li className='gig-overview-secondary tag'><a href="#">secondary tag</a></li>
+                                <li className='gig-overview-secondary tag'><a href="#">{gig.tags[1]}</a></li>
                             </ul>
                         </nav>
                         <h1 className='gig-title'>{gig.title}</h1>
@@ -186,7 +187,8 @@ export function GigDetails() {
                         <>
                             {showBuyerMsg && (
                                 <section className='buyer-msg flex' onClick={onOpenModal}>
-                                    <img src={`${gig.owner.imgUrl}`} alt="" className='owner-img' />                                        <div className="background-dot">
+                                    <img src={`${gig.owner.imgUrl}`} alt="" className='owner-img' />
+                                    <div className="background-dot">
                                         <div className={`point ${isOnline ? 'isOnline' : ''}`}></div>
                                     </div>
 
@@ -201,7 +203,7 @@ export function GigDetails() {
                     )}
                 </section>
                 <div className='intersection-ref' ref={ref}></div>
-                <Packages gig={gig} inView={inView}/>
+                <Packages gig={gig} inView={inView} />
                 {openModal &&
                     <aside className='inbox-msg flex column'>
                         <div className='flex details-area'>
