@@ -25,9 +25,9 @@ export function getActionUpdateOrder(order) {
     }
 }
 
-export async function loadOrders() {
+export async function loadOrders(user) {
     try {
-        const orders = await orderService.query()
+        const orders = await orderService.query(user)
         store.dispatch({
             type: SET_ORDERS,
             orders

@@ -83,9 +83,9 @@ function getLoggedInUser() {
 
 
 // (async () => {
-//     await userService.signup({ fullname: 'Yoni', username: 'yoni', password: '123', isAdmin: true })
-//     await userService.signup({ fullname: 'Todik', username: 'todik', password: '123', isAdmin: true })
-//     await userService.signup({ fullname: 'Nadav', username: 'nadav', password: '123', isAdmin: true })
+    // await userService.signup({ fullname: 'Yoni', username: 'yoni', password: '123', isAdmin: true })
+    // await userService.signup({ fullname: 'Todik', username: 'todik', password: '123', isAdmin: true })
+    // await userService.signup({ fullname: 'Nadav', username: 'nadav', password: '123', isAdmin: true })
 // })()
 
 
@@ -94,7 +94,7 @@ function demoUser() {
 
         fullname: "jeff G",
 
-        imgUrl: "https://cdn.mos.cms.futurecdn.net/dXifX7HwsiRWAvzWSdHnSK-970-80.jpg.webp",
+        imgUrl: "https://akns-images.eonline.com/eol_images/Entire_Site/2020910/rs_1200x1200-201010110427-1200-jeff-goldblum.cm.101020.jpg?fit=around%7C1200:1200&output-quality=90&crop=1200:1200;center,top",
         level: "basic/premium",
         rating: {
             average: "4.9",
