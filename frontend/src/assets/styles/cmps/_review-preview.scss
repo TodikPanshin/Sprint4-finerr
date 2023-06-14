@@ -9,6 +9,11 @@
     }
 
     .review-preview-details {
+        .user-name {
+            color: $clr-font-dark;
+            font-weight: 700;
+        }
+
         .user-info {
             >* {
                 padding-inline-end: 8px;

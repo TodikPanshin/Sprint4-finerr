@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import{ReactComponent as Star} from '../assets/img/star-full.svg'
 export function StarRating({ rate = 0, isEditable = false}) {
     const [rating, setRating] = useState(rate)
     const [hover, setHover] = useState(0);
@@ -15,6 +15,9 @@ export function StarRating({ rate = 0, isEditable = false}) {
         }
     }, [rate])
 
+
+
+    
     return (
         <div className="star-rating">
             {[...Array(5)].map((star, idx) => {

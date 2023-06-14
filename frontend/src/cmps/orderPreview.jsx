@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 
 
-export function OrderPreview({ order, handleUpdateOrder }) {
+export function OrderPreview({ order, handleUpdateOrder, isEditable = true }) {
     // console.log('order testsssssss', order)
     const currency = 'US$'
     const serviceFee = 10
@@ -15,7 +15,9 @@ export function OrderPreview({ order, handleUpdateOrder }) {
 
 
     function onToggleMenu() {
-        if (orderStatus.toLowerCase() !== "completed") {
+        console.log('isEditable test from main', isEditable)
+        if(!isEditable) return
+        if ( orderStatus.toLowerCase() !== "completed") {
             setIsOpen((isOpen) => !isOpen)
         }
     }
@@ -62,7 +64,7 @@ export function OrderPreview({ order, handleUpdateOrder }) {
                 <span>{new Date(order.currDate).toLocaleString()}</span>
             </div>
             <div className="floating-menu order-status">
-                <div className={`menu-button ${isOpen.sellerDetails ? 'active' : ''} ${orderStatus.toLowerCase()}`}
+                <div className={`menu-button ${orderStatus.toLowerCase()}`}
                     onClick={() => onToggleMenu()}>{orderStatus.toUpperCase()}
                 </div>
                 {isOpen && <div className="outside" onClick={onToggleMenu}></div>}

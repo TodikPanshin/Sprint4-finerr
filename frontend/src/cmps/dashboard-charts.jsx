@@ -6,19 +6,19 @@ import { Doughnut } from 'react-chartjs-2'
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 export function DashboardCharts({ orders }) {
-  
+  console.log('test orders dashboard', orders)
   function reduceOrderStatus(orders) {
     const statusCounts = orders.reduce((statusCounts, order) => {
       const { status } = order;
-      statusCounts[status] = (statusCounts[status] || 0) + 1
+      statusCounts[status.toLowerCase()] = (statusCounts[status.toLowerCase()] || 0) + 1
       return statusCounts;
     }, { pending: 0, approved: 0, declined: 0, completed: 0 })
 
-    return statusCounts;
+    return statusCounts
   }
 
   const statusCounts = reduceOrderStatus(orders)
-console.log(statusCounts)
+// console.log(statusCounts)
   const data = {
     labels: ['Pending', 'Approved', 'Declined', 'Completed'],
     datasets: [
@@ -51,7 +51,7 @@ console.log(statusCounts)
   };
 
   return (
-    <div style={{ position: 'relative', maxWidth: '150px', margin: 'auto' ,insetBlock: '27px'}}>
+    <div style={{ position: 'relative', width: '150px', margin: 'auto' ,insetBlock: '27px'}}>
       <Doughnut data={data} options={options} />
       <div
         style={{
@@ -59,10 +59,11 @@ console.log(statusCounts)
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          fontSize: '24px',
+          fontSize: '16px',
+          fontWeight: '700',
         }}
       >
-        Status
+         {`orders pending\n${statusCounts.pending}`}
       </div>
     </div>
   );

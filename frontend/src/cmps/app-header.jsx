@@ -9,6 +9,7 @@ import { LoginSignup } from './login-signup.jsx'
 import { setFilterBy } from '../store/gig.actions'
 import { Categories } from './categories'
 import { useInView } from 'react-intersection-observer'
+import { OrderAlertModal } from './order-alert-modal'
 
 export const categories = [
     'Graphic & Design',
@@ -27,6 +28,7 @@ export function AppHeader() {
     const [isSignup, setIsSignup] = useState(false)
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [openNav, setOpenNav] = useState(false)
+    const [alertModal, setAlertModal] = useState(false)
     const navigate = useNavigate()
 
     const isHome = window.location.pathname === '/' ? "is-home" : ""
@@ -37,8 +39,22 @@ export function AppHeader() {
         rootMargin: '-80px 0px'
     })
 
+    useEffect(() => {
+        function handleKeyPress(ev) {
+            if (ev.keyCode === 27) {
+                setIsProfileBar(false)
+                setAlertModal(false)
+            }
+        }
 
-    //  USER
+        document.addEventListener('keydown', handleKeyPress)
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyPress)
+
+        }
+    }, [])
+
 
     async function onLogin(credentials) {
         console.log('login - credentials:', credentials)
@@ -88,6 +104,10 @@ export function AppHeader() {
         setIsSignup(true)
         setIsOpenModal(true)
     }
+    // Hipster mode 
+    const handleAlertModal = () => {
+        setAlertModal(!alertModal)
+    }
 
     // FILTER
 
@@ -117,10 +137,13 @@ export function AppHeader() {
                 </NavLink>
 
                 <SearchBox setFilterBy={setFilterBy} placeholder={'What service are you looking for today'} />
-
+                <div>
+                </div>
                 <nav>
+                    <a href="#" onClick={handleAlertModal}> Orders</a><div className={`alert-overlay ${alertModal ? 'open' : ''}`} onClick={()=>setAlertModal(false)}></div>
                     <NavLink onClick={resetFilter} key="gig" to="/gig">Explore</NavLink>
                     <NavLink key="add-gig" to="/gig/edit">Become a Seller</NavLink>
+
                     {user &&
                         <span className="user-info">
                             <button className="user-img" onClick={onProfileClick}>
@@ -135,9 +158,11 @@ export function AppHeader() {
                     }
                     {isProfileBar && <section className="profile-bar">
                         <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
+                        <Link to={`user/${user?._id}/Dashboard`} onClick={() => setIsProfileBar(false)}>Dashboard</Link>
                         <button onClick={onLogout}>Logout</button>
 
                     </section>}
+                    {alertModal && <OrderAlertModal />}
                 </nav>
             </section>
             {isHome && <section className={`main-header main-layout ${inView ? 'hidden' : 'sticky-header'}`}>
@@ -166,6 +191,7 @@ export function AppHeader() {
                     }
                     {isProfileBar && <section className="profile-bar">
                         <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
+                        <Link to={`user/${user?._id}/Dashboard`} onClick={() => setIsProfileBar(false)}>Dashboard</Link>
                         <button onClick={onLogout}>Logout</button>
 
                     </section>}

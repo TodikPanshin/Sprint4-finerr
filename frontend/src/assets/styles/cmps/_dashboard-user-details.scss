@@ -10,10 +10,10 @@
     padding: 20px;
     background-color: $clr1;
     border-radius: rem(4px);
+    margin-block-end:rem(20px);
     
     @include for-mobile-layout {
     width: auto;
-    margin-block-start:rem(40px);
     }
 
     li {

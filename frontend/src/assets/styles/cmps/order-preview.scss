@@ -3,8 +3,8 @@
     background-color: $clr1;
     display: grid;
     grid-template-columns: auto auto;
-    padding: 20px;
-    margin-block: 30px;
+    padding: rem(20px);
+    margin-block-end: rem(20px);
     border-radius: 8px;
 
     @include for-mobile-layout {
@@ -136,7 +136,7 @@
         box-shadow: 0 12px 18px rgba(0, 0, 0, .14);
 
         @include for-mobile-layout {
-            width: 327px;
+            width: 333px;
         }
 
         .btn {

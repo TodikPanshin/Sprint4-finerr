@@ -5,13 +5,23 @@
     >* {
 
         margin-block-start: 20px;
+
+        @include for-mobile-layout {
+            margin-block-start: 0;
+        }
     }
 
     .dashboard-content {
-        h1{
+        h1 {
             font-size: rem(25px);
+            padding-block-start: 15px;
         }
-
+        h4{
+        margin: 0;
+        }
+        .selectYear{
+            padding-block-end: 15px;
+        }
         >* {
             border: 1px solid $clr-border;
             width: auto;
@@ -22,6 +32,7 @@
 
             @include for-normal-layout {
                 min-width: rem(400px);
+                margin-block-end: 20px;
             }
 
             @include for-first-break-layout {

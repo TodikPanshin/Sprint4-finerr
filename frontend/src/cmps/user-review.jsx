@@ -21,7 +21,7 @@ export function UserReview({ review }) {
                 <img className='user-img' src={img} alt="user img" />
                 <div className='user-info flex'>
                     <div className='user-username-line'>
-                        <p className='user-name'>{review.fullname}</p>
+                        <p className='user-name'>{review.name}</p>
                         <p className='user-country'> {review.country} </p>
                     </div>
                     <div className='reviews-rate cursor-default'>
