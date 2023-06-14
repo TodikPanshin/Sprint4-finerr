@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { addOrder, removeCurrOrder } from "../store/order.actions";
+import { SOCKET_EVENT_ORDER_GIG, socketService } from "../services/socket.service";
 
 
 
@@ -25,6 +26,7 @@ export function Checkout() {
     addOrder(currOrder)
       .then(removeCurrOrder())
       .then(navigate('/gig'))
+      .then(socketService.emit(SOCKET_EVENT_ORDER_GIG, "New order!"))
       .catch(err => {
         console.log("cannot save order:", err)
       })

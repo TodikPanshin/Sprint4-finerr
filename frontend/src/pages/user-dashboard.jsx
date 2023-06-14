@@ -8,10 +8,12 @@ import { UserRevenue } from '../cmps/user-revenue'
 import { loadOrders, updateOrder } from '../store/order.actions'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 import { OrderPreview } from '../cmps/orderPreview'
+import { SOCKET_EVENT_ORDER_GIG, socketService } from '../services/socket.service'
 
 
 export function UserDashBoard() {
     const [user, setUser] = useState(userService.demoUser)
+    const [isNewOrder, setIsNewOrder] = useState(false)
     const orders = useSelector(storeState => storeState.orderModule.orders)
     const { id } = useParams()
     const navigate = useNavigate()
@@ -21,13 +23,19 @@ export function UserDashBoard() {
     console.log('orders', orders)
 
     useEffect(() => {
+        socketService.on(SOCKET_EVENT_ORDER_GIG, onNewOrder)
         userService.signup(user)
         loadSellerOrders(user)
     }, [])
 
-function loadSellerOrders(user){
-    loadOrders(user)
- }
+    function onNewOrder() {
+        setIsNewOrder(true)
+
+    }
+
+    function loadSellerOrders(user) {
+        loadOrders(user)
+    }
 
     async function handleUpdateOrder(order) {
         try {
@@ -39,10 +47,11 @@ function loadSellerOrders(user){
     }
 
 
-    if (!user&&!orders) return <div>Loading...</div>
+    if (!user && !orders) return <div>Loading...</div>
     return (
         <section className='user-dashboard main-layout  full '>
             <div className='user-dashboard-container'>
+                {isNewOrder && <div className="new-order-msg">New order alert!</div>}
                 <DashboardUserDetails user={user} />
                 <div className='dashboard-content flex justify-between'>
                     <UserRevenue revenue={user.sellerStats.revenue} />
