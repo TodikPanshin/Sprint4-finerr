@@ -91,15 +91,22 @@
 
     .gig-overview {
         &-filter-nav {
+            margin-block-end: 10px;
             a {
                 font-size: 14px;
                 color: $clr-link;
-                text-decoration: underline;
                 font-weight: 300;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
 
-            span {
+            img {
+                height: 14px;
+                width: 14px;
                 margin-inline: 8px;
+                margin-block-start: 7px;
             }
         }
 
@@ -232,6 +239,7 @@
         margin-top: 2rem;
         padding: 0;
     }
+
     .msg-line {
         width: 90%;
         margin-inline: auto;
@@ -239,7 +247,7 @@
         border-radius: 1rem;
         list-style: none;
         background-color: rgba(59, 187, 27, 0.1);
-        
+
         &:nth-child(even) {
             background-color: white;
         }
@@ -256,7 +264,7 @@
         width: 90%;
         margin-left: 50%;
         translate: -50%;
-        
+
 
         &:focus-visible {
             outline: none;

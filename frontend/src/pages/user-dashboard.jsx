@@ -22,21 +22,18 @@ export function UserDashBoard() {
     console.log('user', user)
     console.log('orders', orders)
 
+
     useEffect(() => {
         socketService.on(SOCKET_EVENT_ORDER_GIG, onNewOrder)
-        // userService.signup(user)
-        // loadSellerOrders(user)
-        loadOrders()
-    }, [])
+        loadOrders(user)
+    }, [isNewOrder])
 
     function onNewOrder() {
-        setIsNewOrder(true)
         loadOrders()
+        setIsNewOrder(true)
+        setTimeout(()=> setIsNewOrder(false), 4800)
     }
 
-    function loadSellerOrders(user) {
-        loadOrders(user)
-    }
 
     async function handleUpdateOrder(order) {
         try {
@@ -52,7 +49,7 @@ export function UserDashBoard() {
     return (
         <section className='user-dashboard main-layout  full '>
             <div className='user-dashboard-container'>
-                {isNewOrder && <div className="new-order-msg">New order alert!</div>}
+                {isNewOrder && <div className="new-order-msg">New order has arrived</div>}
                 <DashboardUserDetails user={user} />
                 <div className='dashboard-content flex justify-between'>
                     <UserRevenue revenue={user.sellerStats.revenue} />

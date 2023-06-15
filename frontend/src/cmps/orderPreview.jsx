@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react"
+import { SOCKET_EVENT_ORDER_APPROVED, socketService } from "../services/socket.service"
 
 
 export function OrderPreview({ order, handleUpdateOrder, isEditable = true }) {
-    // console.log('order testsssssss', order)
+    // console.log('order tests', order)
     const currency = 'US$'
     const serviceFee = 10
     const extraFastPrice = 50
@@ -23,6 +24,7 @@ export function OrderPreview({ order, handleUpdateOrder, isEditable = true }) {
     }
 
     function handleChange(value) {
+        if (value === 'approved') socketService.emit(SOCKET_EVENT_ORDER_APPROVED, 'Your order has been approved!')
         const updatedOrder = { ...order, status: value }
         setOrderStatus(value)
         setIsOpen(false)
