@@ -148,7 +148,7 @@ export function GigDetails() {
                         <nav className='gig-overview-filter-nav'>
                             <ul className='flex clean-list'>
                                 <li className='gig-overview-main-tag'><a href="#">{gig.tags[0]}</a></li>
-                                <span>&gt;</span>
+                                <img src="https://www.svgrepo.com/show/486236/right-arrow-backup-2.svg" alt="" />
                                 <li className='gig-overview-secondary tag'><a href="#">{gig.tags[1]}</a></li>
                             </ul>
                         </nav>

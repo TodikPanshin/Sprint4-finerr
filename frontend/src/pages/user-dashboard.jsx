@@ -22,12 +22,11 @@ export function UserDashBoard() {
     console.log('user', user)
     console.log('orders', orders)
 
+
     useEffect(() => {
         socketService.on(SOCKET_EVENT_ORDER_GIG, onNewOrder)
-        // userService.signup(user)
-        // loadSellerOrders(user)
-        loadOrders()
-    }, [])
+        loadOrders(user)
+    }, [isNewOrder])
 
     function onNewOrder() {
         loadOrders()
@@ -35,9 +34,6 @@ export function UserDashBoard() {
         setTimeout(()=> setIsNewOrder(false), 4800)
     }
 
-    function loadSellerOrders(user) {
-        loadOrders(user)
-    }
 
     async function handleUpdateOrder(order) {
         try {

@@ -1,23 +1,29 @@
 import { useEffect, useState } from 'react'
-import{ReactComponent as Star} from '../assets/img/star-full.svg'
-export function StarRating({ rate = 0, isEditable = false}) {
-    const [rating, setRating] = useState(rate)
-    const [hover, setHover] = useState(0);
+import { ReactComponent as Star } from '../assets/img/star-full.svg'
 
-    const handleRatingChange = (newRate) => {
+
+
+export function StarRating({ rate = 0, isEditable = false }) {
+    const displayRate = rate >= 4.5 ? 5 : rate
+    
+    const [rating, setRating] = useState(displayRate)
+    const [hover, setHover] = useState(0)
+
+
+    function handleRatingChange(newRate){
         if (isEditable) {
             setRating(newRate)
         }
     }
     useEffect(() => {
-        if (rate !== rating) {
-            setRating(rate)
+        if (displayRate !== rating) {
+            setRating(displayRate)
         }
-    }, [rate])
-
+    }, [displayRate])
 
 
     
+
     return (
         <div className="star-rating">
             {[...Array(5)].map((star, idx) => {
