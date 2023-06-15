@@ -30,9 +30,9 @@ export function UserDashBoard() {
     }, [])
 
     function onNewOrder() {
-        setIsNewOrder(true)
         loadOrders()
-        setTimeout(()=> setIsNewOrder(false), 4000)
+        setIsNewOrder(true)
+        setTimeout(()=> setIsNewOrder(false), 4800)
     }
 
     function loadSellerOrders(user) {
@@ -53,7 +53,7 @@ export function UserDashBoard() {
     return (
         <section className='user-dashboard main-layout  full '>
             <div className='user-dashboard-container'>
-                {isNewOrder && <div className="new-order-msg">New order alert!</div>}
+                {isNewOrder && <div className="new-order-msg">New order has arrived</div>}
                 <DashboardUserDetails user={user} />
                 <div className='dashboard-content flex justify-between'>
                     <UserRevenue revenue={user.sellerStats.revenue} />

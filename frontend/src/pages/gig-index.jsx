@@ -21,7 +21,7 @@ export function GigIndex() {
 
     function onOrderApproved() {
         setIsOrderApproved(true)
-        setTimeout(() => setIsOrderApproved(false), 4000)
+        setTimeout(() => setIsOrderApproved(false), 4800)
     }
 
     if (!gigs.length) return <div className="container">
