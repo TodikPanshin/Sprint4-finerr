@@ -7,6 +7,8 @@
     inset-inline-end: 74px;
     width: 400px;
     z-index: 1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0;
+    border-radius: 0.5rem;
 
     &::-webkit-scrollbar {
         width: 16px;
