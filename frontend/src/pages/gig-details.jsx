@@ -100,6 +100,32 @@ export function GigDetails() {
         return () => clearTimeout(timer)
     }, [])
 
+    // useEffect(() => {
+    //     function handleKeyDown(ev) {
+    //         if (ev.keyCode === 27) {
+    //             setIsOpen(false)
+    //         }
+    //     }
+
+    //     document.addEventListener("keydown", handleKeyDown)
+    //     return () => {
+    //         document.removeEventListener("keydown", handleKeyDown)
+    //     }
+    // }, [])
+
+    // useEffect(() => {
+    //     window.addEventListener('keydown', function (e) {
+    //         if (e.keyIdentifier == 'U+000A' || e.keyIdentifier === 'Enter') {
+    //             e.preventDefault();
+    //             onCloseModal()
+    //             return false;
+    //         }
+    //     }, true)
+    //     return () => {
+    //         document.removeEventListener("keydown", handleKeyDown)
+    //     }
+    // }, [])
+
 
     async function loadGig() {
         try {
@@ -131,7 +157,7 @@ export function GigDetails() {
         setShowBuyerMsg(true)
     }
 
-    
+
     if (!gig || gig.length) return <div className="container">
         <div className="flex-wrapper"><div className="loader"></div></div></div>
 
@@ -199,7 +225,7 @@ export function GigDetails() {
                 </section>
                 <div className='intersection-ref' ref={ref}></div>
                 <Packages gig={gig} inView={inView} />
-                {openModal && <Massage gig={gig} onCloseModal={onCloseModal} isOnline={isOnline} FontAwesomeIcon={FontAwesomeIcon} faPaperPlane={faPaperPlane}/>}
+                {openModal && <Massage gig={gig} onCloseModal={onCloseModal} isOnline={isOnline} FontAwesomeIcon={FontAwesomeIcon} faPaperPlane={faPaperPlane} />}
             </section>
         </>
     )
