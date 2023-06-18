@@ -1,6 +1,6 @@
 .gig-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
     list-style: none;
     overflow: auto;
@@ -9,4 +9,22 @@
     padding: 0;
     margin-top: 1rem;
     margin-bottom: 2.5rem;
+}
+
+@media (min-width: 600px) {
+    .gig-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .gig-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1160px) {
+    .gig-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

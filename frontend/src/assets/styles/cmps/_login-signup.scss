@@ -14,6 +14,7 @@
     left: 50%;
     translate: -50%;
     width: 890px;
+    max-width: 90%;
     height: 520px;
     background-color: white;
     box-shadow: 1px 0px 4px 1px rgba(0, 0, 0, 0.3);
@@ -25,47 +26,10 @@
 
 
         .sign-up-dezine {
-            border-bottom-left-radius: 0.75rem;
-            border-top-left-radius: 0.75rem;
-            position: relative;
-            background-image: url("https://fiverr-res.cloudinary.com/npm-assets/layout-server/standard.c6d3ba7.png");
-            background-size: cover;
-            flex-basis: 50%;
-            height: 100%;
-
-            .sign-up-dezine-txt {
-                color: $clr1;
-                margin: 54px 0 0 40px;
-                position: absolute;
-                width: calc(100% - 40px);
-
-                h2 {
-                    font-size: 2rem;
-                    margin-bottom: 0;
-                    color: $clr1;
-                }
-
-                ul {
-                    font-weight: 200;
-                    margin-top: 1.6rem;
-
-                    li {
-                        align-items: baseline;
-                        max-width: 22rem;
-                        font-size: 18px;
-                        line-height: 26px;
-                        margin-bottom: 1rem;
-
-                        p {
-                            margin-left: 0.5rem;
-                        }
-                    }
-                }
-            }
+            display: none;
         }
 
         .sign-up-content {
-            flex-basis: 50%;
             display: grid;
             grid-template-columns: 2.5rem 1fr 2.5rem;
             grid-auto-rows: max-content;
@@ -106,6 +70,8 @@
             .submit-signin,
             .submit-signup {
                 margin-top: 4rem;
+                margin-left: 0;
+                margin-right: 0;
                 color: white;
                 height: 2.5rem;
                 width: 100%;
@@ -116,5 +82,58 @@
             }
         }
 
+    }
+}
+
+@media (min-width: 900px) {
+    .sign-up {
+        .sign-up-modal {
+
+            .sign-up-dezine {
+                display: block;
+                border-bottom-left-radius: 0.75rem;
+                border-top-left-radius: 0.75rem;
+                position: relative;
+                background-image: url("https://fiverr-res.cloudinary.com/npm-assets/layout-server/standard.c6d3ba7.png");
+                background-size: cover;
+                flex-basis: 50%;
+                height: 100%;
+
+                .sign-up-dezine-txt {
+                    color: $clr1;
+                    margin: 54px 0 0 40px;
+                    position: absolute;
+                    width: calc(100% - 40px);
+
+                    h2 {
+                        font-size: 2rem;
+                        margin-bottom: 0;
+                        color: $clr1;
+                    }
+
+                    ul {
+                        font-weight: 200;
+                        margin-top: 1.6rem;
+
+                        li {
+                            align-items: baseline;
+                            max-width: 22rem;
+                            font-size: 18px;
+                            line-height: 26px;
+                            margin-bottom: 1rem;
+
+                            p {
+                                margin-left: 0.5rem;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .sign-up-content {
+            flex-basis: 50%;
+        }
     }
 }
