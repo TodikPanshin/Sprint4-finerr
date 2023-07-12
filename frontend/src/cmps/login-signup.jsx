@@ -12,17 +12,6 @@ library.add(faCheck);
 
 export function LoginSignup(props) {
     const [credentials, setCredentials] = useState({ username: '', password: '' })
-    // const [isSignup, setIsSignup] = useState(false)
-    // const [users, setUsers] = useState([])
-
-    // useEffect(() => {
-    //     loadUsers()
-    // }, [])
-
-    // async function loadUsers() {
-    //     const users = await userService.getUsers()
-    //     setUsers(users)
-    // }
 
     function clearState() {
         setCredentials({ username: '', password: '' })

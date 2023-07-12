@@ -11,7 +11,7 @@ import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 export function OrderDrawer() {
   const isOpen = useSelector((storeState) => storeState.systemModule.isOpen)
   const [clicked, setClicked] = useState(false)
-  const [updatedPrice,setUpdatedPrice]=useState()
+  const [updatedPrice, setUpdatedPrice] = useState()
   const [updatedDays, setUpdatedDays] = useState()
   const currOrder = useSelector((storeState) => storeState.orderModule.currOrder)
   const navigate = useNavigate()
@@ -21,8 +21,8 @@ export function OrderDrawer() {
     setUpdatedPrice(currOrder.extras.packageSelected * currOrder.gig.price)
     setUpdatedDays(currOrder.extras.packageSelected * currOrder.gig.daysToMake)
   }
-  ,[currOrder])
-  
+    , [currOrder])
+
   useEffect(() => {
     function handleKeyPress(ev) {
       if (ev.keyCode === 27) {
@@ -55,7 +55,7 @@ export function OrderDrawer() {
       setUpdatedDays(currOrder.extras.packageSelected * currOrder.gig.daysToMake)
     }
   }
-  
+
 
   function handleClose() {
     toggleDrawer(false)
@@ -64,19 +64,14 @@ export function OrderDrawer() {
     // }, 1000)
   }
 
-  function onMoveToCheckout(){
-    currOrder.extras.fastDelivery=clicked
+  function onMoveToCheckout() {
+    currOrder.extras.fastDelivery = clicked
     updateCurrOrder(currOrder)
     handleClose()
     navigate('/checkout')
   }
 
-  
-  
-
-
   const drawerClassName = isOpen ? 'order-drawer open' : 'order-drawer'
-
 
   return (
     <div >
@@ -93,7 +88,7 @@ export function OrderDrawer() {
             <div className='drawer-package-details'>
               <div className='flex justify-between'>
                 <span className='package-details-type'>Basic</span>
-                {currOrder&& <span className='drawer-package-price'>US${updatedPrice}</span>}
+                {currOrder && <span className='drawer-package-price'>US${updatedPrice}</span>}
               </div>
               {currOrder && <p>{currOrder.gig.title.split(' ').slice(2).join(' ')}</p>}
             </div>
@@ -120,7 +115,7 @@ export function OrderDrawer() {
           </div>
         </section>
         <footer className='drawer-footer'>
-          {currOrder && <button className='btn-black' onClick={ onMoveToCheckout}>continue <span>({updatedPrice}$)</span></button>}
+          {currOrder && <button className='btn-black' onClick={onMoveToCheckout}>continue <span>({updatedPrice}$)</span></button>}
           <p className='drawer-footer-msg'>You won’t be charged yet</p>
         </footer>
       </div>

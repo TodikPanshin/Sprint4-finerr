@@ -3,7 +3,6 @@ import { SOCKET_EVENT_ORDER_APPROVED, socketService } from "../services/socket.s
 
 
 export function OrderPreview({ order, handleUpdateOrder, isEditable = true }) {
-    // console.log('order tests', order)
     const currency = 'US$'
     const serviceFee = 10
     const extraFastPrice = 50
@@ -14,11 +13,10 @@ export function OrderPreview({ order, handleUpdateOrder, isEditable = true }) {
     const [orderStatus, setOrderStatus] = useState(order.status)
     const menuRef = useRef([])
 
-
     function onToggleMenu() {
         console.log('isEditable test from main', isEditable)
-        if(!isEditable) return
-        if ( orderStatus.toLowerCase() !== "completed") {
+        if (!isEditable) return
+        if (orderStatus.toLowerCase() !== "completed") {
             setIsOpen((isOpen) => !isOpen)
         }
     }

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react"
 
-
 export function useEffectUpdate(callBack, dependencies) {
     const isInitialMount = useRef(true)
 
