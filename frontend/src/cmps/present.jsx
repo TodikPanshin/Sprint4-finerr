@@ -1,16 +1,19 @@
 export function Carousel() {
+    
+    const [carouselStyle, setCarouselStyle] = useState({ right: 0 })
+    const imgCount = useSelector(storeState => storeState.systemModule.imgCount)
 
     function slideCarousel(diff) {
-        if (diff === -1 && carouselRight.current < gap 
-            || diff === 1 && carouselRight.current >= gap * (popularServices.length - 5)) return
+        if (diff === -1 && carouselRight.current < gap
+            || diff === 1 && carouselRight.current >= gap * (popularServices.length - imgCount)) return
         carouselRight.current += diff * gap
         setCarouselStyle(prevStyle => ({ ...prevStyle, right: `${carouselRight.current}rem` }))
     }
 
     return (<div className="popular-services-container">
-        <h1>Popular services</h1>
-        <button onClick={() => slideCarousel(-1)}>
-            <img src="https://www.svgrepo.com/show/350276/chevron-left.svg" alt="left" />
+        <h1 className="popular-services-headline">Popular services</h1>
+        <button className="btn arrow"
+            onClick={() => slideCarousel(-1)}>
         </button>
         <ul className="popular-services">
             {popularServices.map((service, idx) =>
@@ -22,8 +25,8 @@ export function Carousel() {
                 </li>
             )}
         </ul>
-        <button onClick={() => slideCarousel(1)}>
-            <img src="https://www.svgrepo.com/show/350274/chevron-right.svg" alt="right" />
+        <button className="btn arrow"
+            onClick={() => slideCarousel(1)}>
         </button>
     </div>)
 }
