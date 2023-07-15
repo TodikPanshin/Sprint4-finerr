@@ -1,8 +1,8 @@
 .main-home {
     display: flex;
     flex-direction: column;
-    width: 45%;
-    min-width: 650px;
+    // width: 45%;
+    // min-width: 350px;
     color: white;
     margin-block: 8.5%;
     font-size: 0.875rem;
@@ -144,6 +144,7 @@
 }
 
 .popular-btns {
+    display: none;
     >* {
         border: 1px solid white;
         border-radius: 3rem;
@@ -250,7 +251,7 @@
     margin-block: 10rem;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 
     h2 {
@@ -372,4 +373,19 @@
             padding-bottom: .5rem;
         }
     }
+}
+
+.hero{display: none}
+
+@media(min-width: 900px) {
+    .main-home{
+        min-width: 650px;
+        width: 45%;
+    }
+    .best-part-everything{
+        flex-direction: row;      
+    }
+    .hero{display: inline}
+    .popular-btns {display: inline;}
+
 }

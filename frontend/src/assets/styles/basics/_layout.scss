@@ -2,10 +2,10 @@
   display: grid;
   @include layoutGTC($wide-breakpoint);
   
-  @include for-mobile-layout{
-    display: flex;
-    flex-direction:column;
-  }
+  // @include for-mobile-layout{
+    // display: flex;
+    // flex-direction:column;
+  // }
 
   &.app {
     min-height: 100vh;
