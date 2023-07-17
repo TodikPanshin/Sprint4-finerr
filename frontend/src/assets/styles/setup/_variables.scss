@@ -24,6 +24,7 @@ $first-breakpoint: 1200px;
 $wide-breakpoint: 1400px;
 
 $layoutPadding: 32px;
+$nerrowLayoutPadding: 24px;
 
 $padded-break-mobile: $mobile-breakpoint + $layoutPadding * 2;
 $padded-break-narrow: $narrow-breakpoint + $layoutPadding * 2;

@@ -1,6 +1,7 @@
 .main-layout {
   display: grid;
-  @include layoutGTC($wide-breakpoint);
+  @include layoutGTC($wide-breakpoint, $layoutPadding);
+  @media(max-width: 900px){ @include layoutGTC($wide-breakpoint, $nerrowLayoutPadding);}
   
   // @include for-mobile-layout{
     // display: flex;
