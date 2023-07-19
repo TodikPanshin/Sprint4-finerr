@@ -23,7 +23,6 @@
         gap: 3rem;
         white-space: nowrap;
         overflow: hidden;
-        // display: none;
 
         &.right {
             justify-content: flex-end;
@@ -92,6 +91,8 @@
         opacity: 1;
         height: auto;
         pointer-events: all;
+
+        // &.sticky-categories {display: block;}
     }
 }
 

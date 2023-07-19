@@ -21,6 +21,10 @@
         margin: 0 auto;
         background-color: rgb(255, 255, 255);
         z-index: 200;
+        transition: opacity 0.03s ease, transform 0.03s ease;
+
+        // display: none;
+        // opacity: 0;
     }
 
     &.hidden {
@@ -303,7 +307,7 @@
         background-color: transparent;
 
         .logo {
-            color: white;
+            @media(min-width: 900px) {color: white}
             letter-spacing: normal;
             font-family: macan;
 

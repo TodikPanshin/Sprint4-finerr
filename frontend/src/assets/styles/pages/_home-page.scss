@@ -106,7 +106,8 @@
 .slide-container {
     .black-background {
         background-color: black;
-        height: 25rem;
+        height: 21rem;
+        top: 5rem;
     }
 
     &>* {
@@ -164,8 +165,13 @@
 
 .popular-services-container {
     overflow: hidden;
-    margin-top: 16rem;
+    margin-top: 4rem;
     position: relative;
+
+    h1{
+        font-size: 1.75rem;
+        line-height: 130%;
+    }
 
     h2 {
         font-family: macan;
@@ -255,7 +261,8 @@
     align-items: center;
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        line-height: 130%;
         font-weight: 900;
         color: #2e2f31;
         padding-bottom: .5rem;
@@ -391,7 +398,12 @@
         }
     }
     .best-part-everything{
-        flex-direction: row;      
+        flex-direction: row;
+        margin-block: 4rem;
+        h2 {
+            font-size: 2rem;
+            line-height: 120%;
+        }
     }
     .best-part-everything-container{margin-block: 6rem;}
     .hero{display: inline}
@@ -402,9 +414,15 @@
         margin-bottom: 6rem;
     }
     .popular-services-container{
+        margin-top: 16rem;
+
+        h1{
+            font-size: 2rem;
+            line-height: 120%;
+        }
+
         .arrow{display: inherit;}
     }
-    .best-part-everything {margin-block: 4rem;}
     .join-finerr-img {
         h2{
             left: 5rem;

@@ -36,10 +36,11 @@ export function AppHeader() {
     // INTERSECTION OBSERVER
 
     const { ref, inView } = useInView({
-        rootMargin: '-80px 0px'
+        rootMargin: (window.innerWidth >= 600) ? '-80px' : '99999px',
     })
 
     useEffect(() => {
+        
         function handleKeyPress(ev) {
             if (ev.keyCode === 27) {
                 setIsProfileBar(false)
@@ -51,7 +52,6 @@ export function AppHeader() {
 
         return () => {
             document.removeEventListener('keydown', handleKeyPress)
-
         }
     }, [])
 
