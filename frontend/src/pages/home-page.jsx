@@ -4,6 +4,9 @@ import { HomeCategories } from '../cmps/home-categories'
 import { useNavigate } from 'react-router-dom'
 import { setFilterBy } from '../store/gig.actions'
 import { AppFooter } from '../cmps/app-footer'
+import { LoginSignup } from '../cmps/login-signup'
+import { login, signup } from '../store/user.actions'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
 const hero_URLs = [
     "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/1b6990afe0934244dda2c9aeed5de8d9-1674663021930/bg-hero-6-1792-x1.png",
@@ -61,6 +64,8 @@ const gap = 17.5
 
 export function HomePage() {
     const [slideImg, setSlideImg] = useState(0)
+    const [isOpenModal, setIsOpenModal] = useState(false)
+    const [isSignup, setIsSignup] = useState(false)
     const [carouselStyle, setCarouselStyle] = useState({ right: 0, transition: '0.5s' })
     const navigate = useNavigate()
     const carouselRight = useRef(0)
@@ -74,6 +79,30 @@ export function HomePage() {
 
     function getOpacity(idx) {
         return idx === slideImg ? 1 : 0
+    }
+
+    async function onLogin(credentials) {
+        console.log('login - credentials:', credentials)
+        try {
+            const user = await login(credentials)
+
+            showSuccessMsg(`Welcome: ${user.fullname}`)
+        } catch (err) {
+            showErrorMsg('Cannot login')
+        }
+    }
+
+    async function onSignup(credentials) {
+        try {
+            const user = await signup(credentials)
+            showSuccessMsg(`Welcome new user: ${user.fullname}`)
+        } catch (err) {
+            showErrorMsg('Cannot signup')
+        }
+    }
+
+    function toggleSignup() {
+        setIsOpenModal(true)
     }
 
     function handleCategoryFilter(category) {
@@ -198,10 +227,11 @@ export function HomePage() {
 
             <div className="join-finerr-img">
                 <h2>Suddenly it's all so <span>doable.</span><br />
-                    <button>Join Finerr</button>
+                    <button onClick={toggleSignup}>Join Finerr</button>
                 </h2>
                 <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_1400,dpr_1.0/v1/attachments/generic_asset/asset/50218c41d277f7d85feeaf3efb4549bd-1599072608122/bg-signup-1400-x1.png" alt="join Finerr" />
             </div>
+            {isOpenModal && <LoginSignup cancel={setIsOpenModal} onLogin={onLogin} onSignup={onSignup} isSignup={isSignup} />}
         </main >
     )
 }

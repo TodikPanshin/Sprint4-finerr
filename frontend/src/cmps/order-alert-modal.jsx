@@ -16,7 +16,9 @@ export function OrderAlertModal() {
         <div className="order-alert-modal-container">
             <ul className="order-alert-modal clean-list">
                 {!orders || !orders.length ? (
+                    <div className="no-orders-msg">
                     <h3>No orders</h3>
+                    </div>
                 ) : (
                     orders.map((order) => (
                         <li className="order-preview" key={order._id}>

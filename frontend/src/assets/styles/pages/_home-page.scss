@@ -304,7 +304,7 @@
 .home-category-display {
     margin-top: 4rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     // flex-wrap: wrap;
     // margin-bottom: 1.5rem;
 
@@ -388,6 +388,13 @@
 
 .hero{display: none}
 
+@media(min-width: 600px) {
+    .home-category-display{
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+
 @media(min-width: 900px) {
     .main-home{
         min-width: 650px;
@@ -410,7 +417,7 @@
     .popular-btns {display: inline;}
     .home-category{h1{font-size: 2rem;}}
     .home-category-display{
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(5, 1fr);
         margin-bottom: 6rem;
     }
     .popular-services-container{

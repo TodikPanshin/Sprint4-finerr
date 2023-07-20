@@ -17,14 +17,16 @@
         top: 0;
         left: 0;
         right: 0;
-        max-width: 1400px;
         margin: 0 auto;
         background-color: rgb(255, 255, 255);
         z-index: 200;
         transition: opacity 0.03s ease, transform 0.03s ease;
+        padding: $nerrowLayoutPadding;
 
-        // display: none;
-        // opacity: 0;
+        @media(min-width: 900px)  {
+            padding: $layoutPadding;
+            max-width: 1464px;
+        }
     }
 
     &.hidden {
@@ -308,7 +310,8 @@
 
         .logo {
             @media(min-width: 900px) {color: white}
-            letter-spacing: normal;
+            // letter-spacing: normal;
+            letter-spacing: -.1rem;
             font-family: macan;
 
             .white-dot {

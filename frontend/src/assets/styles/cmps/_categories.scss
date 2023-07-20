@@ -40,11 +40,11 @@
                 opacity: 1;
                 pointer-events: all;
                 width: 1rem;
-                right: 2rem;
+                right: 1.8rem;
                 top: .5rem;
                 border-radius: 50%;
                 background-color: rgb(255, 255, 255);
-                box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, .7);
+                box-shadow: 0px 0px 0px 6px rgba(255, 255, 255, .7);
                 cursor: pointer;
 
                 &.left {
@@ -67,6 +67,10 @@
             &:first-child {
                 padding-left: 0;
             }
+
+            &:last-child{
+                padding-right: 0;
+            }
         }
     }
 
@@ -78,11 +82,10 @@
     &.sticky-categories {
         top: 5rem;
         position: fixed;
-        // width: 100%;
+        width: 100%;
         z-index: 100;
         opacity: 1;
         transition: opacity .4s ease-in .2s;
-        // display: none;
     }
 }
 
@@ -91,8 +94,6 @@
         opacity: 1;
         height: auto;
         pointer-events: all;
-
-        // &.sticky-categories {display: block;}
     }
 }
 

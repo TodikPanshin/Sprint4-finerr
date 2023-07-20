@@ -165,7 +165,7 @@ export function AppHeader() {
                     {alertModal && <OrderAlertModal />}
                 </nav>
             </section>
-            {isHome && <section className={`main-header main-layout ${inView ? 'hidden' : 'sticky-header'}`}>
+            {isHome && <section className={`main-header ${inView ? 'hidden' : 'sticky-header'}`}>
                 <div className="scroll-background"></div>
                 <NavLink key="/" to="/" className="logo">
                     <div className="white-dot">
