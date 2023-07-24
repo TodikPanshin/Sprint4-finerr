@@ -1,8 +1,6 @@
 import { PackagesFeatures } from './packages-features'
 
-
 export function PaymentDetails({ currOrder, checkClass, onCheckout }) {
-    // console.log('teeeeessssssttttttttt', currOrder)
     const currency = 'US$'
     const serviceFee = 10
     const extraFastPrice = 50

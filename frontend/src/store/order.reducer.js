@@ -9,7 +9,6 @@ export const CLEAR_CURR_ORDER = 'CURR_ORDER'
 const initialState = {
     orders: [],
     currOrder: null,
-
 }
 
 export function orderReducer(state = initialState, action) {

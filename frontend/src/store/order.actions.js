@@ -105,9 +105,6 @@ export async function checkout(total) {
     }
 }
 
-
-
-
 // Demo for Optimistic Mutation 
 // (IOW - Assuming the server call will work, so updating the UI first)
 export function onRemoveOrderOptimistic(orderId) {

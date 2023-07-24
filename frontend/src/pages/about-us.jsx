@@ -64,13 +64,13 @@ function SplitPane(props) {
     )
 }
 
-
 export function AboutUs() {
     const [count, setCount] = useState(100)
 
     function onTellMeMore() {
         console.log('Telling you more');
     }
+    
     return (
         <section>
             <h2>About Us</h2>
@@ -91,39 +91,3 @@ export function AboutUs() {
         </section>
     )
 }
-
-
-// Currently - no solution for using ErrorBoundaries with react hooks:
-// https://reactjs.org/docs/hooks-faq.html#do-hooks-cover-all-use-cases-for-classes
-// class MyErrorBoundary extends React.Component {
-//     state = { error: null, errorInfo: null };
-
-//     componentDidCatch(error, errorInfo) {
-//         // Catch errors in children and re-render with error message
-//         // Note: in development the error is still presented on screen and you need to ESC to see the fallback UI
-//         this.setState({
-//             error,
-//             errorInfo
-//         })
-//         // TODO: Log error to an error reporting service
-//         // logger.report(error)
-//     }
-//     render() {
-//         if (this.state.errorInfo) {
-//             // Error path
-//             return (
-//                 <div>
-//                     <h2>Something went wrong.</h2>
-
-//                     <details style={{ whiteSpace: 'pre-wrap' }}>
-//                         {this.state.error && this.state.error.toString()}
-//                         <br />
-//                         {this.state.errorInfo.componentStack}
-//                     </details>
-//                 </div>
-//             );
-//         }
-//         // Normally, just render children
-//         return this.props.children;
-//     }
-// }

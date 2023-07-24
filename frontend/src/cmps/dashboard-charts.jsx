@@ -1,24 +1,19 @@
-
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
-
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 export function DashboardCharts({ orders }) {
-  // console.log('test orders dashboard', orders)
   function reduceOrderStatus(orders) {
     const statusCounts = orders.reduce((statusCounts, order) => {
       const { status } = order;
       statusCounts[status.toLowerCase()] = (statusCounts[status.toLowerCase()] || 0) + 1
       return statusCounts;
     }, { pending: 0, approved: 0, declined: 0, completed: 0 })
-
     return statusCounts
   }
 
   const statusCounts = reduceOrderStatus(orders)
-// console.log(statusCounts)
   const data = {
     labels: ['Pending', 'Approved', 'Declined', 'Completed'],
     datasets: [

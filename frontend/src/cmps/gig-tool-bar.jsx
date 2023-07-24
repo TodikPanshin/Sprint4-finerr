@@ -2,7 +2,6 @@ import { Link, NavLink } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import routes from '../routes'
 
-
 export function GigToolBar(){
 return(
     <nav className='gig-details-nav main-layout full'>

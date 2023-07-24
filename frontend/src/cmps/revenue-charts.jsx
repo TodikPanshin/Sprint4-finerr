@@ -1,16 +1,12 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 
-
 ChartJS.register(ArcElement, Tooltip, Legend)
-
 
 export function RevenueCharts({ selectedYear }) {
     const selectedYearRevenue = selectedYear.monthRevenue
     const monthRevenueData = selectedYearRevenue.map((monthData) => monthData.revenue)
     const yearRevenue = monthRevenueData.reduce((total, revenue) => total + revenue, 0)
-
-    
 
     const data = {
         labels: selectedYearRevenue.map((monthData) => monthData.month),

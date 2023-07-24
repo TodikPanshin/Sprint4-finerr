@@ -1,8 +1,6 @@
 .main-home {
     display: flex;
     flex-direction: column;
-    // width: 45%;
-    // min-width: 350px;
     color: white;
     margin-block: 8.5%;
     font-size: 0.875rem;
@@ -103,151 +101,6 @@
     }
 }
 
-.slide-container {
-    .black-background {
-        background-color: black;
-        height: 21rem;
-        top: 5rem;
-    }
-
-    &>* {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        z-index: -10;
-        transition: 1s;
-
-        img {
-            height: 42.5rem;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        span {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 1rem;
-            font-weight: 200;
-        }
-
-        p {
-            font-weight: 600;
-            letter-spacing: .01rem;
-            color: white;
-            justify-self: end;
-            translate: 0 -6rem;
-
-            span {
-                font-weight: 600;
-            }
-        }
-    }
-}
-
-.popular-btns {
-    display: none;
-    >* {
-        border: 1px solid white;
-        border-radius: 3rem;
-        background-color: transparent;
-        font-weight: 600;
-        color: white;
-        margin-inline: .6rem;
-        letter-spacing: .05rem;
-
-        &:hover {
-            color: black;
-            background-color: white;
-            transition: 0.5s;
-        }
-    }
-}
-
-.popular-services-container {
-    overflow: hidden;
-    margin-top: 4rem;
-    position: relative;
-
-    h1{
-        font-size: 1.75rem;
-        line-height: 130%;
-    }
-
-    h2 {
-        font-family: macan;
-        font-size: 2rem;
-        font-weight: 600;
-        color: #2e2f31;
-        margin-bottom: 2rem;
-    }
-
-    button {
-        background-color: rgb(255, 255, 255);
-        position: absolute;
-        z-index: 10;
-        border-radius: 50%;
-        width: 3rem;
-        height: 3rem;
-        font-size: 1.5rem;
-        font-weight: 900;
-        top: 48%;
-        margin: 0;
-        padding: .7rem;
-        left: -1.2rem;
-        box-shadow: 0 10px 5px 0 rgba(0, 0, 0, .15);
-
-        &:last-child {
-            left: auto;
-            right: -1.2rem;
-        }
-
-        img {
-            width: 1.2rem;
-        }
-    }
-    .arrow{display: none;}
-}
-
-.popular-services {
-    width: max-content;
-    display: flex;
-    flex-direction: row;
-    gap: 1.8rem;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-
-    li {
-        position: relative;
-        cursor: pointer;
-
-        &:hover {
-            opacity: .8;
-            transition: .5s;
-        }
-
-        img {
-            height: 100%;
-            width: 100%;
-            border-radius: .4rem;
-        }
-
-        h2 {
-            position: absolute;
-            top: 0;
-            color: white;
-            font-size: 1.5rem;
-            padding: 1rem;
-
-            span {
-                font-size: 1rem;
-                display: block;
-                line-height: 1.5rem;
-            }
-        }
-    }
-}
-
 .best-part-everything-container {
     background-color: rgb(241, 253, 247);
     margin-block: 1.5rem;
@@ -292,7 +145,6 @@
 }
 
 .home-category {
-    // margin-top: 20rem;
     caret-color: transparent;
 
     h1 {
@@ -305,8 +157,6 @@
     margin-top: 4rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    // flex-wrap: wrap;
-    // margin-bottom: 1.5rem;
 
     button {
         cursor: pointer;
@@ -316,7 +166,6 @@
         justify-content: space-between;
         font-size: .7rem;
         padding: 0 10px 55px;
-        // width: 20%;
         margin: 0;
 
         img {
@@ -351,7 +200,6 @@
 
     img {
         margin-top: -2.2%;
-        // width: 100%;
         height: 100%;
         object-fit: cover;
     }
@@ -386,14 +234,11 @@
     }
 }
 
-.hero{display: none}
-
 @media(min-width: 600px) {
     .home-category-display{
         grid-template-columns: repeat(3, 1fr)
     }
 }
-
 
 @media(min-width: 900px) {
     .main-home{
@@ -413,22 +258,11 @@
         }
     }
     .best-part-everything-container{margin-block: 6rem;}
-    .hero{display: inline}
     .popular-btns {display: inline;}
     .home-category{h1{font-size: 2rem;}}
     .home-category-display{
         grid-template-columns: repeat(5, 1fr);
         margin-bottom: 6rem;
-    }
-    .popular-services-container{
-        margin-top: 16rem;
-
-        h1{
-            font-size: 2rem;
-            line-height: 120%;
-        }
-
-        .arrow{display: inherit;}
     }
     .join-finerr-img {
         h2{

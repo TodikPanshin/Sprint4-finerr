@@ -1,14 +1,11 @@
 import { orderService } from "../services/order.service"
-import { PaymentCard } from "../cmps/payment-card";
-import { PaymentDetails } from "../cmps/payment-details";
+import { PaymentCard } from "../cmps/payment-card"
+import { PaymentDetails } from "../cmps/payment-details"
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { addOrder, removeCurrOrder } from "../store/order.actions";
-import { showSuccessMsg } from "../services/event-bus.service.js"
-import { SOCKET_EVENT_ORDER_GIG, socketService } from "../services/socket.service";
-
-
+import { addOrder, removeCurrOrder } from "../store/order.actions"
+import { SOCKET_EVENT_ORDER_GIG, socketService } from "../services/socket.service"
 
 export function Checkout() {
   const currOrder = useSelector((storeState) => storeState.orderModule.currOrder) || orderService.getLocalCurrOrder()
@@ -32,15 +29,6 @@ export function Checkout() {
         console.log("cannot save order:", err)
       })
   }
-
-
-
-
-
-
-
-  console.log('card test   111111111111111111111111', cardDetails)
-
 
   return (
     <section className="checkout-layout">

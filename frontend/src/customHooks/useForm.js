@@ -20,7 +20,7 @@ export function useForm(initialState, callBack) {
             case 'checkbox':
                 value = checked
             default:
-                break;
+                break
         }
         setFields((prevFields) => ({ ...prevFields, [field]: value }))
     }

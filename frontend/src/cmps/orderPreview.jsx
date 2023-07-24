@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { SOCKET_EVENT_ORDER_APPROVED, socketService } from "../services/socket.service"
 
-
 export function OrderPreview({ order, handleUpdateOrder, isEditable = true }) {
     const currency = 'US$'
     const serviceFee = 10
@@ -37,7 +36,6 @@ export function OrderPreview({ order, handleUpdateOrder, isEditable = true }) {
             }
         }
 
-
         document.addEventListener("keydown", handleKeyDown)
         return () => {
             document.removeEventListener("keydown", handleKeyDown)
@@ -47,7 +45,6 @@ export function OrderPreview({ order, handleUpdateOrder, isEditable = true }) {
     const availableStatusOptions = ["Pending", "Approved", "Declined", "Completed"].filter(
         (status) => status.toLowerCase() !== orderStatus.toLowerCase()
     )
-
 
     return (
         <>
@@ -78,7 +75,6 @@ export function OrderPreview({ order, handleUpdateOrder, isEditable = true }) {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

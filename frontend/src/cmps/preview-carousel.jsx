@@ -41,7 +41,6 @@ export function PreviewCarousel({ gig }) {
                 }}        >
                 <FontAwesomeIcon
                     icon={faChevronLeft}
-                    // size="xl"
                     style={{
                         "--fa-primary-color": "#62646a",
                         "--fa-secondary-color": "#ffffff",
@@ -49,8 +48,6 @@ export function PreviewCarousel({ gig }) {
                 />
             </div>
         )
-
-
 
     const renderArrowNext = (clickHandler, hasNext, label) => (
         hasNext && <div
@@ -68,11 +65,10 @@ export function PreviewCarousel({ gig }) {
                 }}
             />
         </div>
-    );
+    )
 
     return (
         <Carousel
-
             showThumbs={false}
             showStatus={false}
             // infiniteLoop

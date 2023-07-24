@@ -1,10 +1,8 @@
 import { StarRating } from "./star-rating"
 
-
 export function ReviewsPreview({ review }) {
   const charNum = 116
   const img = (review.imgUrl) ? review.imgUrl : 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-
 
   return (
     <li className="review-preview-item flex">

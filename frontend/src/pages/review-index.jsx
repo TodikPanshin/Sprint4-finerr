@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { showErrorMsg, showSuccessMsg, showUserMsg } from '../services/event-bus.service'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { socketService, SOCKET_EVENT_REVIEW_ADDED } from '../services/socket.service'
 
 import { loadReviews, addReview, removeReview, getActionAddReview } from '../store/review.actions'
@@ -40,7 +40,6 @@ export function ReviewIndex() {
     ev.preventDefault()
     if (!reviewToEdit.txt || !reviewToEdit.aboutUserId) return alert('All fields are required')
     try {
-
       await addReview(reviewToEdit)
       showSuccessMsg('Review added')
       setReviewToEdit({ txt: '', aboutUserId: '' })
@@ -62,7 +61,6 @@ export function ReviewIndex() {
     return review.byUser._id === loggedInUser?._id || loggedInUser?.isAdmin
   }
 
-
   return (
     <div className="review-app">
       <h1>Reviews and Gossip</h1>
@@ -71,15 +69,13 @@ export function ReviewIndex() {
           <li key={review._id}>
             {canRemove(review) &&
               <button onClick={() => onRemove(review._id)}>X</button>}
-            <p>
-              About:
+            <p>About:
               <Link to={`/user/${review.aboutUser._id}`}>
                 {review.aboutUser.fullname}
               </Link>
             </p>
             <h3>{review.txt}</h3>
-            <p>
-              By:
+            <p>By:
               <Link to={`/user/${review.byUser._id}`}>
                 {review.byUser.fullname}
               </Link>

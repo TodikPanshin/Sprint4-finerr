@@ -2,11 +2,9 @@ export const LOADING_START = 'LOADING_START'
 export const LOADING_DONE = 'LOADING_DONE'
 export const DRAWER_IS_OPEN = 'DRAWER_IS_OPEN'
 
-
 const initialState = {
   isLoading: false,
   isOpen: false,
-
 }
 
 export function systemReducer(state = initialState, action = {}) {

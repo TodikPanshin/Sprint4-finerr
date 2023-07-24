@@ -1,0 +1,46 @@
+.slide-container {
+    .black-background {
+        background-color: black;
+        height: 21rem;
+        top: 5rem;
+    }
+
+    &>* {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        z-index: -10;
+        transition: 1s;
+
+        img {
+            height: 42.5rem;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        span {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1rem;
+            font-weight: 200;
+        }
+
+        p {
+            font-weight: 600;
+            letter-spacing: .01rem;
+            color: white;
+            justify-self: end;
+            translate: 0 -6rem;
+
+            span {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.hero{
+    display: none;
+    @media(min-width: 900px){display: inline}
+}
+

@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 import { StarRating } from "./star-rating";
 
-
 export function UserReview({ review }) {
     const [expanded, setExpanded] = useState(false)
     const charNum = 292
@@ -13,7 +12,6 @@ export function UserReview({ review }) {
     const img = (review.imgUrl) ? review.imgUrl : 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     const rate = review.rate ? review.rate : (Math.random() * (5 - 4) + 4).toFixed(1)
     const textToShow = expanded ? review.review : review.review.slice(0, charNum) + '... '
-
 
     return (
         <li className="review-item border-top" >
@@ -39,7 +37,6 @@ export function UserReview({ review }) {
                 )}
                 </span>
             </p>
-
         </li>
     )
 }

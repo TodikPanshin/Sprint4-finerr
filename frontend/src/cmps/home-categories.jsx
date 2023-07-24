@@ -25,7 +25,6 @@ const categoryUrls = [
 ]
 
 export function HomeCategories({handleCategoryFilter}) {
-    
     return (
         <section className="home-category">
             <h1>You need it, we've got it</h1>

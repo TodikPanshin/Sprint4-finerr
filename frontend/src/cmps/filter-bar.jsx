@@ -9,7 +9,6 @@ export function FilterBar() {
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
 
-
     const [isOn, setIsOn] = useState({ pro: false, local: false, online: false })
     const [isOpen, setIsOpen] = useState({ sellerDetails: false, budget: false, deliveryTime: false, sort: false })
     const [newFilterBy, setNewFilterBy] = useState({ speaks: [] })
@@ -24,8 +23,6 @@ export function FilterBar() {
     useEffect(() => {
         onClearFields()
     }, [])
-
-
 
     function onSwitchFiler(item) {
         setIsOn(prevSet => ({ ...prevSet, [item]: !isOn[item] }))
@@ -94,9 +91,7 @@ export function FilterBar() {
 
             <div className="float-bar" ref={ref}></div>
             <main className={`filter-main ${inView ? '' : 'float main-layout full'}`}>
-
                 <div className="top-filters">
-
                     <div className="floating-menu seller-details">
                         <div className={`menu-button ${isOpen.sellerDetails ? 'active' : ''}`}
                             onClick={() => onToggleMenu('sellerDetails')}>Seller Details
