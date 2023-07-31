@@ -2,19 +2,16 @@
             src="https://res.cloudinary.com/dnvbfkgsb/image/upload/v1690816507/Capture_dsrsng.jpg" alt="finerr"
             height="40" width="120" /></a></h1>
 <h3 align="center">A Fiverr-like marketplace</h3>
-
-<p align="center">Our final project in the Coding Academy bootcamp. We made it in two weeks, with team of three developers</p>
 <h3 align="center"><a href="https://finerr.onrender.com/" target="blank">Go to the live site</a></h3>
 
-<br/>
-<br/>
-<br/>
+<p align="center">Our final project in the Coding Academy bootcamp. <br/>We made it in two weeks, with team of three developers</p>
+
 <br/>
 
-<h3 align="left">We used the latest WEB technologies such as:</h3>
+<h3 align="center">We used the latest WEB technologies such as:</h3>
 <br/>
 <br/>
-<p align="left">
+<p align="center">
     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img
             src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
             alt="javascript" width="40" height="40" /> </a>
@@ -35,7 +32,7 @@
     <a href="https://www.chartjs.org" target="_blank" rel="noreferrer"> <img
             src="https://www.chartjs.org/media/logo-title.svg" alt="chartjs" width="50" height="50" /> </a>
 </p>
-<p align="left">
+<p align="center">
     <a href="https://nodejs.org" target="_blank" rel="noreferrer">
         <img src="https://www.creative-tim.com/blog/content/images/wordpress/2020/03/node-js-736399_1280.png" alt="nodejs" width="160"
             height="80" /> </a>
