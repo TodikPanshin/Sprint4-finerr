@@ -27,7 +27,7 @@ export function AppHeader() {
     const [isProfileBar, setIsProfileBar] = useState(false)
     const [isSignup, setIsSignup] = useState(false)
     const [isOpenModal, setIsOpenModal] = useState(false)
-    const [openNav, setOpenNav] = useState(false)
+    const [isOpenNav, setIsOpenNav] = useState(false)
     const [alertModal, setAlertModal] = useState(false)
     const navigate = useNavigate()
 
@@ -124,8 +124,12 @@ export function AppHeader() {
 
     // HAMBURGER
 
-    function onOpenNav() {
-        setOpenNav(true)
+    function onToggleBurger() {
+        setIsOpenNav(!isOpenNav)
+    }
+
+    function handleLink(event) {
+        event.stopPropagation()
     }
 
     return (
@@ -140,7 +144,8 @@ export function AppHeader() {
                 <div>
                 </div>
                 <nav>
-                    <a href="#" onClick={handleAlertModal}> Orders</a><div className={`alert-overlay ${alertModal ? 'open' : ''}`} onClick={()=>setAlertModal(false)}></div>
+                    {user && <a href="#" onClick={handleAlertModal}> Orders</a>}
+                    <div className={`alert-overlay ${alertModal ? 'open' : ''}`} onClick={()=>setAlertModal(false)}></div>
                     <NavLink onClick={resetFilter} key="gig" to="/gig">Explore</NavLink>
                     <NavLink key="add-gig" to="/gig/edit">Become a Seller</NavLink>
 
@@ -199,7 +204,7 @@ export function AppHeader() {
 
             </section>}
             <div className='hamburger'>
-                <img onClick={onOpenNav} src="https://www.svgrepo.com/show/491033/hamburger-menu.svg" alt="nav-bar" />
+                <img onClick={onToggleBurger} src="https://www.svgrepo.com/show/491033/hamburger-menu.svg" alt="nav-bar" />
                 {!user && <button onClick={toggleSignup}>Join</button>}
                 {user &&
                     <span className="user-info">
@@ -211,6 +216,11 @@ export function AppHeader() {
 
                 </section>}
             </div>
+            <section className={isOpenNav ? 'hamburger-bar show': 'hamburger-bar'} onClick={onToggleBurger}>
+                <a href="/" onClick={handleLink}>Home</a>
+                <a href="/gig" onClick={handleLink}>Explore</a>
+                <button onClick={toggleSignup}>Join</button>
+                </section>
             {<Categories
                 categories={categories}
                 handleCategoryFilter={handleCategoryFilter}

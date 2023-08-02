@@ -24,8 +24,17 @@ export function GigIndex() {
         setTimeout(() => setIsOrderApproved(false), 4800)
     }
 
+    if (gigs === null) return <div className="empty-search">
+        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/search_perseus/empty-search-results.aabcd99.png" alt="no results" />
+        <h2>No Results Found For Your Search</h2>
+        <p>Try a new search or get a free quote for your project from our community of freelancers.</p>
+    </div>
+
     if (!gigs.length) return <div className="container">
-        <div className="flex-wrapper"><div className="loader"></div></div></div>
+        <div className="flex-wrapper">
+            <div className="loader"></div>
+        </div>
+    </div>
 
     return (
         <div className='gig-index'>

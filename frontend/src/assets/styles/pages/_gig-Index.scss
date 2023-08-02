@@ -16,11 +16,12 @@
 }
 
 .loader {
-    width: 6rem;
-    height: 6rem;
-    border: 0.8rem solid #16b910;
+    width: 8rem;
+    height: 8rem;
+    border: 0.8rem solid rgb(73, 73, 73);
     border-top: 8px solid #ffffff;
     border-radius: 50%;
+    caret-color: transparent;
     animation: spin 1s linear infinite;
 }
 
@@ -31,5 +32,27 @@
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.empty-search {
+    margin-top: 4rem;
+    margin-inline: auto;
+    text-align: center;
+    caret-color: transparent;
+
+    img {
+        width: 350px;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+        max-width: 500px;
     }
 }

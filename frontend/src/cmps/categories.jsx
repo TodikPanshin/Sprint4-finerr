@@ -2,10 +2,13 @@ import { useState } from "react"
 
 export function Categories({ categories, handleCategoryFilter, inView, isHome }) {
 
-    const [isRight, setIsRight] = useState(false)
-    
-    function onSwipeCategories() {
-        setIsRight(!isRight)
+    const [diff, setDiff] = useState(0)
+
+    function onSwipeCategories(direction) {
+        if (direction === 'right' && diff + 1200 < window.innerWidth) return
+
+        direction === 'right' ? setDiff(diff => diff = diff - 110) : setDiff(diff => diff = 100)
+        console.log(diff, window.innerWidth)
     }
 
 
@@ -13,16 +16,20 @@ export function Categories({ categories, handleCategoryFilter, inView, isHome })
         className={`categories full main-layout
         
         ${isHome && (inView ? 'hidden' : 'sticky-categories')}`}>
-        <ul className={`categories-list ${isRight ? 'right' : ''}`}>
+        <ul style={{ marginLeft: `${diff}px`, transition: '1s' }} className="categories-list">
+            {window.innerWidth > 600 && <div className="swipe-categories-btn left"
+                onClick={() => onSwipeCategories('left')}>
+                <img src="https://www.svgrepo.com/show/511422/arrow-right-336.svg" alt=">" />
+            </div>}
             {categories.map(category =>
                 <li key={category} className="category"
                     onClick={() => handleCategoryFilter(category)}>
                     {category}
                 </li>)}
-            <div className={`swipe-categories-btn ${isRight ? 'left' : ''}`}
-                onClick={onSwipeCategories}>
+            {window.innerWidth > 600 && <div className="swipe-categories-btn"
+                onClick={() => onSwipeCategories('right')}>
                 <img src="https://www.svgrepo.com/show/511422/arrow-right-336.svg" alt=">" />
-            </div>
+            </div>}
         </ul>
     </section>
 }

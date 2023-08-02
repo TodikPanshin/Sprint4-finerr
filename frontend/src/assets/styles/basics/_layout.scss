@@ -45,7 +45,7 @@
   flex-direction: column;
 
   .payment-container {
-    align-self: start;
+    align-self: flex-start;
   }
 
   @include for-normal-layout {
