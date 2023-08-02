@@ -1,8 +1,6 @@
 .main-home {
     display: flex;
     flex-direction: column;
-    // width: 45%;
-    // min-width: 350px;
     color: white;
     margin-block: 8.5%;
     font-size: 0.875rem;
@@ -103,6 +101,7 @@
     }
 }
 
+<<<<<<< HEAD
 .slide-container {
     .black-background {
         background-color: black;
@@ -256,6 +255,8 @@
     }
 }
 
+=======
+>>>>>>> 3aa5f23295d533a8fee557b01bfc6d87fab2dc07
 .best-part-everything-container {
     background-color: rgb(241, 253, 247);
     margin-block: 1.5rem;
@@ -300,7 +301,6 @@
 }
 
 .home-category {
-    // margin-top: 20rem;
     caret-color: transparent;
 
     h1 {
@@ -313,8 +313,6 @@
     margin-top: 4rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    // flex-wrap: wrap;
-    // margin-bottom: 1.5rem;
 
     button {
         cursor: pointer;
@@ -324,7 +322,6 @@
         justify-content: space-between;
         font-size: .7rem;
         padding: 0 10px 55px;
-        // width: 20%;
         margin: 0;
 
         img {
@@ -359,7 +356,6 @@
 
     img {
         margin-top: -2.2%;
-        // width: 100%;
         height: 100%;
         object-fit: cover;
     }
@@ -394,12 +390,17 @@
     }
 }
 
+<<<<<<< HEAD
 .hero {
     display: none
 }
 
 @media(min-width: 601px) {
     .home-category-display {
+=======
+@media(min-width: 600px) {
+    .home-category-display{
+>>>>>>> 3aa5f23295d533a8fee557b01bfc6d87fab2dc07
         grid-template-columns: repeat(3, 1fr)
     }
 
@@ -408,9 +409,14 @@
     }
 }
 
+<<<<<<< HEAD
 
 @media(min-width: 901px) {
     .main-home {
+=======
+@media(min-width: 900px) {
+    .main-home{
+>>>>>>> 3aa5f23295d533a8fee557b01bfc6d87fab2dc07
         min-width: 650px;
         width: 45%;
 
@@ -429,6 +435,7 @@
             line-height: 120%;
         }
     }
+<<<<<<< HEAD
 
     .best-part-everything-container {
         margin-block: 6rem;
@@ -466,6 +473,15 @@
         }
     }
 
+=======
+    .best-part-everything-container{margin-block: 6rem;}
+    .popular-btns {display: inline;}
+    .home-category{h1{font-size: 2rem;}}
+    .home-category-display{
+        grid-template-columns: repeat(5, 1fr);
+        margin-bottom: 6rem;
+    }
+>>>>>>> 3aa5f23295d533a8fee557b01bfc6d87fab2dc07
     .join-finerr-img {
         h2 {
             left: 5rem;

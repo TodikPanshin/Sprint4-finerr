@@ -1,5 +1,3 @@
-// import { useState, useEffect, useRef } from "react";
-
 import { Link } from "react-router-dom"
 import { PreviewCarousel } from "./preview-carousel"
 import React from "react";
@@ -11,11 +9,10 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+
 library.add(fas, faHeart)
 
 export function GigPreview({ gig }) {
-
-
     return (
         <article className="gig-preview flex column">
             <Link to={`/gig/${gig._id}`} >
@@ -24,7 +21,6 @@ export function GigPreview({ gig }) {
                 </div>
             </Link>
             <div className="flex justify-between owner-details">
-
                 <div className="owner-details flex">
                     <div className="owner-img flex">
                         <img src={gig.owner.imgUrl} alt="img of owner" />

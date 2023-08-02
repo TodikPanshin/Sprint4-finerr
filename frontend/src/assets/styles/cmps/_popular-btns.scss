@@ -1,0 +1,19 @@
+.popular-btns {
+    display: none;
+    @media(min-width: 900px){display: inline;}
+    >* {
+        border: 1px solid white;
+        border-radius: 3rem;
+        background-color: transparent;
+        font-weight: 600;
+        color: white;
+        margin-inline: .6rem;
+        letter-spacing: .05rem;
+
+        &:hover {
+            color: black;
+            background-color: white;
+            transition: 0.5s;
+        }
+    }
+}

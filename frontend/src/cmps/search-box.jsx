@@ -18,8 +18,6 @@ export function SearchBox({ placeholder }) {
         }
     }, true)
 
-
-
     function handleChange({ target }) {
         const field = target.name
         const value = target.value
@@ -43,8 +41,8 @@ export function SearchBox({ placeholder }) {
         setshowCancelBtn('hidden')
     }
 
-
-    return (<section className="search-box">
+    return (
+    <section className="search-box">
         <form onSubmit={onSubmitFilter}>
             <label htmlFor="txt"></label>
             <input
@@ -62,5 +60,6 @@ export function SearchBox({ placeholder }) {
             </button>
         </form>
         <div className={`search-cover ${showCancelBtn}`} onClick={toggleSearchCover}></div>
-    </section>)
+    </section>
+    )
 }

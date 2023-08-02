@@ -6,8 +6,6 @@ import { PackagesFeatures } from "./packages-features"
 import { ReactComponent as DeliveryIcon } from '../assets/img/delivery.svg'
 import { ReactComponent as RevisionsIcon } from '../assets/img/revision.svg'
 
-
-
 export function Packages({ gig, inView }) {
     const [selected, setSelected] = useState(1)
 
@@ -19,18 +17,12 @@ export function Packages({ gig, inView }) {
         if (focused.includes('premium')) setSelected(3)
     }
 
-
-
-
-
     function onToggleDrawer() {
         console.log(`Adding ${gig._id} to Cart`)
         toggleDrawer(true)
         gig.extras.packageSelected = selected
         addCurrOrder(gig)
     }
-
-
 
     return (
         <section className={`packages-container ${inView ? '' : 'sticky'}`}>

@@ -1,7 +1,5 @@
 import { SellerDetails } from "./seller-details";
 
-
-
 export function SellerCard({gig}) {
     return (
         <section className='seller-card' id='seller-card'>

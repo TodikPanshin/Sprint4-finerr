@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate, } from 'react-router-dom'
 import { utilService } from '../services/util.service.js'
 import { gigService } from "../services/gig.service.js"
-import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
+import { showErrorMsg } from "../services/event-bus.service.js"
 import { GigToolBar } from '../cmps/gig-tool-bar.jsx'
 import { ReviewsPreview } from '../cmps/review-preview.jsx'
 import { Packages } from '../cmps/packages.jsx'
@@ -17,10 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 
 import { useInView } from 'react-intersection-observer'
-
-
-
-
+import { Loader } from '../cmps/loader.jsx'
 
 export function GigDetails() {
     const [reviews, setReviews] = useState([
@@ -69,11 +66,7 @@ export function GigDetails() {
             country: "united states",
             name: "marianaolver283",
             imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/c4238e5b3805218a4dd84180b4cdcd12-1594146133949/3f460af2-6d81-4527-bdc8-332abe7d73c7.jpg'
-
         },
-
-
-
     ])
 
     const [showBuyerMsg, setShowBuyerMsg] = useState(false)
@@ -100,39 +93,11 @@ export function GigDetails() {
         return () => clearTimeout(timer)
     }, [])
 
-    // useEffect(() => {
-    //     function handleKeyDown(ev) {
-    //         if (ev.keyCode === 27) {
-    //             setIsOpen(false)
-    //         }
-    //     }
-
-    //     document.addEventListener("keydown", handleKeyDown)
-    //     return () => {
-    //         document.removeEventListener("keydown", handleKeyDown)
-    //     }
-    // }, [])
-
-    // useEffect(() => {
-    //     window.addEventListener('keydown', function (e) {
-    //         if (e.keyIdentifier == 'U+000A' || e.keyIdentifier === 'Enter') {
-    //             e.preventDefault();
-    //             onCloseModal()
-    //             return false;
-    //         }
-    //     }, true)
-    //     return () => {
-    //         document.removeEventListener("keydown", handleKeyDown)
-    //     }
-    // }, [])
-
-
     async function loadGig() {
         try {
             const gig = await gigService.getById(id)
             setGig(gig)
             setGigLoaded(true)
-            // console.log(gig)
             if (gig.reviews) setReviews(addReviewsRate(gig.reviews))
         } catch (err) {
             console.log('Had issues in gig details', err)
@@ -157,15 +122,12 @@ export function GigDetails() {
         setShowBuyerMsg(true)
     }
 
-
-    if (!gig || gig.length) return <div className="container">
-        <div className="flex-wrapper"><div className="loader"></div></div></div>
+    if (!gig || gig.length) return <Loader/>
 
     const isOnline = gig.owner.isOnline
-    // console.log('reviews test', reviews)
+    
     return (
         <>
-
             <GigToolBar />
             <OrderDrawer />
             <section className='gig-container flex full' >

@@ -33,7 +33,7 @@ export function GigCarousel({ gigImgs }) {
             <img src="https://picsum.photos/400?img=1" alt="" />,
             <img src="https://picsum.photos/400?img=2" alt="" />,
             <img src="https://robohash.org/test?set=set4&bgset=bg1" alt="" />
-        ];
+        ]
 
         return (
             <button
@@ -42,8 +42,8 @@ export function GigCarousel({ gigImgs }) {
             >
                 {carouselItems[index]}
             </button>
-        );
-    };
+        )
+    }
 
     return (
         <Carousel
@@ -52,7 +52,7 @@ export function GigCarousel({ gigImgs }) {
             containerClass="carousel-container"
             responsive={responsive}
             customDot={<CustomDot />}
-              dotListClass="carousel-custom-dots"
+            dotListClass="carousel-custom-dots"
             infinite
             // itemClass="carousel-item-padding-40-px"
         >
@@ -61,5 +61,5 @@ export function GigCarousel({ gigImgs }) {
             <img src="https://picsum.photos/400?img=2" alt="" />
             <img src="https://robohash.org/test?set=set4&bgset=bg1" alt="" />
         </Carousel>
-    );
+    )
 }

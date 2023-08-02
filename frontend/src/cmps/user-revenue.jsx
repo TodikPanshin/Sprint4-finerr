@@ -21,15 +21,11 @@ export function UserRevenue({ revenue }) {
     }
   }, [])
 
-
   function handleYearChange(ev) {
     const selectedYearIndex = ev.target.value
     setSelectedYear(selectedYearIndex)
   }
   const selectedYearObject = revenue[selectedYear]
-
-
-  
 
   return (
     <div className='dashboard-funds'>

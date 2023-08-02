@@ -10,9 +10,7 @@ import { GigDetails } from './pages/gig-details'
 import { UserDashBoard } from './pages/user-dashboard'
 import { UserMsg } from './cmps/user-msg'
 
-
 export function RootCmp() {
-
     return (
         <section className="app main-layout">
             <AppHeader />

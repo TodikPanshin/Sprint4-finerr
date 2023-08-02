@@ -4,7 +4,6 @@ import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { ADD_GIG, REMOVE_GIG, SET_GIGS, UNDO_REMOVE_GIG, UPDATE_GIG, SET_FILTER } from "./gig.reducer.js";
 
-
 // Action Creators:
 export function getActionRemoveGig(gigId) {
     return {
@@ -31,8 +30,8 @@ export function setFilterBy(filterBy) {
 
 export async function loadGigs(filterBy) {
     try {
-        let gigs = await gigService.query(filterBy)
-        if (!gigs.length) gigs = null
+        const gigs = await gigService.query(filterBy)
+        // console.log(filterBy)
         store.dispatch({
             type: SET_GIGS,
             gigs

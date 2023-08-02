@@ -11,7 +11,6 @@ export function DashboardUserDetails({ user }) {
         setRandomNums(newRandomNums)
     }, [])
 
-
     function getProgressRate() {
         return utilService.getRandomIntInclusive(90, 100)
     }
@@ -22,14 +21,15 @@ export function DashboardUserDetails({ user }) {
                 <img className='user-img' src={user.imgUrl} alt="seller img" />
                 <p className='user-name '>{user.fullname}</p>
                 <p className='user-rate'>Level {user.rating.rate} Seller</p>
-
-
-
             </header>
             <ul className='user-dashboard-content clean-list'>
                 {progresBarParams.map((params, idx) =>
                     <React.Fragment key={idx} >
-                        <li ><p>{params}</p></li><span className="user-dashboard-progress-bar"><ProgressBar completed={randomNum[idx]} /></span><span>{randomNum[idx]}%</span>
+                        <li ><p>{params}</p></li>
+                        <span className="user-dashboard-progress-bar">
+                            <ProgressBar completed={randomNum[idx]} />
+                        </span>
+                        <span>{randomNum[idx]}%</span>
                     </React.Fragment>
                 )}
             </ul>

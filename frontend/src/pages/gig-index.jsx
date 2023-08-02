@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.actions.js'
+import { loadGigs } from '../store/gig.actions.js'
 
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { gigService } from '../services/gig.service.js'
 import { FilterBar } from '../cmps/filter-bar.jsx'
 import { GigList } from '../cmps/gig-list.jsx'
-import { SOCKET_EVENT_ORDER_APPROVED, socketService } from '../services/socket.service.js'
+import { Loader } from '../cmps/loader.jsx'
 
+import { SOCKET_EVENT_ORDER_APPROVED, socketService } from '../services/socket.service.js'
 
 export function GigIndex() {
     const [isOrderApproved, setIsOrderApproved] = useState(false)
@@ -31,10 +30,7 @@ export function GigIndex() {
     </div>
 
     if (!gigs.length) return <div className="container">
-        <div className="flex-wrapper">
-            <div className="loader"></div>
-        </div>
-    </div>
+        <div className="flex-wrapper"><div className="loader"></div></div></div>
 
     return (
         <div className='gig-index'>
@@ -48,45 +44,3 @@ export function GigIndex() {
         </div>
     )
 }
-
-
-// async function onRemoveGig(gigId) {
-    //     try {
-    //         await removeGig(gigId)
-    //         showSuccessMsg('Gig removed')
-    //     } catch (err) {
-    //         showErrorMsg('Cannot remove gig')
-    //     }
-    // }
-
-    // async function onAddGig() {
-    //     const gig = gigService.getEmptyGig()
-    //     gig.vendor = prompt('Vendor?')
-    //     try {
-    //         const savedGig = await addGig(gig)
-    //         showSuccessMsg(`Gig added (id: ${savedGig._id})`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot add gig')
-    //     }
-    // }
-
-    // async function onUpdateGig(gig) {
-    //     const price = +prompt('New price?')
-    //     const gigToSave = { ...gig, price }
-    //     try {
-    //         const savedGig = await updateGig(gigToSave)
-    //         showSuccessMsg(`Gig updated, new price: ${savedGig.price}`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot update gig')
-    //     }
-    // }
-
-    // function onAddToCart(gig) {
-    //     console.log(`Adding ${gig.vendor} to Cart`)
-    //     addToCart(gig)
-    //     showSuccessMsg('Added to Cart')
-    // }
-
-    // function onAddGigMsg(gig) {
-    //     console.log(`TODO Adding msg to gig`)
-    // }

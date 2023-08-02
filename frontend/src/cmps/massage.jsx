@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { socketService } from '../services/socket.service.js'
 
 export function Massage({ gig, onCloseModal, isOnline, FontAwesomeIcon, faPaperPlane }) {
@@ -6,21 +6,6 @@ export function Massage({ gig, onCloseModal, isOnline, FontAwesomeIcon, faPaperP
     const [msgs, setMsgs] = useState([])
     const inputRef = useRef()
     const modalRef = useRef()
-
-
-    // useEffect(() => {
-
-    //     document.addEventListener('click', (e) => {
-    //         console.log('close target', e.target)
-    //     })
-    //     modalRef.current.addEventListener('click', (ev) => ev.stopPropagation())
-    //     return () => {
-    //         document.removeEventListener('click', onCloseModal)
-    //         // modalRef.current.removeEventListener('click', (ev) => ev.stopPropagation())
-
-    //     }
-    // }, [])
-
 
     socketService.on('chat addMsg', (msg) =>
         setMsgs([...msgs, msg])
@@ -33,7 +18,6 @@ export function Massage({ gig, onCloseModal, isOnline, FontAwesomeIcon, faPaperP
         }
         inputRef.current.value = ''
     }
-
 
     return (
         <aside className='inbox-msg flex column' ref={modalRef}>

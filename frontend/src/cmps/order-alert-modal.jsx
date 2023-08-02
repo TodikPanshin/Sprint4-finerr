@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { useEffect } from "react"
 import { OrderPreview } from "./orderPreview"
 import { loadOrders } from "../store/order.actions"
@@ -9,7 +9,6 @@ export function OrderAlertModal() {
 
     useEffect(() => {
         loadOrders(user)
-        // loadOrders()
     }, [])
 
     return (

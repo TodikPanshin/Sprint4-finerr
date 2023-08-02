@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -60,8 +60,7 @@ export function AppHeader() {
         console.log('login - credentials:', credentials)
         try {
             const user = await login(credentials)
-
-            showSuccessMsg(`Welcome: ${user.fullname}`)
+            showSuccessMsg(`Welcome agine: ${user.fullname}`)
         } catch (err) {
             showErrorMsg('Cannot login')
         }
@@ -104,6 +103,7 @@ export function AppHeader() {
         setIsSignup(true)
         setIsOpenModal(true)
     }
+
     // Hipster mode 
     const handleAlertModal = () => {
         setAlertModal(!alertModal)
@@ -136,8 +136,7 @@ export function AppHeader() {
         <header className={`app-header full main-layout`}>
             <section ref={ref} className={`main-header ${isHome}`}>
                 <NavLink key="/" to="/" className="logo">
-                    <div className="white-dot">
-                    </div>finerr<span className="dot">.</span>
+                    <div className="white-dot"></div>finerr<span className="dot">.</span>
                 </NavLink>
 
                 <SearchBox setFilterBy={setFilterBy} placeholder={'What service are you looking for today'} />
@@ -165,7 +164,6 @@ export function AppHeader() {
                         <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
                         <Link to={`user/${user?._id}/Dashboard`} onClick={() => setIsProfileBar(false)}>Dashboard</Link>
                         <button onClick={onLogout}>Logout</button>
-
                     </section>}
                     {alertModal && <OrderAlertModal />}
                 </nav>
@@ -198,7 +196,6 @@ export function AppHeader() {
                         <Link to={`user/${user?._id}`} onClick={() => setIsProfileBar(false)}>Profile</Link>
                         <Link to={`user/${user?._id}/Dashboard`} onClick={() => setIsProfileBar(false)}>Dashboard</Link>
                         <button onClick={onLogout}>Logout</button>
-
                     </section>}
                 </nav>
 
@@ -226,7 +223,6 @@ export function AppHeader() {
                 handleCategoryFilter={handleCategoryFilter}
                 inView={inView}
                 isHome={isHome} />}
-
             {isOpenModal && <LoginSignup cancel={setIsOpenModal} onLogin={onLogin} onSignup={onSignup} isSignup={isSignup} />}
         </header>
     )

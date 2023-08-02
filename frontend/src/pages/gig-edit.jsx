@@ -15,7 +15,6 @@ export function GigEdit() {
     useEffect(() => {
         if (!gigId) return
         loadGig()
-        // eslint-disable-next-line
     }, [])
 
     function loadGig() {
@@ -91,24 +90,6 @@ export function GigEdit() {
                     )}
                 </select>
             </div>
-            {/* <div className="add-gig-tags flex">
-                <label htmlFor="labels" className="add-gig-txt">
-                    <h4 className="description-title">Search tags</h4>
-                    <p className="description">
-                        The your Gig with buzz words that are relevant to the services you offer. Use all 5 tags to get found.
-                    </p>
-
-                </label>
-                <input type="text"
-                    name="labels"
-                    id="labels"
-                    value={gigToEdit.labels}
-                    onChange={handleChange}
-                    className="inbox"
-                    required
-                />
-            </div> */}
-
             <div className="gig-edit-btns">
                 <Link className="cancel-btn" to="/gig">Cancel</Link>
                 <button className="save-btn">Save & Continue</button>

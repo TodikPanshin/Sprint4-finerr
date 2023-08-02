@@ -7,7 +7,6 @@ import { AdminApp } from './pages/admin-app.jsx'
 import { Checkout } from './pages/checkout.jsx'
 import { GigEdit } from './pages/gig-edit.jsx'
 
-
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
     {

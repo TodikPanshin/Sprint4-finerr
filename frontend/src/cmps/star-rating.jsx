@@ -1,28 +1,23 @@
 import { useEffect, useState } from 'react'
 import { ReactComponent as Star } from '../assets/img/star-full.svg'
 
-
-
 export function StarRating({ rate = 0, isEditable = false }) {
     const displayRate = rate >= 4.5 ? 5 : rate
     
     const [rating, setRating] = useState(displayRate)
     const [hover, setHover] = useState(0)
-
-
-    function handleRatingChange(newRate){
-        if (isEditable) {
-            setRating(newRate)
-        }
-    }
+    
     useEffect(() => {
         if (displayRate !== rating) {
             setRating(displayRate)
         }
     }, [displayRate])
 
-
-    
+    function handleRatingChange(newRate){
+        if (isEditable) {
+            setRating(newRate)
+        }
+    }
 
     return (
         <div className="star-rating">

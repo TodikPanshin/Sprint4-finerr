@@ -1,0 +1,140 @@
+.order-alert-modal-container {
+    overflow: overlay;
+    background-color: $clr-background-light;
+    height: 500px;
+    position: absolute;
+    margin-block: 55px;
+    inset-inline-end: 74px;
+    width: 400px;
+    z-index: 1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0;
+    border-radius: 0.5rem;
+
+    &::-webkit-scrollbar {
+        width: 16px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #d8d8d8;
+        border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $clr-hov;
+        border-radius: 100px;
+    }
+
+    img,
+    .order-preview-gig-img,
+    .order-preview-buyer-details img {
+
+        margin-inline-end: 0;
+        margin-block-start: 15px;
+        position: relative;
+        translate: 0;
+    }
+
+    .order-preview {
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-columns: auto auto;
+        box-shadow: rgba(217, 222, 228, 0.2) 0px 8px 24px;
+
+        img.order-preview-gig-img {
+            width: 6.25rem;
+            margin: 0;
+        }
+
+        .order-preview-buyer-details {
+            justify-content: flex-end;
+            flex-direction: row-reverse;
+
+            img {
+
+                margin-inline-end: 0;
+                margin-block-start: 15px;
+                position: relative;
+                translate: 0;
+                margin: 0;
+            }
+        }
+
+        p {
+            margin-inline-end: rem(8px);
+        }
+    }
+
+    .order-preview-order-date {
+        text-align: end;
+    }
+
+    .floating-menu {
+        grid-column: 1 /-1;
+        width: auto;
+
+        .menu-button {
+
+            width: auto;
+
+        }
+    }
+
+    .menu-content {
+        width: 333px;
+
+        .menu-items {
+            padding: 1.5rem;
+
+            &.column {
+                width: -webkit-fill-available;
+
+            }
+        }
+    }
+
+    .pending {
+        background-color: $clr-star;
+        color: $clr-btn-search;
+    }
+
+    .approved {
+        background-color: $clr-hov;
+        color: $clr1;
+    }
+
+    .declined {
+        background-color: $clr2;
+        color: $clr1;
+    }
+
+    .completed {
+        background-color: $clr-link;
+        color: $clr1;
+    }
+}
+
+
+.alert-overlay {
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    pointer-events: none;
+
+    &.open {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        pointer-events: auto;
+    }
+
+}
+
+.order-alert-modal{
+    .no-orders-msg{
+        display: flex;
+        margin-top: 50%;
+        justify-content: center;
+    }
+}

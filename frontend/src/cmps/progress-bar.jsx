@@ -1,6 +1,3 @@
-
-
-
 export function ProgressBar({completed}) {
 
     const fillerStyles = {

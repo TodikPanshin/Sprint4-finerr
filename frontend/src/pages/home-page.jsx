@@ -1,85 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { SearchBox } from '../cmps/search-box'
 import { HomeCategories } from '../cmps/home-categories'
 import { useNavigate } from 'react-router-dom'
 import { setFilterBy } from '../store/gig.actions'
-import { AppFooter } from '../cmps/app-footer'
 import { LoginSignup } from '../cmps/login-signup'
 import { login, signup } from '../store/user.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-
-const hero_URLs = [
-    "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/1b6990afe0934244dda2c9aeed5de8d9-1674663021930/bg-hero-6-1792-x1.png",
-    "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049983/bg-hero-1-1792-x1.png",
-    "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203045/bg-hero-2-1792-x1.png",
-    "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/d14871e2d118f46db2c18ad882619ea8-1599835783966/bg-hero-3-1792-x1.png",
-    "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/93085acc959671e9e9e77f3ca8147f82-1599427734108/bg-hero-4-1792-x1.png",
-    "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049970/bg-hero-5-1792-x1.png"
-]
-
-const popularServices = [
-    {
-        imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/f27bec553efc12cc60baed89b8f2223e-1674661140708/ai-artists-2x.png',
-        title: 'AI Artist',
-        preTitle: 'Add talent to AI',
-    },
-    {
-        imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png',
-        title: 'Logo Design',
-        preTitle: 'Build your brand',
-    },
-    {
-        imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png',
-        title: 'WordPress',
-        preTitle: 'Customize your site',
-    },
-    {
-        imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png',
-        title: 'Voice Over',
-        preTitle: 'Share youre message',
-    },
-    {
-        imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png',
-        title: 'Video Explainer',
-        preTitle: 'Engage your audience',
-    },
-    {
-        imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png',
-        title: 'Social Media',
-        preTitle: 'Reach more customers',
-    },
-    {
-        imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741668/seo-2x.png',
-        title: 'SEO',
-        preTitle: 'Unlock growth online',
-    },
-    {
-        imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741674/translation-2x.png',
-        title: 'Translation',
-        preTitle: 'Go global',
-    },
-]
-
-const gap = 17.5
+import { Hero } from '../cmps/hero'
+import { ServicesCarousel } from '../cmps/services-carousel'
+import { PopularBtns } from '../cmps/popular-btns'
 
 export function HomePage() {
-    const [slideImg, setSlideImg] = useState(0)
+    
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [isSignup, setIsSignup] = useState(false)
-    const [carouselStyle, setCarouselStyle] = useState({ right: 0, transition: '0.5s' })
     const navigate = useNavigate()
-    const carouselRight = useRef(0)
-
-
-    useEffect(() => {
-        setTimeout(() => {
-            slideImg <= 4 ? setSlideImg(slideImg + 1) : setSlideImg(0)
-        }, 6000);
-    }, [slideImg])
-
-    function getOpacity(idx) {
-        return idx === slideImg ? 1 : 0
-    }
 
     async function onLogin(credentials) {
         console.log('login - credentials:', credentials)
@@ -111,89 +46,15 @@ export function HomePage() {
         navigate('/gig')
     }
 
-
-    function slideCarousel(diff) {
-        if (diff === -1 && carouselRight.current < gap || diff === 1 && carouselRight.current >= gap * (popularServices.length - 5)) return
-        carouselRight.current += diff * gap
-        setCarouselStyle(prevStyle => ({ ...prevStyle, right: `${carouselRight.current}rem` }))
-    }
-
-    
-    function handleSwipe(event) {
-        const touchStartX = event.touches[0].clientX;
-        let isSwiping = false;
-      
-        function handleTouchMove(e) {
-          if (!isSwiping) {
-            const touchMoveX = e.touches[0].clientX;
-            const diffX = touchStartX - touchMoveX;
-            const SWIPE_THRESHOLD = 10;
-      
-            if (diffX > SWIPE_THRESHOLD) {
-              slideCarousel(1); // Move to the next slide
-              isSwiping = true;
-            } else if (diffX < -SWIPE_THRESHOLD) {
-              slideCarousel(-1); // Move to the previous slide
-              isSwiping = true;
-            }
-          }
-        }
-      
-        function handleTouchEnd() {
-          isSwiping = false;
-          document.removeEventListener('touchmove', handleTouchMove);
-          document.removeEventListener('touchend', handleTouchEnd);
-        }
-      
-        document.addEventListener('touchmove', handleTouchMove);
-        document.addEventListener('touchend', handleTouchEnd);
-      }
-
     return (
         <main className="home-page main-layout full">
-            <div className="slide-container">
-                <div className="black-background"></div>
-                <div className='hero' style={{ opacity: getOpacity(0), transiton: "1.5s" }}><img src={hero_URLs[0]} alt="slide-images-gallery" />
-                    <div className='main-layout'><p>⭐⭐⭐⭐⭐<br />Valentina, <span>AI Artist</span></p></div></div>
-                <div className='hero' style={{ opacity: getOpacity(1), transiton: "1.5s" }}><img src={hero_URLs[1]} alt="slide-images-gallery" />
-                    <div className='main-layout'><p><br />Andrea, <span>Fashion Designer</span></p></div></div>
-                <div className='hero' style={{ opacity: getOpacity(2), transiton: "1.5s" }}><img src={hero_URLs[2]} alt="slide-images-gallery" />
-                    <div className='main-layout'><p>⭐⭐⭐⭐⭐<br />Moon, <span>Marketing Expert</span></p></div></div>
-                <div className='hero' style={{ opacity: getOpacity(3), transiton: "1.5s" }}><img src={hero_URLs[3]} alt="slide-images-gallery" />
-                    <div className='main-layout'><p><br />Ritika, <span>Shoemaker and Designer</span></p></div></div>
-                <div className='hero' style={{ opacity: getOpacity(4), transiton: "1.5s" }}><img src={hero_URLs[4]} alt="slide-images-gallery" />
-                    <div className='main-layout'><p><br />Zach, <span>Bar Owner</span></p></div></div>
-                <div className='hero' style={{ opacity: getOpacity(5), transiton: "1.5s" }}><img src={hero_URLs[5]} alt="slide-images-gallery" />
-                    <div className='main-layout'><p>⭐⭐⭐⭐⭐<br />Gabrielle, <span>Video Editor</span></p></div></div>
-            </div>
-
+            <Hero/>
             <div className="main-home">
                 <h2>Find the right <span>freelance service</span>, right away</h2>
                 <SearchBox placeholder={'Search for any service...'} />
-                <section className="popular-btns">Popular:
-                    <button onClick={() => handleCategoryFilter('Graphic & Design')}>Graphic & Design</button>
-                    <button onClick={() => handleCategoryFilter('Digital Marketing')}>Digital Marketing</button>
-                    <button onClick={() => handleCategoryFilter('Business')}>Business</button>
-                    <button onClick={() => handleCategoryFilter('AI Services')}>AI Services</button>
-                </section>
+                <PopularBtns handleCategoryFilter={handleCategoryFilter}/>
             </div>
-
-            <div className="popular-services-container">
-                <h1>Popular services</h1>
-                <button className='arrow' onClick={() => slideCarousel(-1)}><img src="https://www.svgrepo.com/show/350276/chevron-left.svg" alt="left" /></button>
-                <ul className="popular-services" onTouchStart={handleSwipe}>
-                    {popularServices.map((service, idx) =>
-                        <li key={idx} style={carouselStyle}
-                            onClick={() => handleCategoryFilter(service.title)}>
-                            <img src={service.imgUrl} alt={service.title} />
-                            <h2><span>{service.preTitle}</span>
-                                {service.title}</h2>
-                        </li>
-                    )}
-                </ul>
-                <button className='arrow' onClick={() => slideCarousel(1)}><img src="https://www.svgrepo.com/show/350274/chevron-right.svg" alt="right" /></button>
-            </div>
-
+            <ServicesCarousel handleCategoryFilter={handleCategoryFilter} />
             <div className="best-part-everything-container main-layout full">
                 <div className="best-part-everything">
                     <section className="bast-part-text">
@@ -235,6 +96,3 @@ export function HomePage() {
         </main >
     )
 }
-
-
-
