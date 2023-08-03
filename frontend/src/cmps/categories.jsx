@@ -5,10 +5,10 @@ export function Categories({ categories, handleCategoryFilter, inView, isHome })
     const [diff, setDiff] = useState(0)
 
     function onSwipeCategories(direction) {
-        if (direction === 'right' && diff + 1200 < window.innerWidth) return
+        // if (direction === 'right' && diff < window.innerWidth - 1400) return
+        // direction === 'right' ? setDiff(diff => diff = diff - 100) : setDiff(diff => diff = 80)
 
-        direction === 'right' ? setDiff(diff => diff = diff - 110) : setDiff(diff => diff = 100)
-        console.log(diff, window.innerWidth)
+        direction === 'right' ? setDiff(window.innerWidth - 1200) : setDiff(diff => diff = 80)
     }
 
 

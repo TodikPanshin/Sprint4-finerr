@@ -462,11 +462,11 @@
     align-items: center;
     background-color: rgba(255, 255, 255,.95);
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     z-index: 10;
     font-size: 1.5rem;
     caret-color: transparent;
-    bottom: -100vh;
+    top: 200vh;
     transition: .5s;
 
     a, button {
@@ -482,7 +482,7 @@
     }
 
     &.show {
-        bottom: 0;
+        top: 0;
         transition: .5s;
     }
 

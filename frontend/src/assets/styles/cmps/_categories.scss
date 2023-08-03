@@ -5,6 +5,7 @@
     border-inline: 0;
     caret-color: transparent;
     background-color: white;
+    overflow: hidden;
 
 
     .categories-list {
@@ -21,12 +22,13 @@
         justify-content: center;
         height: 2.5rem;
         white-space: nowrap;
-        overflow: unset;
+
 
         @media(max-width: 600px) {
             gap: 1rem;
             overflow-y: hidden;
             overflow-x: scroll;
+            justify-content: flex-start;
 
             &::-webkit-scrollbar {
                 display: none;

@@ -30,8 +30,8 @@ export function setFilterBy(filterBy) {
 
 export async function loadGigs(filterBy) {
     try {
-        const gigs = await gigService.query(filterBy)
-        // console.log(filterBy)
+        let gigs = await gigService.query(filterBy)
+        if (!gigs.length) gigs = null
         store.dispatch({
             type: SET_GIGS,
             gigs
@@ -40,7 +40,6 @@ export async function loadGigs(filterBy) {
         console.log('Cannot load gigs', err)
         throw err
     }
-
 }
 
 export async function removeGig(gigId) {

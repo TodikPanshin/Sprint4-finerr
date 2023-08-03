@@ -101,7 +101,6 @@
     }
 }
 
-<<<<<<< HEAD
 .slide-container {
     .black-background {
         background-color: black;
@@ -255,8 +254,6 @@
     }
 }
 
-=======
->>>>>>> 3aa5f23295d533a8fee557b01bfc6d87fab2dc07
 .best-part-everything-container {
     background-color: rgb(241, 253, 247);
     margin-block: 1.5rem;
@@ -390,17 +387,12 @@
     }
 }
 
-<<<<<<< HEAD
 .hero {
     display: none
 }
 
 @media(min-width: 601px) {
     .home-category-display {
-=======
-@media(min-width: 600px) {
-    .home-category-display{
->>>>>>> 3aa5f23295d533a8fee557b01bfc6d87fab2dc07
         grid-template-columns: repeat(3, 1fr)
     }
 
@@ -409,14 +401,9 @@
     }
 }
 
-<<<<<<< HEAD
 
 @media(min-width: 901px) {
     .main-home {
-=======
-@media(min-width: 900px) {
-    .main-home{
->>>>>>> 3aa5f23295d533a8fee557b01bfc6d87fab2dc07
         min-width: 650px;
         width: 45%;
 
@@ -435,7 +422,6 @@
             line-height: 120%;
         }
     }
-<<<<<<< HEAD
 
     .best-part-everything-container {
         margin-block: 6rem;
@@ -473,15 +459,6 @@
         }
     }
 
-=======
-    .best-part-everything-container{margin-block: 6rem;}
-    .popular-btns {display: inline;}
-    .home-category{h1{font-size: 2rem;}}
-    .home-category-display{
-        grid-template-columns: repeat(5, 1fr);
-        margin-bottom: 6rem;
-    }
->>>>>>> 3aa5f23295d533a8fee557b01bfc6d87fab2dc07
     .join-finerr-img {
         h2 {
             left: 5rem;
