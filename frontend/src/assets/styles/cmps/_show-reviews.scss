@@ -1,8 +1,16 @@
 .show-reviews-container {
+    div {
+        flex-wrap: wrap;
+    }
 
-   .show-reviews-counter {
+    
+    .show-reviews-counter {
         color: $clr-font-dark;
         margin-block-end: rem(26px);
         font-weight: 700;
+
+        @media(max-width: 600px) {
+            margin: 0;
+        }
     }
 }

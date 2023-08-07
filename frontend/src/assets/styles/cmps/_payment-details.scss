@@ -1,7 +1,7 @@
 .payment-details-container {
     border: 1px solid $clr-border;
     height: fit-content;
-    width: rem(377px);
+    width: min(100%, rem(377px));
     color: $clr-font;
     margin: 20px auto;
     border-radius: 5px;

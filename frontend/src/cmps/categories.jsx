@@ -1,35 +1,34 @@
 import { useState } from "react"
 
-export function Categories({ categories, handleCategoryFilter, inView, isHome }) {
+export function Categories({ categories, handleCategoryFilter, inView, isHome, hamburgetBar }) {
 
-    const [diff, setDiff] = useState(0)
+    const [ulStyle, setUlStyle] = useState({ marginLeft: '0' })
 
     function onSwipeCategories(direction) {
-        // if (direction === 'right' && diff < window.innerWidth - 1400) return
-        // direction === 'right' ? setDiff(diff => diff = diff - 100) : setDiff(diff => diff = 80)
 
-        direction === 'right' ? setDiff(window.innerWidth - 1200) : setDiff(diff => diff = 80)
+
+        direction === 'right' ? setUlStyle(style => style = { marginLeft: `${window.innerWidth - 1400}px`, transition: '1s' })
+            : setUlStyle(style => style = { marginLeft: '5vw', transition: '1s' })
     }
 
 
     return <section
         className={`categories full main-layout
-        
         ${isHome && (inView ? 'hidden' : 'sticky-categories')}`}>
-        <ul style={{ marginLeft: `${diff}px`, transition: '1s' }} className="categories-list">
-            {window.innerWidth > 600 && <div className="swipe-categories-btn left"
+        <ul style={ulStyle} className="categories-list">
+            <div className="swipe-categories-btn left"
                 onClick={() => onSwipeCategories('left')}>
                 <img src="https://www.svgrepo.com/show/511422/arrow-right-336.svg" alt=">" />
-            </div>}
+            </div>
             {categories.map(category =>
                 <li key={category} className="category"
                     onClick={() => handleCategoryFilter(category)}>
                     {category}
                 </li>)}
-            {window.innerWidth > 600 && <div className="swipe-categories-btn"
+            <div className="swipe-categories-btn"
                 onClick={() => onSwipeCategories('right')}>
                 <img src="https://www.svgrepo.com/show/511422/arrow-right-336.svg" alt=">" />
-            </div>}
+            </div>
         </ul>
     </section>
 }

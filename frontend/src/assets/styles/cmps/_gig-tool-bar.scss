@@ -3,9 +3,12 @@
     font-weight: 600;
     border-block-end: 1px $clr-border solid;
     padding: 10px;
-    
 
     a {
         padding-inline-end: 20px;
+    }
+
+    @media(max-width: 600px) {
+        display: none;
     }
 }

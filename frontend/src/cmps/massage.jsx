@@ -42,10 +42,11 @@ export function Massage({ gig, onCloseModal, isOnline, FontAwesomeIcon, faPaperP
             </ul>
             <form action="" onSubmit={onSendMsg}>
                 <input ref={inputRef} name="msg" id="msg"
-                    placeholder={`share your project details with ${gig.owner.fullname}`} />
+                    placeholder={`share your project details`} />
                 <button className='send-msg flex'>
                     <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#ffffff" }} />
-                    <p> Send Message </p></button>
+                    {/* <p> Send Message </p> */}
+                    </button>
             </form>
         </aside>
     )

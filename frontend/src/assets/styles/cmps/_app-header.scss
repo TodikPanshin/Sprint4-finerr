@@ -23,7 +23,7 @@
         transition: opacity 0.03s ease, transform 0.03s ease;
         padding: $nerrowLayoutPadding;
 
-        @media(min-width: 900px)  {
+        @media(min-width: 900px) {
             padding: $layoutPadding;
             max-width: 1464px;
         }
@@ -306,11 +306,24 @@
         }
     }
 
+    @media(max-width: 600px) {
+        position: fixed;
+        background-color: white;
+        z-index: 110;
+    }
+
     &.is-home {
         background-color: transparent;
 
+        @media(max-width:600px) {
+            background-color: white;
+        }
+
         .logo {
-            @media(min-width: 900px) {color: white}
+            @media(min-width: 900px) {
+                color: white
+            }
+
             letter-spacing: -.1rem;
             font-family: macan;
 
@@ -378,7 +391,7 @@
     display: none;
 
     @media(max-width: 600px) {
-        position: absolute;
+        position: fixed;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -387,6 +400,8 @@
         width: 90%;
         left: 5%;
         top: 1rem;
+        // background-color: white;
+        z-index: 110;
 
         span {
             margin: 0;
@@ -457,19 +472,21 @@
 
 .hamburger-bar {
     position: fixed;
+    opacity: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 255, 255,.95);
+    background-color: rgba(255, 255, 255, .95);
     width: 100vw;
     height: 100%;
-    z-index: 10;
+    z-index: 120;
     font-size: 1.5rem;
     caret-color: transparent;
     top: 200vh;
-    transition: .5s;
+    transition: 1s;
 
-    a, button {
+    a,
+    button {
         border-bottom: 1px solid black;
         padding-block: 1rem;
         margin: 0;
@@ -482,6 +499,7 @@
     }
 
     &.show {
+        opacity: 1;
         top: 0;
         transition: .5s;
     }

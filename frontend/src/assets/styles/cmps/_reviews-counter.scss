@@ -1,8 +1,9 @@
-.star-progress-container{
+.star-progress-container {
     display: grid;
-    grid-template-rows:repeat(5,auto);
-    width: 340px;
-    .star-progress{
+    grid-template-rows: repeat(5, auto);
+    width: min(95%, 340px);
+
+    .star-progress {
         display: grid;
         width: auto;
         grid-template-columns: auto 1fr auto;
@@ -10,10 +11,12 @@
         margin-block-end: 20px;
 
 
-        .star-progress-star-name,.star-progress-count{
+        .star-progress-star-name,
+        .star-progress-count {
             font-weight: 300;
         }
-        .star-progress-progress-bar{
+
+        .star-progress-progress-bar {
             margin-inline: 10px;
         }
     }

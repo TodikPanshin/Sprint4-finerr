@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     color: white;
-    margin-block: 8.5%;
+    margin-block: 5vh;
     font-size: 0.875rem;
 
     h2 {
@@ -99,19 +99,13 @@
             }
         }
     }
+
+    @media(max-width:600px) {
+        margin-top: 80px;
+    }
 }
 
 .slide-container {
-    .black-background {
-        background-color: black;
-        height: 42.5rem;
-
-        @media(max-width: 900px) {
-            top: 5rem;
-            height: 21rem;
-        }
-    }
-
     &>* {
         position: absolute;
         top: 0;
@@ -144,6 +138,16 @@
             }
         }
     }
+
+    .black-background {
+        background-color: black;
+        height: 42.5rem;
+
+        @media(max-width: 900px) {
+            top: 5rem;
+            height: 21rem;
+        }
+    }
 }
 
 .popular-btns {
@@ -166,92 +170,10 @@
     }
 }
 
-.popular-services-container {
-    overflow: hidden;
-    margin-top: 4rem;
-    position: relative;
-
-    h1 {
-        font-size: 1.75rem;
-        line-height: 130%;
-    }
-
-    h2 {
-        font-family: macan;
-        font-size: 2rem;
-        font-weight: 600;
-        color: #2e2f31;
-        margin-bottom: 2rem;
-    }
-
-    button {
-        background-color: rgb(255, 255, 255);
-        position: absolute;
-        z-index: 10;
-        border-radius: 50%;
-        width: 3rem;
-        height: 3rem;
-        font-size: 1.5rem;
-        font-weight: 900;
-        top: 48%;
-        margin: 0;
-        padding: .7rem;
-        left: -1.2rem;
-        box-shadow: 0 10px 5px 0 rgba(0, 0, 0, .15);
-
-        &:last-child {
-            left: auto;
-            right: -1.2rem;
-        }
-
-        img {
-            width: 1.2rem;
-        }
-    }
-
-    .arrow {
-        display: none;
-    }
-}
-
-.popular-services {
-    width: max-content;
-    display: flex;
-    flex-direction: row;
-    gap: 1.8rem;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-
-    li {
-        position: relative;
-        cursor: pointer;
-
-        &:hover {
-            opacity: .8;
-            transition: .5s;
-        }
-
-        img {
-            height: 100%;
-            width: 100%;
-            border-radius: .4rem;
-        }
-
-        h2 {
-            position: absolute;
-            top: 0;
-            color: white;
-            font-size: 1.5rem;
-            padding: 1rem;
-
-            span {
-                font-size: 1rem;
-                display: block;
-                line-height: 1.5rem;
-            }
-        }
-    }
+.popular-services-headline {
+    font-size: 2rem;
+    margin-top: 6rem;
+    margin-bottom: 1rem;
 }
 
 .best-part-everything-container {
@@ -344,6 +266,37 @@
             font-weight: 600;
         }
     }
+
+    &.hamburger {
+        pointer-events: none;
+        position: fixed;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        left: 0;
+        top: 200vh;
+        margin: 0;
+        width: 100vw;
+        height: 100%;
+        z-index: 120;
+        caret-color: transparent;
+        background-color: rgba(255, 255, 255, .98);
+
+        &.show{
+            pointer-events: all;
+            top: 0;
+            transition: 1s;
+        }
+
+        button {
+            border: 0;
+            padding: 0;
+
+            h2 {
+                font-size: .875rem;
+            }
+        }
+    }
 }
 
 .join-finerr-img {
@@ -406,6 +359,7 @@
     .main-home {
         min-width: 650px;
         width: 45%;
+        margin-block: 15vh;
 
         h2 {
             font-size: 3rem;

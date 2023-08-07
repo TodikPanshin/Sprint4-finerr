@@ -6,6 +6,10 @@
     .review-content {
         margin-left: 64px;
         color:$clr-font-dark;
+
+        @media(max-width: 600px) {
+            margin-left: 10px;
+        }
     }
 
 .user-review-details {

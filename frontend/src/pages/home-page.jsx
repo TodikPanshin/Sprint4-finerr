@@ -11,7 +11,7 @@ import { ServicesCarousel } from '../cmps/services-carousel'
 import { PopularBtns } from '../cmps/popular-btns'
 
 export function HomePage() {
-    
+
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [isSignup, setIsSignup] = useState(false)
     const navigate = useNavigate()
@@ -48,13 +48,16 @@ export function HomePage() {
 
     return (
         <main className="home-page main-layout full">
-            <Hero/>
+            <Hero />
             <div className="main-home">
                 <h2>Find the right <span>freelance service</span>, right away</h2>
                 <SearchBox placeholder={'Search for any service...'} />
-                <PopularBtns handleCategoryFilter={handleCategoryFilter}/>
+                <PopularBtns handleCategoryFilter={handleCategoryFilter} />
             </div>
+
+            <h1 className='popular-services-headline'>Popular services</h1>
             <ServicesCarousel handleCategoryFilter={handleCategoryFilter} />
+
             <div className="best-part-everything-container main-layout full">
                 <div className="best-part-everything">
                     <section className="bast-part-text">

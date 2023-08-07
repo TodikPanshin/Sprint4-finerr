@@ -10,6 +10,7 @@ import { setFilterBy } from '../store/gig.actions'
 import { Categories } from './categories'
 import { useInView } from 'react-intersection-observer'
 import { OrderAlertModal } from './order-alert-modal'
+import { HomeCategories } from './home-categories'
 
 export const categories = [
     'Graphic & Design',
@@ -28,6 +29,7 @@ export function AppHeader() {
     const [isSignup, setIsSignup] = useState(false)
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [isOpenNav, setIsOpenNav] = useState(false)
+    const [openCategories, setOpenCategories] = useState(false)
     const [alertModal, setAlertModal] = useState(false)
     const navigate = useNavigate()
 
@@ -40,7 +42,7 @@ export function AppHeader() {
     })
 
     useEffect(() => {
-        
+
         function handleKeyPress(ev) {
             if (ev.keyCode === 27) {
                 setIsProfileBar(false)
@@ -114,6 +116,7 @@ export function AppHeader() {
     function handleCategoryFilter(category) {
         setFilterBy({ tag: category })
         navigate('/gig')
+        setOpenCategories(false)
     }
 
     function resetFilter() {
@@ -132,6 +135,12 @@ export function AppHeader() {
         event.stopPropagation()
     }
 
+    function onOpenCategories(event) {
+        event.stopPropagation()
+        setOpenCategories(true)
+        setIsOpenNav(false)
+    }
+
     return (
         <header className={`app-header full main-layout`}>
             <section ref={ref} className={`main-header ${isHome}`}>
@@ -144,7 +153,7 @@ export function AppHeader() {
                 </div>
                 <nav>
                     {user && <a href="#" onClick={handleAlertModal}> Orders</a>}
-                    <div className={`alert-overlay ${alertModal ? 'open' : ''}`} onClick={()=>setAlertModal(false)}></div>
+                    <div className={`alert-overlay ${alertModal ? 'open' : ''}`} onClick={() => setAlertModal(false)}></div>
                     <NavLink onClick={resetFilter} key="gig" to="/gig">Explore</NavLink>
                     <NavLink key="add-gig" to="/gig/edit">Become a Seller</NavLink>
 
@@ -213,16 +222,19 @@ export function AppHeader() {
 
                 </section>}
             </div>
-            <section className={isOpenNav ? 'hamburger-bar show': 'hamburger-bar'} onClick={onToggleBurger}>
+            <section className={isOpenNav ? 'hamburger-bar show' : 'hamburger-bar'} onClick={onToggleBurger}>
                 <a href="/" onClick={handleLink}>Home</a>
-                <a href="/gig" onClick={handleLink}>Explore</a>
+                <button onClick={onOpenCategories}>Explore</button>
+                <button onClick={toggleSignup}>Sign Up</button>
                 <button onClick={toggleSignup}>Join</button>
-                </section>
+            </section>
+            {openCategories && <HomeCategories handleCategoryFilter={handleCategoryFilter} hamburger={openCategories}/>}
             {<Categories
                 categories={categories}
                 handleCategoryFilter={handleCategoryFilter}
                 inView={inView}
-                isHome={isHome} />}
+                isHome={isHome}
+            />}
             {isOpenModal && <LoginSignup cancel={setIsOpenModal} onLogin={onLogin} onSignup={onSignup} isSignup={isSignup} />}
         </header>
     )

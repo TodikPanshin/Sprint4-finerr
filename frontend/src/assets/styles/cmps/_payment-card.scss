@@ -1,8 +1,12 @@
 .payment-container {
-    width: 703px;
+    width: min(100%, 703px);
     margin: 20px auto;
     border: 1px solid $clr-border;
     border-radius: 5px;
+
+    @media(max-width:600px) {
+        margin-top: 80px;
+    }
 
     header {
         align-items: center;
@@ -28,6 +32,10 @@
         padding-inline: 40px 206px;
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, .06);
         border-top: 1px solid $clr-border;
+
+        @media(max-width:600px) {
+            padding: 2rem;
+        }
     }
 
     label {
@@ -38,6 +46,9 @@
     .form-group {
         gap: 1rem;
 
+        @media(max-width:600px) {
+            flex-direction: column;;
+        }
     }
 
     .form-input {

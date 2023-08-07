@@ -1,11 +1,14 @@
 .main-layout {
   display: grid;
   @include layoutGTC($wide-breakpoint, $layoutPadding);
-  @media(max-width: 900px){ @include layoutGTC($wide-breakpoint, $nerrowLayoutPadding);}
-  
+
+  @media(max-width: 900px) {
+    @include layoutGTC($wide-breakpoint, $nerrowLayoutPadding);
+  }
+
   // @include for-mobile-layout{
-    // display: flex;
-    // flex-direction:column;
+  // display: flex;
+  // flex-direction:column;
   // }
 
   &.app {
@@ -44,6 +47,12 @@
   display: flex;
   flex-direction: column;
 
+  @media(max-width:600px) {
+    width: 90vw;
+    margin-inline: auto;
+    grid-column: 1/-1;
+  }
+
   .payment-container {
     align-self: flex-start;
   }
@@ -66,9 +75,10 @@
     >* {
       margin-block-end: rem(20px);
     }
+
     @include for-first-break-layout {
-      >*{
-        margin-block:0;
+      >* {
+        margin-block: 0;
       }
     }
   }

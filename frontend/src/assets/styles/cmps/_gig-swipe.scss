@@ -5,6 +5,11 @@
     width: 712px;
     height: 427px;
 
+    @media(max-width: 900px) {
+        max-width: 100%;
+        height: fit-content;
+    }
+
 
     img {
         width: 100%;
@@ -19,12 +24,9 @@
 
 }
 
-
-
-
 .thumbs-swiper {
     padding-top: 5px;
-    width: 712px;
+    width: min(100%, 712px);
 
     .swiper-slide {
         opacity: 0.4;
@@ -97,6 +99,10 @@
         inset-inline-start: 17px;
     }
 
+    @media(max-width: 600px) {
+        display: none;
+    }
+
     &::after {
         background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_page_perseus/arrows.c651879.svg) no-repeat;
         background-size: 16px 64px;
@@ -124,8 +130,13 @@
     cursor: pointer;
     inset-inline-end: 42px;
     margin-block-start: -75px;
+
     @include for-normal-layout {
         inset-inline-end: 17px;
+    }
+
+    @media(max-width: 600px) {
+        display: none;
     }
 
     &::after {

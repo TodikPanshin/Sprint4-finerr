@@ -1,5 +1,13 @@
 .review-preview {
 
+
+    .review-preview-item {
+
+        @media(max-width:600px) {
+            flex-direction: column;
+        }
+    }
+
     .user-img {
         border-radius: 50%;
         width: 32px;
@@ -15,6 +23,7 @@
         }
 
         .user-info {
+            flex-wrap: wrap;
             >* {
                 padding-inline-end: 8px;
                 align-items: center;

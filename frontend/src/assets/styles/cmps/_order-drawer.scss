@@ -20,8 +20,7 @@
 .order-drawer {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    width: 480px;
+    width: min(100%, 480px);
     z-index: 1000;
     height: 100vh;
     background-color: $clr1;
@@ -29,7 +28,10 @@
     top: 0;
     right: -480px;
     transition: right 0.3s ease-in-out;
-
+    
+    @media (max-width: 600px) {
+        overflow-y: scroll;   
+    }
 
     &.open {
         right: 0;
@@ -41,8 +43,7 @@
         padding: rem(24px) rem(32px) rem(16px);
         background-color: $clr1;
         border-bottom: 1px solid $clr-border;
-
-
+    
         .drawer-title {
             font-size: 16px;
             font-weight: bold;
@@ -50,6 +51,10 @@
 
         & span {
             cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            padding: 1rem;   
         }
     }
 
@@ -115,7 +120,7 @@
                 padding-block: rem(24px);
                 padding-inline: rem(20px);
 
-                .clicked{
+                .clicked {
                     border: 1px solid $clr-btn-search;
                 }
 

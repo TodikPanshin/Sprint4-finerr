@@ -42,7 +42,6 @@ export function GigDetails() {
             imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/76d1e507770ac9db49456d83521d7c0e-1534481351065/5224dec4-7033-4ecb-a118-8ed28b8761de.jpg'
 
         },
-
         {
             review: `Absolutely amazing. She worked incredibly fast and delivered beyond expectations.
              I would definitely recommend.
@@ -54,7 +53,6 @@ export function GigDetails() {
             name: "marianaolver283",
             imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/1fcd42f23834628e5704905ad41b2ee6-1679381258169/ba120b86-0853-4513-a786-ed6f49deeba2.png'
         },
-
         {
             review: `Jen was great to work with! She is great at communicating and setting a clear goal from the start.
              I appreciate her keeping me updated on her progress. She's fast and very professional.
@@ -76,6 +74,8 @@ export function GigDetails() {
     const [openModal, setOpenModal] = useState(false)
     const { id } = useParams()
     const navigate = useNavigate()
+
+    let isSmallSize = window.innerWidth < 1200 ? true : false
 
     const { ref, inView } = useInView({
         rootMargin: '-20px 0px'
@@ -148,6 +148,7 @@ export function GigDetails() {
                     <div className='gig-imgs-container'>
                         <GigSwiper gigImgs={gig.imgUrls} />
                     </div>
+                    {isSmallSize && <Packages gig={gig} inView={true} />}
                     <h2 className='review-preview-title'>What people loved about this seller</h2>
                     <section className="review-preview">
                         <ul className="review-preview-list clean-list">
@@ -186,7 +187,7 @@ export function GigDetails() {
                     )}
                 </section>
                 <div className='intersection-ref' ref={ref}></div>
-                <Packages gig={gig} inView={inView} />
+                {!isSmallSize && <Packages gig={gig} inView={inView} />}
                 {openModal && <Massage gig={gig} onCloseModal={onCloseModal} isOnline={isOnline} FontAwesomeIcon={FontAwesomeIcon} faPaperPlane={faPaperPlane} />}
             </section>
         </>

@@ -41,6 +41,13 @@
     text-align: center;
     caret-color: transparent;
 
+    @media(max-width: 600px) {
+        position: absolute;
+        margin-top: 0;
+        margin-inline: 10px;
+        left: 0;
+    }
+
     img {
         width: 350px;
         margin-bottom: 2rem;

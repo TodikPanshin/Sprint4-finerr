@@ -30,7 +30,7 @@ export function GigPreview({ gig }) {
                             </div>
                         }
                     </div>
-                    <Link to={`/user/${gig.owner._id}`} className="owner-name">  {gig.owner.fullname}</Link>
+                    <Link to={`/gig/${gig._id}`} className="owner-name">  {gig.owner.fullname}</Link>
                 </div>
                 {gig.rating.average >= 4.75 && <div className="top-rated flex">Top Rated</div>}
                 {gig.rating.average < 4.75 && gig.owner.level === 1 && <div className="level">level 1</div>}

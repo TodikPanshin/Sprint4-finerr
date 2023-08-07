@@ -36,6 +36,7 @@ export function GigIndex() {
         <div className='gig-index'>
             {isOrderApproved && <div className="new-order-msg">Your order has been approved!</div>}
             <FilterBar />
+            {window.innerWidth < 600 && <h2 className="mobile-title">{filterBy.tag}</h2>}
             <main>
                 < GigList
                     gigs={gigs}
