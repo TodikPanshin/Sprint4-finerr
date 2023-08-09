@@ -24,11 +24,11 @@ const categoryUrls = [
     "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/photography.0cf5a3f.svg"
 ]
 
-export function HomeCategories({handleCategoryFilter, hamburger}) {
+export function HomeCategories({handleCategoryFilter, hamburger, show}) {
     return (
         <section className="home-category">
             {!hamburger && <h1>You need it, we've got it</h1>}
-            <div className={`home-category-display ${hamburger? 'hamburger show' : 'hamburger'}`}>
+            <div className={`home-category-display ${hamburger? (show? 'hamburger show' : 'hamburger') : ''}`}>
                 {categories.map((category, idx) =>
                     <button key={idx} onClick={()=>handleCategoryFilter(category)}>
                         <img src={categoryUrls[idx]} alt="category-img" />

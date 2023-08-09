@@ -1,7 +1,7 @@
 .packages-container {
     position: relative;
     border: 1px solid $clr-border;
-    height: 30rem;
+    height: max-content;
     width: 33.6%;
     padding: 0;
 
@@ -60,8 +60,11 @@
     .main-packages {
         padding-top: 2rem;
         padding-inline: 1.5rem;
+        padding-bottom: 4px;
         font-size: 0.875rem;
-        height: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
 
         h3 {
             text-align: start;
@@ -75,8 +78,9 @@
             }
         }
 
+
         .packages-additional-info {
-            margin-block-end: rem(8px);
+            margin-block-end: rem(24px);
 
             >* {
                 margin-inline-end: rem(16px);
@@ -93,9 +97,8 @@
             padding: .5rem 1rem;
             font-weight: 400;
             height: 2.5rem;
-            align-self: flex-end;
-            justify-self: center;
             caret-color: transparent;
+            margin-top: 5rem;
 
             span {
                 position: absolute;

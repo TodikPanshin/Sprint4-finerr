@@ -228,7 +228,7 @@ export function AppHeader() {
                 <button onClick={toggleSignup}>Sign Up</button>
                 <button onClick={toggleSignup}>Join</button>
             </section>
-            {openCategories && <HomeCategories handleCategoryFilter={handleCategoryFilter} hamburger={openCategories}/>}
+            {openCategories && <HomeCategories handleCategoryFilter={handleCategoryFilter} hamburger show={openCategories} />}
             {<Categories
                 categories={categories}
                 handleCategoryFilter={handleCategoryFilter}
